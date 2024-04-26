@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { openDb } from '../../../utils/sqLiteDb'
+import { openDb } from '@/utils/sqLiteDb'
 import { getCountryByIp } from '@/utils/getCountryByIp'
 
 export async function POST(req: NextRequest) {

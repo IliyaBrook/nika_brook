@@ -1,7 +1,7 @@
 'use server'
 import React from 'react'
 import { protectedRoute } from '@/utils/protectedRoute'
-import { openDb } from '../../utils/sqLiteDb'
+import { openDb } from '@/utils/sqLiteDb'
 
 import ClientLayout from '../../components/AnalyticsLayout/ClientLayout'
 
