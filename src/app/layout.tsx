@@ -7,9 +7,7 @@ import { PrimeReactProvider } from 'primereact/api'
 import { primeReactConfig } from '@/app/primeReactConfig'
 
 import styles from './layout.module.scss'
-import { getServerSession } from 'next-auth'
-import { authOptions } from '@/app/api/auth/[...nextauth]/route'
-import { AppSessionProvider } from '@/components/AppSessionProvider'
+// import { authOptions } from '@/app/api/auth/[...nextauth]/route'
 import classNames from 'classnames'
 import './shareableStyles/globals.scss'
 import 'primereact/resources/themes/lara-light-cyan/theme.css'
@@ -37,7 +35,7 @@ export default async function RootLayout({
 }: Readonly<{
 	children: React.ReactNode
 }>) {
-	const session = await getServerSession(authOptions)
+	// const session = await getServerSession(authOptions)
 
 	return (
 		<PrimeReactProvider value={primeReactConfig}>
@@ -47,16 +45,15 @@ export default async function RootLayout({
 						inter.className,
 						poppins.className,
 						baskerville.className
-					)}>
+					)}
+				>
 					<StoreProvider>
-						<AppSessionProvider session={session}>
-							<div className={styles.root}>
-								<div className={styles.navbar}>
-									<Navbar />
-								</div>
-								<div className={styles.main}>{children}</div>
+						<div className={styles.root}>
+							<div className={styles.navbar}>
+								<Navbar />
 							</div>
-						</AppSessionProvider>
+							<div className={styles.main}>{children}</div>
+						</div>
 					</StoreProvider>
 				</body>
 			</html>
