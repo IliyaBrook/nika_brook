@@ -1,7 +1,7 @@
 import NextAuth from 'next-auth'
 import GoogleProvider from 'next-auth/providers/google'
 import CredentialsProvider from 'next-auth/providers/credentials'
-import { openDb } from '../../../../../tmp/sqLiteDb'
+import { openDb } from '../../../../utils/sqLiteDb'
 import bcrypt from 'bcrypt'
 
 // noinspection JSUnusedGlobalSymbols
