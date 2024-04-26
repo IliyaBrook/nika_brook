@@ -1,0 +1,11 @@
+.root{
+  .scrollPanel{
+    width: 100%;
+    height: 100%;
+    :global{
+      .p-scrollpanel-bar{
+        background-color: rgb(51,51,51);
+      }
+    }
+  }
+}

@@ -1,0 +1,13 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  height: 100dvh;
+  .navbar{
+    position: relative;
+    z-index: 3;
+  }
+  .main{
+    flex-grow: 1;
+  }
+}
+

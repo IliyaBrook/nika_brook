@@ -1,0 +1,16 @@
+cheatsheet/
+/scripts/*
+/testQueries/*
+next-env.d.ts
+env_files/.env.development
+.idea/
+node_modules/
+Dockerfile
+.dockerignore
+npm-debug.log
+README.md
+.next
+.git
+Makefile
+.secrets
+deploy.git

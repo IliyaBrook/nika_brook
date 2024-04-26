@@ -1,0 +1,11 @@
+@mixin bg-gradient() {
+  background-image: radial-gradient(black, transparent);
+}
+
+$bg-main: linear-gradient(
+                to bottom,
+                transparent,
+                rgb(var(--background-end-rgb))
+) rgb(var(--background-start-rgb));
+$bg-start-rgb: rgb(var(--background-start-rgb));
+$color-foreground-rgb:rgb(var(--foreground-rgb));

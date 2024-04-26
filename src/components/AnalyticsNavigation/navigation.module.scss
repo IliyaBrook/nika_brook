@@ -1,0 +1,29 @@
+.root {
+	:global {
+		@media (min-width: 1199px) {
+			.menu-link:hover {
+				background-color: rgb(229, 231, 235);
+				box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+				border-radius: 6px;
+			}
+			.active-route {
+				border-radius: 4px;
+				box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+				text-decoration: none;
+				transition:
+					background-color 0.3s,
+					color 0.3s;
+			}
+			li {
+				margin: 0 5px;
+			}
+		}
+	}
+	.chartSelectWrapper {
+		:global {
+			.p-button:focus {
+				box-shadow: none;
+			}
+		}
+	}
+}

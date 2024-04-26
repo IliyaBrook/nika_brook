@@ -1,0 +1,77 @@
+.root {
+	:global {
+		.p-menubar {
+			border-radius: unset;
+		}
+		@media (min-width: 1199px) {
+			.menu-link:hover {
+				background-color: rgb(229, 231, 235);
+				box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+				border-radius: 6px;
+			}
+			.sub-route-link {
+				&:hover {
+					background-color: rgb(229, 231, 235);
+					box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+				}
+			}
+
+			.active-route {
+				border-radius: 4px;
+				box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+				text-decoration: none;
+				transition:
+					background-color 0.3s,
+					color 0.3s;
+			}
+		}
+
+		.photo-link {
+			margin-top: 3px;
+		}
+		.p-submenu-list {
+			padding: 0;
+		}
+		.p-menuitem-content,
+		.p-menuitem-link:active,
+		.p-menuitem-link:focus-visible {
+			background-color: transparent !important;
+			border: none !important;
+			color: inherit !important;
+			box-shadow: none !important;
+		}
+
+		.navbar_logo {
+			font-family: 'Times New Roman', serif;
+			font-size: 28px;
+			color: #4a154b;
+			text-shadow:
+				1px 1px 2px #000,
+				0 0 1em #fff;
+			font-weight: bold;
+			text-align: center;
+			margin: 20px 0;
+			@media (max-width: 960px) {
+				display: none;
+			}
+		}
+		.logout_button {
+			font-family: 'Arial', sans-serif;
+			font-size: 16px;
+			color: white;
+			background-color: #4a154b;
+			border: none;
+			border-radius: 4px;
+			padding: 10px 20px;
+			cursor: pointer;
+			transition: background-color 0.3s ease;
+		}
+		.logout_button:hover {
+			background-color: #6c1b5f;
+		}
+		.p-menubar-root-list {
+			width: 100%;
+			justify-content: space-around;
+		}
+	}
+}

@@ -1,0 +1,145 @@
+@import "@/app/shareableStyles/colors.scss";
+$font-text: 'Times New Roman', Times, serif;
+$font-title: var(--font-baskerville);
+$font-text-size: 1.2em;
+$font-title-size: 2rem;
+$font-title-sub-size: 1.5rem;
+.root{
+  .biographyContainer {
+    width: 100%;
+    display: grid;
+    grid-template:
+  'imageContainer biographyContent'
+  'bioRolesOfOpera .' / auto;
+    grid-template-rows: auto;
+    padding: 2rem;
+    gap: 0 2%;
+    justify-content: space-evenly;
+    ul{
+      line-height: 1.3;
+    }
+    .text, p {
+      font-family: $font-text;
+      font-size: $font-text-size;
+    }
+
+    .title {
+      font-family: $font-title;
+    }
+
+    .imageContainer {
+      grid-area: imageContainer;
+      position: relative;
+      height: 60%;
+      img {
+        max-width: 496px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+    }
+
+    .bioRolesOfOpera {
+      grid-area: bioRolesOfOpera;
+    }
+
+    .biographyContent {
+      padding: 0 20px;
+      grid-area: biographyContent;
+      word-wrap: break-word;
+
+      h1 {
+        font-size: $font-title-size;
+        margin: 0;
+        color: #333;
+      }
+
+      p {
+        line-height: 1.6;
+        margin-bottom: 1em;
+        text-align: justify;
+      }
+
+      h2 {
+        font-size: $font-title-sub-size;
+        margin-top: 1em;
+        margin-bottom: 0.5em;
+        color: #333;
+      }
+
+      ul {
+        font-family: $font-text;
+        list-style-type: none;
+        padding: 0;
+
+        li {
+          padding-left: 1em;
+          text-indent: -1em;
+        }
+
+        li::before {
+          content: "• ";
+          color: #555;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}
+
+
+// media
+@media (min-width: 1040px) {
+  .root{
+    height: 85vh;
+  }
+}
+@media (max-width: 1040px) {
+  .root{
+    height: 85vh;
+    .biographyContainer {
+      display: grid;
+      grid-template:
+            'imageContainer'
+            'biographyContent' / auto;
+      gap: 1% 0;
+      .imageContainer {
+        position: relative;
+        width: 45vw;
+        height: 55vh;
+
+        margin-bottom: 1rem;
+
+        img {
+          margin-left: 20px;
+        }
+      }
+    }
+
+    .bioRolesOfOpera {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: 380px) {
+  .root{
+    height: 90vh;
+    .biographyContainer {
+      .imageContainer {
+        width: 75vw;
+      }
+    }
+  }
+}
+
+@media (max-width: 460px) {
+  .root{
+    height: 85vh;
+    .biographyContainer {
+      .imageContainer {
+        width: 70vw!important;
+      }
+    }
+  }
+}
