@@ -6,8 +6,6 @@ frontend:
         - npm ci
     build:
       commands:
-        - echo "Creating .env.production file..."
-        - env | grep -e NEXT_PUBLIC_ -e DATABASE_URL -e NEXTAUTH_URL >> .env.production
         - npm run build-prod
   artifacts:
     baseDirectory: .next
