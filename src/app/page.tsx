@@ -14,7 +14,6 @@ export const metadata: Metadata = {
 export default async function Home() {
 	const headerList = headers()
 	const hostname = headerList.get('host')
-	console.log('Home app hostname:', hostname)
 
 	void logVisits('home')
 	return (
