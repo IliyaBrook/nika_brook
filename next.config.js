@@ -18,11 +18,8 @@ const nextConfig = {
 				hostname: 'master.dvbbjvf57empu.amplifyapp.com'
 			}
 		]
-	}
-	// webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
-	// 	config.resolve.alias['@'] = path.resolve(__dirname, 'src')
-	// 	return config
-	// }
+	},
+	env: {}
 }
 
 module.exports = nextConfig
