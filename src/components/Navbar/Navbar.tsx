@@ -1,4 +1,5 @@
 'use client'
+import { signOut } from 'next-auth/react'
 import React, { useMemo } from 'react'
 import { useAppSelector } from '@/store/hooks'
 import { Menubar } from 'primereact/menubar'
@@ -53,22 +54,22 @@ const Navbar = () => {
 				label: 'Contact',
 				className: setActivePath(pathname, '/contact'),
 				command: () => router.push('/contact')
+			},
+			{
+				label: 'Analytics',
+				visible: isAuthenticated,
+				command: () => router.push('/analytics')
+			},
+			{
+				visible: isAuthenticated,
+				template: () => {
+					return (
+						<button onClick={() => signOut()} className="logout_button">
+							Logout
+						</button>
+					)
+				}
 			}
-			// {
-			// 	label: 'Analytics',
-			// 	visible: isAuthenticated,
-			// 	command: () => router.push('/analytics')
-			// },
-			// {
-			// 	visible: isAuthenticated,
-			// 	template: () => {
-			// 		return (
-			// 			<button onClick={() => signOut()} className="logout_button">
-			// 				Logout
-			// 			</button>
-			// 		)
-			// 	}
-			// }
 		]
 		return navItems
 	}, [pathname, isAuthenticated, router])
