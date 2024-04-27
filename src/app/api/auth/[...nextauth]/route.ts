@@ -1,7 +1,7 @@
 import NextAuth from 'next-auth'
 import GoogleProvider from 'next-auth/providers/google'
 import CredentialsProvider from 'next-auth/providers/credentials'
-import { openDb } from '@/utils/sqLiteDb'
+import { openDb } from '@/utils/databaseUtils/sqLiteDb'
 import bcrypt from 'bcrypt'
 
 // noinspection JSUnusedGlobalSymbols
@@ -23,27 +23,31 @@ export const authOptions = {
 
 				const db = await openDb()
 
-				const user = await db.get(
-					'SELECT * FROM users WHERE username = ?',
-					credentials.username
-				)
-				if (!user) {
-					return null
-				}
+				try {
+					const user = await db.get(
+						'SELECT * FROM users WHERE username = ?',
+						credentials.username
+					)
+					if (!user) {
+						return null
+					}
 
-				const isMatch = await bcrypt.compare(
-					credentials.password,
-					user.password
-				)
-				if (!isMatch) {
-					return null
-				}
+					const isMatch = await bcrypt.compare(
+						credentials.password,
+						user.password
+					)
+					if (!isMatch) {
+						return null
+					}
 
-				return {
-					id: user.id.toString(),
-					name: user.username,
-					email: user.email,
-					isAdmin: user.isAdmin
+					return {
+						id: user.id.toString(),
+						name: user.username,
+						email: user.email,
+						isAdmin: user.isAdmin
+					}
+				} catch (e) {
+					console.error('auth failed: ', e)
 				}
 			}
 		})

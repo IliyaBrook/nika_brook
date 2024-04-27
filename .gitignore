@@ -42,3 +42,4 @@ Makefile
 env_files/.env.development
 .secrets
 deploy.git
+tmp
