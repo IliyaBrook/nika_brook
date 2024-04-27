@@ -39,6 +39,7 @@ export default async function RootLayout({
 }>) {
 	const session = await getServerSession(authOptions)
 	console.log('LOG ALL ENVS:')
+	console.log('DATABASE_URL PRODUCTION:', process.env.NODE_ENV)
 	console.log('DATABASE_URL env:', process.env.DATABASE_URL)
 	console.log('DATABASE_URL EMAIL:', process.env.EMAIL)
 	console.log('NEXT_PUBLIC_API_URL:', process.env.NEXT_PUBLIC_API_URL)
