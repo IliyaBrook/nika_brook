@@ -7,6 +7,7 @@ import { PrimeReactProvider } from 'primereact/api'
 import { primeReactConfig } from '@/app/primeReactConfig'
 
 import styles from './layout.module.scss'
+// import { authOptions } from '@/app/api/auth/[...nextauth]/route'
 import classNames from 'classnames'
 import './shareableStyles/globals.scss'
 import 'primereact/resources/themes/lara-light-cyan/theme.css'
