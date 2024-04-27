@@ -38,7 +38,15 @@ export default async function RootLayout({
 	children: React.ReactNode
 }>) {
 	const session = await getServerSession(authOptions)
-
+	console.log('LOG ALL ENVS:')
+	console.log('DATABASE_URL env:', process.env.DATABASE_URL)
+	console.log('DATABASE_URL EMAIL:', process.env.EMAIL)
+	console.log('NEXT_PUBLIC_API_URL:', process.env.NEXT_PUBLIC_API_URL)
+	console.log('SEND_TO_EMAIL:', process.env.SEND_TO_EMAIL)
+	console.log('NEXTAUTH_SECRET:', process.env.NEXTAUTH_SECRET)
+	console.log('GOOGLE_CLIENT_SECRET:', process.env.GOOGLE_CLIENT_SECRET)
+	console.log('GOOGLE_CLIENT_ID:', process.env.GOOGLE_CLIENT_ID)
+	console.log('EMAIL_APP_PASSWORD:', process.env.EMAIL_APP_PASSWORD)
 	return (
 		<PrimeReactProvider value={primeReactConfig}>
 			<html lang="en">
@@ -47,7 +55,8 @@ export default async function RootLayout({
 						inter.className,
 						poppins.className,
 						baskerville.className
-					)}>
+					)}
+				>
 					<StoreProvider>
 						<AppSessionProvider session={session}>
 							<div className={styles.root}>
