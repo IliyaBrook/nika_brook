@@ -15,7 +15,6 @@
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.2",
     "@sqlitecloud/drivers": "^0.0.56",
-    "aws-amplify": "^6.1.4",
     "bcrypt": "^5.1.1",
     "chart.js": "^4.4.2",
     "classnames": "^2.5.1",
@@ -35,8 +34,6 @@
     "sqlite3": "^5.1.7"
   },
   "devDependencies": {
-    "@aws-amplify/backend": "^0.13.4",
-    "@aws-amplify/backend-cli": "^0.14.1",
     "@next/bundle-analyzer": "^14.1.4",
     "@trivago/prettier-plugin-sort-imports": "^4.3.0",
     "@types/bcrypt": "^5.0.2",
