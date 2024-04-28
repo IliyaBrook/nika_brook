@@ -1,0 +1,47 @@
+name: Deploy to AWS ECS
+
+on:
+  push:
+    branches:
+      - master_off
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      # setup node during the build
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.11.1'
+          cache: 'npm'
+      # install dependencies during the build
+      - name: Install Dependencies
+        run: npm ci
+      # login to Amazon ECR
+      - name: Login to Amazon ECR
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ secrets.AWS_ECR_REGISTRY }}
+          username: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          password: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      # build and push Docker image to Amazon ECR
+      - name: Build and push Docker image to Amazon ECR
+        run: |
+          docker build -t nika_brook:latest \
+          --build-arg NEXT_PUBLIC_LOCATION="prod" .
+          docker tag nika_brook:latest ${{ secrets.AWS_ECR_REGISTRY }}/nika_brook:latest
+          docker push ${{ secrets.AWS_ECR_REGISTRY }}/nika_brook:latest
+      # configure AWS credentials
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4.0.2
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_REGION }}
+      # update ECS service with the new task definition and force a new deployment the application
+      - name: Update ECS Service
+        run: |
+          aws ecs update-service --cluster nika_brook_cluster --service nika_brook_service --force-new-deployment
