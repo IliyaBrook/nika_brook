@@ -29,7 +29,6 @@
     "react-dom": "^18",
     "react-redux": "^9.1.0",
     "react-transition-group": "^4.4.5",
-    "sharp": "^0.33.3",
     "sqlite": "^5.1.1",
     "sqlite3": "^5.1.7"
   },
