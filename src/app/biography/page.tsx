@@ -5,7 +5,6 @@ import BioRolesOfOpera from '@/app/biography/components/BioRolesOfOpera'
 import Image from 'next/image'
 import { logVisits } from '@/utils/logVisits'
 import { ScrollBarWrapper } from '@/components/ScrollBarWrapper/ScrollBarWrapper'
-import BiographyImage from '../../../public/images/biographyImage.jpg'
 
 export const metadata: Metadata = {
 	title: 'Veronika Brook - Soprano',
@@ -23,17 +22,17 @@ const Biography: NextPage = () => {
 	void logVisits('biography')
 	return (
 		<ScrollBarWrapper className={styles.root}>
-			[test-1]
+			[test-2]
 			<div className={styles.biographyContainer}>
 				<div className={styles.imageContainer}>
 					<Image
-						src={BiographyImage}
-						// src="/images/photo4_bio.jpg"
+						src="/images/biographyImage.jpg"
 						alt="Veronika Brook, Soprano"
-						quality={50}
-						fill
+						quality={75}
+						layout="responsive"
+						width={800}
+						height={600}
 						priority
-						sizes="(max-width: 768px) 100vw, (min-width: 768px) 50vw"
 					/>
 				</div>
 				<div className={styles.bioRolesOfOpera}>
