@@ -20,8 +20,18 @@ jobs:
       # log environments
       - name: Debug output
         run: |
-          echo "HOST=${{ secrets.HOST }}"
-          echo "SECRET_KEY=${{ secrets.SSH_PRIVATE_KEY }}"
+          if [ -z "${{ secrets.HOST }}" ]; then
+            echo "HOST secret is not set."
+          else
+            echo "HOST secret is set."
+          fi
+
+          if [ -z "${{ secrets.SSH_PRIVATE_KEY }}" ]; then
+            echo "SSH_PRIVATE_KEY secret is not set."
+          else
+            echo "SSH_PRIVATE_KEY secret is set."
+          fi
+
       # install ssh keys
 #      - name: Setup SSH
 #        uses: webfactory/ssh-agent@v0.5.4
