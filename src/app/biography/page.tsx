@@ -2,10 +2,8 @@ import { Metadata, NextPage } from 'next'
 import styles from './biography.module.scss'
 import BioText from '@/app/biography/components/BioText'
 import BioRolesOfOpera from '@/app/biography/components/BioRolesOfOpera'
-import Image from 'next/image'
 import { logVisits } from '@/utils/logVisits'
 import { ScrollBarWrapper } from '@/components/ScrollBarWrapper/ScrollBarWrapper'
-import BiographyImage from '../../../public/images/biographyImage.jpg'
 
 export const metadata: Metadata = {
 	title: 'Veronika Brook - Soprano',
@@ -26,13 +24,14 @@ const Biography: NextPage = () => {
 			[test-1]
 			<div className={styles.biographyContainer}>
 				<div className={styles.imageContainer}>
-					<Image
-						src={BiographyImage}
-						alt="Veronika Brook, Soprano"
-						fill
-						priority
-						// sizes="(max-height: 500px) 1000px"
-					/>
+					{/*<Image*/}
+					{/*	//src={BiographyImage}*/}
+					{/*	src="/images/photo4_bio.jpg"*/}
+					{/*	alt="Veronika Brook, Soprano"*/}
+					{/*	fill*/}
+					{/*	priority*/}
+					{/*	// sizes="(max-height: 500px) 1000px"*/}
+					{/*/>*/}
 				</div>
 				<div className={styles.bioRolesOfOpera}>
 					<BioRolesOfOpera />
