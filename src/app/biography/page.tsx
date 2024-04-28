@@ -22,7 +22,6 @@ const Biography: NextPage = () => {
 	void logVisits('biography')
 	return (
 		<ScrollBarWrapper className={styles.root}>
-			[test-2]
 			<div className={styles.biographyContainer}>
 				<div className={styles.imageContainer}>
 					<Image
