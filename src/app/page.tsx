@@ -15,7 +15,7 @@ export default async function Home() {
 	return (
 		<ScrollBarWrapper>
 			<div style={{ display: 'flex', justifyContent: 'center' }}>
-				<h1>TEST</h1>
+				<h1>TEST 2</h1>
 			</div>
 			<main className={styles.main}>
 				<div className={styles.videoContainer}>
