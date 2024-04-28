@@ -3,7 +3,7 @@ import React, { ReactNode, useLayoutEffect } from 'react'
 import type { statisticsInitialInterface } from '@/types/statistics'
 import { useAppDispatch } from '@/store/hooks'
 import { setStatisticsData } from '@/store/statistics'
-import styles from './AnalyticsClientLayout.scss'
+import styles from './AnalyticsClientLayout.module.scss'
 import Navigation from '@/app/analytics/components/AnalyticsNavigation/navigation'
 
 interface ClientLayoutProps {
