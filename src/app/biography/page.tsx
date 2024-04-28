@@ -30,6 +30,7 @@ const Biography: NextPage = () => {
 						src={BiographyImage}
 						alt="Veronika Brook, Soprano"
 						fill
+						priority
 						// sizes="(max-height: 500px) 1000px"
 					/>
 				</div>
