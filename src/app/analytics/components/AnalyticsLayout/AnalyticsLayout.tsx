@@ -3,15 +3,15 @@ import React, { ReactNode, useLayoutEffect } from 'react'
 import type { statisticsInitialInterface } from '@/types/statistics'
 import { useAppDispatch } from '@/store/hooks'
 import { setStatisticsData } from '@/store/statistics'
-import styles from './clientLayout.module.scss'
-import Navigation from '@/components/AnalyticsNavigation/navigation'
+import styles from './AnalyticsLayout.module.scss'
+import Navigation from '@/app/analytics/components/AnalyticsNavigation/navigation'
 
 interface ClientLayoutProps {
 	children?: ReactNode
 	data?: statisticsInitialInterface
 }
 
-const ClientLayout = ({
+const AnalyticsLayout = ({
 	children,
 	data: { pagesCount, pagesLabels, countriesCount, countriesLabels }
 }: ClientLayoutProps) => {
@@ -37,4 +37,4 @@ const ClientLayout = ({
 	)
 }
 
-export default ClientLayout
+export default AnalyticsLayout
