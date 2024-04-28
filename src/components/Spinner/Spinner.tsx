@@ -18,7 +18,7 @@ export const Spinner: React.FC<SpinnerProps> = ({
 	spinnerStyle,
 	spinnerClassName,
 	wrapperClassName,
-	wrapperStyle,
+	wrapperStyle = { height: '80vh' },
 	spinnerProps
 }) => {
 	return (
