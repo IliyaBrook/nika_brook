@@ -2,9 +2,9 @@ import { Metadata, NextPage } from 'next'
 import styles from './biography.module.scss'
 import BioText from '@/app/biography/components/BioText'
 import BioRolesOfOpera from '@/app/biography/components/BioRolesOfOpera'
-import Image from 'next/image'
 import { logVisits } from '@/utils/logVisits'
 import { ScrollBarWrapper } from '@/components/ScrollBarWrapper/ScrollBarWrapper'
+import { Image } from 'primereact/image'
 
 export const metadata: Metadata = {
 	title: 'Veronika Brook - Soprano',
@@ -28,11 +28,7 @@ const Biography: NextPage = () => {
 					<Image
 						src="/images/biographyImage.webp"
 						alt="Veronika Brook, Soprano"
-						quality={75}
-						layout="responsive"
-						width={800}
-						height={600}
-						priority
+						loading="lazy"
 					/>
 				</div>
 				<div className={styles.bioRolesOfOpera}>
