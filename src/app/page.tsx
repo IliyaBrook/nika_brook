@@ -14,6 +14,9 @@ export default async function Home() {
 	void logVisits('home')
 	return (
 		<ScrollBarWrapper>
+			<div style={{ display: 'flex', justifyContent: 'center' }}>
+				<h1>TEST</h1>
+			</div>
 			<main className={styles.main}>
 				<div className={styles.videoContainer}>
 					<VideoBackground src="home_bg_video.mp4" type="video/mp4" />
