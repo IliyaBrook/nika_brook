@@ -26,7 +26,7 @@ const Biography: NextPage = () => {
 			<div className={styles.biographyContainer}>
 				<div className={styles.imageContainer}>
 					<Image
-						src="/images/biographyImage.jpg"
+						src="/images/biographyImage.webp"
 						alt="Veronika Brook, Soprano"
 						quality={75}
 						layout="responsive"
