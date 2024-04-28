@@ -25,7 +25,7 @@ const Biography: NextPage = () => {
 			<div className={styles.biographyContainer}>
 				<div className={styles.imageContainer}>
 					<Image
-						src="/images/photo4_bio.jpg"
+						src="/images/biographyImage.jpg"
 						alt="Veronika Brook, Soprano"
 						fill
 						priority
