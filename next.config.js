@@ -15,7 +15,7 @@ const nextConfig = {
 			},
 			{
 				protocol: 'https',
-				hostname: 'master.dvbbjvf57empu.amplifyapp.com'
+				hostname: 'ec2-51-17-138-117.il-central-1.compute.amazonaws.com/api'
 			}
 		]
 	},
