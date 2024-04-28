@@ -2,8 +2,7 @@
 import React from 'react'
 import { protectedRoute } from '@/utils/protectedRoute'
 import { openDb } from '@/utils/databaseUtils/sqLiteDb'
-
-import AnalyticsLayout from '@/app/analytics/components/AnalyticsLayout/AnalyticsLayout'
+import AnalyticsClientLayout from '@/app/analytics/components/AnalyticsLayout/AnalyticsClientLayout'
 
 export default async function AnalyticsLayout({ children }) {
 	await protectedRoute()
@@ -116,7 +115,7 @@ export default async function AnalyticsLayout({ children }) {
 		const countriesCount = countriesData.map(page => page.count)
 
 		return (
-			<AnalyticsLayout
+			<AnalyticsClientLayout
 				data={{
 					pagesCount,
 					pagesLabels,
@@ -125,7 +124,7 @@ export default async function AnalyticsLayout({ children }) {
 				}}
 			>
 				{children}
-			</AnalyticsLayout>
+			</AnalyticsClientLayout>
 		)
 	} catch (e) {
 		throw new Error(e)
