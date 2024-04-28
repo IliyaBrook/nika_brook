@@ -3,7 +3,7 @@ module.exports = {
 		{
 			name: 'nika_brook',
 			script: 'yarn',
-			args: 'yarn start-prod',
+			args: 'start-prod',
 			cwd: '/var/www/nika-brook',
 			watch: true,
 			restart_delay: 5000,

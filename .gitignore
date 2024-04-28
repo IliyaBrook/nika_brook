@@ -39,7 +39,7 @@ cheatsheet/
 /testQueries/
 .idea/
 Makefile
-env_files/.env.development
+env_files/*
 .secrets
 deploy.git
 tmp

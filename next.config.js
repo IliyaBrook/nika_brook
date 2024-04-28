@@ -11,15 +11,10 @@ const nextConfig = {
 			},
 			{
 				protocol: 'http',
-				hostname: 'ec2-51-17-85-31.il-central-1.compute.amazonaws.com'
-			},
-			{
-				protocol: 'https',
 				hostname: 'ec2-51-17-138-117.il-central-1.compute.amazonaws.com/api'
 			}
 		]
-	},
-	env: {}
+	}
 }
 
 module.exports = nextConfig

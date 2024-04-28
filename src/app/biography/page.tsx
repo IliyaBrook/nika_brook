@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 			"Learn about Veronika Brook's journey from Estonia to the stages of the world.",
 		images: [
 			{
-				url: '/public/images/VeronikaBrook400.jpg'
+				url: '/images/photo4_bio.JPG'
 			}
 		],
 		type: 'profile'
