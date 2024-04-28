@@ -14,11 +14,6 @@ export const metadata: Metadata = {
 		title: 'Veronika Brook - Soprano',
 		description:
 			"Learn about Veronika Brook's journey from Estonia to the stages of the world.",
-		images: [
-			{
-				url: '/images/photo4_bio.JPG'
-			}
-		],
 		type: 'profile'
 	}
 }
@@ -30,11 +25,10 @@ const Biography: NextPage = () => {
 			<div className={styles.biographyContainer}>
 				<div className={styles.imageContainer}>
 					<Image
-						src="/images/photo4_bio.JPG"
+						src="/images/photo4_bio.jpg"
 						alt="Veronika Brook, Soprano"
 						fill
 						priority
-						layout="fill"
 						sizes="(max-width: 768px) 100vw, (min-width: 768px) 50vw"
 					/>
 				</div>
