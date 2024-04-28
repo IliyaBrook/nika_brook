@@ -23,11 +23,11 @@ jobs:
           echo "HOST=${{ secrets.HOST }}"
           echo "SSH_PRIVATE_KEY set: ${[[ ! -z '${{ secrets.SSH_PRIVATE_KEY }}' ]] && echo 'YES' || echo 'NO'}"
       # install ssh keys
-      - name: Setup SSH
-        uses: webfactory/ssh-agent@v0.5.4
-        with:
-          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
-      # run update deployment script
-      - name: Execute script on server
-        run: |
-          ssh -o "StrictHostKeyChecking=no" ec2-user@${{ secrets.HOST }} 'bash /var/www/nika-brook/scripts/update_project.sh'
+#      - name: Setup SSH
+#        uses: webfactory/ssh-agent@v0.5.4
+#        with:
+#          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+#      # run update deployment script
+#      - name: Execute script on server
+#        run: |
+#          ssh -o "StrictHostKeyChecking=no" ec2-user@${{ secrets.HOST }} 'bash /var/www/nika-brook/scripts/update_project.sh'
