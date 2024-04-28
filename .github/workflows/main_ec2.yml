@@ -17,7 +17,11 @@ jobs:
         with:
           node-version: '20.11.1'
           cache: 'npm'
-
+      # log environments
+      - name: Debug output
+        run: |
+          echo "HOST=${{ secrets.HOST }}"
+          echo "SSH_PRIVATE_KEY set: ${[[ ! -z '${{ secrets.SSH_PRIVATE_KEY }}' ]] && echo 'YES' || echo 'NO'}"
       # install ssh keys
       - name: Setup SSH
         uses: webfactory/ssh-agent@v0.5.4
