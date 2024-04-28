@@ -21,7 +21,7 @@ jobs:
       - name: Debug output
         run: |
           echo "HOST=${{ secrets.HOST }}"
-          echo "SSH_PRIVATE_KEY set: ${[[ ! -z '${{ secrets.SSH_PRIVATE_KEY }}' ]] && echo 'YES' || echo 'NO'}"
+          echo "SECRET_KEY=${{ secrets.SSH_PRIVATE_KEY }}"
       # install ssh keys
 #      - name: Setup SSH
 #        uses: webfactory/ssh-agent@v0.5.4
