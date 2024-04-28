@@ -28,8 +28,7 @@ const Biography: NextPage = () => {
 						src="/images/biographyImage.jpg"
 						alt="Veronika Brook, Soprano"
 						fill
-						priority
-						//sizes="(max-width: 768px) 100vw, (min-width: 768px) 50vw"
+						// sizes="(max-height: 500px) 1000px"
 					/>
 				</div>
 				<div className={styles.bioRolesOfOpera}>
