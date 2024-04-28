@@ -15,7 +15,7 @@ const nextConfig = {
 			},
 			{
 				protocol: 'http',
-				hostname: 'ec2-51-17-138-117.il-central-1.compute.amazonaws.com/api'
+				hostname: 'nika-brook-ld-2109784693.il-central-1.elb.amazonaws.com'
 			}
 		]
 	}
