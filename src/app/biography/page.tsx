@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 		type: 'profile'
 	}
 }
-
+//
 const Biography: NextPage = () => {
 	void logVisits('biography')
 	return (
