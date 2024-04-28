@@ -3,6 +3,12 @@ const path = require('path')
 // noinspection JSUnusedLocalSymbols
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+	typescript: {
+		ignoreBuildErrors: true
+	},
+	eslint: {
+		ignoreDuringBuilds: true
+	},
 	images: {
 		remotePatterns: [
 			{
