@@ -33,10 +33,11 @@ const Biography: NextPage = () => {
 						height={600}
 						priority
 					/>
+					<div className={styles.bioRolesOfOpera}>
+						<BioRolesOfOpera />
+					</div>
 				</div>
-				<div className={styles.bioRolesOfOpera}>
-					<BioRolesOfOpera />
-				</div>
+
 				<div className={styles.biographyContent}>
 					<BioText />
 				</div>
