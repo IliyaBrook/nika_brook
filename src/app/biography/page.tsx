@@ -4,7 +4,8 @@ import BioText from '@/app/biography/components/BioText'
 import BioRolesOfOpera from '@/app/biography/components/BioRolesOfOpera'
 import Image from 'next/image'
 import { logVisits } from '@/utils/logVisits'
-import { ScrollBarWrapper } from '@/components/ScrollBarWrapper/ScrollBarWrapper'
+import { ScrollBarWrapper } from '@/components/Wrappers/ScrollBarWrapper/ScrollBarWrapper'
+import { DeviceTypeWrapper } from '@/components/Wrappers/DeviceTypeWrapper/DeviceTypeWrapper'
 
 export const metadata: Metadata = {
 	title: 'Veronika Brook - Soprano',
@@ -41,6 +42,11 @@ const Biography: NextPage = () => {
 				<div className={styles.biographyContent}>
 					<BioText />
 				</div>
+				<DeviceTypeWrapper
+					WindowsClassName={{ display: 'none' }}
+					AndroidClassName={{ display: 'none' }}
+					IOSClassName={{ marginBottom: '6rem' }}
+				/>
 			</div>
 		</ScrollBarWrapper>
 	)

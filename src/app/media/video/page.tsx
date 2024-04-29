@@ -5,7 +5,7 @@ import React from 'react'
 import { Skeleton } from 'primereact/skeleton'
 import dynamic from 'next/dynamic'
 import { logVisits } from '@/utils/logVisits'
-import { ScrollBarWrapper } from '@/components/ScrollBarWrapper/ScrollBarWrapper'
+import { ScrollBarWrapper } from '@/components/Wrappers/ScrollBarWrapper/ScrollBarWrapper'
 
 const VideoGallery = dynamic(() => import('./components/VideoGallery'), {
 	loading: () => <Skeleton height="40vh" borderRadius="0" />

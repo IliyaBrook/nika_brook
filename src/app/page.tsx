@@ -1,7 +1,7 @@
 import styles from './home.module.scss'
 import { VideoBackground } from '@/components/VideoBackground/VideoBackground'
 import { logVisits } from '@/utils/logVisits'
-import { ScrollBarWrapper } from '@/components/ScrollBarWrapper/ScrollBarWrapper'
+import { ScrollBarWrapper } from '@/components/Wrappers/ScrollBarWrapper/ScrollBarWrapper'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
