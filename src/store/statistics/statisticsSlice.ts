@@ -1,7 +1,8 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import type { statisticsInitialInterface } from '@/types/statistics'
+import { RESET_STORE } from '@/store/constants'
 
-const statisticsInitial: statisticsInitialInterface = {
+const initialState: statisticsInitialInterface = {
 	countriesCount: [],
 	countriesLabels: [],
 	pagesCount: [],
@@ -10,7 +11,7 @@ const statisticsInitial: statisticsInitialInterface = {
 
 export const statisticsSlice = createSlice({
 	name: 'statistics',
-	initialState: statisticsInitial,
+	initialState: initialState,
 	reducers: {
 		setStatisticsData: (
 			state,
@@ -21,5 +22,8 @@ export const statisticsSlice = createSlice({
 			state.countriesCount = action.payload.countriesCount
 			state.countriesLabels = action.payload.countriesLabels
 		}
+	},
+	extraReducers: builder => {
+		builder.addCase(RESET_STORE, () => initialState)
 	}
 })

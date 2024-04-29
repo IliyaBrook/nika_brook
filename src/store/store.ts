@@ -5,6 +5,7 @@ import { authFormSlice } from '@/store/authForm'
 import { sendMessageThunk } from './thunks/index'
 import { contactSlice } from '@/store/contact'
 import { statisticsSlice } from '@/store/statistics'
+import { RESET_STORE } from '@/store/constants'
 
 const rootReducer = combineReducers({
 	[userSlice.name]: userSlice.reducer,
@@ -26,3 +27,5 @@ export const makeStore = () => {
 export type AppStore = ReturnType<typeof makeStore>
 export type RootState = ReturnType<typeof rootReducer>
 export type AppDispatch = AppStore['dispatch']
+
+export const resetStore = () => ({ type: RESET_STORE })

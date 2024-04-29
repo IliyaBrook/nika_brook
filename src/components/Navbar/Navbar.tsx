@@ -1,19 +1,27 @@
 'use client'
 import { signOut } from 'next-auth/react'
 import React, { useMemo } from 'react'
-import { useAppSelector } from '@/store/hooks'
+import { useAppDispatch, useAppSelector } from '@/store/hooks'
 import { Menubar } from 'primereact/menubar'
 import styles from './Navbar.module.scss'
 import { usePathname, useRouter } from 'next/navigation'
 import classNames from 'classnames'
 import { MenuItem } from 'primereact/menuitem'
 import { setActivePath } from '@/utils/setActivePath'
+import { resetStore } from '@/store/store'
 
 const Navbar = () => {
 	const router = useRouter()
 	const pathname = usePathname()
 	const isAuthenticated = useAppSelector(state => state.user.isAuthenticated)
-
+	const dispatch = useAppDispatch()
+	const handleSignOut = async () => {
+		await signOut({ redirect: false })
+		setTimeout(() => {
+			dispatch(resetStore())
+			router.push('/')
+		}, 1000)
+	}
 	const navBarItems = useMemo(() => {
 		const navItems: MenuItem[] = [
 			{
@@ -64,7 +72,7 @@ const Navbar = () => {
 				visible: isAuthenticated,
 				template: () => {
 					return (
-						<button onClick={() => signOut()} className="logout_button">
+						<button onClick={handleSignOut} className="logout_button">
 							Logout
 						</button>
 					)
