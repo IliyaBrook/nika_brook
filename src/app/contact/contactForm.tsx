@@ -11,6 +11,7 @@ import { contactFormSelector } from '@/store/contact/selectors'
 import classNames from 'classnames'
 import { useContactSendEmailMutation } from '@/store/thunks'
 import { Toast } from 'primereact/toast'
+import { useGetDeviceType } from '@/hooks/useGetDeviceType'
 
 const ContactForm = () => {
 	const {
@@ -71,9 +72,19 @@ const ContactForm = () => {
 		}
 	}, [success])
 
+	const deviceType = useGetDeviceType()
+	const iosFormStyles: React.CSSProperties = {
+		justifyContent: 'flex-start',
+		height: '70%'
+	}
 	return (
 		<div className={styles.container}>
-			<form onSubmit={handleSubmit} className="p-fluid" ref={formRef}>
+			<form
+				onSubmit={handleSubmit}
+				className="p-fluid"
+				ref={formRef}
+				style={deviceType === 'iOS' ? iosFormStyles : null}
+			>
 				<div className={styles.formField}>
 					<label htmlFor="name">Your Name</label>
 					<InputText
