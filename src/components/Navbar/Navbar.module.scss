@@ -1,5 +1,8 @@
 .root {
 	:global {
+		.p-menubar .p-menubar-button:focus {
+			box-shadow: none;
+		}
 		.p-menubar {
 			border-radius: unset;
 		}
