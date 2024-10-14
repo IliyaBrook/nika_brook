@@ -2,14 +2,13 @@
 import NavBarLogo from '@/components/Navbar/components/navBarLogo/NavBarLogo'
 import SocialNetLinks from '@/components/Navbar/components/socialNetLinks/socialNetLinks'
 import RouteTemplate from '@/components/Navbar/routeTemplate'
-import React, { useMemo } from 'react'
-import { Menubar } from 'primereact/menubar'
-import styles from './Navbar.module.scss'
-import { usePathname, useRouter } from 'next/navigation'
-import classNames from 'classnames'
-import { MenuItem } from 'primereact/menuitem'
 import { setActivePath } from '@/utils/setActivePath'
-import Image from 'next/image'
+import classNames from 'classnames'
+import { usePathname } from 'next/navigation'
+import { Menubar } from 'primereact/menubar'
+import { MenuItem } from 'primereact/menuitem'
+import React, { useMemo } from 'react'
+import styles from './Navbar.module.scss'
 
 
 const Navbar = () => {
