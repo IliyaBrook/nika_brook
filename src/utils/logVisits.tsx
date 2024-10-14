@@ -3,6 +3,9 @@ import { getApiBaseUrl } from '@/utils/enviroments'
 
 export async function logVisits(pageName: TPages): Promise<void> {
   'use server'
+  
+  console.log("logVisits route")
+  
   try {
     void fetch(`${getApiBaseUrl()}/visits`, {
       method: 'POST',

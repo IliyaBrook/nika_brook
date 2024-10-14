@@ -2,6 +2,8 @@
   "name": "nika_brook",
   "version": "0.1.0",
   "private": true,
+  "repository": "https://github.com/IliyaBrook/nika_brook",
+  "author": "Iliya Brook <iliyabrook1987@gmail.com>",
   "scripts": {
     "build-dev": "env-cmd -f ./env_files/.env.development next build",
     "start-dev": "env-cmd -f ./env_files/.env.development next dev",
