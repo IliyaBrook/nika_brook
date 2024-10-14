@@ -5,8 +5,6 @@ import React from 'react'
 import { Skeleton } from 'primereact/skeleton'
 import dynamic from 'next/dynamic'
 
-import { ScrollBarWrapper } from '@/components/Wrappers/ScrollBarWrapper/ScrollBarWrapper'
-
 const VideoGallery = dynamic(() => import('./components/VideoGallery'), {
 	loading: () => <Skeleton height="40vh" borderRadius="0" />
 })
@@ -21,11 +19,11 @@ export const metadata: Metadata = {
 
 export default function Video() {
 	return (
-		<ScrollBarWrapper height="100vh">
+		<div className={styles.main}>
 			<title>{video.title}</title>
-			<main className={styles.main}>
+			<main>
 				<VideoGallery />
 			</main>
-		</ScrollBarWrapper>
+		</div>
 	)
 }

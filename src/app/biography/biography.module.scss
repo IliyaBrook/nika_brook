@@ -1,10 +1,14 @@
 @import '@/app/shareableStyles/colors.scss';
-$font-text: 'Times New Roman', Times, serif;
+//$font-text: var(--font-open-sans);
+//$font-text: var(--font-gideon-roman);
+$font-text: var(--font-hedvig-letters-serif);
 $font-title: var(--font-baskerville);
 $font-text-size: 1.2em;
 $font-title-size: 2rem;
 $font-title-sub-size: 1.5rem;
 .root {
+	height: 100%;
+	font-family: $font-text;
 	.biographyContainer {
 		width: 100%;
 		display: grid;
@@ -18,10 +22,9 @@ $font-title-sub-size: 1.5rem;
 		ul {
 			line-height: 1.3;
 		}
-		.text,
-		p {
-			font-family: $font-text;
+		.text, p {
 			font-size: $font-text-size;
+			font-weight: 500;
 		}
 
 		.title {
@@ -68,7 +71,6 @@ $font-title-sub-size: 1.5rem;
 			}
 
 			ul {
-				font-family: $font-text;
 				list-style-type: none;
 				padding: 0;
 

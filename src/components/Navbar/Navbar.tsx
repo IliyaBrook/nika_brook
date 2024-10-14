@@ -5,18 +5,13 @@ import { Menubar } from 'primereact/menubar'
 import styles from './Navbar.module.scss'
 import { usePathname, useRouter } from 'next/navigation'
 import classNames from 'classnames'
-import { MenuItem, type MenuItemOptions } from 'primereact/menuitem'
+import { MenuItem } from 'primereact/menuitem'
 import { setActivePath } from '@/utils/setActivePath'
 import Image from 'next/image'
 
 
-
-
 const Navbar = () => {
-	const router = useRouter()
 	const pathname = usePathname()
-	
-	
 	
 	const navBarItems = useMemo(() => {
 		const navItems: MenuItem[] = [
@@ -31,6 +26,7 @@ const Navbar = () => {
 				template: RouteTemplate
 			},
 			{
+				className: 'logo',
 				template: () => {
 					return 	<Image
 						src="/logoHorizontal.svg"
@@ -52,7 +48,6 @@ const Navbar = () => {
 						label: 'Video',
 						id: '/media/video',
 						className: 'sub-route-link',
-						// command: () => router.push('/media/video')
 						template: RouteTemplate
 						
 					},
@@ -60,7 +55,6 @@ const Navbar = () => {
 						label: 'Photo',
 						id: '/media/photo',
 						className: 'sub-route-link photo-link',
-						// command: () => router.push('/media/photo')
 						template: RouteTemplate
 					}
 				]
@@ -68,13 +62,11 @@ const Navbar = () => {
 			{
 				label: 'Contact',
 				id: '/contact',
-				// className: setActivePath(pathname, '/contact'),
-				// command: () => router.push('/contact'),
 				template: RouteTemplate
 			},
 		]
 		return navItems
-	}, [pathname, router])
+	}, [pathname])
 	
 	return (
 		<div className={styles.root}>
