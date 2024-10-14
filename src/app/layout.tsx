@@ -7,9 +7,6 @@ import { PrimeReactProvider } from 'primereact/api'
 import { primeReactConfig } from '@/app/primeReactConfig'
 
 import styles from './layout.module.scss'
-import { getServerSession } from 'next-auth'
-import { authOptions } from '@/app/api/auth/[...nextauth]/route'
-import { AppSessionProvider } from '@/components/AppSessionProvider'
 import classNames from 'classnames'
 import './shareableStyles/globals.scss'
 import 'primereact/resources/themes/lara-light-cyan/theme.css'
@@ -37,7 +34,6 @@ export default async function RootLayout({
 }: Readonly<{
 	children: React.ReactNode
 }>) {
-	const session = await getServerSession(authOptions)
 	return (
 		<PrimeReactProvider value={primeReactConfig}>
 			<html lang="en">
@@ -48,16 +44,14 @@ export default async function RootLayout({
 						baskerville.className
 					)}
 				>
-					<StoreProvider>
-						<AppSessionProvider session={session}>
-							<div className={styles.root}>
-								<div className={styles.navbar}>
-									<Navbar />
-								</div>
-								<div className={styles.main}>{children}</div>
-							</div>
-						</AppSessionProvider>
-					</StoreProvider>
+				<StoreProvider>
+					<div className={styles.root}>
+						<div className={styles.navbar}>
+							<Navbar />
+						</div>
+						<div className={styles.main}>{children}</div>
+					</div>
+				</StoreProvider>
 				</body>
 			</html>
 		</PrimeReactProvider>

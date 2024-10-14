@@ -2,7 +2,6 @@ import { Metadata } from 'next'
 import MediaGalleria from '@/app/media/photo/components/PhotoGalleria'
 import styles from './photo.module.scss'
 import React from 'react'
-import { logVisits } from '@/utils/logVisits'
 
 export const metadata: Metadata = {
 	title: 'Media - Veronika Brook',
@@ -17,7 +16,6 @@ export const metadata: Metadata = {
 }
 
 export default function Photo() {
-	void logVisits('photo')
 	return (
 		<div className={styles.main}>
 			<main>

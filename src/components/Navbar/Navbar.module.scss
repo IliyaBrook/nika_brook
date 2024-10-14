@@ -6,34 +6,11 @@
 		.p-menubar {
 			border-radius: unset;
 		}
-		@media (min-width: 1199px) {
-			.menu-link:hover {
-				background-color: rgb(229, 231, 235);
-				box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-				border-radius: 6px;
-			}
-			.sub-route-link {
-				&:hover {
-					background-color: rgb(229, 231, 235);
-					box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-				}
-			}
-
-			.active-route {
-				border-radius: 4px;
-				box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-				text-decoration: none;
-				transition:
-					background-color 0.3s,
-					color 0.3s;
-			}
-		}
-
-		.photo-link {
-			margin-top: 3px;
-		}
 		.p-submenu-list {
 			padding: 0;
+		}
+		.photo-link {
+			margin-top: 3px;
 		}
 		.p-menuitem-content,
 		.p-menuitem-link:active,
@@ -44,37 +21,56 @@
 			box-shadow: none !important;
 		}
 
-		.navbar_logo {
-			font-family: 'Times New Roman', serif;
-			font-size: 28px;
-			color: #4a154b;
-			text-shadow:
-				1px 1px 2px #000,
-				0 0 1em #fff;
-			font-weight: bold;
-			text-align: center;
-			margin: 20px 0;
-			@media (max-width: 960px) {
-				display: none;
-			}
-		}
-		.logout_button {
-			font-family: 'Arial', sans-serif;
-			font-size: 16px;
-			color: white;
-			background-color: #4a154b;
-			border: none;
-			border-radius: 4px;
-			padding: 10px 20px;
-			cursor: pointer;
-			transition: background-color 0.3s ease;
-		}
-		.logout_button:hover {
-			background-color: #6c1b5f;
-		}
 		.p-menubar-root-list {
 			width: 100%;
 			justify-content: space-around;
 		}
+		
+		ul {
+			padding: 0;
+			margin: 0;
+			display: flex;
+			justify-content: space-between;
+			font-size: 14px;
+			line-height: 1.2;
+			li {
+				list-style: none;
+				a {
+					box-sizing: border-box;
+					background-color: "transparent";
+					text-decoration: none;
+					text-transform: uppercase;
+					letter-spacing: 3px;
+					font-weight: 400;
+					color: rgb(255, 255, 255);
+				}
+			}
+			@media (min-width: 1199px) {
+				.sub-route-link {
+					&:hover {
+						background-color: rgb(229, 231, 235);
+						box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+					}
+				}
+
+				.active-route{
+					transition: color 0.15s ease-in-out;
+					font-weight: 400;
+					color: rgb(236, 199, 145);
+					.p-menuitem-text {
+						color: rgb(236, 199, 145);
+					}
+				}
+			}
+		}
+		.p-menuitem-link {
+			color: #4b5563;
+			transition: color 0.15s ease-in-out;
+			font-weight: 400;
+			&:hover {
+				color: rgb(236, 199, 145);
+			}
+		}
+	
 	}
 }

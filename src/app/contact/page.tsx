@@ -1,7 +1,6 @@
 import { Metadata } from 'next'
 import styles from './contact.module.scss'
 import dynamic from 'next/dynamic'
-import { logVisits } from '@/utils/logVisits'
 
 const ContactForm = dynamic(() => import('./contactForm'), { ssr: false })
 
@@ -12,7 +11,6 @@ export const metadata: Metadata = {
 }
 
 export default function Contact() {
-	void logVisits('contact')
 	return (
 		<main className={styles.main}>
 			<ContactForm />

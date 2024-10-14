@@ -1,46 +1,48 @@
 'use client'
-import { signOut } from 'next-auth/react'
+import RouteTemplate from '@/components/Navbar/routeTemplate'
 import React, { useMemo } from 'react'
-import { useAppDispatch, useAppSelector } from '@/store/hooks'
 import { Menubar } from 'primereact/menubar'
 import styles from './Navbar.module.scss'
 import { usePathname, useRouter } from 'next/navigation'
 import classNames from 'classnames'
-import { MenuItem } from 'primereact/menuitem'
+import { MenuItem, type MenuItemOptions } from 'primereact/menuitem'
 import { setActivePath } from '@/utils/setActivePath'
-import { resetStore } from '@/store/store'
+import Image from 'next/image'
+
+
+
 
 const Navbar = () => {
 	const router = useRouter()
 	const pathname = usePathname()
-	const isAuthenticated = useAppSelector(state => state.user.isAuthenticated)
-	const dispatch = useAppDispatch()
-	const handleSignOut = async () => {
-		await signOut({ redirect: false })
-		setTimeout(() => {
-			dispatch(resetStore())
-			router.push('/')
-		}, 1000)
-	}
+	
+	
+	
 	const navBarItems = useMemo(() => {
 		const navItems: MenuItem[] = [
 			{
 				label: 'Home',
-				className: setActivePath(pathname, '/'),
-				command: () => router.push('/')
+				id: '/',
+				template: RouteTemplate
 			},
 			{
 				label: 'Biography',
-				className: setActivePath(pathname, '/biography'),
-				command: () => router.push('/biography')
+				id: '/biography',
+				template: RouteTemplate
 			},
 			{
 				template: () => {
-					return <div className="navbar_logo">Nika Brook</div>
+					return 	<Image
+						src="/logoHorizontal.svg"
+						alt="Volume"
+						width={235}
+						height={35}
+					/>
 				}
 			},
 			{
 				label: 'Media',
+				id: '/media',
 				className: classNames(
 					setActivePath(pathname, '/media/video'),
 					setActivePath(pathname, '/media/photo')
@@ -48,39 +50,32 @@ const Navbar = () => {
 				items: [
 					{
 						label: 'Video',
+						id: '/media/video',
 						className: 'sub-route-link',
-						command: () => router.push('/media/video')
+						// command: () => router.push('/media/video')
+						template: RouteTemplate
+						
 					},
 					{
 						label: 'Photo',
+						id: '/media/photo',
 						className: 'sub-route-link photo-link',
-						command: () => router.push('/media/photo')
+						// command: () => router.push('/media/photo')
+						template: RouteTemplate
 					}
 				]
 			},
 			{
 				label: 'Contact',
-				className: setActivePath(pathname, '/contact'),
-				command: () => router.push('/contact')
+				id: '/contact',
+				// className: setActivePath(pathname, '/contact'),
+				// command: () => router.push('/contact'),
+				template: RouteTemplate
 			},
-			{
-				label: 'Analytics',
-				visible: isAuthenticated,
-				command: () => router.push('/analytics')
-			},
-			{
-				visible: isAuthenticated,
-				template: () => {
-					return (
-						<button onClick={handleSignOut} className="logout_button">
-							Logout
-						</button>
-					)
-				}
-			}
 		]
 		return navItems
-	}, [pathname, isAuthenticated, router])
+	}, [pathname, router])
+	
 	return (
 		<div className={styles.root}>
 			<Menubar model={navBarItems} />

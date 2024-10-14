@@ -4,7 +4,7 @@ import { videos } from '@/app/media/video/data'
 import React from 'react'
 import { Skeleton } from 'primereact/skeleton'
 import dynamic from 'next/dynamic'
-import { logVisits } from '@/utils/logVisits'
+
 import { ScrollBarWrapper } from '@/components/Wrappers/ScrollBarWrapper/ScrollBarWrapper'
 
 const VideoGallery = dynamic(() => import('./components/VideoGallery'), {
@@ -20,7 +20,6 @@ export const metadata: Metadata = {
 }
 
 export default function Video() {
-	void logVisits('video')
 	return (
 		<ScrollBarWrapper height="100vh">
 			<title>{video.title}</title>

@@ -3,7 +3,6 @@ import styles from './biography.module.scss'
 import BioText from '@/app/biography/components/BioText'
 import BioRolesOfOpera from '@/app/biography/components/BioRolesOfOpera'
 import Image from 'next/image'
-import { logVisits } from '@/utils/logVisits'
 import { ScrollBarWrapper } from '@/components/Wrappers/ScrollBarWrapper/ScrollBarWrapper'
 import { DeviceTypeWrapper } from '@/components/Wrappers/DeviceTypeWrapper/DeviceTypeWrapper'
 
@@ -20,7 +19,6 @@ export const metadata: Metadata = {
 }
 
 const Biography: NextPage = () => {
-	void logVisits('biography')
 	return (
 		<ScrollBarWrapper className={styles.root}>
 			<div className={styles.biographyContainer}>
