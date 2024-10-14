@@ -54,23 +54,25 @@ export const VideoBackground = ({
 					Your browser does not support the video tag.
 				</video>
 				<div className={classes.volumeButtonWrapper}>
-					<button onClick={toggleMute}>
-						{muted ? (
-							<Image
-								src="/icons/volume-mute.svg"
-								alt="Mute"
-								width={24}
-								height={24}
-							/>
-						) : (
-							<Image
-								src="/icons/volume.svg"
-								alt="Volume"
-								width={24}
-								height={24}
-							/>
-						)}
-					</button>
+					<div>
+						<button onClick={toggleMute}>
+							{muted ? (
+								<Image
+									src="/icons/volume-mute.svg"
+									alt="Mute"
+									width={24}
+									height={24}
+								/>
+							) : (
+								<Image
+									src="/icons/volume.svg"
+									alt="Volume"
+									width={24}
+									height={24}
+								/>
+							)}
+						</button>
+					</div>
 				</div>
 			</div>
 		</div>

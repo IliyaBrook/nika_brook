@@ -1,4 +1,6 @@
 'use client'
+import NavBarLogo from '@/components/Navbar/components/navBarLogo/NavBarLogo'
+import SocialNetLinks from '@/components/Navbar/components/socialNetLinks/socialNetLinks'
 import RouteTemplate from '@/components/Navbar/routeTemplate'
 import React, { useMemo } from 'react'
 import { Menubar } from 'primereact/menubar'
@@ -27,14 +29,7 @@ const Navbar = () => {
 			},
 			{
 				className: 'logo',
-				template: () => {
-					return 	<Image
-						src="/logoHorizontal.svg"
-						alt="Volume"
-						width={235}
-						height={35}
-					/>
-				}
+				template: NavBarLogo
 			},
 			{
 				label: 'Media',
@@ -71,6 +66,7 @@ const Navbar = () => {
 	return (
 		<div className={styles.root}>
 			<Menubar model={navBarItems} />
+			<SocialNetLinks/>
 		</div>
 	)
 }

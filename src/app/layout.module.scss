@@ -6,8 +6,16 @@
     position: relative;
     z-index: 3;
   }
-  .main{
-    flex-grow: 1;
+  .scrollBar{
+    height: 100vh;
+    :global{
+      .p-scrollpanel-content{
+        display: flex;
+      }
+    }
+    .main{
+      flex-grow: 1;
+    }
   }
 }
 

@@ -1,0 +1,44 @@
+.socialNetLinks {
+	background-color: #f9fafb;
+	text-align: center;
+	display: flex;
+	justify-content: center;
+	gap: 20px;
+	padding: 5px 0 10px 0;
+	
+	:global{
+		a {
+			color: #000;
+			transition: color 0.3s ease;
+		}
+	}
+	
+	.facebookLink:hover {
+		color: #0866FF;
+	}
+	
+	.instagramLink:hover {
+		color: #FD3F26;
+	}
+	
+	.youtubeLink:hover {
+		color: #FF0000;
+	}
+	
+	.appleLink:hover {
+		color: #F32239;
+	}
+	
+	.spotifyLink:hover {
+		color: #1ED760;
+	}
+	
+	@media (max-width: 1199px) {
+		display: none;
+	}
+	
+	.icon {
+		width: 20px;
+		height: 20px;
+	}
+}

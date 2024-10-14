@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Baskervville, Inter, Poppins, Romanesco, Gideon_Roman, Luxurious_Roman, Open_Sans, Hedvig_Letters_Sans, Hedvig_Letters_Serif } from 'next/font/google'
+import { Baskervville, Poppins, Hedvig_Letters_Serif, Josefin_Sans } from 'next/font/google'
 
 import React from 'react'
 import StoreProvider from '@/app/StoreProvider'
@@ -22,6 +22,7 @@ const Navbar = dynamic(() => import('@/components/Navbar/Navbar'), {
 const poppins = Poppins({ subsets: ['latin'], weight: '300', display: 'swap', variable: '--font-poppins' })
 const baskerville = Baskervville({ subsets: ['latin'], weight: '400', display: 'swap', variable: '--font-baskerville' })
 const hedvigLettersSerif = Hedvig_Letters_Serif({ subsets: ['latin'], weight: '400', display: 'swap', variable: '--font-hedvig-letters-serif' })
+const josefinSans = Josefin_Sans({ subsets: ['latin'], weight: '400', display: 'swap', variable: '--font-josefin-sans' })
 
 export const metadata: Metadata = {
 	title: 'Media - Veronika Brook',
@@ -41,7 +42,8 @@ export default async function RootLayout({
 				className={classNames(
 					poppins.variable,
 					baskerville.variable,
-					hedvigLettersSerif.variable
+					hedvigLettersSerif.variable,
+					josefinSans.variable
 				)}
 			>
 				<body>
@@ -50,7 +52,7 @@ export default async function RootLayout({
 						<div className={styles.navbar}>
 							<Navbar />
 						</div>
-						<ScrollBarWrapper height='100vh'>
+						<ScrollBarWrapper className={styles.scrollBar}>
 							<div className={styles.main}>{children}</div>
 						</ScrollBarWrapper>
 					</div>
