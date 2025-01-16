@@ -1,3 +1,5 @@
+'use client'
+import type { AppRouterInstance } from 'next/dist/shared/lib/app-router-context.shared-runtime'
 import React from 'react'
 import { setActivePath } from '@/utils/setActivePath'
 import { usePathname, useRouter } from 'next/navigation'

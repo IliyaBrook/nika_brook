@@ -1,18 +1,34 @@
 'use client'
 import NavBarLogo from '@/components/Navbar/components/navBarLogo/NavBarLogo'
 import SocialNetLinks from '@/components/Navbar/components/socialNetLinks/socialNetLinks'
-import RouteTemplate from '@/components/Navbar/routeTemplate'
 import { setActivePath } from '@/utils/setActivePath'
 import classNames from 'classnames'
-import { usePathname } from 'next/navigation'
 import { Menubar } from 'primereact/menubar'
-import { MenuItem } from 'primereact/menuitem'
+import { MenuItem, type MenuItemOptions } from 'primereact/menuitem'
 import React, { useMemo } from 'react'
 import styles from './Navbar.module.scss'
+import { usePathname, useRouter } from 'next/navigation'
 
 
 const Navbar = () => {
 	const pathname = usePathname()
+	const router = useRouter()
+	
+	
+	const RouteTemplate = (item: MenuItem, options:MenuItemOptions) => {
+		const routeName = item.id;
+		return (
+			<a
+				className={classNames(
+					options.className,
+					setActivePath(pathname, routeName)
+				)}
+				onClick={() => router.push(routeName)}
+			>
+				{item.label}
+			</a>
+		);
+	}
 	
 	const navBarItems = useMemo(() => {
 		const navItems: MenuItem[] = [

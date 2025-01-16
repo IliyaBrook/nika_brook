@@ -26,9 +26,9 @@ const Biography: NextPage = () => {
 						src="/images/mediaPhoto/photo3.jpg"
 						alt="Veronika Brook, Soprano"
 						quality={75}
-						layout="responsive"
 						width={800}
 						height={600}
+						style={{ objectFit: 'cover' }}
 						priority
 					/>
 					<div className={styles.bioRolesOfOpera}>

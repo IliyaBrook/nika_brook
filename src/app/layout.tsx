@@ -1,3 +1,4 @@
+import Navbar from '@/components/Navbar/Navbar'
 import type { Metadata } from 'next'
 import { Baskervville, Poppins, Hedvig_Letters_Serif, Josefin_Sans } from 'next/font/google'
 
@@ -15,9 +16,9 @@ import 'primeicons/primeicons.css'
 import 'primeflex/primeflex.css'
 import dynamic from 'next/dynamic'
 
-const Navbar = dynamic(() => import('@/components/Navbar/Navbar'), {
-	ssr: false
-})
+// const Navbar = dynamic(() => import('@/components/Navbar/Navbar'), {
+// 	ssr: false
+// })
 // fonts
 const poppins = Poppins({ subsets: ['latin'], weight: '300', display: 'swap', variable: '--font-poppins' })
 const baskerville = Baskervville({ subsets: ['latin'], weight: '400', display: 'swap', variable: '--font-baskerville' })
