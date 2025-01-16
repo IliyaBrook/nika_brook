@@ -35,9 +35,11 @@ $font-title-sub-size: 1.5rem;
 			grid-area: imageContainer;
 			position: relative;
 			height: 60%;
+			width: auto;
 			
 			img {
 				max-width: 496px;
+				height: auto;
 				border-radius: 10px;
 				box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 			}
