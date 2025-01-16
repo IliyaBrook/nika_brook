@@ -1,6 +1,3 @@
-@import '@/app/shareableStyles/colors.scss';
-//$font-text: var(--font-open-sans);
-//$font-text: var(--font-gideon-roman);
 $font-text: var(--font-hedvig-letters-serif);
 $font-title: var(--font-baskerville);
 $font-text-size: 1.2em;
@@ -12,6 +9,7 @@ $font-title-sub-size: 1.5rem;
 	
 	.biographyContainer {
 		width: 100%;
+		height: auto;
 		display: grid;
 		grid-template:
 			'imageContainer biographyContent'
@@ -38,6 +36,7 @@ $font-title-sub-size: 1.5rem;
 			grid-area: imageContainer;
 			position: relative;
 			height: 60%;
+			
 			
 			img {
 				max-width: 496px;

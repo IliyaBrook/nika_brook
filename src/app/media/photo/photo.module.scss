@@ -1,4 +1,4 @@
-@import '@/app/shareableStyles/colors.scss';
+@use "@/app/shareableStyles/colors.scss" as colors;
 .main {
 	display: flex;
 	justify-content: center;
@@ -10,7 +10,7 @@
 		height: 100%;
 		width: 100vw;
 		position: relative;
-		@include bg-gradient();
+		@include colors.bg-gradient();
 	}
 	.carouselWrapper {
 		display: flex;
@@ -51,7 +51,7 @@
 	:global {
 		.p-carousel-content {
 			height: 100%;
-			@include bg-gradient();
+			@include colors.bg-gradient();
 			.p-carousel-container {
 				height: 90%;
 				.p-carousel-items-container {

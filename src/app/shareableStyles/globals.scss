@@ -1,5 +1,4 @@
-@import "@/app/shareableStyles/colors.scss";
-
+@use "@/app/shareableStyles/colors.scss" as colors;
 :root {
   --font-mono: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono",
   "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro",
@@ -18,8 +17,8 @@ body {
 }
 
 body {
-  color: $color-foreground-rgb;
-  background: $bg-main;
+  color: colors.$color-foreground-rgb;
+  background: colors.$bg-main;
   height: 100%;
   overflow: hidden;
   padding: 0;
