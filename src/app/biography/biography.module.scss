@@ -9,7 +9,6 @@ $font-title-sub-size: 1.5rem;
 	
 	.biographyContainer {
 		width: 100%;
-		height: auto;
 		display: grid;
 		grid-template:
 			'imageContainer biographyContent'
@@ -36,7 +35,6 @@ $font-title-sub-size: 1.5rem;
 			grid-area: imageContainer;
 			position: relative;
 			height: 60%;
-			
 			
 			img {
 				max-width: 496px;
