@@ -36,9 +36,9 @@ export async function POST(req: NextRequest) {
       JSON.stringify({ message: 'Email sent successfully' }),
       {
         status: 200,
-        headers: {
-          'Content-Type': 'application/json'
-        }
+          headers: {
+            'Content-Type': 'application/json'
+          }
       }
     )
   } catch (error) {
