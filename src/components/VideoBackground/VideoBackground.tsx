@@ -62,6 +62,7 @@ export const VideoBackground = ({
 									alt="Mute"
 									width={24}
 									height={24}
+									priority
 								/>
 							) : (
 								<Image
@@ -69,6 +70,7 @@ export const VideoBackground = ({
 									alt="Volume"
 									width={24}
 									height={24}
+									priority
 								/>
 							)}
 						</button>
