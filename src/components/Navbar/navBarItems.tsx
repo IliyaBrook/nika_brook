@@ -1,3 +1,4 @@
+import NavBarLogo from '@/components/Navbar/components/navBarLogo/NavBarLogo'
 import { setActivePath } from '@/utils/setActivePath'
 import classNames from 'classnames'
 import type { AppRouterInstance } from 'next/dist/shared/lib/app-router-context.shared-runtime'
@@ -34,7 +35,7 @@ const getNavBarItems = (pathname: string, router: AppRouterInstance): MenuItem[]
 		},
 		{
 			className: 'logo',
-			template
+			template: NavBarLogo
 		},
 		{
 			label: 'Media',

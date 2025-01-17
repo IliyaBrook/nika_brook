@@ -14,12 +14,7 @@ import 'primereact/resources/themes/lara-light-cyan/theme.css'
 import 'primereact/resources/primereact.min.css'
 import 'primeicons/primeicons.css'
 import 'primeflex/primeflex.css'
-import dynamic from 'next/dynamic'
 
-// const Navbar = dynamic(() => import('@/components/Navbar/Navbar'), {
-// 	ssr: false
-// })
-// fonts
 const poppins = Poppins({ subsets: ['latin'], weight: '300', display: 'swap', variable: '--font-poppins' })
 const baskerville = Baskervville({ subsets: ['latin'], weight: '400', display: 'swap', variable: '--font-baskerville' })
 const hedvigLettersSerif = Hedvig_Letters_Serif({ subsets: ['latin'], weight: '400', display: 'swap', variable: '--font-hedvig-letters-serif' })
@@ -28,7 +23,13 @@ const josefinSans = Josefin_Sans({ subsets: ['latin'], weight: '400', display: '
 export const metadata: Metadata = {
 	title: 'Media - Veronika Brook',
 	description:
-		'Explore media content featuring Veronika Brook, including her roles in various operas like Rigoletto, La traviata, and Die Zauberflote.'
+		'Explore media content featuring Veronika Brook, including her roles in various operas like Rigoletto, La traviata, and Die Zauberflote.',
+	keywords: [
+		'opera',
+		'coloratura soprano',
+		'music',
+		'israel artist'
+	],
 }
 
 export default async function RootLayout({

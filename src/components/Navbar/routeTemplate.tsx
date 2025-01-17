@@ -1,10 +1,9 @@
 'use client'
-import type { AppRouterInstance } from 'next/dist/shared/lib/app-router-context.shared-runtime'
-import React from 'react'
 import { setActivePath } from '@/utils/setActivePath'
+import classNames from 'classnames'
 import { usePathname, useRouter } from 'next/navigation'
 import { MenuItem, type MenuItemOptions } from 'primereact/menuitem'
-import classNames from 'classnames'
+import React from 'react'
 
 const RouteTemplate = (item: MenuItem, options:MenuItemOptions) => {
 	
