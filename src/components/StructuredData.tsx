@@ -1,28 +1,12 @@
 'use client'
-
 import Script from 'next/script'
 
-export function StructuredData() {
-	const schemaOrgJson = {
-		'@context': 'https://schema.org',
-		'@type': 'Person',
-		name: 'Veronika Brook',
-		voiceType: 'Soprano',
-		jobTitle: 'Opera Singer',
-		birthPlace: 'Estonia',
-		description: 'An accomplished soprano with a rich operatic repertoire...',
-		url: 'https://veronikabrook.com',
-		sameAs: [
-			'https://instagram.com/veronikabrook',
-			'https://youtube.com/veronikabrook'
-		]
-	}
-	
+export function StructuredData({ data }: {data: Record<string, any>}) {
 	return (
 		<Script
 			id="ld-json"
 			type="application/ld+json"
-			dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaOrgJson) }}
+			dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
 		/>
 	)
 }

@@ -37,21 +37,24 @@ export default function PhotoGalleria() {
 
   return (
     <div className={styles.carouselWrapper}>
-      {!imagesLoaded && (
-        <div className={styles.skeletonWrapper}>
-          <Skeleton height="70%" borderRadius="0" />
-        </div>
-      )}
-      <Carousel
-        value={dataImages}
-        numVisible={3}
-        style={{ display: imagesLoaded ? 'flex' : 'none' }}
-        orientation="horizontal"
-        verticalViewPortHeight="360px"
-        circular
-        itemTemplate={ItemTemplate}
-        responsiveOptions={responsiveOptions}
-      />
+      {imagesLoaded ? <>
+        <Carousel
+          value={dataImages}
+          numVisible={3}
+          style={{ display: imagesLoaded ? 'flex' : 'none' }}
+          orientation="horizontal"
+          verticalViewPortHeight="360px"
+          circular
+          itemTemplate={ItemTemplate}
+          responsiveOptions={responsiveOptions}
+        />
+      </> : (
+        <>
+          <div className={styles.skeletonWrapper}>
+            <Skeleton height="70%" borderRadius="0" />
+          </div>
+        </>
+        )}
     </div>
   )
 }

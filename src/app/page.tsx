@@ -8,6 +8,8 @@ export const metadata: Metadata = {
 		'Enjoy the art of Veronika Brook captured in performances and interviews.'
 }
 
+export const dynamic = 'force-static'
+
 export default async function Home() {
 	return (
 		<main className={styles.main}>

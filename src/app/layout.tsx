@@ -1,4 +1,5 @@
 import Navbar from '@/components/Navbar/Navbar'
+import { StructuredData } from '@/components/StructuredData'
 import type { Metadata } from 'next'
 import { Baskervville, Poppins, Hedvig_Letters_Serif, Josefin_Sans } from 'next/font/google'
 
@@ -30,6 +31,41 @@ export const metadata: Metadata = {
 		'music',
 		'israel artist'
 	],
+	openGraph: {
+		title: 'Media - Veronika Brook',
+		description: 'Explore media content featuring Veronika Brook.',
+		url: 'https://veronikabrook.com',
+		images: [
+			{
+				url: 'https://veronikabrook.com/images/mediaPhoto/photo3.jpg',
+				width: 469,
+				height: 700,
+				alt: 'Veronika Brook'
+			}
+		],
+		type: 'website'
+	},
+	robots: {
+		index: true,
+		follow: true
+	}
+}
+
+const schemaOrgJson = {
+	'@context': 'https://schema.org',
+	'@type': 'Person',
+	name: 'Veronika Brook',
+	voiceType: 'Soprano',
+	jobTitle: 'Opera Singer',
+	birthPlace: 'Estonia',
+	description: 'An accomplished soprano opera singer with a rich operatic repertoire...',
+	url: 'https://veronikabrook.com',
+	sameAs: [
+		'https://www.instagram.com/vero_nika_brook',
+		'https://www.youtube.com/channel/UCbNqjRLtT6dSh1qCWhIdxNw',
+		'https://music.apple.com/hu/artist/veronika-brook/1502987264',
+		'https://open.spotify.com/artist/0922dzQ9qrAJ1sTf1hf067'
+	]
 }
 
 export default async function RootLayout({
@@ -59,6 +95,7 @@ export default async function RootLayout({
 						</ScrollBarWrapper>
 					</div>
 				</StoreProvider>
+				<StructuredData data={schemaOrgJson} />
 				</body>
 			</html>
 		</PrimeReactProvider>
