@@ -1,4 +1,9 @@
 .root {
+	height:102.8px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	background-color:#f9fafb;
 	:global {
 		.p-menubar{
 			border: none;
@@ -75,7 +80,7 @@
 				}
 			}
 			.p-menubar-root-list{
-				margin: 25px 0 0 0;
+//				margin: 25px 0 0 0;
 			}
 		}
 		@media (max-width: 1199px) {

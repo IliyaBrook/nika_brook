@@ -24,7 +24,7 @@ export default function VideoGallery() {
 
   useEffect(() => {
     updateNumVisible()
-    window.addEventListener('resize', updateNumVisible)
+    window.addEventListener('resize', updateNumVisible, { passive: true })
     return () => {
       window.removeEventListener('resize', updateNumVisible)
     }
@@ -157,6 +157,8 @@ export default function VideoGallery() {
                 alt={video.title}
                 fill
                 className={styles.thumbnailImage}
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                priority
               />
               <div
                 className={styles.videoOverlay}
