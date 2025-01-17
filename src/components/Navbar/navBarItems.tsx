@@ -1,22 +1,23 @@
+import React from 'react'
+import Link from 'next/link'
 import NavBarLogo from '@/components/Navbar/components/navBarLogo/NavBarLogo'
 import { setActivePath } from '@/utils/setActivePath'
 import classNames from 'classnames'
 import type { AppRouterInstance } from 'next/dist/shared/lib/app-router-context.shared-runtime'
 import { MenuItem, type MenuItemOptions } from 'primereact/menuitem'
-import React from 'react'
 
 const RouteTemplate = (item: MenuItem, options:MenuItemOptions, pathname: string, router: AppRouterInstance) => {
 	const routeName = item.id;
 	return (
-		<a
+		<Link
 			className={classNames(
 				options.className,
 				setActivePath(pathname, routeName)
 			)}
-			onClick={() => router.push(routeName)}
+			href={routeName}
 		>
 			{item.label}
-		</a>
+		</Link>
 	);
 }
 

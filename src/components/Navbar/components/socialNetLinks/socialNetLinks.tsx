@@ -1,9 +1,10 @@
+import { FC } from 'react'
 import LinkIconWithToolTip from '@/components/Navbar/components/socialNetLinks/LinkIconWithToolTip'
 import { faApple, faFacebookF, faInstagram, faSpotify, faYoutube } from '@fortawesome/free-brands-svg-icons'
 import styles from './socialNetLinks.module.scss'
 
 
-export default function SocialNetLinks() {
+const SocialNetLinks: FC = () => {
 	return (
 		<div className={styles.socialNetLinks}>
 			<LinkIconWithToolTip
@@ -40,3 +41,5 @@ export default function SocialNetLinks() {
 		</div>
 	)
 }
+
+export default SocialNetLinks
