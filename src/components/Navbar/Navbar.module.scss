@@ -1,18 +1,19 @@
+@use "@/app/shareableStyles/colors.scss" as colors;
 .root {
 	height:102.8px;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-evenly;
-	background-color:#f9fafb;
+	background-color:colors.$bg-color-navbar;
 	:global {
 		.p-menubar{
 			border: none;
 			padding: 0;
 		}
-		.p-menubar .p-menubar-button:focus {
+		.p-menubar .p-menubar-button:focus, .p-menubar-button:hover {
 			box-shadow: none;
 			@media screen and (max-width: 960px) {
-				background-color: initial;
+				background-color: colors.$bg-color-navbar;
 			}
 		}
 		.p-menubar {
