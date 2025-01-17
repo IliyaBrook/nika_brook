@@ -11,6 +11,9 @@
 		}
 		.p-menubar .p-menubar-button:focus {
 			box-shadow: none;
+			@media screen and (max-width: 960px) {
+				background-color: initial;
+			}
 		}
 		.p-menubar {
 			border-radius: unset;
@@ -78,9 +81,6 @@
 						color: rgb(255, 255, 255);
 					}
 				}
-			}
-			.p-menubar-root-list{
-//				margin: 25px 0 0 0;
 			}
 		}
 		@media (max-width: 1199px) {
