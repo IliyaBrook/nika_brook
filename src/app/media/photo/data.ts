@@ -35,3 +35,18 @@ export const images = [
     alt: 'Portrait of Veronika Brook'
   }
 ]
+
+export const skeletonImages = [
+  {
+    itemImageSrc: '/images/skeleton.svg',
+    alt: 'loader 1'
+  },
+  {
+    itemImageSrc: '/images/skeleton.svg',
+    alt: 'loader 2'
+  },
+  {
+    itemImageSrc: '/images/skeleton.svg',
+    alt: 'loader 3'
+  },
+]

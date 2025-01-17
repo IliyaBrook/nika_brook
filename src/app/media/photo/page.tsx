@@ -1,4 +1,3 @@
-import { StructuredData } from '@/components/StructuredData'
 import { Metadata } from 'next'
 import MediaGalleria from '@/app/media/photo/components/PhotoGalleria'
 import styles from './photo.module.scss'
@@ -68,13 +67,10 @@ export const dynamic = 'force-static'
 
 export default function Photo() {
 	return (
-		<>
-			<StructuredData data={photoSchema} />
-			<div className={styles.main}>
-				<main>
-					<MediaGalleria />
-				</main>
-			</div>
-		</>
+		<div className={styles.main}>
+			<main>
+				<MediaGalleria />
+			</main>
+		</div>
 	)
 }
