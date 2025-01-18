@@ -1,26 +1,24 @@
-$font-text: var(--font-hedvig-letters-serif);
+$font-family: var(--font-hedvig-letters-serif);
 $font-title: var(--font-baskerville);
 $font-text-size: clamp(1.1rem, 1vw, 1.4rem);
 $font-line-height: 1.5;
 $bg-bio-color:#DBDFE0;
 $bg-sec-color:#F0EEEC;
+@mixin borederedContainer () {
+	background-color: $bg-sec-color;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	border-radius: 15px;
+}
 .root {
-//	height: 100%;
-//	font-family: $font-text;
-//
-//	.biographyContainer {
-//		width: 100%;
-//		display: grid;
-//		grid-template:
-//			'imageContainer biographyContent'
-//			'bioRolesOfOpera .' / auto;
-//		grid-template-rows: auto;
-//		padding: 2rem;
-//		gap: 0 2%;
-//		justify-content: space-evenly;
-//	}
+	:global{
+		img{
+			object-fit: cover;
+		}
+	}
 	p{
-		font-family: $font-text;
+		font-family: $font-family;
 		font-size: $font-text-size;
 		line-height: $font-line-height;
 		letter-spacing: 3px;
@@ -31,13 +29,9 @@ $bg-sec-color:#F0EEEC;
 	align-items: flex-start;
 	background-color: $bg-bio-color;
 	.bioSection1{
-		background-color: $bg-sec-color;
-		display: flex;
-		padding: 44px 74px 44px 44px;
-		justify-content: center;
-		align-items: center;
+		@include borederedContainer();
 		gap: 100px;
-		border-radius: 15px;
+		padding: 44px 74px 44px 44px;
 		.bioSection1Img{
 			position: relative;
 			width: 486px;
@@ -49,6 +43,27 @@ $bg-sec-color:#F0EEEC;
 			flex-direction: column;
 			justify-content: center;
 			align-items: flex-start;
+		}
+	}
+	.bioSection2{
+		@include borederedContainer();
+		padding: 44px;
+		gap: 20px;
+		.bioSection2Imgs{
+			width: 50%;
+			.bioSection2Img1{
+				position: relative;
+				width: 845px;
+				height: 454px;
+			}
+			.bioSection2Img2{
+				position: relative;
+				width: 845px;
+				height: 499px;
+			}
+		}
+		.bioSection2Text{
+			width: 50%;
 		}
 	}
 	@media (min-width: 1040px) {
