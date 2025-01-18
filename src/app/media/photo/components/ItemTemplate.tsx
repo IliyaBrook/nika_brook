@@ -4,6 +4,7 @@ import classNames from 'classnames'
 import { Image as PrimeImage } from 'primereact/image'
 import React, { type FC, useRef } from 'react'
 
+
 export const ItemTemplate: FC<ImageItem> = (items: ImageItem) => {
 	const imagesCounter = useRef(0)
 	const isMounted = useRef(false)
@@ -14,7 +15,7 @@ export const ItemTemplate: FC<ImageItem> = (items: ImageItem) => {
 					src={items?.itemImageSrc}
 					alt={items?.alt}
 					preview
-					loading='lazy'
+					loading='eager'
 					className={styles.img}
 					pt={{
 						hooks: {
@@ -22,6 +23,7 @@ export const ItemTemplate: FC<ImageItem> = (items: ImageItem) => {
 								imagesCounter.current++
 								if (imagesCounter.current >= 3 && isMounted.current === false) {
 									isMounted.current = true
+		
 									const photoCarouselState = document.querySelector('[carousel-data-ready="false"]')
 									if (photoCarouselState) {
 										photoCarouselState.setAttribute('carousel-data-ready', 'true')

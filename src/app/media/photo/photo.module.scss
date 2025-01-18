@@ -50,43 +50,21 @@
 	height: 100%;
 	:global {
 		.p-carousel-content {
-//			height: 100%;
-			height: 85vh!important;
+			height: 100%;
 			@include colors.bg-gradient();
 			.p-carousel-container {
-				display: flex!important;
-				flex-direction: row!important;
 				height: 90%;
-				
 				.p-carousel-items-container {
 					height: 100%;
 					.p-carousel-item {
 						display: flex;
 						align-items: center;
 					}
-					
-				}
-				
-			}
-			@media (min-width: 767px) {
-
-				.p-carousel-container {
-					.p-carousel-items-container {
-						display: flex !important;
-						flex-direction: row !important;
-						.p-carousel-item{
-							display: flex !important;
-							flex: 1 0 33.333333333333336%!important;
-						}
+					@medi (min-width: 571px) {
+						display: flex!important;
+						flex-direction: row!important;
 					}
 				}
-				.p-carousel-indicators{
-					display: flex!important;
-					flex-direction: row!important;
-					justify-content: center!important;
-					flex-wrap: wrap!important;
-				}
-				height: 85vh!important;
 			}
 		}
 	}

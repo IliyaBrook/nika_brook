@@ -1,6 +1,7 @@
 'use client'
+import dynamic from 'next/dynamic'
 import React, { useEffect, useRef, useState } from 'react'
-import { Galleria } from 'primereact/galleria'
+import { Galleria as GalleriaComponent } from 'primereact/galleria'
 import { VideoItem } from '@/app/media/types.images'
 import styles from '../video.module.scss'
 import { videos } from '@/app/media/video/data'
@@ -8,9 +9,15 @@ import Image from 'next/image'
 import classNames from 'classnames'
 import 'primeicons/primeicons.css'
 
+const Galleria = (dynamic(
+  () => import('primereact/galleria').then(({ Galleria }) => Galleria),
+  { ssr: false }
+) as typeof GalleriaComponent)
+
+
 export default function VideoGallery() {
   const [activeIndex, setActiveIndex] = useState<number>(0)
-  const galleria = useRef<Galleria>(null)
+  const galleriaRef = useRef<GalleriaComponent>(null)
   const visibleItems = 3
   const [numVisible, setNumVisible] = useState<number>(5)
 
@@ -53,10 +60,10 @@ export default function VideoGallery() {
 
       if (
         !galleriaElement &&
-        galleria.current &&
-        typeof galleria.current.hide === 'function'
+        galleriaRef.current &&
+        typeof galleriaRef.current.hide === 'function'
       ) {
-        galleria.current.hide()
+        galleriaRef.current.hide()
       }
     }
 
@@ -80,7 +87,7 @@ export default function VideoGallery() {
             setActiveIndex(
               videos.findIndex((v) => v.youtubeId === item.youtubeId)
             )
-            galleria.current.show()
+            galleriaRef.current.show()
           }}
         />
         <div className={styles.videoTitle}>{item.title}</div>
@@ -113,13 +120,13 @@ export default function VideoGallery() {
     }
 
     setActiveIndex(index)
-    galleria.current.show()
+    galleriaRef.current.show()
   }
   return (
     <>
       <Galleria
         className={styles.galleria}
-        ref={galleria}
+        ref={galleriaRef}
         value={videos}
         numVisible={numVisible}
         activeIndex={activeIndex}

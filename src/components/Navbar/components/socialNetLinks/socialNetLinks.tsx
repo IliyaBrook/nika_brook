@@ -1,12 +1,15 @@
-import { FC } from 'react'
+import React, { type ReactHTMLElement, type RefObject } from 'react'
 import LinkIconWithToolTip from '@/components/Navbar/components/socialNetLinks/LinkIconWithToolTip'
 import { faApple, faFacebookF, faInstagram, faSpotify, faYoutube } from '@fortawesome/free-brands-svg-icons'
 import styles from './socialNetLinks.module.scss'
 
 
-const SocialNetLinks: FC = () => {
+const SocialNetLinks: React.FC = ({ref}: {ref:React.Ref<HTMLDivElement>}) => {
 	return (
-		<div className={styles.socialNetLinks}>
+		<div
+			className={styles.socialNetLinks}
+			ref={ref}
+		>
 			<LinkIconWithToolTip
 				href='https://www.facebook.com/profile.php?id=100004158911717'
 				classNameLink={styles.facebookLink}
