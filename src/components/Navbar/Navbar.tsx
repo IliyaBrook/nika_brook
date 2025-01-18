@@ -1,10 +1,11 @@
 'use client'
 import SocialNetLinks from '@/components/Navbar/components/socialNetLinks/socialNetLinks'
-import getNavBarItems from '@/components/Navbar/navBarItems'
+import getNavBarItems, { navBarSkeleton } from '@/components/Navbar/navBarItems'
 import dynamic from 'next/dynamic'
-import { usePathname, useRouter } from 'next/navigation'
+import { usePathname } from 'next/navigation'
 import { Menubar as MenubarComponent } from 'primereact/menubar'
-import React, { type ReactHTMLElement, type RefObject, useEffect, useMemo, useRef } from 'react'
+import { Skeleton } from 'primereact/skeleton'
+import React, { useEffect, useMemo, useState } from 'react'
 import styles from './Navbar.module.scss'
 
 const Menubar = (dynamic(
@@ -13,22 +14,14 @@ const Menubar = (dynamic(
 ) as typeof MenubarComponent)
 
 const Navbar = () => {
-	const menuBarListRef = useRef<HTMLUListElement | null>(null);
-	const socialNetLinksRef = useRef<HTMLDivElement | null>(null);
-	
-	// p-menubar-root-list
+	const [isMenuNavReady, setMenuNavReady] = useState<boolean>(false)
 	useEffect(() => {
 		const observer = new MutationObserver(mutationsList => {
 			for (const mutation of mutationsList) {
 				if (mutation.type === 'attributes') {
 					if ((mutation?.target as Element).classList.contains('p-menubar-root-list')) {
-						// console.log("is menu exist:", mutation?.target)
-						menuBarListRef.current = mutation.target as HTMLUListElement
+						setTimeout(() => setMenuNavReady(true), 1000)
 					}
-					// if ((mutation?.target as Element).classList.contains('socialNetLinks')) {
-					// 	// console.log("is menu socialNetLinks exist:", socialNetLinksRef.current)
-					// 	menuBarListRef.current = mutation.target as HTMLUListElement
-					// }
 				}
 			}
 		})
@@ -39,21 +32,33 @@ const Navbar = () => {
 		}
 	}, [])
 	
-	useEffect(() => {
-		console.log("menuBarListRef.current:", menuBarListRef.current) 
-		console.log("socialNetLinksRef.current:", socialNetLinksRef.current)
-		
-		
-	}, [menuBarListRef.current, socialNetLinksRef.current])
-	
 	const pathname = usePathname()
-	const router = useRouter()
-	const navBarItems = useMemo(() => getNavBarItems(pathname, router), [pathname])
-	
+	const navBarItems = useMemo(() => getNavBarItems(pathname), [pathname])
 	return (
 		<div className={styles.root}>
-			<Menubar model={navBarItems} />
-			<SocialNetLinks  ref={socialNetLinksRef}/>
+			<div className={styles.navMenuWrapper}>
+				<Menubar model={isMenuNavReady ? navBarItems : []} />
+				{
+					!isMenuNavReady && (
+						<div className={styles.skeletonSOcialLinksWrapper}>
+							{navBarSkeleton.map((elem, idx) => <div key={`nav-skeleton-${idx}`}>{elem.template}</div>)}
+						</div>
+					)
+				}
+			</div>
+			<div className={styles.socialLinksWrapper}>
+				{isMenuNavReady ? (
+					<SocialNetLinks />
+				) : (
+					<div className={styles.socialLinksSkeleton}>
+						<Skeleton
+							width={'180px'}
+							height={'30px'}
+							className={styles.socialLinksSkeleton}
+						/>
+					</div>
+				)}
+			</div>
 		</div>
 	)
 }

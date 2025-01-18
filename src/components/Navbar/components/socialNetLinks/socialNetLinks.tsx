@@ -1,15 +1,12 @@
-import React, { forwardRef, type ReactHTMLElement, type RefObject } from 'react'
+import React from 'react'
 import LinkIconWithToolTip from '@/components/Navbar/components/socialNetLinks/LinkIconWithToolTip'
 import { faApple, faFacebookF, faInstagram, faSpotify, faYoutube } from '@fortawesome/free-brands-svg-icons'
 import styles from './socialNetLinks.module.scss'
 
-const SocialNetLinks = forwardRef<HTMLDivElement>(( _props, ref) => {
+const SocialNetLinks = () => {
 	
 	return (
-		<div
-			className={styles.socialNetLinks}
-			ref={ref}
-		>
+		<div className={styles.socialNetLinks} id="socialNetLinksContainer">
 			<LinkIconWithToolTip
 				id='facebookLink'
 				href='https://www.facebook.com/profile.php?id=100004158911717'
@@ -48,6 +45,6 @@ const SocialNetLinks = forwardRef<HTMLDivElement>(( _props, ref) => {
 			/>
 		</div>
 	)
-})
+}
 
 export default SocialNetLinks

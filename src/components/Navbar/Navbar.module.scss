@@ -1,30 +1,38 @@
 @use "@/app/shareableStyles/colors.scss" as colors;
+
 .root {
-	height:102.8px;
+	height: 102.8px;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-evenly;
-	background-color:colors.$bg-color-navbar;
+	background-color:colors.$bg-color-navbar
+;
+	
 	:global {
-		.p-menubar{
+		.p-menubar {
 			border: none;
 			padding: 0;
 		}
+		
 		.p-menubar .p-menubar-button:focus, .p-menubar-button:hover {
 			box-shadow: none;
 			@media screen and (max-width: 960px) {
 				background-color: colors.$bg-color-navbar;
 			}
 		}
+		
 		.p-menubar {
 			border-radius: unset;
 		}
+		
 		.p-submenu-list {
 			padding: 0;
 		}
+		
 		.photo-link {
 			margin-top: 3px;
 		}
+		
 		.p-menuitem-content,
 		.p-menuitem-link:active,
 		.p-menuitem-link:focus-visible {
@@ -33,7 +41,7 @@
 			color: inherit !important;
 			box-shadow: none !important;
 		}
-
+		
 		.p-menubar-root-list {
 			width: 100%;
 			justify-content: space-around;
@@ -43,10 +51,12 @@
 			color: #4b5563;
 			transition: color 0.15s ease-in-out;
 			font-weight: 400;
+			
 			&:hover {
 				color: rgb(236, 199, 145);
 			}
 		}
+		
 		@media (min-width: 1199px) {
 			.sub-route-link {
 				&:hover {
@@ -55,10 +65,11 @@
 				}
 			}
 			
-			.active-route{
+			.active-route {
 				transition: color 0.15s ease-in-out;
 				font-weight: 400;
 				color: rgb(236, 199, 145);
+				
 				.p-menuitem-text {
 					color: rgb(236, 199, 145);
 				}
@@ -70,8 +81,10 @@
 				justify-content: space-between;
 				font-size: 14px;
 				line-height: 1.2;
+				
 				li {
 					list-style: none;
+					
 					a {
 						box-sizing: border-box;
 						background-color: "transparent";
@@ -86,11 +99,37 @@
 		}
 		@media (max-width: 1199px) {
 			.logo {
-				display:none;
+				display: none;
 			}
-			.p-submenu-list{
+			.p-submenu-list {
 				margin-left: 1em;
 			}
 		}
+		
+		@media (max-width: 767px) {
+			.nav-bar-skeleton-title {
+				display: none;
+			}
+		}
+	}
+	
+	.socialLinksSkeleton {
+		display: flex;
+		justify-content: center;
+		@media (max-width: 767px) {
+			display: none;
+		}
+	}
+}
+
+
+@media (min-width: 767px) {
+	.navMenuWrapper {
+		min-height: 40px;
+	}
+	.skeletonSOcialLinksWrapper{
+		display: flex;
+		width: 100%;
+		justify-content: space-around;
 	}
 }

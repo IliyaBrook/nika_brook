@@ -1,12 +1,12 @@
-import React from 'react'
-import Link from 'next/link'
 import NavBarLogo from '@/components/Navbar/components/navBarLogo/NavBarLogo'
 import { setActivePath } from '@/utils/setActivePath'
 import classNames from 'classnames'
-import type { AppRouterInstance } from 'next/dist/shared/lib/app-router-context.shared-runtime'
+import Link from 'next/link'
 import { MenuItem, type MenuItemOptions } from 'primereact/menuitem'
+import { Skeleton } from 'primereact/skeleton'
+import React from 'react'
 
-const RouteTemplate = (item: MenuItem, options:MenuItemOptions, pathname: string, router: AppRouterInstance) => {
+const RouteTemplate = (item: MenuItem, options:MenuItemOptions, pathname: string) => {
 	const routeName = item.id;
 	return (
 		<Link
@@ -21,8 +21,8 @@ const RouteTemplate = (item: MenuItem, options:MenuItemOptions, pathname: string
 	);
 }
 
-const getNavBarItems = (pathname: string, router: AppRouterInstance): MenuItem[] => {
-	const template = (item: MenuItem, options: MenuItemOptions) => RouteTemplate(item, options, pathname, router)
+const getNavBarItems = (pathname: string): MenuItem[] => {
+	const template = (item: MenuItem, options: MenuItemOptions) => RouteTemplate(item, options, pathname)
 	return [
 		{
 			label: 'Home',
@@ -68,5 +68,23 @@ const getNavBarItems = (pathname: string, router: AppRouterInstance): MenuItem[]
 		},
 	]
 }
+
+export const navBarSkeleton = [
+	{
+		template: <Skeleton width="100px" height="30px" className="nav-bar-skeleton"/>
+	},
+	{
+		template: <Skeleton width="100px" height="30px" className="nav-bar-skeleton"/>
+	},
+	{
+		template: <Skeleton width={'180px'} height={'30px'} className="nav-bar-skeleton-title"/>
+	},
+	{
+		template: <Skeleton width="100px" height="30px" className="nav-bar-skeleton"/>,
+	},
+	{
+		template: <Skeleton width="100px" height="30px" className="nav-bar-skeleton"/>,
+	},
+]
 
 export default getNavBarItems
