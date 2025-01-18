@@ -28,6 +28,7 @@ const Biography: NextPage = () => {
 							fill
 							sizes='(max-width: 768px) 100vw, (max-width: 1200px) 70vw, 50vw'
 							priority
+							className={styles.bioImage}
 						/>
 					</div>
 					<div className={styles.bioSection1Text}>
@@ -91,21 +92,33 @@ const Biography: NextPage = () => {
 								src="/images/bioPage/bio_sec_2_1.jpg"
 								alt="Biography page image section 2.1"
 								fill
-								className={styles.thumbnailImage}
 								sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
 								priority
+								className={styles.bioImage}
 							/>
 						</div>
 						<div className={styles.bioSection2Img2}>
 							<Image
-								src="/images/bioPage/bio_sec_3.jpg"
+								src="/images/bioPage/bio_sec_2_2.jpg"
 								alt="Biography page image section 3"
 								fill
-								className={styles.thumbnailImage}
 								sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 60vw"
 								priority
+								className={styles.bioImage}
 							/>
 						</div>
+					</div>
+				</div>
+				<div className={styles.bioSection3}>
+					<div className={styles.bioSection3Img}>
+						<Image
+							src="/images/bioPage/bio_sec_3.jpg"
+							alt="Biography page image section 3"
+							fill
+							className={styles.bioImage}
+							sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 80vw"
+							priority
+						/>
 					</div>
 				</div>
 			</div>
