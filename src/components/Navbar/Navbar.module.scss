@@ -5,8 +5,7 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: space-evenly;
-	background-color:colors.$bg-color-navbar
-;
+	background-color:colors.$bg-color-navbar;
 	
 	:global {
 		.p-menubar {
@@ -107,7 +106,7 @@
 		}
 		
 		@media (max-width: 767px) {
-			.nav-bar-skeleton-title {
+			.nav-bar-skeleton-title, .nav-bar-skeleton {
 				display: none;
 			}
 		}
@@ -124,6 +123,9 @@
 
 
 @media (min-width: 767px) {
+	.root {
+		padding-top:10px;
+	}
 	.navMenuWrapper {
 		min-height: 40px;
 	}
