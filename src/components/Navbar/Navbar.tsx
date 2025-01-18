@@ -13,13 +13,24 @@ const Menubar = (dynamic(
 ) as typeof MenubarComponent)
 
 const Navbar = () => {
-	const menuBarListRef = useRef<React.Ref<HTMLUListElement>>(null)
-	const socialNetLinksRef = useRef<React.Ref<HTMLDivElement>>(null)
+	const menuBarListRef = useRef<HTMLUListElement | null>(null);
+	const socialNetLinksRef = useRef<HTMLDivElement | null>(null);
 	
 	// p-menubar-root-list
 	useEffect(() => {
 		const observer = new MutationObserver(mutationsList => {
-		
+			for (const mutation of mutationsList) {
+				if (mutation.type === 'attributes') {
+					if ((mutation?.target as Element).classList.contains('p-menubar-root-list')) {
+						// console.log("is menu exist:", mutation?.target)
+						menuBarListRef.current = mutation.target as HTMLUListElement
+					}
+					// if ((mutation?.target as Element).classList.contains('socialNetLinks')) {
+					// 	// console.log("is menu socialNetLinks exist:", socialNetLinksRef.current)
+					// 	menuBarListRef.current = mutation.target as HTMLUListElement
+					// }
+				}
+			}
 		})
 		if (observer) {
 			try {
@@ -28,6 +39,13 @@ const Navbar = () => {
 		}
 	}, [])
 	
+	useEffect(() => {
+		console.log("menuBarListRef.current:", menuBarListRef.current) 
+		console.log("socialNetLinksRef.current:", socialNetLinksRef.current)
+		
+		
+	}, [menuBarListRef.current, socialNetLinksRef.current])
+	
 	const pathname = usePathname()
 	const router = useRouter()
 	const navBarItems = useMemo(() => getNavBarItems(pathname, router), [pathname])
@@ -35,7 +53,7 @@ const Navbar = () => {
 	return (
 		<div className={styles.root}>
 			<Menubar model={navBarItems} />
-			<SocialNetLinks socialNetLinksRef={socialNetLinksRef}/>
+			<SocialNetLinks  ref={socialNetLinksRef}/>
 		</div>
 	)
 }

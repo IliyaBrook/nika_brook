@@ -12,13 +12,15 @@ interface ILinkIconWithToolTip {
 	icon: IconDefinition,
 	href: string,
 	tooltipText: string
+	id?: string
 }
 
 const LinkIconWithToolTip: React.FC<ILinkIconWithToolTip> = ({
 	                                                             classNameLink,
 	                                                             tooltipText,
 	                                                             href = '#',
-	                                                             icon
+	                                                             icon,
+	                                                             id
                                                              }) => {
 	const classNameTarget = `${styles.icon}_target`
 	return (
@@ -28,6 +30,7 @@ const LinkIconWithToolTip: React.FC<ILinkIconWithToolTip> = ({
 			rel='noopener noreferrer'
 			className={classNameLink}
 			data-text={tooltipText}
+			id={id}
 		>
          <span
 	         className={classNames(styles.icon, classNameTarget)}
