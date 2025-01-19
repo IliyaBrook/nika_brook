@@ -5,7 +5,7 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: space-evenly;
-	background-color:colors.$bg-color-navbar;
+	background-color: #{colors.$bg-color-navbar};
 	
 	:global {
 		.p-menubar {
@@ -16,7 +16,7 @@
 		.p-menubar .p-menubar-button:focus, .p-menubar-button:hover {
 			box-shadow: none;
 			@media screen and (max-width: 960px) {
-				background-color: colors.$bg-color-navbar;
+				background-color: #{colors.$bg-color-navbar};
 			}
 		}
 		
@@ -86,7 +86,7 @@
 					
 					a {
 						box-sizing: border-box;
-						background-color: "transparent";
+						background-color: transparent;
 						text-decoration: none;
 						text-transform: uppercase;
 						letter-spacing: 3px;
