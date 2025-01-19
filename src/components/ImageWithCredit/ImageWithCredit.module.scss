@@ -1,0 +1,10 @@
+$font-family: var(--font-hedvig-letters-serif);
+.imageWithCredit{
+	position: relative;
+}
+.credit{
+	position: absolute;
+	font-family: $font-family;
+	font-size: clamp(10px, 1vw, 48px);
+	bottom: 0.5vw;
+}

@@ -72,22 +72,25 @@ $bg-sec-color: #F0EEEC;
 			display: flex;
 			flex-direction: column;
 			gap: 1rem;
-			.bioSection2Img1{
-				height: clamp(200px, 30vw, 508px)
-			}
+			
+			.bioSection2Img1,
 			.bioSection2Img2 {
-				height: clamp(200px, 30vw, 558px)
-			}
-			.bioSection2Img2,.bioSection2Img1 {
 				position: relative;
 				width: 100%;
+			}
+			.bioSection2Img1 {
+				height: clamp(200px, 30vw, 500px);
+				width: 100%;
+			}
+			.bioSection2Img2 {
+				height: clamp(200px, 30vw, 500px);
+				width: 113%;
 			}
 		}
 	}
 	
 	.bioSection3 {
 		@include borederedContainer();
-		padding: 44px;
 		gap: 20px;
 		
 		.bioSection3Text {
@@ -97,9 +100,10 @@ $bg-sec-color: #F0EEEC;
 		.bioSection3Img {
 			position: relative;
 			width: 100%;
-			height: clamp(650px, 30vw, 70px);
+			height: 852.931px;
 			
 			.bioImage {
+				align-self: stretch;
 				object-fit: cover;
 			}
 		}

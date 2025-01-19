@@ -1,3 +1,4 @@
+import ImageWithCredit from '@/components/ImageWithCredit/ImageWithCredit'
 import classNames from 'classnames'
 import { Metadata, NextPage } from 'next'
 import Image from 'next/image'
@@ -22,16 +23,18 @@ const Biography: NextPage = () => {
 		<div className={styles.root}>
 			<div className={styles.biographyContainer}>
 				<div className={styles.bioSection1}>
-					<div className={styles.bioSection1Img}>
-						<Image
-							src='/images/bioPage/bio_sec_1.jpg'
-							alt='Biography page image 1'
-							fill
-							sizes='(max-width: 768px) 100vw, (max-width: 1200px) 70vw, 50vw'
-							priority
-							className={styles.bioImage}
-						/>
-					</div>
+					<ImageWithCredit
+						className={styles.bioSection1Img}
+						creditText='Yossi Zwecker'
+						imageProps={{
+							src: '/images/bioPage/bio_sec_1.jpg',
+							alt: 'Biography page image 1',
+							fill: true,
+							sizes:'(max-width: 768px) 100vw, (max-width: 1200px) 70vw, 50vw',
+							priority: true,
+							className: styles.bioImage
+						}}
+					/>
 					<div className={styles.bioSection1Text}>
 						<p>
 							Veronika Brook began her career performing a wide range of operatic roles, showcasing her versatility and
@@ -88,39 +91,45 @@ const Biography: NextPage = () => {
 						</p>
 					</div>
 					<div className={styles.bioSection2Imgs}>
-						<div className={styles.bioSection2Img1}>
-							<Image
-								src="/images/bioPage/bio_sec_2_1.jpg"
-								alt="Biography page image section 2.1"
-								fill
-								sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-								priority
-								className={styles.bioImage}
-							/>
-						</div>
-						<div className={styles.bioSection2Img2}>
-							<Image
-								src="/images/bioPage/bio_sec_2_2.jpg"
-								alt="Biography page image section 3"
-								fill
-								sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 60vw"
-								priority
-								className={styles.bioImage}
-							/>
-						</div>
+						<ImageWithCredit
+							className={styles.bioSection2Img1}
+							creditText='Yossi Zwecker'
+							imageProps={{
+								src: '/images/bioPage/bio_sec_2_1.jpg',
+								alt: 'Biography page image section 2.1',
+								fill: true,
+								sizes: '(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw',
+								priority: true,
+								className: styles.bioImage
+							}}
+						/>
+						<ImageWithCredit
+							className={styles.bioSection2Img2}
+							creditText='Yossi Zwecker'
+							imageProps={{
+								src: '/images/bioPage/bio_sec_2_2.jpg',
+								alt: 'Biography page image section 2.2',
+								fill: true,
+								className: styles.bioImage,
+								sizes: '(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw',
+								priority: true
+							}}
+						/>
 					</div>
 				</div>
 				<div className={styles.bioSection3}>
-					<div className={classNames(styles.bioSection3Img, styles.bioDesktopImage)}>
-						<Image
-							src="/images/bioPage/bio_sec_3.jpg"
-							alt="Biography page image section 3"
-							fill
-							className={styles.bioImage}
-							sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 80vw"
-							priority
-						/>
-					</div>
+					<ImageWithCredit
+						className={classNames(styles.bioSection3Img, styles.bioDesktopImage)}
+						creditText='Yoel Levy'
+						imageProps={{
+							src: '/images/bioPage/bio_sec_3.jpg',
+							alt: 'Biography page image section 3',
+							fill: true,
+							className: styles.bioImage,
+							sizes: '(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 80vw',
+							priority: true
+						}}
+					/>
 				</div>
 			</div>
 		</div>
