@@ -2,9 +2,10 @@ $font-family: var(--font-hedvig-letters-serif);
 $font-title: var(--font-baskerville);
 $font-text-size: clamp(1.1rem, 1vw, 1.4rem);
 $font-line-height: 1.5;
-$bg-bio-color:#DBDFE0;
-$bg-sec-color:#F0EEEC;
-@mixin borederedContainer () {
+$bg-bio-color: #DBDFE0;
+$bg-sec-color: #F0EEEC;
+
+@mixin borederedContainer() {
 	background-color: $bg-sec-color;
 	display: flex;
 	justify-content: space-between;
@@ -12,112 +13,127 @@ $bg-sec-color:#F0EEEC;
 	border-radius: 15px;
 	margin-bottom: 50px;
 }
+@mixin flexColBetween() {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	@media (min-width: 768px) {
+		width: 50%;
+	}
+}
+
 .root {
-	.bioImage{
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	background-color: $bg-bio-color;
+	
+	.bioImage {
 		object-fit: cover;
 	}
-	p{
+	
+	p {
 		font-family: $font-family;
 		font-size: $font-text-size;
 		line-height: $font-line-height;
 		letter-spacing: 3px;
 		font-weight: 500;
 	}
-	display: flex;
-	flex-direction: column;
-	align-items: flex-start;
-	background-color: $bg-bio-color;
-	.bioSection1{
+	
+	.bioSection1 {
 		@include borederedContainer();
 		gap: 100px;
 		padding: 44px 74px 44px 44px;
-		.bioSection1Img{
+		
+		.bioSection1Img {
 			position: relative;
-			width: 486px;
-			height: 750px;
+			width:clamp( 300px, 48vw, 486px);
+			height: clamp( 650px, 48vw, 850px);
 		}
-		.bioSection1Text{
-//			display: flex;
-//			width: 50%;
-//			flex-direction: column;
-//			justify-content: center;
-//			align-items: flex-start;
-			width: 50%;
-			display: flex;
-			flex-direction: column;
-			height: 100%;
-			justify-content: space-between;
+		
+		.bioSection1Text {
 			align-items: flex-start;
-			
+			@include flexColBetween()
 		}
 	}
-	.bioSection2{
+	
+	.bioSection2 {
 		@include borederedContainer();
 		padding: 44px;
 		gap: 20px;
-		.bioSection2Imgs{
+		
+		.bioSection2Text {
+			@include flexColBetween();
+			align-items: flex-start;
+		}
+		
+		.bioSection2Imgs {
 			width: 50%;
 			display: flex;
 			flex-direction: column;
 			gap: 1rem;
-			.bioSection2Img1{
+			.bioSection2Img1,
+			.bioSection2Img2 {
 				position: relative;
-				width: 756px;
-				height: 460px;
-				
+				width: 100%;
+				height: clamp( 200px, 30vw, 500px);
 			}
-			.bioSection2Img2{
-				position: relative;
-				width: 760px;
-				height: 386px;
-			}
-		}
-		.bioSection2Text{
-			width: 50%;
-			display: flex;
-			flex-direction: column;
-			height: 100%;
-			justify-content: space-between;
-			align-items: flex-start;
 		}
 	}
-	.bioSection3{
+	
+	.bioSection3 {
 		@include borederedContainer();
 		padding: 44px;
 		gap: 20px;
-		.bioSection3Text{
-			width: 50%;
-			display: flex;
-			flex-direction: column;
-			height: 100%;
-			justify-content: space-between;
+		
+		.bioSection3Text {
+			@include flexColBetween();
 		}
-		.bioSection3Img{
+		
+		.bioSection3Img {
 			position: relative;
-			height: 852.931px;
 			width: 100%;
-			.bioImage{
+			height: 852.931px;
+			
+			.bioImage {
 				align-self: stretch;
 				object-fit: cover;
 			}
 		}
 	}
+	
 	@media (min-width: 1040px) {
-		padding: 80px 120px 150px 120px
+		padding: 80px 120px 150px 120px;
 	}
 	
-	@media (max-width: 1040px) {
-	
-	}
-	
-	@media (max-width: 380px) {
-	
-	}
-	
-	@media (max-width: 460px) {
-	
+	@media (max-width: 768px) {
+		.bioSection1,
+		.bioSection2,
+		.bioSection3 {
+			@include borederedContainer();
+			background-color: transparent;
+			border-radius: 0;
+			margin-bottom: 30px;
+			flex-direction: column;
+			gap: 20px;
+			padding: 20px;
+		}
+		
+		.bioSection1Text,
+		.bioSection2Text,
+		.bioSection3Text {
+			width: 100%;
+			order: 1;
+		}
+		
+		.bioSection1Img,
+		.bioSection2Imgs,
+		.bioSection3Img {
+			width: 100%;
+			order: 2;
+		}
+		p {
+			letter-spacing: 1.5px;
+		}
 	}
 }
-
-// media
-

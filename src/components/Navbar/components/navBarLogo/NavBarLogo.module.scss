@@ -2,7 +2,8 @@ $font-text: var(--font-josefin-sans);
 .navBarLogo{
 	.text{
 		color: #000;
-		font: 500 44.1028px / 42.75px;
+		font-size: 33px;
+		font-weight: 500;
 		font-family: $font-text;
 		letter-spacing: 2px;
 		line-height: 0.969327em;

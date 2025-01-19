@@ -29,6 +29,7 @@ const Biography: NextPage = () => {
 							sizes='(max-width: 768px) 100vw, (max-width: 1200px) 70vw, 50vw'
 							priority
 							className={styles.bioImage}
+							style={{objectFit: 'cover'}}
 						/>
 					</div>
 					<div className={styles.bioSection1Text}>
@@ -95,6 +96,7 @@ const Biography: NextPage = () => {
 								sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
 								priority
 								className={styles.bioImage}
+								style={{objectFit: 'cover'}}
 							/>
 						</div>
 						<div className={styles.bioSection2Img2}>
@@ -104,6 +106,7 @@ const Biography: NextPage = () => {
 								fill
 								sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 60vw"
 								priority
+								style={{objectFit: 'cover'}}
 								className={styles.bioImage}
 							/>
 						</div>
