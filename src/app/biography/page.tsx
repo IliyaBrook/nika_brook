@@ -1,7 +1,6 @@
 import ImageWithCredit from '@/components/ImageWithCredit/ImageWithCredit'
 import classNames from 'classnames'
 import { Metadata, NextPage } from 'next'
-import Image from 'next/image'
 import styles from './biography.module.scss'
 
 export const metadata: Metadata = {
@@ -30,15 +29,15 @@ const Biography: NextPage = () => {
 							src: '/images/bioPage/bio_sec_1.jpg',
 							alt: 'Biography page image 1',
 							fill: true,
-							sizes:'(max-width: 768px) 100vw, (max-width: 1200px) 70vw, 50vw',
+							sizes: '(max-width: 768px) 100vw, (max-width: 1200px) 70vw, 50vw',
 							priority: true,
 							className: styles.bioImage
 						}}
 					/>
 					<div className={styles.bioSection1Text}>
 						<p>
-							Veronika Brook began her career performing a wide range of operatic roles, showcasing her versatility and
-							artistry as a coloratura soprano.
+							<span className={styles.boldText}>Veronika Brook</span> began her career performing a wide range of operatic roles,
+							showcasing her versatility and artistry as a coloratura soprano.
 							After establishing herself in Ukraine, her career reached new heights upon moving to Israel, where she
 							quickly became a prominent figure in the opera scene.
 						</p>
@@ -46,10 +45,12 @@ const Biography: NextPage = () => {
 							As a graduate of the prestigious Meitar Young Artist Program, Veronika Brook has become a regular
 							performer with The Israeli Opera in Tel Aviv.
 							Her repertoire demonstrates her exceptional range and technical precision in both lyric and dramatic
-							coloratura roles. Highlights include Gilda in Rigoletto by Verdi, Olympia in Les Contes d’Hoffmann by
-							Offenbach, and The
-							Queen of the Night in Die Zauberflöte by Mozart. She has also performed in productions of Handel’s Alcina,
-							Mozart’s Le nozze di Figaro, Massenet’s Werther, and Bellini’s La sonnambula.
+							coloratura roles. Highlights include Gilda in <span className={styles.cursiveText}>Rigoletto</span> by
+							Verdi, Olympia in <span className={styles.cursiveText}>Les Contes d’Hoffmann</span> by Offenbach, and The
+							Queen of the Night in <span className={styles.cursiveText}>Die Zauberflöte</span> by Mozart.
+							She has also performed in productions of Handel’s <span className={styles.cursiveText}>Alcina</span>,
+							Mozart’s <span className={styles.cursiveText}>Le nozze di Figaro</span>,
+							Massenet’s <span className={styles.cursiveText}>Werther</span>, and Bellini’s La <span className={styles.cursiveText}>sonnambula</span>.
 						</p>
 						<p>
 							Veronika’s work with The Israeli Opera has earned her critical acclaim for her technical brilliance,
@@ -65,7 +66,8 @@ const Biography: NextPage = () => {
 						<p>
 							Veronika’s artistry extends worldwide, with notable performances at international events, including a 2024
 							appearance at a special concert organized by Pope Francis’ foundation in Rome. She has also performed at
-							prestigious gala events, including The World Opera Stars Gala concerts in France and Belarus.
+							prestigious gala events, including <span className={styles.cursiveText}>The World Opera Stars Gala</span>
+							concerts in France and Belarus.
 						</p>
 						<p>
 							Veronika constantly performs her extensive repertoire with major Israeli orchestras. In 2021, she
