@@ -40,6 +40,14 @@ export default async function Home() {
 					priority
 				/>
 			</div>
+			<div className={styles.textWrapper}>
+				<h1 className={styles.title}>Veronika Brook</h1>
+				<p className={styles.subtitle}>
+					<strong>Soprano Coloratura</strong><br />
+					An internationally renowned opera singer<br />
+					Classical crossover artist
+				</p>
+			</div>
 		</main>
 	)
 }
