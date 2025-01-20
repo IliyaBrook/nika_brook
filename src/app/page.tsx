@@ -1,8 +1,10 @@
+import classNames from 'classnames'
 import { Metadata } from 'next'
 import Image from 'next/image'
 import styles from './home.module.scss'
-import bgPortraitImage from '../../public/images/home/img_background_desktop_1.jpg'
-import bg from '../../public/images/home/bg_desktop.jpg'
+import bgPortraitMobile from '../../public/images/home/img_background_mobile.jpg'
+import bgPortraitDesktop from '../../public/images/home/img_background_desktop.jpg'
+import bg from '../../public/images/home/bg_desktop_2.jpg'
 
 export const metadata: Metadata = {
 	title: 'Home - Veronika Brook',
@@ -18,14 +20,21 @@ export default async function Home() {
 			<Image
 				className={styles.bg}
 				src={bg}
-				alt='Background image Veronika Brook'
-				sizes="50vw"
+				alt='Background home page color'
+				sizes="100vw"
 				priority
 			/>
 			<div className={styles.bgImageWrapper}>
 				<Image
-					className={styles.bgPortraitImage}
-					src={bgPortraitImage}
+					className={classNames(styles.bgPortraitImage, styles.bgPortraitDesktop)}
+					src={bgPortraitDesktop}
+					alt='Background image Veronika Brook'
+					sizes="100vw"
+					priority
+				/>
+				<Image
+					className={classNames(styles.bgPortraitImage, styles.bgPortraitMobile)}
+					src={bgPortraitMobile}
 					alt='Background image Veronika Brook'
 					sizes="100vw"
 					priority
