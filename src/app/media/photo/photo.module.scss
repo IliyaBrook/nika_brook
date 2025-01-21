@@ -31,6 +31,7 @@
 						height: 100%;
 						object-fit: cover;
 					}
+					
 
 					.p-image-preview-icon {
 						position: absolute !important;
@@ -60,7 +61,11 @@
 						display: flex;
 						align-items: center;
 					}
-					@medi (min-width: 571px) {
+					
+				}
+				@media(min-width: 571px) {
+					padding-right: 20px;
+					.p-carousel-items-container {
 						display: flex!important;
 						flex-direction: row!important;
 					}

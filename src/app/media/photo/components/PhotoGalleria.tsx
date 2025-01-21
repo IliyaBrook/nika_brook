@@ -33,7 +33,7 @@ export default function PhotoGalleria() {
 			numScroll: 1
 		}
 	]
-	
+
 	useEffect(() => {
 		const observer = new MutationObserver(mutationsList => {
 			for (const mutation of mutationsList) {
@@ -58,12 +58,12 @@ export default function PhotoGalleria() {
 	return (
 		<div className={styles.carouselWrapper}>
 			<Carousel
+				autoplayInterval={5000}
 				id='photo_galleria_carousel'
 				value={isReady ? images : skeletonImages}
 				numVisible={3}
 				orientation='horizontal'
 				verticalViewPortHeight='360px'
-				circular
 				carousel-data-ready={'false'}
 				itemTemplate={(item) => <ItemTemplate {...item} />}
 				responsiveOptions={responsiveOptions}
