@@ -15,7 +15,7 @@ export const ItemTemplate: FC<ImageItem> = (items: ImageItem) => {
 					src={items?.itemImageSrc}
 					alt={items?.alt}
 					preview
-					loading='eager'
+					loading='lazy'
 					className={styles.img}
 					pt={{
 						hooks: {
