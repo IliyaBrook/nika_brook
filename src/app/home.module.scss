@@ -173,11 +173,10 @@
       opacity: 0;
       animation: slideInFromLeft 0.8s ease forwards;
       font-family: "Times New Roman", Times, serif;
-      font-size: clamp(1.4rem, 1vw, 1.9rem);;
       letter-spacing: 1px;
-    }
-    .line1{
-    
+      @media (min-width: 376px) {
+        font-size: clamp(0.8rem, calc(1rem + 0.8vw), 1.5rem);
+      }
     }
 
     .line2 {
@@ -188,6 +187,15 @@
     .line3 {
       animation-delay: 1s;
       margin-left: 80px;
+    }
+  }
+
+  @media (max-width: 554px) {
+    left:3%;
+    .innerTextWrapper {
+      .line2, .line3{
+        margin-left: 0;
+      }
     }
   }
 }
