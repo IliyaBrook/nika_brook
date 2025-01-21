@@ -49,13 +49,12 @@ export default async function Home() {
 				/>
 			</div>
 			<div className={styles.textWrapper}>
-				<h1 className={styles.title}>Veronika Brook</h1>
-				<p className={styles.subtitle}>
-					<strong>Soprano Coloratura</strong>
+				<p className={styles.innerTextWrapper}>
+					<span className={styles.line1}>Soprano Coloratura</span>
 					<br/>
-					An internationally renowned opera singer
+					<span className={styles.line2}>An internationally renowned opera singer</span>
 					<br/>
-					Classical crossover artist
+					<span className={styles.line3}>Classical crossover artist</span>
 				</p>
 			</div>
 		</main>

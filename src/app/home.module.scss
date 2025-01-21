@@ -70,55 +70,131 @@
   
   }
 }
-
-.textWrapper {
-  position: absolute;
-  top: 20%;
-  left: 20%;
-//  transform: translateY(-50%);
-  z-index: 10;
-  color: #fff;
-  text-align: left;
-  opacity: 0;
-  animation: fadeIn 1.5s ease-in-out forwards;
-  
-  
-  .title {
-    font-size: 3rem;
-    font-weight: bold;
-    margin-bottom: 1rem;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-    font-family: 'Arial', sans-serif;
-  }
-  
-  .subtitle {
-    font-size: 1.3rem;
-    line-height: 1.6;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-    font-family: 'Georgia', serif;
-    max-width: 450px;
-  }
-}
-
-
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
+// text with effect variant 1
+//.textWrapper {
+//  position: absolute;
+//  top: 15%;
+//  left: 15%;
+//  z-index: 10;
+//  text-align: left;
+//  opacity: 0;
+//  animation: fadeIn 1.5s ease-in-out forwards;
+//
+//  .innerTextWrapper {
+//    font-size: 1.4rem;
+//    line-height: 1.6;
+//    font-family: 'Georgia', serif;
+//    background: #ffffff;
+//    color: #ffffff;
+//    -webkit-background-clip: text;
+//    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+//  }
+//}
+//
+//
 //@keyframes fadeIn {
 //  0% {
 //    opacity: 0;
-//    transform: translateY(40px) scale(0.95);
+//    transform: translateY(-20px);
 //  }
 //  100% {
 //    opacity: 1;
-//    transform: translateY(0) scale(1);
+//    transform: translateY(0);
 //  }
 //}
+
+// text with effect variant 2
+
+//.textWrapper {
+//  position: absolute;
+//  top: 15%;
+//  left: 15%;
+//  z-index: 10;
+//  text-align: left;
+//  .innerTextWrapper {
+//    line-height: 1.6;
+//    background: #fff;
+//    color: #fff;
+//    -webkit-background-clip: text;
+//    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+//
+//    .line1,
+//    .line2,
+//    .line3 {
+//      display: inline-block;
+//      transform: translateX(-100vw);
+//      opacity: 0;
+//      animation: slideInFromLeft 0.8s ease forwards;
+//      font-family: "Times New Roman", Times, serif;
+//      font-size: clamp(1.4rem, 1vw, 1.9rem);;
+//      letter-spacing: 1px;
+//    }
+//
+//    .line2 {
+//      animation-delay: 0.5s;
+//      margin-left: 40px;
+//    }
+//
+//    .line3 {
+//      animation-delay: 1s;
+//      margin-left: 80px;
+//    }
+//  }
+//}
+//
+//@keyframes slideInFromLeft {
+//  to {
+//    transform: translateX(0);
+//    opacity: 1;
+//  }
+//}
+
+// text with effect variant 3 with underline header
+
+
+.textWrapper {
+  position: absolute;
+  top: 15%;
+  left: 15%;
+  z-index: 10;
+  text-align: left;
+  .innerTextWrapper {
+    line-height: 1.6;
+    background: #fff;
+    color: #fff;
+    -webkit-background-clip: text;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+
+    .line1,
+    .line2,
+    .line3 {
+      display: inline-block;
+      transform: translateX(-100vw);
+      opacity: 0;
+      animation: slideInFromLeft 0.8s ease forwards;
+      font-family: "Times New Roman", Times, serif;
+      font-size: clamp(1.4rem, 1vw, 1.9rem);;
+      letter-spacing: 1px;
+    }
+    .line1{
+    
+    }
+
+    .line2 {
+      animation-delay: 0.5s;
+      margin-left: 40px;
+    }
+
+    .line3 {
+      animation-delay: 1s;
+      margin-left: 80px;
+    }
+  }
+}
+
+@keyframes slideInFromLeft {
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}

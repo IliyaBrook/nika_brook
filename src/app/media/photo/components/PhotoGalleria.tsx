@@ -58,7 +58,7 @@ export default function PhotoGalleria() {
 	return (
 		<div className={styles.carouselWrapper}>
 			<Carousel
-				autoplayInterval={5000}
+				autoplayInterval={3000}
 				id='photo_galleria_carousel'
 				value={isReady ? images : skeletonImages}
 				numVisible={3}
