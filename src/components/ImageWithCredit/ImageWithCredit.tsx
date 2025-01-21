@@ -1,52 +1,51 @@
 'use client'
 import classNames from 'classnames'
-import React, { type CSSProperties } from 'react'
-import Image, { ImageProps } from 'next/image'
+import React, { type ComponentType, type CSSProperties } from 'react'
 import styles from './ImageWithCredit.module.scss'
 
-
-interface IImageWithCredit extends React.HTMLAttributes<HTMLDivElement> {
-	creditTextPosition?: 'left' | 'right',
-	creditText: string,
-	creditTextProps?: React.HTMLAttributes<HTMLDivElement>,
-	imageProps: ImageProps;
-	creaditTextSpacing?: string,
-	creditTextColor?: CSSProperties['color']
+interface IImageWithCredit <TImageProps extends Record<string, any>> extends React.HTMLAttributes<HTMLDivElement>  {
+	creditTextPosition?: 'left' | 'right';
+	creditOnTop?: boolean;
+	creditText: string;
+	creditTextProps?: React.HTMLAttributes<HTMLDivElement>;
+	creaditTextSpacing?: string;
+	creditTextColor?: CSSProperties['color'];
+	imageProps: TImageProps;
+	ImageComponentInstance: ComponentType<TImageProps>;
 }
 
-const ImageWithCredit: React.FC<IImageWithCredit> = ({
-	                                                     imageProps,
-	                                                     creditText,
-	                                                     creditTextPosition = 'right',
-	                                                     creditTextProps,
-	                                                     creaditTextSpacing = '1vw',
-	                                                     creditTextColor = 'white',
-	                                                     ...rest
-                                                     }) => {
+
+const ImageWithCredit = <ImageProps extends Record<string, any>>({
+	                                                                   imageProps,
+	                                                                   creditText,
+																																		 creditOnTop = false,
+	                                                                   creditTextPosition = 'right',
+	                                                                   creditTextProps,
+	                                                                   creaditTextSpacing = '1vw',
+	                                                                   creditTextColor = 'white',
+	                                                                   ImageComponentInstance,
+	                                                                   ...rest
+                                                                   }: IImageWithCredit<ImageProps>) => {
 	return (
-		<div
-			className={styles.imageWithCredit}
-			{...rest}
-		>
-			<Image
+		<div className={styles.imageWithCredit} {...rest}>
+			<ImageComponentInstance
 				{...imageProps}
-				className={classNames(
-					imageProps.className,
-					styles.image
-				)}
+				className={classNames(imageProps.className, styles.image)}
 			/>
 			<div
 				{...creditTextProps}
 				className={styles.credit}
 				style={{
 					[creditTextPosition]: creaditTextSpacing,
-					color: creditTextColor
+					color: creditTextColor,
+					top: creditOnTop ? '10px' : 'unset',
+					bottom: creditOnTop ? 'unset' : '10px',
 				}}
 			>
 				{`${creditText} ©`}
 			</div>
 		</div>
-	)
-}
+	);
+};
 
-export default ImageWithCredit
+export default ImageWithCredit;

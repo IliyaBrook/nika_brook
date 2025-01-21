@@ -1,10 +1,14 @@
 $font-family: var(--font-hedvig-letters-serif);
 .imageWithCredit{
 	position: relative;
+	:global{
+		.photo_thumbnailImage{
+			position: relative!important;
+		}
+	}
 }
 .credit{
 	position: absolute;
 	font-family: $font-family;
 	font-size: clamp(10px, 1vw, 48px);
-	bottom: 0.5vw;
 }

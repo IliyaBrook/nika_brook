@@ -1,6 +1,7 @@
 import ImageWithCredit from '@/components/ImageWithCredit/ImageWithCredit'
 import classNames from 'classnames'
 import { Metadata, NextPage } from 'next'
+import Image, { ImageProps } from 'next/image'
 import styles from './biography.module.scss'
 
 export const metadata: Metadata = {
@@ -22,7 +23,8 @@ const Biography: NextPage = () => {
 		<div className={styles.root}>
 			<div className={styles.biographyContainer}>
 				<div className={styles.bioSection1}>
-					<ImageWithCredit
+					<ImageWithCredit<ImageProps>
+						ImageComponentInstance={Image}
 						className={styles.bioSection1Img}
 						creditText='Yossi Zwecker'
 						imageProps={{
@@ -93,7 +95,8 @@ const Biography: NextPage = () => {
 						</p>
 					</div>
 					<div className={styles.bioSection2Imgs}>
-						<ImageWithCredit
+						<ImageWithCredit<ImageProps>
+							ImageComponentInstance={Image}
 							className={styles.bioSection2Img1}
 							creditText='Yossi Zwecker'
 							imageProps={{
@@ -105,8 +108,9 @@ const Biography: NextPage = () => {
 								className: styles.bioImage
 							}}
 						/>
-						<ImageWithCredit
+						<ImageWithCredit<ImageProps>
 							className={styles.bioSection2Img2}
+							ImageComponentInstance={Image}
 							creditText='Yossi Zwecker'
 							imageProps={{
 								src: '/images/bioPage/bio_sec_2_2.jpg',
@@ -120,8 +124,9 @@ const Biography: NextPage = () => {
 					</div>
 				</div>
 				<div className={styles.bioSection3}>
-					<ImageWithCredit
+					<ImageWithCredit<ImageProps>
 						className={classNames(styles.bioSection3Img, styles.bioDesktopImage)}
+						ImageComponentInstance={Image}
 						creditText='Yoel Levy'
 						imageProps={{
 							src: '/images/bioPage/bio_sec_3.jpg',
