@@ -1,32 +1,66 @@
+// contact.module.scss
+
 .main {
-	p{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 20px;
+	font-family: 'Source Sans Pro', sans-serif;
+	height: 100%;
+	justify-content: center;
+	.contactWrapper{
+		display: flex;
+		flex-direction: column;
+	}
+	p {
 		font-weight: 300;
 		line-height: 1.5em;
 		font-size: 19px;
-		font-family: 'Source Sans Pro', sans-serif;
 		text-align: left;
-		padding: 0;
-		margin-bottom: 1.5em;
 		color: #3c3c3c;
-		a{
-			margin-left: 5px;
+		margin-bottom: 1em;
+		display: flex;
+		align-items: center;
+		
+		svg {
+			margin-right: 10px;
+			font-size: 20px;
+			color: #3c3c3c;
+		}
+		
+		a {
+			margin-left: 10px;
 			font-weight: 300;
-			line-height: 1.5em;
 			font-size: 19px;
-			text-align: left;
-			padding: 0;
 			color: #3c3c3c;
 			text-decoration: underline;
+			
+			&:hover {
+				color: #007bff;
+				text-decoration: none;
+			}
 		}
-		strong{
-			line-height: 1.5em;
-			font-size: 19px;
-			font-family: 'Source Sans Pro', sans-serif;
-			text-align: left;
-			color: #3c3c3c;
-			margin: 0;
-			padding: 0;
+		
+		strong {
+			font-weight: 600;
+			margin-right: 5px;
 		}
 	}
-
+	
+	.socials {
+		display: flex;
+		gap: 15px;
+		justify-content: center;
+		margin-top: 20px;
+		
+		a {
+			color: #3c3c3c;
+			font-size: 25px;
+			transition: color 0.3s;
+			
+			&:hover {
+				color: #007bff;
+			}
+		}
+	}
 }
