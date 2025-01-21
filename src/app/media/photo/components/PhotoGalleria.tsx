@@ -1,6 +1,7 @@
 'use client'
 import { ItemTemplate } from '@/app/media/photo/components/ItemTemplate'
 import { images, skeletonImages } from '@/app/media/photo/data'
+import getElementsByXPath from '@/utils/getElementsByXPath'
 import dynamic from 'next/dynamic'
 import { CarouselResponsiveOption, Carousel as CarouselComponent } from 'primereact/carousel'
 import React, { useEffect, useState } from 'react'
@@ -10,6 +11,7 @@ const Carousel = (dynamic(() => import('primereact/carousel').then(({ Carousel }
 
 export default function PhotoGalleria() {
 	const [isReady, setReady] = useState<boolean>(false)
+	const carouselRef = React.useRef<CarouselComponent>(null)
 	
 	const responsiveOptions: CarouselResponsiveOption[] = [
 		{
@@ -53,15 +55,40 @@ export default function PhotoGalleria() {
 			observer.disconnect()
 		}
 	}, [])
-
+	
+	useEffect(() => {
+		const imageButton = getElementsByXPath({xpath: "//div[@class='p-carousel-items-content']//button"})
+		if (imageButton && imageButton.length > 0 && isReady) {
+			
+			const handleMouseEnter = () => {
+				carouselRef.current.stopAutoplay()
+			};
+			
+			const handleMouseLeave = () => {
+				carouselRef.current.startAutoplay()
+			};
+			for (const btn of imageButton) {
+				btn.addEventListener('mouseenter', handleMouseEnter);
+				btn.addEventListener('mouseleave', handleMouseLeave);
+			}
+			
+			return () => {
+				for (const btn of imageButton) {
+					btn.removeEventListener('mouseenter', handleMouseEnter);
+					btn.removeEventListener('mouseleave', handleMouseLeave);
+				}
+			};
+		}
+	}, [isReady])
 	
 	return (
 		<div className={styles.carouselWrapper}>
 			<Carousel
-				autoplayInterval={3000}
+				ref={carouselRef}
 				id='photo_galleria_carousel'
 				value={isReady ? images : skeletonImages}
 				numVisible={3}
+				autoplayInterval={3000}
 				orientation='horizontal'
 				verticalViewPortHeight='360px'
 				carousel-data-ready={'false'}
