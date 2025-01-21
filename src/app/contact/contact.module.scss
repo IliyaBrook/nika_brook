@@ -1,126 +1,32 @@
-// contact.module.scss
-
 .main {
-	margin-bottom: 20px;
-	.container {
-		max-width: 500px;
-		margin: 20px auto;
-		padding: 2rem;
-		background: #fff;
-		border-radius: 8px;
-		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-
-		@media (max-width: 768px) {
-			max-width: 100%;
-			padding: 1rem;
-			margin: 20px 10px;
+	p{
+		font-weight: 300;
+		line-height: 1.5em;
+		font-size: 19px;
+		font-family: 'Source Sans Pro', sans-serif;
+		text-align: left;
+		padding: 0;
+		margin-bottom: 1.5em;
+		color: #3c3c3c;
+		a{
+			margin-left: 5px;
+			font-weight: 300;
+			line-height: 1.5em;
+			font-size: 19px;
+			text-align: left;
+			padding: 0;
+			color: #3c3c3c;
+			text-decoration: underline;
 		}
-		form {
-			.formField {
-				margin-bottom: 1rem;
-
-				& > label {
-					display: block;
-					margin-bottom: 0.5rem;
-					color: #333;
-					font-weight: bold;
-					letter-spacing: 1px;
-					&:after {
-						content: ':';
-					}
-				}
-				& > input,
-				& > textarea {
-					padding: 0.5rem;
-					border: 1px solid #ccc;
-					border-radius: 4px;
-					font-size: 1rem;
-					color: #333;
-					width: 100%;
-					&:focus {
-						outline: none;
-						border-color: #80bdff;
-						box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
-					}
-				}
-				.invalid {
-					border-color: #e24c4c;
-					& {
-						&:focus {
-							outline: none;
-							border-color: #80bdff;
-							box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
-						}
-					}
-				}
-
-				& > textarea {
-					resize: vertical;
-				}
-			}
-			.button {
-				padding: 1rem;
-				margin-top: 1rem;
-				width: 100%;
-				border: none;
-				border-radius: 4px;
-				background-color: #007bff;
-				color: white;
-				font-size: 1rem;
-				font-weight: 600;
-				cursor: pointer;
-				transition: background-color 0.3s ease-in-out;
-
-				&:hover {
-					background-color: #0056b3;
-				}
-
-				&:focus {
-					outline: none;
-					box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
-				}
-			}
-			.errorsWrapper {
-				display: block;
-				padding-block-start: 1em;
-				padding-block-end: 1em;
-				margin-inline-start: 0;
-				margin-inline-end: 0;
-				unicode-bidi: isolate;
-				p {
-					margin: 0;
-					min-height: 19.2px;
-				}
-			}
-		}
-	}
-}
-
-@media (max-width: 418px) {
-	.main {
-		margin-bottom: 0 !important;
-		height: 100%;
-		.container {
+		strong{
+			line-height: 1.5em;
+			font-size: 19px;
+			font-family: 'Source Sans Pro', sans-serif;
+			text-align: left;
+			color: #3c3c3c;
 			margin: 0;
-			padding: 1rem;
-			border-radius: 0;
-			height: 100%;
-			form {
-				display: flex;
-				flex-direction: column;
-				justify-content: space-evenly;
-				height: 100%;
-				.textarea {
-					height: 30%;
-				}
-				:global {
-					//noinspection CssUnusedSymbol
-					.p-inputtextarea {
-						font-size: 100% !important;
-						height: 100%;
-					}
-				}
-			}
+			padding: 0;
 		}
 	}
+
 }

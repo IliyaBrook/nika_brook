@@ -1,20 +1,16 @@
 import { combineReducers } from 'redux'
 import { configureStore } from '@reduxjs/toolkit'
-import { sendMessageThunk } from './thunks/index'
 import { contactSlice } from '@/store/contact'
 import { RESET_STORE } from '@/store/constants'
 
 const rootReducer = combineReducers({
-	[sendMessageThunk.reducerPath]: sendMessageThunk.reducer,
 	[contactSlice.name]: contactSlice.reducer,
 })
 
 export const makeStore = () => {
 	return configureStore({
 		reducer: rootReducer,
-		devTools: true,
-		middleware: getDefaultMiddleware =>
-			getDefaultMiddleware().concat(sendMessageThunk.middleware)
+		devTools: true
 	})
 }
 

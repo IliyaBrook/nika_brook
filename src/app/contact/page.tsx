@@ -1,4 +1,3 @@
-import ContactForm from '@/app/contact/contactForm'
 import { Metadata } from 'next'
 import styles from './contact.module.scss'
 
@@ -11,7 +10,18 @@ export const metadata: Metadata = {
 export default function Contact() {
 	return (
 		<main className={styles.main}>
-			<ContactForm />
+			<p>
+				<strong>
+					Cell Phone:
+				</strong>
+				<a href='tel:+972545856009'>+972 545 856 009</a>
+				<br/>
+				<strong>
+					Email:
+				</strong>
+				<a href='mailto:nikaSemagina@gmail.com'>nikaSemagina@gmail.com</a>
+				<br/>
+			</p>
 		</main>
 	)
 }
