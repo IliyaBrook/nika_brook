@@ -39,27 +39,6 @@ export const ItemTemplate: FC<ImageItem> = (item: ImageItem) => {
 					}}
 					ImageComponentInstance={PrimeImage}
 				/>
-				{/* <PrimeImage */}
-				{/* 	src={items?.itemImageSrc} */}
-				{/* 	alt={items?.alt} */}
-				{/* 	preview */}
-				{/* 	loading='lazy' */}
-				{/* 	className={styles.img} */}
-				{/* 	pt={{ */}
-				{/* 		hooks: { */}
-				{/* 			useMountEffect() { */}
-				{/* 				imagesCounter.current++ */}
-				{/* 				if (imagesCounter.current >= 3 && isMounted.current === false) { */}
-				{/* 					isMounted.current = true */}
-				{/* 					const photoCarouselState = document.querySelector('[carousel-data-ready="false"]') */}
-				{/* 					if (photoCarouselState) { */}
-				{/* 						photoCarouselState.setAttribute('carousel-data-ready', 'true') */}
-				{/* 					} */}
-				{/* 				} */}
-				{/* 			} */}
-				{/* 		} */}
-				{/* 	}} */}
-				{/* /> */}
 			</div>
 		</div>
 	)
