@@ -1,6 +1,7 @@
 'use client'
 import { ItemTemplate } from '@/app/media/photo/components/ItemTemplate'
 import { images, skeletonImages } from '@/app/media/photo/data'
+import { isDevelopment } from '@/utils/enviroments'
 import getElementsByXPath from '@/utils/getElementsByXPath'
 import dynamic from 'next/dynamic'
 import { CarouselResponsiveOption, Carousel as CarouselComponent } from 'primereact/carousel'
@@ -81,6 +82,8 @@ export default function PhotoGalleria() {
 		}
 	}, [isReady])
 	
+	const autoplayInterval = !isDevelopment ? 3000 : undefined
+	
 	return (
 		<div className={styles.carouselWrapper}>
 			<Carousel
@@ -88,7 +91,7 @@ export default function PhotoGalleria() {
 				id='photo_galleria_carousel'
 				value={isReady ? images : skeletonImages}
 				numVisible={3}
-				autoplayInterval={3000}
+				autoplayInterval={autoplayInterval}
 				orientation='horizontal'
 				verticalViewPortHeight='360px'
 				carousel-data-ready={'false'}

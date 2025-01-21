@@ -1,3 +1,4 @@
+export const isDevelopment = process.env.NODE_ENV === 'development';
 export const getApiBaseUrl = (): string => {
   if (typeof window === 'undefined') {
     // server-side url
