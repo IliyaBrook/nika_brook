@@ -3,6 +3,7 @@ import { Metadata } from 'next'
 import Image from 'next/image'
 import styles from './home.module.scss'
 import bgPortraitMobile from '../../public/images/home/img_background_mobile.jpg'
+import bgPortraitMobileSm from '../../public/images/home/img_background_mobile_sm_3.jpg'
 import bgPortraitDesktop from '../../public/images/home/img_background_desktop.jpg'
 import bg from '../../public/images/home/bg_desktop_2.jpg'
 
@@ -35,6 +36,13 @@ export default async function Home() {
 				<Image
 					className={classNames(styles.bgPortraitImage, styles.bgPortraitMobile)}
 					src={bgPortraitMobile}
+					alt='Background image Veronika Brook'
+					sizes="100vw"
+					priority
+				/>
+				<Image
+					className={classNames(styles.bgPortraitImage, styles.bgPortraitMobileSm)}
+					src={bgPortraitMobileSm}
 					alt='Background image Veronika Brook'
 					sizes="100vw"
 					priority

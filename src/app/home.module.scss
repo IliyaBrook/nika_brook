@@ -34,23 +34,40 @@
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
+      @media (max-width: 400px) {
+        width: 40px;
+      }
+    }
+    @media (max-width: 375px) {
+      .bgPortraitDesktop, .bgPortraitMobile{
+        display: none;
+      }
+      .bgPortraitMobileSm{
+        display: block;
+      }
+    }
+    @media (min-width: 375px) and (max-width: 1100px) {
+      .bgPortraitDesktop, .bgPortraitMobileSm{
+        display: none;
+      }
+      .bgPortraitMobile{
+        display: block;
+        @media (max-width: 585px) {
+          width: 100%;
+          aspect-ratio: 16 / 9;
+          object-fit: cover;
+        }
+      }
     }
     @media (min-width: 1100px) {
       .bgPortraitDesktop{
         display: block;
       }
-      .bgPortraitMobile{
+      .bgPortraitMobile, .bgPortraitMobileSm{
         display: none;
       }
     }
-    @media (max-width: 1100px) {
-      .bgPortraitDesktop{
-        display: none;
-      }
-      .bgPortraitMobile{
-        display: block;
-      }
-    }
+  
   }
 }
 
