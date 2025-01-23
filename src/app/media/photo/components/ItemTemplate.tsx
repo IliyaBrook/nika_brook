@@ -2,15 +2,13 @@ import styles from '@/app/media/photo/photo.module.scss'
 import type { ImageItem } from '@/types/sharable.types.ts'
 import getElementsByXPath from '@/utils/getElementsByXPath'
 import classNames from 'classnames'
-import { Image as PrimeImage, ImageProps } from 'primereact/image'
-import React, { type FC, useEffect, useRef } from 'react'
+import { Image as PrimeImage } from 'primereact/image'
+import React, { useEffect, useRef } from 'react'
 
 
 export const ItemTemplate = ({ isReady, index,...item }: ImageItem) => {
 	const currentElementRendered = useRef(0)
 	
-	
-
 	useEffect(() => {
 		if (isReady) {
 			const creditTo =
@@ -43,11 +41,12 @@ export const ItemTemplate = ({ isReady, index,...item }: ImageItem) => {
 					preview
 					loading='lazy'
 					className={styles.img}
+					
 				/> : 	<PrimeImage
 					src='/images/skeleton.svg'
 					alt='sekelton'
 					preview
-					loading='lazy'
+					loading='eager'
 					className={styles.img}
 				/>}
 			</div>
