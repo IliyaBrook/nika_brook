@@ -16,6 +16,7 @@ export const metadata: Metadata = {
 export const dynamic = 'force-static'
 
 export default async function Home() {
+	
 	return (
 		<main className={styles.main}>
 			<Image
@@ -52,7 +53,7 @@ export default async function Home() {
 				<div className={styles.innerTextWrapper}>
 					<h1>OPERA SINGER</h1>
 					<h2>CLASSICAL CROSSOVER ARTIST</h2>
-					<h2 >SOPRANO COLORATURA</h2>
+					<h2 style={{fontStyle: 'italic'}}>SOPRANO COLORATURA</h2>
 				</div>
 			</div>
 		</main>

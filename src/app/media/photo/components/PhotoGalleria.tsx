@@ -5,15 +5,18 @@ import { isDevelopment } from '@/utils/enviroments'
 import getElementsByXPath from '@/utils/getElementsByXPath'
 import dynamic from 'next/dynamic'
 import { CarouselResponsiveOption, Carousel as CarouselComponent } from 'primereact/carousel'
-import React, { useEffect, useState } from 'react'
+import { Image as PrimeImage } from 'primereact/image'
+import React, { useEffect, useRef, useState } from 'react'
 import styles from '../photo.module.scss'
 
 const Carousel = (dynamic(() => import('primereact/carousel').then(({ Carousel }) => Carousel), { ssr: false }) as typeof CarouselComponent)
 
 export default function PhotoGalleria() {
-	const [isReady, setReady] = useState<boolean>(false)
-	const carouselRef = React.useRef<CarouselComponent>(null)
+	const carouselRef = useRef<CarouselComponent>(null)
 	
+	
+	const [isClient, setIsClient] = useState<boolean>(false)
+	const [isReady, setReady] = useState<boolean>(false)
 	const responsiveOptions: CarouselResponsiveOption[] = [
 		{
 			breakpoint: '1400px',
@@ -36,35 +39,52 @@ export default function PhotoGalleria() {
 			numScroll: 1
 		}
 	]
-
 	useEffect(() => {
-		const observer = new MutationObserver(mutationsList => {
-			for (const mutation of mutationsList) {
-				if (mutation.type === 'attributes') {
-					if ((mutation?.target as Element)?.getAttribute('carousel-data-ready') === 'true') {
-						setReady(true)
+		setIsClient(true)
+	}, [])
+	
+	
+	useEffect(() => {
+		
+		if (isClient) {
+			
+			const observer = new MutationObserver(mutationsList => {
+				for (const mutation of mutationsList) {
+			
+					if (mutation.type === 'attributes' && mutation.target instanceof Element) {
+						if (mutation.target?.tagName === 'IMG') {
+							const imageNumbers = images.length
+							const carouselItems = document.querySelectorAll('.p-carousel-item')
+							if (carouselItems.length === imageNumbers) {
+								setReady(true)
+							}
+						}
 					}
 				}
+			})
+			if (observer) {
+				try {
+					observer.observe(document, { childList: true, subtree: true, attributes: true })
+				} catch (e) {
+					console.log("observer error :", e)
+					
+				}
 			}
-		})
-		if (observer) {
-			try {
-				observer.observe(document, { attributes: true, childList: true, subtree: true })
-			} catch  {}
+			
+			return () => {
+				observer.disconnect()
+			}
 		}
-		return () => {
-			observer.disconnect()
-		}
-	}, [])
+	}, [isClient])
 	
 	useEffect(() => {
 		const imageButton = getElementsByXPath({xpath: "//div[@class='p-carousel-items-content']//button"})
 		if (imageButton && imageButton.length > 0 && isReady) {
-			
+
 			const handleMouseEnter = () => {
 				carouselRef.current.stopAutoplay()
 			};
-			
+
 			const handleMouseLeave = () => {
 				carouselRef.current.startAutoplay()
 			};
@@ -72,7 +92,7 @@ export default function PhotoGalleria() {
 				btn.addEventListener('mouseenter', handleMouseEnter);
 				btn.addEventListener('mouseleave', handleMouseLeave);
 			}
-			
+
 			return () => {
 				for (const btn of imageButton) {
 					btn.removeEventListener('mouseenter', handleMouseEnter);
@@ -84,18 +104,18 @@ export default function PhotoGalleria() {
 	
 	const autoplayInterval = !isDevelopment ? 3000 : undefined
 	
+	
+	
 	return (
 		<div className={styles.carouselWrapper}>
 			<Carousel
 				ref={carouselRef}
-				id='photo_galleria_carousel'
-				value={isReady ? images : skeletonImages}
+				value={images}
 				numVisible={3}
 				autoplayInterval={autoplayInterval}
 				orientation='horizontal'
 				verticalViewPortHeight='360px'
-				carousel-data-ready={'false'}
-				itemTemplate={(item) => <ItemTemplate {...item} />}
+				itemTemplate={(item) =>  <ItemTemplate {...item} isReady={isReady} />}
 				responsiveOptions={responsiveOptions}
 			/>
 		</div>

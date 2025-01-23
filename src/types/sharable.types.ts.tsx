@@ -11,3 +11,32 @@ export type DeviceType =
 export type classNameType = {
 	[key in DeviceType as `${Capitalize<key>}ClassName`]: React.CSSProperties
 }
+
+import type { CSSProperties } from 'react'
+
+export interface ImageItem {
+	id:string;
+	itemImageSrc: string;
+	alt: string;
+	credit: string;
+	creditColor: CSSProperties['color'];
+	isReady?:boolean;
+	index: number;
+}
+
+export interface VideoItem {
+	id:string;
+	youtubeId: string;
+	alt: string;
+	thumbnailImageSrc: string;
+	thumbnailImageSrcHd: string;
+	title: string;
+	description?: string;
+}
+
+export interface MediaElementSekelton {
+	itemImageSrc:string;
+	alt: string;
+	id: string;
+	index: number;
+}
