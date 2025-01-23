@@ -1,4 +1,5 @@
 import styles from '@/app/media/photo/photo.module.scss'
+import { ImagePrimeNext } from '@/components/ImagePrimeNext/ImagePrimeNext'
 import type { ImageItem } from '@/types/sharable.types.ts'
 import getElementsByXPath from '@/utils/getElementsByXPath'
 import classNames from 'classnames'
@@ -49,6 +50,11 @@ export const ItemTemplate = ({ isReady, index,...item }: ImageItem) => {
 					loading='eager'
 					className={styles.img}
 				/>}
+				{/* <ImagePrimeNext */}
+				{/* 		src={item?.itemImageSrc} */}
+				{/* 		alt={item?.alt} */}
+				{/* 		 */}
+				{/* /> */}
 			</div>
 		</div>
 	)

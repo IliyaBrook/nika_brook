@@ -2,7 +2,7 @@ import { Metadata } from 'next'
 import styles from './video.module.scss'
 import { videos } from '@/app/media/video/data'
 import React from 'react'
-import VideoGallery from './components/VideoGallery'
+import VideoGallery from './VideoGallery'
 
 const video = videos[0]
 

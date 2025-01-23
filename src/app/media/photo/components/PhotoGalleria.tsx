@@ -104,8 +104,6 @@ export default function PhotoGalleria() {
 	
 	const autoplayInterval = !isDevelopment ? 3000 : undefined
 	
-	
-	
 	return (
 		<div className={styles.carouselWrapper}>
 			<Carousel

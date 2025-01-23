@@ -1,9 +1,10 @@
 'use client'
+import type { VideoItem } from '@/types/sharable.types.ts.tsx'
 import dynamic from 'next/dynamic'
 import React, { useEffect, useRef, useState } from 'react'
 import { Galleria as GalleriaComponent } from 'primereact/galleria'
-import { VideoItem } from '@/app/media/types.images'
-import styles from '../video.module.scss'
+
+import styles from './video.module.scss'
 import { videos } from '@/app/media/video/data'
 import Image from 'next/image'
 import classNames from 'classnames'
