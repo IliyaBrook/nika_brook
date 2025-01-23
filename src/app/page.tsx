@@ -52,8 +52,8 @@ export default async function Home() {
 			<div className={styles.textWrapper}>
 				<div className={styles.innerTextWrapper}>
 					<h1>OPERA SINGER</h1>
-					<h2>CLASSICAL CROSSOVER ARTIST</h2>
-					<h2 style={{fontStyle: 'italic'}}>SOPRANO COLORATURA</h2>
+					<h2 className={styles.subHeader}>CLASSICAL CROSSOVER ARTIST</h2>
+					<h2 className={styles.homeText}>SOPRANO COLORATURA</h2>
 				</div>
 			</div>
 		</main>

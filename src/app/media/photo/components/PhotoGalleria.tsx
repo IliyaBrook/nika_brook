@@ -102,6 +102,7 @@ export default function PhotoGalleria() {
 		}
 	}, [isReady])
 	
+	// const autoplayInterval = !isDevelopment ? 3000 : undefined
 	const autoplayInterval = !isDevelopment ? 3000 : undefined
 	
 	return (

@@ -118,7 +118,7 @@
 // text woth effect: variant 2
 .textWrapper {
   position: absolute;
-  top: 20%;
+  top: 15%;
   left: 10%;
   z-index: 10;
   text-align: left;
@@ -128,31 +128,29 @@
   border-radius: 10px;
   line-height: 1.6;
   .innerTextWrapper {
+	  h2,h1,span{
+		  font-family: 'Times New Roman', serif;
+	  }
     h1 {
       margin: 0;
       font-size: 2.5rem;
-//      color: #e0c49a;
 	    color: #ffffff;
-      font-family: 'Times New Roman', serif;
       text-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
-    }
-    h2,span{
-      font-family: 'Arial', sans-serif;
-      color: #ffffff;
-      display: block;
-      text-shadow: 0 3px 6px rgba(0, 0, 0, 0.5);
-      
     }
     h2 {
       margin: 10px 0;
       font-size: 2rem;
+	    color: #ffffff;
+	    display: block;
+	    text-shadow: 0 3px 6px rgba(0, 0, 0, 0.5);
     }
-
-    span {
-      font-size: 1.5rem;
-      font-style: italic;
-      margin-top: 15px;
-    }
+	  .subHeader{
+		  color: #faf1d4;
+	  }
+	  .homeText{
+		  font-style: italic;
+		  margin-top: 2rem;
+	  }
   }
 }
 

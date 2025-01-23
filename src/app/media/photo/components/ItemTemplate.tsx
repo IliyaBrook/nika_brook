@@ -50,11 +50,6 @@ export const ItemTemplate = ({ isReady, index,...item }: ImageItem) => {
 					loading='eager'
 					className={styles.img}
 				/>}
-				{/* <ImagePrimeNext */}
-				{/* 		src={item?.itemImageSrc} */}
-				{/* 		alt={item?.alt} */}
-				{/* 		 */}
-				{/* /> */}
 			</div>
 		</div>
 	)
