@@ -3,6 +3,7 @@ import styles from './contact.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faApple, faFacebookF, faInstagram, faSpotify, faYoutube } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons';
+import React from 'react';
 
 export const metadata: Metadata = {
 	title: 'Contact - Veronika Brook',

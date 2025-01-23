@@ -1,208 +1,116 @@
 .main {
-  position: relative;
-  height: 100vh;
-  width: 100%;
-  display: flex;
-  justify-content: flex-end;
+	position: relative;
+	height: 100vh;
+	width: 100%;
+	display: flex;
+	justify-content: flex-end;
+	
 	.bg {
-    position: absolute;
-    z-index: 1;
-    height: 100%;
-    width:100%;
-  }
-  .bgImageWrapper{
-    position: relative;
-    z-index: 2;
-    display: flex;
-    justify-content: flex-end;
-    .bgPortraitImage{
-      object-fit: contain;
-      width:auto;
-      height: 100%;
-      object-position: right;
-    }
-    &:before{
-      content: "";
-      position: absolute;
-      top: 0;
-      left: -30px;
-      width: 60px;
-      height: 100%;
-      z-index: 3;
-      filter: blur(10px);
-      background-image: url('../../public/images/home/bg_blur.jpg');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      @media (max-width: 400px) {
-        width: 40px;
-      }
-    }
-    @media (max-width: 375px) {
-      .bgPortraitDesktop, .bgPortraitMobile{
-        display: none;
-      }
-      .bgPortraitMobileSm{
-        display: block;
-      }
-    }
-    @media (min-width: 375px) and (max-width: 1100px) {
-      .bgPortraitDesktop, .bgPortraitMobileSm{
-        display: none;
-      }
-      .bgPortraitMobile{
-        display: block;
-        @media (max-width: 585px) {
-          width: 100%;
-          aspect-ratio: 16 / 9;
-          object-fit: cover;
-        }
-      }
-    }
-    @media (min-width: 1100px) {
-      .bgPortraitDesktop{
-        display: block;
-      }
-      .bgPortraitMobile, .bgPortraitMobileSm{
-        display: none;
-      }
-    }
-  
-  }
+		position: absolute;
+		z-index: 1;
+		height: 100%;
+		width: 100%;
+	}
+	
+	.bgImageWrapper {
+		position: relative;
+		z-index: 2;
+		display: flex;
+		justify-content: flex-end;
+		
+		.bgPortraitImage {
+			object-fit: contain;
+			width: auto;
+			height: 100%;
+			object-position: right;
+		}
+		
+		&:before {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: -30px;
+			width: 60px;
+			height: 100%;
+			z-index: 3;
+			filter: blur(10px);
+			background-image: url('../../public/images/home/bg_blur.jpg');
+			background-size: cover;
+			background-position: center;
+			background-repeat: no-repeat;
+			@media (max-width: 400px) {
+				width: 40px;
+			}
+		}
+		
+		@media (max-width: 375px) {
+			.bgPortraitDesktop, .bgPortraitMobile {
+				display: none;
+			}
+			.bgPortraitMobileSm {
+				display: block;
+			}
+		}
+		@media (min-width: 375px) and (max-width: 1100px) {
+			.bgPortraitDesktop, .bgPortraitMobileSm {
+				display: none;
+			}
+			.bgPortraitMobile {
+				display: block;
+				@media (max-width: 585px) {
+					width: 100%;
+					aspect-ratio: 16 / 9;
+					object-fit: cover;
+				}
+			}
+		}
+		@media (min-width: 1100px) {
+			.bgPortraitDesktop {
+				display: block;
+			}
+			.bgPortraitMobile, .bgPortraitMobileSm {
+				display: none;
+			}
+		}
+		
+	}
 }
-// text with effect variant 1
-//.textWrapper {
-//  position: absolute;
-//  top: 15%;
-//  left: 15%;
-//  z-index: 10;
-//  text-align: left;
-//  opacity: 0;
-//  animation: fadeIn 1.5s ease-in-out forwards;
-//
-//  .innerTextWrapper {
-//    font-size: 1.4rem;
-//    line-height: 1.6;
-//    font-family: 'Georgia', serif;
-//    background: #ffffff;
-//    color: #ffffff;
-//    -webkit-background-clip: text;
-//    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-//  }
-//}
-//
-//
-//@keyframes fadeIn {
-//  0% {
-//    opacity: 0;
-//    transform: translateY(-20px);
-//  }
-//  100% {
-//    opacity: 1;
-//    transform: translateY(0);
-//  }
-//}
 
-// text with effect variant 2
-
-//.textWrapper {
-//  position: absolute;
-//  top: 15%;
-//  left: 15%;
-//  z-index: 10;
-//  text-align: left;
-//  .innerTextWrapper {
-//    line-height: 1.6;
-//    background: #fff;
-//    color: #fff;
-//    -webkit-background-clip: text;
-//    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-//
-//    .line1,
-//    .line2,
-//    .line3 {
-//      display: inline-block;
-//      transform: translateX(-100vw);
-//      opacity: 0;
-//      animation: slideInFromLeft 0.8s ease forwards;
-//      font-family: "Times New Roman", Times, serif;
-//      font-size: clamp(1.4rem, 1vw, 1.9rem);;
-//      letter-spacing: 1px;
-//    }
-//
-//    .line2 {
-//      animation-delay: 0.5s;
-//      margin-left: 40px;
-//    }
-//
-//    .line3 {
-//      animation-delay: 1s;
-//      margin-left: 80px;
-//    }
-//  }
-//}
-//
-//@keyframes slideInFromLeft {
-//  to {
-//    transform: translateX(0);
-//    opacity: 1;
-//  }
-//}
-
-// text with effect variant 3 with underline header
-
-
+// text woth effect
 .textWrapper {
-  position: absolute;
-  top: 15%;
-  left: 15%;
-  z-index: 10;
-  text-align: left;
-  .innerTextWrapper {
-    line-height: 1.6;
-    background: #fff;
-    color: #fff;
-    -webkit-background-clip: text;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+	position: absolute;
+	top: 15%;
+	left: 15%;
+	z-index: 10;
+	text-align: left;
+	opacity: 0;
+	animation: fadeIn 1.5s ease-in-out forwards;
+  background-color: rgba( 5, 5, 5, 0.6);
+  padding: 30px;
+	.innerTextWrapper {
+		h1, h2 {
+			margin: 0;
+		}
 
-    .line1,
-    .line2,
-    .line3 {
-      display: inline-block;
-      transform: translateX(-100vw);
-      opacity: 0;
-      animation: slideInFromLeft 0.8s ease forwards;
-      font-family: "Times New Roman", Times, serif;
-      letter-spacing: 1px;
-      @media (min-width: 376px) {
-        font-size: clamp(0.8rem, calc(1rem + 0.8vw), 1.5rem);
-      }
+		font-size: 1.4rem;
+		line-height: 1.6;
+		font-family: 'Georgia', serif;
+		color: #ffffff;
+		text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    span{
+      font-style: italic;
     }
-
-    .line2 {
-      animation-delay: 0.5s;
-      margin-left: 40px;
-    }
-
-    .line3 {
-      animation-delay: 1s;
-      margin-left: 80px;
-    }
-  }
-
-  @media (max-width: 554px) {
-    left:3%;
-    .innerTextWrapper {
-      .line2, .line3{
-        margin-left: 0;
-      }
-    }
-  }
+	}
 }
 
-@keyframes slideInFromLeft {
-  to {
-    transform: translateX(0);
-    opacity: 1;
-  }
+
+@keyframes fadeIn {
+	0% {
+		opacity: 0;
+		transform: translateY(-20px);
+	}
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
 }

@@ -21,17 +21,5 @@ export interface IContactForm {
   status: IContactFormStatus
 }
 
-export interface IContactSuccessResponse {
-  data: {
-    message: string
-  }
-}
 
-export interface IContactErrorResponse {
-  error: {
-    status: number
-    message: string
-  }
-}
 
-export type TContactResponse = IContactSuccessResponse | IContactErrorResponse
