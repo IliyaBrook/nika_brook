@@ -49,7 +49,7 @@ export default async function Home() {
 				/>
 			</div>
 			<div className={styles.textWrapper}>
-				<div  className={styles.innerTextWrapper}>
+				<div className={styles.innerTextWrapper}>
 					<h1>OPERA SINGER</h1>
 					<h2>CLASSICAL CROSSOVER ARTIST</h2>
 					<h2 >SOPRANO COLORATURA</h2>
