@@ -5,7 +5,7 @@ export const images: Array<ImageItem> = [
     itemImageSrc: '/images/mediaPhoto/10_credit_Eva_Chornaya.JPG',
     alt: 'Photo 10',
     credit: 'Eva Chornaya',
-    creditColor: 'back',
+    creditColor: 'white',
     id: 'gallery_item_1',
     index: 0
   },
@@ -13,7 +13,7 @@ export const images: Array<ImageItem> = [
     itemImageSrc: '/images/mediaPhoto/11_credit_Eva_Chornaya.JPG',
     alt: 'Photo 11',
     credit: 'Eva Chornaya',
-    creditColor: 'back',
+    creditColor: 'white',
     id: 'gallery_item_1',
     index: 1
   },
@@ -85,7 +85,7 @@ export const images: Array<ImageItem> = [
     itemImageSrc: '/images/mediaPhoto/9_credit_Eva_Chornaya.JPG',
     alt: 'Photo 9',
     credit: 'Eva Chornaya',
-    creditColor: 'back',
+    creditColor: 'white',
     id: 'gallery_item_10',
     index: 10
   },
@@ -133,7 +133,7 @@ export const images: Array<ImageItem> = [
     itemImageSrc: '/images/mediaPhoto/photo10.jpg',
     alt: 'Photo 10',
     credit: 'Not exit',
-    creditColor: 'back',
+    creditColor: 'white',
     id: 'gallery_item_16',
     index: 16
   },
@@ -141,7 +141,7 @@ export const images: Array<ImageItem> = [
     itemImageSrc: '/images/mediaPhoto/photo13.jpg',
     alt: 'Photo 13',
     credit: 'Not exit',
-    creditColor: 'back',
+    creditColor: 'white',
     id: 'gallery_item_17',
     index: 17
   },
@@ -149,7 +149,7 @@ export const images: Array<ImageItem> = [
     itemImageSrc: '/images/mediaPhoto/photo14.jpg',
     alt: 'Photo 14',
     credit: 'Not exit',
-    creditColor: 'back',
+    creditColor: 'white',
     id: 'gallery_item_18',
     index: 18
   },
@@ -157,7 +157,7 @@ export const images: Array<ImageItem> = [
     itemImageSrc: '/images/mediaPhoto/photo3.jpg',
     alt: 'Photo 3',
     credit: 'Not exit',
-    creditColor: 'back',
+    creditColor: 'white',
     id: 'gallery_item_19',
     index: 19
   },
@@ -165,7 +165,7 @@ export const images: Array<ImageItem> = [
     itemImageSrc: '/images/mediaPhoto/photo6.jpg',
     alt: 'Photo 6',
     credit: 'Not exit',
-    creditColor: 'back',
+    creditColor: 'white',
     id: 'gallery_item_20',
     index: 20
   },
@@ -173,7 +173,7 @@ export const images: Array<ImageItem> = [
     itemImageSrc: '/images/mediaPhoto/photo7.jpg',
     alt: 'Photo 7',
     credit: 'Not exit',
-    creditColor: 'back',
+    creditColor: 'white',
     id: 'gallery_item_21',
     index: 21
   },
@@ -181,7 +181,7 @@ export const images: Array<ImageItem> = [
     itemImageSrc: '/images/mediaPhoto/photo8.jpg',
     alt: 'Photo 8',
     credit: 'Not exit',
-    creditColor: 'back',
+    creditColor: 'white',
     id: 'gallery_item_22',
     index: 22
   },
@@ -189,7 +189,7 @@ export const images: Array<ImageItem> = [
     itemImageSrc: '/images/mediaPhoto/photo9.jpg',
     alt: 'Photo 9',
     credit: 'Not exit',
-    creditColor: 'back',
+    creditColor: 'white',
     id: 'gallery_item_23',
     index: 23
   }
