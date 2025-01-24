@@ -1,7 +1,7 @@
 import Navbar from '@/components/Navbar/Navbar'
 import { StructuredData } from '@/components/StructuredData'
 import type { Metadata } from 'next'
-import { Baskervville, Poppins, Hedvig_Letters_Serif, Josefin_Sans } from 'next/font/google'
+import { Hedvig_Letters_Serif, Josefin_Sans, Alex_Brush } from 'next/font/google'
 import localFont from 'next/font/local'
 
 import React from 'react'
@@ -17,15 +17,14 @@ import 'primereact/resources/primereact.min.css'
 import 'primeicons/primeicons.css'
 import 'primeflex/primeflex.css'
 
-const poppins = Poppins({ subsets: ['latin'], weight: '300', display: 'swap', variable: '--font-poppins' })
-const baskerville = Baskervville({ subsets: ['latin'], weight: '400', display: 'swap', variable: '--font-baskerville' })
 const hedvigLettersSerif = Hedvig_Letters_Serif({ subsets: ['latin'], weight: '400', display: 'swap', variable: '--font-hedvig-letters-serif' })
 const josefinSans = Josefin_Sans({ subsets: ['latin'], weight: '400', display: 'swap', variable: '--font-josefin-sans' })
-const alexBrush = localFont({
-	src: '/fonts/google/Alex_Brush/AlexBrush-Regular.ttf',
-	display: 'swap',
-	variable: '--font-alex-brush',
-});
+const alexBrush = Alex_Brush({ subsets: ['latin'], weight: '400', display: 'swap', variable: '--font-alex-brush' })
+// const alexBrush = localFont({
+// 	src: '../../public/fonts/google/Alex_Brush/AlexBrush-Regular.ttf',
+// 	display: 'swap',
+// 	variable: '--font-alex-brush',
+// });
 
 export const metadata: Metadata = {
 	title: 'Media - Veronika Brook',
@@ -84,8 +83,6 @@ export default async function RootLayout({
 			<html
 				lang="en"
 				className={classNames(
-					poppins.variable,
-					baskerville.variable,
 					hedvigLettersSerif.variable,
 					josefinSans.variable,
 					alexBrush.variable

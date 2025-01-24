@@ -1,3 +1,6 @@
+$font-alex-brush: var(--font-alex-brush);
+$white:#F5F5F5;
+$yellow: rgb(251, 244, 227);
 .main {
 	position: relative;
 	height: 100vh;
@@ -117,60 +120,87 @@
 
 // text woth effect: variant 2
 .textWrapper {
-  position: absolute;
-  top: 15%;
-  left: 10%;
-  z-index: 10;
-  text-align: left;
-  opacity: 0;
-  animation: fadeIn 2s ease-in-out forwards, slideIn 2s ease-in-out forwards;
-  padding: 40px 50px;
-  border-radius: 10px;
-  line-height: 1.6;
-  .innerTextWrapper {
-	  h2,h1,span{
-		  font-family: 'Times New Roman', serif;
-	  }
-    h1 {
-      margin: 0;
-      font-size: 2.5rem;
-	    color: #ffffff;
-      text-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
-    }
-    h2 {
-      margin: 10px 0;
-      font-size: 2rem;
-	    color: #ffffff;
-	    display: block;
-	    text-shadow: 0 3px 6px rgba(0, 0, 0, 0.5);
-    }
-	  .subHeader{
-		  color: #faf1d4;
-		  font-weight: 600;
-	  }
-	  .homeText{
-		  font-style: italic;
-		  margin-top: 2rem;
-	  }
-  }
+	position: absolute;
+	top: 15%;
+	left: 10%;
+	z-index: 10;
+	text-align: left;
+	opacity: 0;
+	animation: fadeIn 2s ease-in-out forwards, slideIn 2s ease-in-out forwards;
+	padding: 40px 50px;
+	border-radius: 10px;
+	line-height: 1.6;
+	
+	.innerTextWrapper {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	
+		.line1, .line3 {
+			font-family: 'Times New Roman', serif;
+		}
+		.line1{
+			font-size: 3rem;
+		}
+		.line3{
+			font-size: 2.5rem;
+		}
+	
+		.line1,.line2{
+			color: $white;
+		}
+		.line1{
+			font-weight: 600;
+		}
+		h1, h2 {
+			text-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+			margin: 0;
+		}
+		.line3{
+			color:$yellow;
+			font-weight: 400;
+		}
+		.line2Wrapper{
+			display: flex;
+			align-items: flex-end;
+			.wingLeft, .wingRight{
+				width: 5rem;
+				height: 5rem;
+			}
+			.wingLeft{
+			
+			}
+			.line2{
+				font-family: $font-alex-brush;
+				font-style: normal;
+				font-weight: 400;
+				line-height: normal;
+				font-size: 3rem;
+				margin: 0 8px 0 5px;
+			}
+			.wingRight{
+			
+			}
+		}
+	}
 }
 
 @keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
 }
 
 @keyframes slideIn {
-  0% {
-    transform: translateY(-30px);
-  }
-  100% {
-    transform: translateY(0);
-  }
+	0% {
+		transform: translateY(-30px);
+	}
+	100% {
+		transform: translateY(0);
+	}
 }
 
 
