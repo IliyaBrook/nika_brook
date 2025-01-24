@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 
 export const dynamic = 'force-static'
 
-const Biography: NextPage = () => {
+export default function Biography () {
 	return (
 		<div className={styles.root}>
 			<div className={styles.biographyContainer}>
@@ -142,5 +142,3 @@ const Biography: NextPage = () => {
 		</div>
 	)
 }
-
-export default Biography
