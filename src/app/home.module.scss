@@ -1,10 +1,11 @@
 $font-alex-brush: var(--font-alex-brush);
-$white:#F5F5F5;
+$white: #F5F5F5;
 $yellow: rgb(251, 244, 227);
-$font-text-1and3: clamp(1.5rem, 2.5vw, 2.5rem);
-$font-text-2: clamp(2rem, 4vw, 3rem);
-$wings-height: clamp(3.5rem, 10vw, 5.8rem);
-$wings-width: clamp(3.5rem, 10vw, 5.8rem);
+$font-text-1: clamp(1.5rem, 2.5vw, 2.5rem);
+$font-text-2: clamp(2rem, 2.5vw, 3rem);
+$font-text-3: clamp(1rem, 2.2vw, 2.5rem);
+$wings-height: clamp(3.5rem, 5vw, 5.8rem);
+$wings-width: clamp(3.5rem, 4vw, 5.8rem);
 .main {
 	position: relative;
 	height: 100vh;
@@ -50,26 +51,48 @@ $wings-width: clamp(3.5rem, 10vw, 5.8rem);
 			}
 		}
 		
-		@media (max-width: 375px) {
-			.bgPortraitDesktop, .bgPortraitMobile {
-				display: none;
-			}
+		//		.bgPortraitMobileSm{
+		//			display: none!important;
+		//		}
+		.bgPortraitMobileSm2, .bgPortraitMobileSm4, .bgPortraitMobileSm {
+			display: none;
+		}
+		@media (max-width: 398px) {
 			.bgPortraitMobileSm {
 				display: block;
 			}
 		}
-		@media (min-width: 375px) and (max-width: 1100px) {
-			.bgPortraitDesktop, .bgPortraitMobileSm {
+		@media (min-width: 398px) and (max-width: 554px) {
+			.bgPortraitMobileSm4 {
+				display: block;
+				margin-left: clamp(-16vw, 30vw, -20vw);
+			}
+		}
+		@media (max-width: 554px) {
+			.bgPortraitMobileSm2 {
 				display: none;
 			}
-			.bgPortraitMobile {
-				display: block;
-				@media (max-width: 585px) {
-					width: 100%;
-					aspect-ratio: 16 / 9;
-					object-fit: cover;
-				}
+		}
+		@media (max-width: 554px) {
+			.bgPortraitDesktop, .bgPortraitMobile {
+				display: none;
 			}
+//			.bgPortraitMobileSm {
+//				display: block;
+//			}
+		}
+		@media (min-width: 554px) and (max-width: 1100px) {
+			.bgPortraitDesktop, .bgPortraitMobileSm, .bgPortraitMobileSm2 {
+				display: none;
+			}
+			//			.bgPortraitMobile {
+			//				display: block;
+			//				@media (max-width: 585px) {
+			//					width: 100%;
+			//					aspect-ratio: 16 / 9;
+			//					object-fit: cover;
+			//				}
+			//			}
 		}
 		@media (min-width: 1100px) {
 			.bgPortraitDesktop {
@@ -80,9 +103,10 @@ $wings-width: clamp(3.5rem, 10vw, 5.8rem);
 			}
 		}
 	}
+	
 	.textWrapper {
 		position: absolute;
-		top: 15%;
+		top: 10%;
 		left: 10%;
 		z-index: 10;
 		text-align: left;
@@ -91,54 +115,66 @@ $wings-width: clamp(3.5rem, 10vw, 5.8rem);
 		padding: 40px 50px;
 		border-radius: 10px;
 		line-height: 1.6;
-		.innerTextWrapper, .line1And2Wrapper{
+		
+		.innerTextWrapper, .line1And2Wrapper {
 			display: flex;
 			flex-direction: column;
 			align-items: center;
 			width: 100%;
 		}
+		
 		.innerTextWrapper {
 			white-space: nowrap;
+			
 			.line1, .line3 {
 				font-family: 'Times New Roman', serif;
 			}
-			.line3{
-				margin-top: 1rem;
-				font-size: $font-text-1and3;
+			
+			.line3 {
+				margin-top: 2rem;
+				font-size: $font-text-3;
 			}
+			
 			.line1, .line2, .line3 {
 				text-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
 			}
-			.line3{
-				color:$yellow;
+			
+			.line3 {
+				color: $yellow;
 				font-weight: 400;
 			}
+			
 			.line1And2Wrapper {
-				.line1{
-					font-size: $font-text-1and3;
+				.line1 {
+					font-size: $font-text-1;
 					font-weight: 600;
 				}
-				.line1,.line2{
+				
+				.line1, .line2 {
 					color: $white;
 					margin: 0;
 				}
-				.line2Wrapper{
+				
+				.line2Wrapper {
 					position: relative;
 					min-height: 5rem;
 					width: 100%;
 					display: flex;
 					justify-content: center;
-					.line2WrapperAbsolute{
+					
+					.line2WrapperAbsolute {
 						top: -0.5rem;
 						height: 100%;
 						display: flex;
 						position: absolute;
 						align-items: flex-end;
-						.wingLeft, .wingRight{
+						
+						.wingLeft, .wingRight {
 							width: $wings-width;
 							height: $wings-height;
 						}
-						.line2{
+						
+						.line2 {
 							font-family: $font-alex-brush;
 							font-style: normal;
 							font-weight: 400;
@@ -149,17 +185,32 @@ $wings-width: clamp(3.5rem, 10vw, 5.8rem);
 					}
 				}
 			}
+			@media (max-width: 935px) {
+				line-height: 0;
+			}
 			@media (max-width: 722px) {
 				transform: scale(0.8);
 				transform-origin: center;
 			}
+			
 		}
-		@media (max-width: 858px) {
-			padding:0;
+		@media (max-width: 489px) {
+			padding: 0;
+		}
+		@media (min-width: 489px) and (max-width: 858px) {
+			padding: 0 0 0 20px;
 		}
 		@media (max-width: 760px) {
 			top: 10%;
 			left: 5%;
+		}
+		@media (max-width: 398px) {
+			left:0;
+			.innerTextWrapper {
+				.wingLeft, .wingRight {
+					display: none;
+				}
+			}
 		}
 	}
 }

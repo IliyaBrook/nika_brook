@@ -4,6 +4,8 @@ import Image from 'next/image'
 import styles from './home.module.scss'
 import bgPortraitMobile from '../../public/images/home/img_background_mobile.jpg'
 import bgPortraitMobileSm from '../../public/images/home/img_background_mobile_sm_3.jpg'
+import bgPortraitMobileSm2 from '../../public/images/home/img_background_mobile_sm.jpg'
+import bgPortraitMobileSm4 from '../../public/images/home/img_background_mobile_sm_4.jpg'
 import bgPortraitDesktop from '../../public/images/home/img_background_desktop.jpg'
 import bg from '../../public/images/home/bg_desktop_2.jpg'
 import leftWingIcon from '../../public/images/icons/left_wing.svg'
@@ -46,6 +48,20 @@ export default function Home() {
 				<Image
 					className={classNames(styles.bgPortraitImage, styles.bgPortraitMobileSm)}
 					src={bgPortraitMobileSm}
+					alt='Background image Veronika Brook'
+					sizes='100vw'
+					priority
+				/>
+				<Image
+					className={classNames(styles.bgPortraitImage, styles.bgPortraitMobileSm2)}
+					src={bgPortraitMobileSm2}
+					alt='Background image Veronika Brook'
+					sizes='100vw'
+					priority
+				/>
+				<Image
+					className={classNames(styles.bgPortraitImage, styles.bgPortraitMobileSm4)}
+					src={bgPortraitMobileSm4}
 					alt='Background image Veronika Brook'
 					sizes='100vw'
 					priority
