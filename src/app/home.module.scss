@@ -1,6 +1,10 @@
 $font-alex-brush: var(--font-alex-brush);
 $white:#F5F5F5;
 $yellow: rgb(251, 244, 227);
+$font-text-1and3: clamp(1.5rem, 2.5vw, 2.5rem);
+$font-text-2: clamp(2rem, 4vw, 3rem);
+$wings-height: clamp(3.5rem, 10vw, 5.8rem);
+$wings-width: clamp(3.5rem, 10vw, 5.8rem);
 .main {
 	position: relative;
 	height: 100vh;
@@ -87,67 +91,71 @@ $yellow: rgb(251, 244, 227);
 		padding: 40px 50px;
 		border-radius: 10px;
 		line-height: 1.6;
-		
-		.innerTextWrapper {
+		.innerTextWrapper, .line1And2Wrapper{
 			display: flex;
 			flex-direction: column;
 			align-items: center;
-			
+			width: 100%;
+		}
+		.innerTextWrapper {
+			white-space: nowrap;
 			.line1, .line3 {
 				font-family: 'Times New Roman', serif;
 			}
-			.line1{
-				font-size: 3rem;
-			}
 			.line3{
-				font-size: 2.5rem;
+				margin-top: 1rem;
+				font-size: $font-text-1and3;
 			}
-			
-			.line1,.line2{
-				color: $white;
-			}
-			.line1{
-				font-weight: 600;
-			}
-			h1, h2 {
+			.line1, .line2, .line3 {
 				text-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
-				margin: 0;
 			}
 			.line3{
 				color:$yellow;
 				font-weight: 400;
 			}
-			.line2Wrapper{
-				position: relative;
-				min-height: 5rem;
-				width: 100%;
-				display: flex;
-				justify-content: center;
-				.line2WrapperAbsolute{
-					height: 100%;
+			.line1And2Wrapper {
+				.line1{
+					font-size: $font-text-1and3;
+					font-weight: 600;
+				}
+				.line1,.line2{
+					color: $white;
+					margin: 0;
+				}
+				.line2Wrapper{
+					position: relative;
+					min-height: 5rem;
+					width: 100%;
 					display: flex;
-					position: absolute;
-					align-items: flex-end;
-					.wingLeft, .wingRight{
-						width: 5rem;
-					}
-					.wingLeft{
-						height: 5.8rem;
-					}
-					.line2{
-						font-family: $font-alex-brush;
-						font-style: normal;
-						font-weight: 400;
-						line-height: normal;
-						font-size: 3rem;
-						margin: 0 8px 0 5px;
-					}
-					.wingRight{
-						height: 5.8rem;
+					justify-content: center;
+					.line2WrapperAbsolute{
+						top: -0.5rem;
+						height: 100%;
+						display: flex;
+						position: absolute;
+						align-items: flex-end;
+						.wingLeft, .wingRight{
+							width: $wings-width;
+							height: $wings-height;
+						}
+						.line2{
+							font-family: $font-alex-brush;
+							font-style: normal;
+							font-weight: 400;
+							line-height: normal;
+							font-size: $font-text-2;
+							margin: 0 8px 0 5px;
+						}
 					}
 				}
-				
 			}
+		}
+		@media (max-width: 858px) {
+			padding:0;
+		}
+		@media (max-width: 760px) {
+			top: 10%;
+			left: 5%;
 		}
 	}
 }

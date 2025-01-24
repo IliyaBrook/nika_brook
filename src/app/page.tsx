@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 
 export const dynamic = 'force-static'
 
-export default async function Home() {
+export default function Home() {
 	
 	return (
 		<main className={styles.main}>
@@ -53,16 +53,18 @@ export default async function Home() {
 			</div>
 			<div className={styles.textWrapper}>
 				<div className={styles.innerTextWrapper}>
-					<h1 className={styles.line1}>
-						OPERA SINGER
-					</h1>
-					<div className={styles.line2Wrapper}>
-						<div className={styles.line2WrapperAbsolute}>
-							<Image className={styles.wingLeft} src={leftWingIcon} alt='left wing icon' />
-							<h2 className={styles.line2}>
-								Soprano coloratura
-							</h2>
-							<Image className={styles.wingRight}  src={rightWingIcon} alt='right wing icon' />
+					<div className={styles.line1And2Wrapper}>
+						<h1 className={styles.line1}>
+							OPERA SINGER
+						</h1>
+						<div className={styles.line2Wrapper}>
+							<div className={styles.line2WrapperAbsolute}>
+								<Image className={styles.wingLeft} src={leftWingIcon} alt='left wing icon' />
+								<h2 className={styles.line2}>
+									Soprano coloratura
+								</h2>
+								<Image className={styles.wingRight} src={rightWingIcon} alt='right wing icon' />
+							</div>
 						</div>
 					</div>
 					<h2 className={styles.line3}>
