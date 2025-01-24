@@ -57,11 +57,13 @@ export default async function Home() {
 						OPERA SINGER
 					</h1>
 					<div className={styles.line2Wrapper}>
-						<Image className={styles.wingLeft} src={leftWingIcon} alt='left wing icon' />
-						<h2 className={styles.line2}>
-							Soprano coloratura
-						</h2>
-						<Image className={styles.wingRight}  src={rightWingIcon} alt='right wing icon' />
+						<div className={styles.line2WrapperAbsolute}>
+							<Image className={styles.wingLeft} src={leftWingIcon} alt='left wing icon' />
+							<h2 className={styles.line2}>
+								Soprano coloratura
+							</h2>
+							<Image className={styles.wingRight}  src={rightWingIcon} alt='right wing icon' />
+						</div>
 					</div>
 					<h2 className={styles.line3}>
 						CLASSICAL CROSSOVER ARTIST
