@@ -1,12 +1,12 @@
 import React from 'react'
-import LinkIconWithToolTip from '@/components/Navbar/components/socialNetLinks/LinkIconWithToolTip'
+import LinkIconWithToolTip from '@/components/Navbar/socialNavLinks/LinkIconWithToolTip'
 import { faApple, faFacebookF, faInstagram, faSpotify, faYoutube } from '@fortawesome/free-brands-svg-icons'
-import styles from './socialNetLinks.module.scss'
+import styles from './socialNavLinks.module.scss'
 
-const SocialNetLinks = () => {
+const SocialNavLinks = () => {
 	
 	return (
-		<div className={styles.socialNetLinks} id="socialNetLinksContainer">
+		<div className={styles.socialNavLinks} id="socialNavLinksContainer">
 			<LinkIconWithToolTip
 				id='facebookLink'
 				href='https://www.facebook.com/profile.php?id=100004158911717'
@@ -47,4 +47,4 @@ const SocialNetLinks = () => {
 	)
 }
 
-export default SocialNetLinks
+export default SocialNavLinks

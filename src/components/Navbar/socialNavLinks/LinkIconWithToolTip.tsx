@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { Tooltip } from 'primereact/tooltip'
 import React from 'react'
 import classNames from 'classnames'
-import styles from './socialNetLinks.module.scss'
+import styles from './socialNavLinks.module.scss'
 
 interface ILinkIconWithToolTip {
 	classNameLink: string,

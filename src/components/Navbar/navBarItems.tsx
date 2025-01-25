@@ -1,10 +1,9 @@
-import NavBarLogo from '@/components/Navbar/components/navBarLogo/NavBarLogo'
-import styles from '@/components/Navbar/components/navBarLogo/NavBarLogo.module.scss'
 import { setActivePath } from '@/utils/setActivePath'
 import classNames from 'classnames'
 import Link from 'next/link'
 import { MenuItem, type MenuItemOptions } from 'primereact/menuitem'
 import { Skeleton } from 'primereact/skeleton'
+import styles from './Navbar.module.scss'
 import React from 'react'
 
 const RouteTemplate = (item: MenuItem, options: MenuItemOptions, pathname: string) => {

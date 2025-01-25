@@ -1,5 +1,5 @@
-@use "@/app/shareableStyles/colors.scss" as colors;
-.socialNetLinks {
+@use "@/app/shareableStyles/colors" as colors;
+.socialNavLinks {
 	background-color: colors.$bg-color-navbar;
 	text-align: center;
 	display: flex;

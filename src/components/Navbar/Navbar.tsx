@@ -1,5 +1,5 @@
 'use client'
-import SocialNetLinks from '@/components/Navbar/components/socialNetLinks/socialNetLinks'
+import SocialNavLinks from '@/components/Navbar/socialNavLinks/socialNavLinks'
 import getNavBarItems, { navBarSkeleton } from '@/components/Navbar/navBarItems'
 import dynamic from 'next/dynamic'
 import { usePathname } from 'next/navigation'
@@ -53,7 +53,7 @@ const Navbar = () => {
 			</div>
 			<div className={styles.socialLinksWrapper}>
 				{isMenuNavReady ? (
-					<SocialNetLinks />
+					<SocialNavLinks />
 				) : (
 					<div className={styles.socialLinksSkeleton}>
 						<Skeleton

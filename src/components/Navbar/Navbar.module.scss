@@ -11,11 +11,11 @@
 		.p-menubar {
 			border: none;
 			padding: 0;
-			@media (max-width: 960px) {
-				&:after{
-					''
-				}
-			}
+//			@media (max-width: 960px) {
+//				&:after{
+//					'';
+//				}
+//			}
 		}
 		
 		.p-menubar .p-menubar-button:focus, .p-menubar-button:hover {
