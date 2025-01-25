@@ -68,13 +68,13 @@ $wings-width: clamp(3.5rem, 4vw, 5.8rem);
 			}
 		}
 		// mobile md [width:554px-1100px]
-		@media (min-width: 554px) and (max-width: 1100px) {
+		@media (min-width: 554px) and (max-width: 1199px) {
 			.bgPortraitMobileXl{
 				display: block;
 			}
 		}
 		// desktop < 1100px
-		@media (min-width: 1100px) {
+		@media (min-width: 1199px) {
 			.bgPortraitDesktop{
 				display: block;
 			}

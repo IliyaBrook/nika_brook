@@ -36,34 +36,42 @@ const Navbar = () => {
 	const navBarItems = useMemo(() => getNavBarItems(pathname), [pathname])
 	return (
 		<div className={styles.root}>
-			<div className={styles.navMenuWrapper}>
-				<Menubar
-					model={isMenuNavReady ? navBarItems : []}
-					pt={{
-					
-					}}
-				/>
-				{
-					!isMenuNavReady && (
-						<div className={styles.skeletonSOcialLinksWrapper}>
+			<Menubar
+				model={isMenuNavReady ? navBarItems : []}
+			/>
+			{isMenuNavReady && <div className={styles.navBarArtistNameMobile}>Veronika Brook</div>}
+			{!isMenuNavReady && <Skeleton
+				className={styles.mobileMenuSkeleton}
+			/>}
+			
+			{
+				!isMenuNavReady && (
+					<div className={styles.navSekeletonsWrapper}>
+						<div className={styles.navSkeletonLinksWrapper}>
 							{navBarSkeleton.map((elem, idx) => <div key={`nav-skeleton-${idx}`}>{elem.template}</div>)}
 						</div>
-					)
-				}
-			</div>
-			<div className={styles.socialLinksWrapper}>
-				{isMenuNavReady ? (
-					<SocialNavLinks />
-				) : (
-					<div className={styles.socialLinksSkeleton}>
-						<Skeleton
-							width={'180px'}
-							height={'30px'}
-							className={styles.socialLinksSkeleton}
-						/>
+						<div className={styles.socialLinksSkeletonWrap}>
+							{Array.from({ length: 5 }).map((_, idx) =>
+								<Skeleton
+									key={`social-skeleton-${idx}`}
+									className={styles.socialLinksSkeleton}
+								/>)}
+						</div>
+						<div className={styles.navSkeletonArtistNameWrapperSm}>
+							<Skeleton
+								className={styles.navSkeletonArtistNameSm}
+							/>
+						</div>
 					</div>
-				)}
-			</div>
+				)
+			}
+			{
+				isMenuNavReady && (
+					<div className={styles.socialLinksWrapper}>
+							<SocialNavLinks />
+					</div>
+				)
+			}
 		</div>
 	)
 }

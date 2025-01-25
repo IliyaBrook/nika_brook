@@ -1,6 +1,7 @@
 @use "@/app/shareableStyles/colors.scss" as colors;
 
 $font-text: var(--font-josefin-sans);
+$font-size-artist-name:clamp(23px, 5vw, 33px);
 @mixin ArtistNameText {
 	color: #000;
 	font-size: 33px;
@@ -12,33 +13,64 @@ $font-text: var(--font-josefin-sans);
 	text-transform: uppercase;
 }
 
-.navBarArtistName {
+.navBarArtistNameDesktop {
 	.text {
 		@include ArtistNameText;
 	}
 }
 
+@media (max-width: 960px) {
+	.navBarArtistNameDesktop {
+		display: none;
+	}
+}
+
 .root {
+	position: relative;
 	height: 102.8px;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-evenly;
 	background-color: #{colors.$bg-color-navbar};
 	
+	.navBarArtistNameMobile {
+		display: none;
+	}
+	
+	@media (max-width: 960px) {
+		.navBarArtistNameMobile {
+			display: block;
+			@include ArtistNameText;
+			position: absolute;
+			text-align: center;
+			width: 100%;
+			z-index: 1;
+		}
+	}
+	@media (min-width: 600px) and (max-width: 767px) {
+		.navBarArtistNameMobile {
+			top: 24px;
+		}
+	}
+	@media (min-width: 767px) and (max-width: 960px) {
+		.navBarArtistNameMobile {
+			top: 32px;
+		}
+	}
+	@media (max-width: 600px) {
+		.navBarArtistNameMobile {
+			font-size: $font-size-artist-name;
+		}
+	}
+	
 	:global {
 		.p-menubar {
 			border: none;
 			padding: 0;
+			position: relative;
 			@media (max-width: 960px) {
-				&:after {
-					content: "Veronika Brook";
-					@include ArtistNameText;
-					width: 100%;
-					@media (max-width: 600px) {
-						font-size:clamp(20px, 5vw, 33px);
-					}
-				}
-				a{
+				a {
+					z-index: 5;
 					margin-left: clamp(10px, 2vw, 20px);
 				}
 			}
@@ -132,40 +164,92 @@ $font-text: var(--font-josefin-sans);
 				margin-left: 1em;
 			}
 		}
+	}
+	
+	@media (min-width: 767px) {
+		padding-top: 10px;
+		min-height: 40px;
 		
-		@media (max-width: 767px) {
-			.nav-bar-skeleton-title, .nav-bar-skeleton {
-				display: none;
-			}
-		}
-		@media (max-width: 600px) {
-			.nav-bar-artist-name {
-				display: none;
-			}
+	}
+	@media (max-width: 1199px) {
+		.socialLinksWrapper {
+			display: none;
 		}
 	}
 	
-	.socialLinksSkeleton {
+	.mobileMenuSkeleton {
+		display: none;
+	}
+	
+	@media (max-width: 960px) {
+		.mobileMenuSkeleton {
+			display: block;
+			width: 50px !important;
+			height: 30px !important;
+			position: absolute !important;
+			left: 10px;
+			top: 30%;
+		}
+	}
+	
+	.navSekeletonsWrapper {
+		margin-top: -10px;
+		width: 100%;
 		display: flex;
-		justify-content: center;
-		@media (max-width: 1199px) {
-			display: none;
-		}
-	}
-	@media (min-width: 767px) {
-		padding-top: 10px;
-		.navMenuWrapper {
-			min-height: 40px;
-		}
-		.skeletonSOcialLinksWrapper {
-			display: flex;
+		flex-direction: column;
+		position: absolute;
+		.navSkeletonLinksWrapper {
 			width: 100%;
+			display: flex;
 			justify-content: space-around;
+			align-items: center;
+			.navSkeletonArtistName{
+				height: 40px!important;
+				width: calc(10 * $font-size-artist-name) !important;
+				@media (min-width: 1199px) {
+					width: 340px!important;
+				}
+			}
+			.navSkeletonLink{
+				height: 30px!important;
+				width: 100px!important;
+			}
 		}
-	}
-	@media (max-width: 600px) {
-		.socialLinksWrapper {
-			display: none;
+
+		@media (max-width: 1199px) {
+			.socialLinksSkeletonWrap {
+				display: none!important;
+			}
+		}
+		@media (max-width: 960px) {
+			.navSkeletonLinksWrapper {
+				display: none!important;
+			}
+		}
+		@media (min-width: 960px) {
+			.navSkeletonArtistNameWrapperSm {
+				display: none!important;
+			}
+		}
+		.navSkeletonArtistNameWrapperSm{
+			width: 100%;
+			display: flex;
+			justify-content: center;
+			.navSkeletonArtistNameSm{
+				height: 40px!important;
+				width: calc(10 * $font-size-artist-name) !important;
+			}
+		}
+		.socialLinksSkeletonWrap {
+			margin-top: 10px;
+			width: 100%;
+			display: flex;
+			justify-content: center;
+			gap: 20px;
+			.socialLinksSkeleton {
+				width: 20px !important;
+				height: 20px !important;
+			}
 		}
 	}
 }

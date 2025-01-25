@@ -37,7 +37,7 @@ const getNavBarItems = (pathname: string): MenuItem[] => {
 		{
 			className: 'nav-bar-artist-name',
 			template: (
-				<div className={styles.navBarArtistName}>
+				<div className={styles.navBarArtistNameDesktop}>
 					<div className={styles.text}>Veronika Brook</div>
 				</div>
 			)
@@ -75,19 +75,19 @@ const getNavBarItems = (pathname: string): MenuItem[] => {
 
 export const navBarSkeleton = [
 	{
-		template: <Skeleton width='100px' height='30px' className='nav-bar-skeleton' />
+		template: <Skeleton className={styles.navSkeletonLink} />
 	},
 	{
-		template: <Skeleton width='100px' height='30px' className='nav-bar-skeleton' />
+		template: <Skeleton className={styles.navSkeletonLink}  />
 	},
 	{
-		template: <Skeleton width={'180px'} height={'30px'} className='nav-bar-skeleton-title' />
+		template: <Skeleton className={styles.navSkeletonArtistName} />
 	},
 	{
-		template: <Skeleton width='100px' height='30px' className='nav-bar-skeleton' />
+		template: <Skeleton className={styles.navSkeletonLink}  />
 	},
 	{
-		template: <Skeleton width='100px' height='30px' className='nav-bar-skeleton' />
+		template: <Skeleton className={styles.navSkeletonLink}  />
 	}
 ]
 
