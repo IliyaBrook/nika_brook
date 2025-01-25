@@ -5,14 +5,10 @@
   "repository": "https://github.com/IliyaBrook/nika_brook",
   "author": "Iliya Brook <iliyabrook1987@gmail.com>",
   "scripts": {
-    "build-dev": "env-cmd -f ./env_files/.env.development next build",
-    "start-dev": "env-cmd -f ./env_files/.env.development next dev",
-    "build-prod": "env-cmd -f ./env_files/.env.production next build",
-    "start-prod": "env-cmd -f ./env_files/.env.production next start",
-    "build-local": "env-cmd -f ./env_files/.env.local_prod next build",
-    "start-local": "env-cmd -f ./env_files/.env.local_prod next start",
-    "start_build_dev": "yarn build-local && env-cmd -f ./env_files/.env.development cross-env NEXT_PUBLIC_LOCATION=dev next start -p 5000",
-    "lint": "next lint"
+    "start": "next start",
+    "build": "next build",
+    "dev": "next dev",
+    "start-local-build": "yarn build && yarn start -p 5000"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.7.2",
@@ -39,7 +35,6 @@
     "aws-cdk-lib": "^2.176.0",
     "constructs": "^10.4.2",
     "cross-env": "^7.0.3",
-    "env-cmd": "^10.1.0",
     "esbuild": "^0.24.2",
     "eslint": "^9.18.0",
     "eslint-config-next": "15.1.6",
