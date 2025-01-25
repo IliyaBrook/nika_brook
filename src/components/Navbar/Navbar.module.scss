@@ -1,5 +1,23 @@
 @use "@/app/shareableStyles/colors.scss" as colors;
 
+$font-text: var(--font-josefin-sans);
+@mixin ArtistNameText {
+	color: #000;
+	font-size: 33px;
+	font-weight: 500;
+	font-family: $font-text;
+	letter-spacing: 2px;
+	line-height: 0.969327em;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+.navBarArtistName {
+	.text {
+		@include ArtistNameText;
+	}
+}
+
 .root {
 	height: 102.8px;
 	display: flex;
@@ -11,11 +29,16 @@
 		.p-menubar {
 			border: none;
 			padding: 0;
-//			@media (max-width: 960px) {
-//				&:after{
-//					'';
-//				}
-//			}
+			@media (max-width: 960px) {
+				&:after {
+					content: "Veronika Brook";
+					@include ArtistNameText;
+					width: 100%;
+					@media (max-width: 600px) {
+						font-size: clamp(20px, 5vw, 33px);
+					}
+				}
+			}
 		}
 		
 		.p-menubar .p-menubar-button:focus, .p-menubar-button:hover {
@@ -102,9 +125,9 @@
 			}
 		}
 		@media (max-width: 1199px) {
-//			.logo {
-//				display: none;
-//			}
+			.logo {
+				display: none;
+			}
 			.p-submenu-list {
 				margin-left: 1em;
 			}
@@ -120,38 +143,24 @@
 	.socialLinksSkeleton {
 		display: flex;
 		justify-content: center;
-		@media (max-width: 767px) {
+	}
+	@media (min-width: 767px) {
+		padding-top: 10px;
+		.socialLinksSkeleton {
 			display: none;
+		}
+		.navMenuWrapper {
+			min-height: 40px;
+		}
+		.skeletonSOcialLinksWrapper {
+			display: flex;
+			width: 100%;
+			justify-content: space-around;
 		}
 	}
 }
 
 
-@media (min-width: 767px) {
-	.root {
-		padding-top:10px;
-	}
-	.navMenuWrapper {
-		min-height: 40px;
-	}
-	.skeletonSOcialLinksWrapper{
-		display: flex;
-		width: 100%;
-		justify-content: space-around;
-	}
-}
 
 
-$font-text: var(--font-josefin-sans);
-.navBarArtistName{
-	.text{
-		color: #000;
-		font-size: 33px;
-		font-weight: 500;
-		font-family: $font-text;
-		letter-spacing: 2px;
-		line-height: 0.969327em;
-		text-align: center;
-		text-transform: uppercase;
-	}
-}
+
