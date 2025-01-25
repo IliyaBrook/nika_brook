@@ -3,10 +3,10 @@ import { Metadata } from 'next'
 import Image from 'next/image'
 import styles from './home.module.scss'
 import bgPortraitMobile from '../../public/images/home/img_background_mobile.jpg'
-import bgPortraitMobileSm from '../../public/images/home/img_background_mobile_sm_3.jpg'
+import bgPortraitMobileSm from '../../public/images/home/bgPortraitMobileSm.jpg'
 import bgPortraitMobileSm4 from '../../public/images/home/img_background_mobile_sm_4.jpg'
 import bgPortraitDesktop from '../../public/images/home/img_background_desktop.jpg'
-import bgOfPortrait from '../../public/images/home/bg_desktop_2.jpg'
+import bgOfPortrait from '../../public/images/home/bgOfPortrait.jpg'
 import leftWingIcon from '../../public/images/icons/left_wing.svg'
 import rightWingIcon from '../../public/images/icons/right_wing.svg'
 
@@ -38,15 +38,15 @@ export default function Home() {
 					priority
 				/>
 				<Image
-					className={classNames(styles.bgPortrait, styles.bgPortraitMobile)}
-					src={bgPortraitMobile}
+					className={classNames(styles.bgPortrait, styles.bgPortraitMobileSm)}
+					src={bgPortraitMobileSm}
 					alt='Background image Veronika Brook'
 					sizes='100vw'
 					priority
 				/>
 				<Image
-					className={classNames(styles.bgPortrait, styles.bgPortraitMobileSm)}
-					src={bgPortraitMobileSm}
+					className={classNames(styles.bgPortrait, styles.bgPortraitMobile)}
+					src={bgPortraitMobile}
 					alt='Background image Veronika Brook'
 					sizes='100vw'
 					priority

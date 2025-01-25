@@ -42,7 +42,7 @@ $wings-width: clamp(3.5rem, 4vw, 5.8rem);
 			height: 100%;
 			z-index: 3;
 			filter: blur(10px);
-			background-image: url('../../public/images/home/bg_blur.jpg');
+			background-image: url('../../public/images/home/bgOfPortraitBlur.jpg');
 			background-size: cover;
 			background-position: center;
 			background-repeat: no-repeat;
@@ -50,10 +50,6 @@ $wings-width: clamp(3.5rem, 4vw, 5.8rem);
 				width: 40px;
 			}
 		}
-		
-		//		.bgPortraitMobileSm{
-		//			display: none!important;
-		//		}
 		.bgPortraitMobileSm4, .bgPortraitMobileSm {
 			display: none;
 		}
