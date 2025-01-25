@@ -1,4 +1,5 @@
 import NavBarLogo from '@/components/Navbar/components/navBarLogo/NavBarLogo'
+import styles from '@/components/Navbar/components/navBarLogo/NavBarLogo.module.scss'
 import { setActivePath } from '@/utils/setActivePath'
 import classNames from 'classnames'
 import Link from 'next/link'
@@ -6,8 +7,8 @@ import { MenuItem, type MenuItemOptions } from 'primereact/menuitem'
 import { Skeleton } from 'primereact/skeleton'
 import React from 'react'
 
-const RouteTemplate = (item: MenuItem, options:MenuItemOptions, pathname: string) => {
-	const routeName = item.id;
+const RouteTemplate = (item: MenuItem, options: MenuItemOptions, pathname: string) => {
+	const routeName = item.id
 	return (
 		<Link
 			className={classNames(
@@ -18,7 +19,7 @@ const RouteTemplate = (item: MenuItem, options:MenuItemOptions, pathname: string
 		>
 			{item.label}
 		</Link>
-	);
+	)
 }
 
 const getNavBarItems = (pathname: string): MenuItem[] => {
@@ -36,7 +37,11 @@ const getNavBarItems = (pathname: string): MenuItem[] => {
 		},
 		{
 			className: 'logo',
-			template: NavBarLogo
+			template: (
+				<div className={styles.navBarArtistName}>
+					<div className={styles.text}>Veronika Brook</div>
+				</div>
+			)
 		},
 		{
 			label: 'Media',
@@ -65,26 +70,26 @@ const getNavBarItems = (pathname: string): MenuItem[] => {
 			label: 'Contact',
 			id: '/contact',
 			template
-		},
+		}
 	]
 }
 
 export const navBarSkeleton = [
 	{
-		template: <Skeleton width="100px" height="30px" className="nav-bar-skeleton"/>
+		template: <Skeleton width='100px' height='30px' className='nav-bar-skeleton' />
 	},
 	{
-		template: <Skeleton width="100px" height="30px" className="nav-bar-skeleton"/>
+		template: <Skeleton width='100px' height='30px' className='nav-bar-skeleton' />
 	},
 	{
-		template: <Skeleton width={'180px'} height={'30px'} className="nav-bar-skeleton-title"/>
+		template: <Skeleton width={'180px'} height={'30px'} className='nav-bar-skeleton-title' />
 	},
 	{
-		template: <Skeleton width="100px" height="30px" className="nav-bar-skeleton"/>,
+		template: <Skeleton width='100px' height='30px' className='nav-bar-skeleton' />
 	},
 	{
-		template: <Skeleton width="100px" height="30px" className="nav-bar-skeleton"/>,
-	},
+		template: <Skeleton width='100px' height='30px' className='nav-bar-skeleton' />
+	}
 ]
 
 export default getNavBarItems

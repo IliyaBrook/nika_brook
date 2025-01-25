@@ -37,7 +37,12 @@ const Navbar = () => {
 	return (
 		<div className={styles.root}>
 			<div className={styles.navMenuWrapper}>
-				<Menubar model={isMenuNavReady ? navBarItems : []} />
+				<Menubar
+					model={isMenuNavReady ? navBarItems : []}
+					pt={{
+					
+					}}
+				/>
 				{
 					!isMenuNavReady && (
 						<div className={styles.skeletonSOcialLinksWrapper}>

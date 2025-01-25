@@ -11,6 +11,11 @@
 		.p-menubar {
 			border: none;
 			padding: 0;
+			@media (max-width: 960px) {
+				&:after{
+					''
+				}
+			}
 		}
 		
 		.p-menubar .p-menubar-button:focus, .p-menubar-button:hover {
@@ -97,9 +102,9 @@
 			}
 		}
 		@media (max-width: 1199px) {
-			.logo {
-				display: none;
-			}
+//			.logo {
+//				display: none;
+//			}
 			.p-submenu-list {
 				margin-left: 1em;
 			}
@@ -133,5 +138,20 @@
 		display: flex;
 		width: 100%;
 		justify-content: space-around;
+	}
+}
+
+
+$font-text: var(--font-josefin-sans);
+.navBarArtistName{
+	.text{
+		color: #000;
+		font-size: 33px;
+		font-weight: 500;
+		font-family: $font-text;
+		letter-spacing: 2px;
+		line-height: 0.969327em;
+		text-align: center;
+		text-transform: uppercase;
 	}
 }
