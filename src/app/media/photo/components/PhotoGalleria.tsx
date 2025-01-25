@@ -1,11 +1,10 @@
 'use client'
 import { ItemTemplate } from '@/app/media/photo/components/ItemTemplate'
-import { images, skeletonImages } from '@/app/media/photo/data'
+import { images } from '@/app/media/photo/data'
 import { isDevelopment } from '@/utils/enviroments'
 import getElementsByXPath from '@/utils/getElementsByXPath'
 import dynamic from 'next/dynamic'
-import { CarouselResponsiveOption, Carousel as CarouselComponent } from 'primereact/carousel'
-import { Image as PrimeImage } from 'primereact/image'
+import { Carousel as CarouselComponent, CarouselResponsiveOption } from 'primereact/carousel'
 import React, { useEffect, useRef, useState } from 'react'
 import styles from '../photo.module.scss'
 
