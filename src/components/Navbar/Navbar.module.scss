@@ -35,7 +35,7 @@ $font-text: var(--font-josefin-sans);
 					@include ArtistNameText;
 					width: 100%;
 					@media (max-width: 600px) {
-						font-size: clamp(20px, 5vw, 33px);
+						font-size:clamp(20px, 5vw, 33px);
 					}
 				}
 			}
@@ -125,9 +125,6 @@ $font-text: var(--font-josefin-sans);
 			}
 		}
 		@media (max-width: 1199px) {
-			.logo {
-				display: none;
-			}
 			.p-submenu-list {
 				margin-left: 1em;
 			}
@@ -138,17 +135,22 @@ $font-text: var(--font-josefin-sans);
 				display: none;
 			}
 		}
+		@media (max-width: 600px) {
+			.nav-bar-artist-name {
+				display: none;
+			}
+		}
 	}
 	
 	.socialLinksSkeleton {
 		display: flex;
 		justify-content: center;
+		@media (max-width: 1199px) {
+			display: none;
+		}
 	}
 	@media (min-width: 767px) {
 		padding-top: 10px;
-		.socialLinksSkeleton {
-			display: none;
-		}
 		.navMenuWrapper {
 			min-height: 40px;
 		}
@@ -156,6 +158,11 @@ $font-text: var(--font-josefin-sans);
 			display: flex;
 			width: 100%;
 			justify-content: space-around;
+		}
+	}
+	@media (max-width: 600px) {
+		.socialLinksWrapper {
+			display: none;
 		}
 	}
 }

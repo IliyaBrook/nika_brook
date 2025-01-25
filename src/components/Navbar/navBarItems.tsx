@@ -35,7 +35,7 @@ const getNavBarItems = (pathname: string): MenuItem[] => {
 			template
 		},
 		{
-			className: 'logo',
+			className: 'nav-bar-artist-name',
 			template: (
 				<div className={styles.navBarArtistName}>
 					<div className={styles.text}>Veronika Brook</div>

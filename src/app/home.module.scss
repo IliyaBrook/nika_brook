@@ -64,7 +64,6 @@ $wings-width: clamp(3.5rem, 4vw, 5.8rem);
 		@media (min-width: 398px) and (max-width: 554px) {
 			.bgPortraitMobileXl {
 				display: block;
-				margin-left: clamp(-16vw, 30vw, -20vw);
 			}
 		}
 		// mobile md [width:554px-1100px]
@@ -173,9 +172,9 @@ $wings-width: clamp(3.5rem, 4vw, 5.8rem);
 			}
 		}
 		@media (max-width: 398px) {
-			top: 10%;
+			top: 4%;
 			left: 5%;
-			padding: 0 0 0 01vw;
+			padding: 0 0 0 1vw;
 		}
 		@media (min-width: 398px) and (max-width: 489px) {
 			top: 5%;
