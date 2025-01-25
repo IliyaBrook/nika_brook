@@ -54,7 +54,7 @@ $font-size-artist-name:clamp(23px, 5vw, 33px);
 	}
 	@media (min-width: 767px) and (max-width: 960px) {
 		.navBarArtistNameMobile {
-			top: 32px;
+			top: 40px;
 		}
 	}
 	@media (max-width: 600px) {
@@ -72,6 +72,10 @@ $font-size-artist-name:clamp(23px, 5vw, 33px);
 				a {
 					z-index: 5;
 					margin-left: clamp(10px, 2vw, 20px);
+				}
+				.p-icon{
+					width: 1.5rem;
+					height: 1.5rem;
 				}
 			}
 		}
@@ -188,7 +192,7 @@ $font-size-artist-name:clamp(23px, 5vw, 33px);
 			height: 30px !important;
 			position: absolute !important;
 			left: 10px;
-			top: 30%;
+			top: 35%;
 		}
 	}
 	

@@ -38,12 +38,3 @@ body {
     background-position: 200% 0;
   }
 }
-// navbar icon size change
-@media (max-width: 768px) {
-  .p-menubar {
-    .p-icon{
-      width: 1.5rem;
-      height: 1.5rem;
-    }
-  }
-}
