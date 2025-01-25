@@ -38,6 +38,9 @@ $font-text: var(--font-josefin-sans);
 						font-size:clamp(20px, 5vw, 33px);
 					}
 				}
+				a{
+					margin-left: clamp(10px, 2vw, 20px);
+				}
 			}
 		}
 		
