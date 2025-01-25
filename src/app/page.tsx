@@ -2,13 +2,14 @@ import classNames from 'classnames'
 import { Metadata } from 'next'
 import Image from 'next/image'
 import styles from './home.module.scss'
-import bgPortraitMobile from '../../public/images/home/img_background_mobile.jpg'
-import bgPortraitMobileSm from '../../public/images/home/bgPortraitMobileSm.jpg'
-import bgPortraitMobileSm4 from '../../public/images/home/img_background_mobile_sm_4.jpg'
-import bgPortraitDesktop from '../../public/images/home/img_background_desktop.jpg'
 import bgOfPortrait from '../../public/images/home/bgOfPortrait.jpg'
 import leftWingIcon from '../../public/images/icons/left_wing.svg'
 import rightWingIcon from '../../public/images/icons/right_wing.svg'
+import bgPortraitMobileSm from '../../public/images/home/bgPortraitMobileSm.jpg'
+import bgPortraitMobileMd from '../../public/images/home/bgPortraitMobileMd.jpg'
+import bgPortraitMobileXl from '../../public/images/home/bgPortraitMobileXl.jpg'
+import bgPortraitDesktop from '../../public/images/home/bgPortraitDesktop.jpg'
+
 
 export const metadata: Metadata = {
 	title: 'Home - Veronika Brook',
@@ -22,6 +23,7 @@ export default function Home() {
 	
 	return (
 		<main className={styles.main}>
+			{/* background image of image portrait */}
 			<Image
 				className={styles.bgOfPortrait}
 				src={bgOfPortrait}
@@ -30,13 +32,7 @@ export default function Home() {
 				priority
 			/>
 			<div className={styles.bgImageWrapper}>
-				<Image
-					className={classNames(styles.bgPortrait, styles.bgPortraitDesktop)}
-					src={bgPortraitDesktop}
-					alt='Background image Veronika Brook'
-					sizes='100vw'
-					priority
-				/>
+				{/* mobile sm [width:0px-398px] */}
 				<Image
 					className={classNames(styles.bgPortrait, styles.bgPortraitMobileSm)}
 					src={bgPortraitMobileSm}
@@ -44,16 +40,26 @@ export default function Home() {
 					sizes='100vw'
 					priority
 				/>
+				{/* mobile md [width:554px-1100px] */}
 				<Image
-					className={classNames(styles.bgPortrait, styles.bgPortraitMobile)}
-					src={bgPortraitMobile}
+					className={classNames(styles.bgPortrait, styles.bgPortraitMobileMd)}
+					src={bgPortraitMobileMd}
 					alt='Background image Veronika Brook'
 					sizes='100vw'
 					priority
 				/>
+				{/* mobile md [width:398px-554px] */}
 				<Image
-					className={classNames(styles.bgPortrait, styles.bgPortraitMobileSm4)}
-					src={bgPortraitMobileSm4}
+					className={classNames(styles.bgPortrait, styles.bgPortraitMobileXl)}
+					src={bgPortraitMobileXl}
+					alt='Background image Veronika Brook'
+					sizes='100vw'
+					priority
+				/>
+				{/* desktop < 1100px */}
+				<Image
+					className={classNames(styles.bgPortrait, styles.bgPortraitDesktop)}
+					src={bgPortraitDesktop}
 					alt='Background image Veronika Brook'
 					sizes='100vw'
 					priority

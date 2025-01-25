@@ -50,22 +50,30 @@ $wings-width: clamp(3.5rem, 4vw, 5.8rem);
 				width: 40px;
 			}
 		}
-		.bgPortraitMobileSm4, .bgPortraitMobileSm {
+		.bgPortraitMobileSm, .bgPortraitMobileMd, .bgPortraitMobileXl, .bgPortraitDesktop {
 			display: none;
 		}
+		// images bg by resolution
+		//	mobile sm [width:0px-398px]
+		// mobile md [width:398px-554px]
+		// mobile md [width:554px-1100px]
+		// desktop < 1100px
+		
+		
+		
 		@media (max-width: 398px) {
 			.bgPortraitMobileSm {
 				display: block;
 			}
 		}
 		@media (min-width: 398px) and (max-width: 554px) {
-			.bgPortraitMobileSm4 {
+			.bgPortraitMobileXl {
 				display: block;
 				margin-left: clamp(-16vw, 30vw, -20vw);
 			}
 		}
 		@media (max-width: 554px) {
-			.bgPortraitDesktop, .bgPortraitMobile {
+			.bgPortraitDesktop, .bgPortraitMobileMd {
 				display: none;
 			}
 		}
@@ -78,7 +86,7 @@ $wings-width: clamp(3.5rem, 4vw, 5.8rem);
 			.bgPortraitDesktop {
 				display: block;
 			}
-			.bgPortraitMobile, .bgPortraitMobileSm {
+			.bgPortraitMobileMd, .bgPortraitMobileSm {
 				display: none;
 			}
 		}
