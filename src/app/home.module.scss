@@ -55,39 +55,28 @@ $wings-width: clamp(3.5rem, 4vw, 5.8rem);
 		}
 		// images bg by resolution
 		//	mobile sm [width:0px-398px]
-		// mobile md [width:398px-554px]
-		// mobile md [width:554px-1100px]
-		// desktop < 1100px
-		
-		
-		
 		@media (max-width: 398px) {
 			.bgPortraitMobileSm {
 				display: block;
 			}
 		}
+		// mobile md [width:398px-554px]
 		@media (min-width: 398px) and (max-width: 554px) {
 			.bgPortraitMobileXl {
 				display: block;
 				margin-left: clamp(-16vw, 30vw, -20vw);
 			}
 		}
-		@media (max-width: 554px) {
-			.bgPortraitDesktop, .bgPortraitMobileMd {
-				display: none;
-			}
-		}
+		// mobile md [width:554px-1100px]
 		@media (min-width: 554px) and (max-width: 1100px) {
-			.bgPortraitDesktop, .bgPortraitMobileSm {
-				display: none;
-			}
-		}
-		@media (min-width: 1100px) {
-			.bgPortraitDesktop {
+			.bgPortraitMobileXl{
 				display: block;
 			}
-			.bgPortraitMobileMd, .bgPortraitMobileSm {
-				display: none;
+		}
+		// desktop < 1100px
+		@media (min-width: 1100px) {
+			.bgPortraitDesktop{
+				display: block;
 			}
 		}
 	}
