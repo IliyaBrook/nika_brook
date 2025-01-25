@@ -8,7 +8,7 @@ $wings-height: clamp(3.5rem, 5vw, 5.8rem);
 $wings-width: clamp(3.5rem, 4vw, 5.8rem);
 .main {
 	position: relative;
-//	height: 100vh;
+	//	height: 100vh;
 	height: 100%;
 	width: 100%;
 	display: flex;
@@ -51,31 +51,46 @@ $wings-width: clamp(3.5rem, 4vw, 5.8rem);
 				width: 40px;
 			}
 		}
-		.bgPortraitMobileSm, .bgPortraitMobileMd, .bgPortraitMobileXl, .bgPortraitDesktop {
+		
+		.bgPortraitMobileSm, .bgPortraitMobileMd, .bgPortraitMobileXl, .bgPortraitDesktop, .bgPortraitMobileLg {
 			display: none;
 		}
+		
 		// images bg by resolution
 		//	mobile sm [width:0px-398px]
-		@media (max-width: 398px) {
+		@media (max-width: 330px) {
 			.bgPortraitMobileSm {
+				display: block;
+			}
+		}
+		@media (min-width: 330px) and (max-width: 398px) {
+			.bgPortraitMobileXl {
 				display: block;
 			}
 		}
 		// mobile md [width:398px-554px]
 		@media (min-width: 398px) and (max-width: 554px) {
-			.bgPortraitMobileXl {
+			.bgPortraitMobileMd {
 				display: block;
 			}
 		}
 		// mobile md [width:554px-1100px]
+		//		@media (min-width: 554px) and (max-width: 1199px) {
+		//			.bgPortraitMobileXl{
+		//				display: block;
+		//			}
+		//		}
 		@media (min-width: 554px) and (max-width: 1199px) {
-			.bgPortraitMobileXl{
+			.bgPortraitMobileLg {
 				display: block;
 			}
 		}
+		// mobile lg [width:554px-1100px]
+		
+		
 		// desktop < 1100px
 		@media (min-width: 1199px) {
-			.bgPortraitDesktop{
+			.bgPortraitDesktop {
 				display: block;
 			}
 		}
@@ -162,36 +177,40 @@ $wings-width: clamp(3.5rem, 4vw, 5.8rem);
 					}
 				}
 			}
+			
 			@media (max-width: 935px) {
 				line-height: 0;
 			}
 			@media (max-width: 722px) {
 				transform-origin: center;
 			}
-			@media (max-width: 398px) {
+			@media (max-width: 599px) {
 				transform: scale(0.9);
 			}
 		}
+		
 		@media (max-width: 398px) {
 			top: 4%;
 			left: 5%;
 			padding: 0 0 0 1vw;
 		}
 		@media (min-width: 398px) and (max-width: 489px) {
-			top: 5%;
+			top: 12%;
 			left: 5%;
-			padding: 0 0 0 5vw;
+			padding: 0 0 0 0;
 		}
-		@media (min-width:489px) and (max-width: 760px) {
+		@media (min-width: 489px) and (max-width: 760px) {
 			top: 10%;
 			left: 5%;
 		}
 		@media (min-width: 489px) and (max-width: 858px) {
-			padding: 0 0 0 5vw;
+			padding: 0 0 0 2vw;
+			left: 5%;
+			margin-left: 2%;
 		}
-
+		
 		@media (max-width: 528px) {
-			left:0;
+			left: 0;
 			.innerTextWrapper {
 				.wingLeft, .wingRight {
 					display: none;

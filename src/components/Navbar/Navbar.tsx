@@ -43,7 +43,6 @@ const Navbar = () => {
 			{!isMenuNavReady && <Skeleton
 				className={styles.mobileMenuSkeleton}
 			/>}
-			
 			{
 				!isMenuNavReady && (
 					<div className={styles.navSekeletonsWrapper}>

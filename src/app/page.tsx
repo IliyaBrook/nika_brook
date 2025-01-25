@@ -8,6 +8,7 @@ import rightWingIcon from '../../public/images/icons/right_wing.svg'
 import bgPortraitMobileSm from '../../public/images/home/bgPortraitMobileSm.jpg'
 import bgPortraitMobileMd from '../../public/images/home/bgPortraitMobileMd.jpg'
 import bgPortraitMobileXl from '../../public/images/home/bgPortraitMobileXl.jpg'
+import bgPortraitMobileLg from '../../public/images/home/bgPortraitMobileLg.jpg'
 import bgPortraitDesktop from '../../public/images/home/bgPortraitDesktop.jpg'
 
 
@@ -40,7 +41,7 @@ export default function Home() {
 					sizes='100vw'
 					priority
 				/>
-				{/* mobile md [width:554px-1100px] */}
+				{/* mobile md [width:398px-554px] */}
 				<Image
 					className={classNames(styles.bgPortrait, styles.bgPortraitMobileMd)}
 					src={bgPortraitMobileMd}
@@ -48,10 +49,17 @@ export default function Home() {
 					sizes='100vw'
 					priority
 				/>
-				{/* mobile md [width:398px-554px] */}
+				{/* mobile md [width:554px-1100px] */}
 				<Image
 					className={classNames(styles.bgPortrait, styles.bgPortraitMobileXl)}
 					src={bgPortraitMobileXl}
+					alt='Background image Veronika Brook'
+					sizes='100vw'
+					priority
+				/>
+				<Image
+					className={classNames(styles.bgPortrait, styles.bgPortraitMobileLg)}
+					src={bgPortraitMobileLg}
 					alt='Background image Veronika Brook'
 					sizes='100vw'
 					priority
