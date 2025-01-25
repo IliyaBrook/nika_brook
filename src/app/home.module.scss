@@ -168,24 +168,29 @@ $wings-width: clamp(3.5rem, 4vw, 5.8rem);
 			@media (max-width: 722px) {
 				transform-origin: center;
 			}
-			@media (max-width: 389px) {
+			@media (max-width: 398px) {
 				transform: scale(0.9);
 			}
 		}
-		@media (max-width: 489px) {
+		@media (max-width: 398px) {
 			top: 10%;
 			left: 5%;
-			padding: 0 0 0 0;
+			padding: 0 0 0 01vw;
+		}
+		@media (min-width: 398px) and (max-width: 489px) {
+			top: 5%;
+			left: 5%;
+			padding: 0 0 0 5vw;
 		}
 		@media (min-width:489px) and (max-width: 760px) {
 			top: 10%;
 			left: 5%;
 		}
 		@media (min-width: 489px) and (max-width: 858px) {
-			padding: 0 0 0 20px;
+			padding: 0 0 0 5vw;
 		}
 
-		@media (max-width: 398px) {
+		@media (max-width: 528px) {
 			left:0;
 			.innerTextWrapper {
 				.wingLeft, .wingRight {
