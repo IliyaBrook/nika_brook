@@ -31,28 +31,28 @@ export default function Home() {
 			/>
 			<div className={styles.bgImageWrapper}>
 				<Image
-					className={classNames(styles.bgPortraitImage, styles.bgPortraitDesktop)}
+					className={classNames(styles.bgPortrait, styles.bgPortraitDesktop)}
 					src={bgPortraitDesktop}
 					alt='Background image Veronika Brook'
 					sizes='100vw'
 					priority
 				/>
 				<Image
-					className={classNames(styles.bgPortraitImage, styles.bgPortraitMobile)}
+					className={classNames(styles.bgPortrait, styles.bgPortraitMobile)}
 					src={bgPortraitMobile}
 					alt='Background image Veronika Brook'
 					sizes='100vw'
 					priority
 				/>
 				<Image
-					className={classNames(styles.bgPortraitImage, styles.bgPortraitMobileSm)}
+					className={classNames(styles.bgPortrait, styles.bgPortraitMobileSm)}
 					src={bgPortraitMobileSm}
 					alt='Background image Veronika Brook'
 					sizes='100vw'
 					priority
 				/>
 				<Image
-					className={classNames(styles.bgPortraitImage, styles.bgPortraitMobileSm4)}
+					className={classNames(styles.bgPortrait, styles.bgPortraitMobileSm4)}
 					src={bgPortraitMobileSm4}
 					alt='Background image Veronika Brook'
 					sizes='100vw'
