@@ -54,7 +54,7 @@ $wings-width: clamp(3.5rem, 4vw, 5.8rem);
 		//		.bgPortraitMobileSm{
 		//			display: none!important;
 		//		}
-		.bgPortraitMobileSm2, .bgPortraitMobileSm4, .bgPortraitMobileSm {
+		.bgPortraitMobileSm4, .bgPortraitMobileSm {
 			display: none;
 		}
 		@media (max-width: 398px) {
@@ -69,30 +69,14 @@ $wings-width: clamp(3.5rem, 4vw, 5.8rem);
 			}
 		}
 		@media (max-width: 554px) {
-			.bgPortraitMobileSm2 {
-				display: none;
-			}
-		}
-		@media (max-width: 554px) {
 			.bgPortraitDesktop, .bgPortraitMobile {
 				display: none;
 			}
-//			.bgPortraitMobileSm {
-//				display: block;
-//			}
 		}
 		@media (min-width: 554px) and (max-width: 1100px) {
-			.bgPortraitDesktop, .bgPortraitMobileSm, .bgPortraitMobileSm2 {
+			.bgPortraitDesktop, .bgPortraitMobileSm {
 				display: none;
 			}
-			//			.bgPortraitMobile {
-			//				display: block;
-			//				@media (max-width: 585px) {
-			//					width: 100%;
-			//					aspect-ratio: 16 / 9;
-			//					object-fit: cover;
-			//				}
-			//			}
 		}
 		@media (min-width: 1100px) {
 			.bgPortraitDesktop {
@@ -189,21 +173,25 @@ $wings-width: clamp(3.5rem, 4vw, 5.8rem);
 				line-height: 0;
 			}
 			@media (max-width: 722px) {
-				transform: scale(0.8);
 				transform-origin: center;
 			}
-			
+			@media (max-width: 389px) {
+				transform: scale(0.9);
+			}
 		}
 		@media (max-width: 489px) {
-			padding: 0;
+			top: 10%;
+			left: 5%;
+			padding: 0 0 0 0;
+		}
+		@media (min-width:489px) and (max-width: 760px) {
+			top: 10%;
+			left: 5%;
 		}
 		@media (min-width: 489px) and (max-width: 858px) {
 			padding: 0 0 0 20px;
 		}
-		@media (max-width: 760px) {
-			top: 10%;
-			left: 5%;
-		}
+
 		@media (max-width: 398px) {
 			left:0;
 			.innerTextWrapper {
