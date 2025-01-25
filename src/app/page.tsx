@@ -6,7 +6,7 @@ import bgPortraitMobile from '../../public/images/home/img_background_mobile.jpg
 import bgPortraitMobileSm from '../../public/images/home/img_background_mobile_sm_3.jpg'
 import bgPortraitMobileSm4 from '../../public/images/home/img_background_mobile_sm_4.jpg'
 import bgPortraitDesktop from '../../public/images/home/img_background_desktop.jpg'
-import bg from '../../public/images/home/bg_desktop_2.jpg'
+import bgOfPortrait from '../../public/images/home/bg_desktop_2.jpg'
 import leftWingIcon from '../../public/images/icons/left_wing.svg'
 import rightWingIcon from '../../public/images/icons/right_wing.svg'
 
@@ -23,8 +23,8 @@ export default function Home() {
 	return (
 		<main className={styles.main}>
 			<Image
-				className={styles.bg}
-				src={bg}
+				className={styles.bgOfPortrait}
+				src={bgOfPortrait}
 				alt='Background home page color'
 				sizes='100vw'
 				priority

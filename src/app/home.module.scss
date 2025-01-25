@@ -13,7 +13,7 @@ $wings-width: clamp(3.5rem, 4vw, 5.8rem);
 	display: flex;
 	justify-content: flex-end;
 	
-	.bg {
+	.bgOfPortrait {
 		position: absolute;
 		z-index: 1;
 		height: 100%;
