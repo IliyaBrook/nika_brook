@@ -12,9 +12,6 @@ $font-size-artist-name:clamp(23px, 5vw, 33px);
 	text-align: center;
 	text-transform: uppercase;
 }
-
-
-
 .root {
 	position: relative;
 	height: 102.8px;
@@ -22,11 +19,9 @@ $font-size-artist-name:clamp(23px, 5vw, 33px);
 	flex-direction: column;
 	justify-content: space-evenly;
 	background-color: #{colors.$bg-color-navbar};
-	
 	.navBarArtistNameMobile {
 		display: none;
 	}
-	
 	@media (max-width: 960px) {
 		.navBarArtistNameMobile {
 			display: block;
@@ -251,7 +246,6 @@ $font-size-artist-name:clamp(23px, 5vw, 33px);
 			@include ArtistNameText;
 		}
 	}
-	
 	@media (max-width: 960px) {
 		.navBarArtistNameDesktop {
 			display: none;

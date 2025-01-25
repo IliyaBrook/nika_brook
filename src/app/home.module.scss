@@ -56,8 +56,6 @@ $wings-width: clamp(3.5rem, 4vw, 5.8rem);
 			display: none;
 		}
 		
-		// images bg by resolution
-		//	mobile sm [width:0px-398px]
 		@media (max-width: 330px) {
 			.bgPortraitMobileSm {
 				display: block;
@@ -68,27 +66,17 @@ $wings-width: clamp(3.5rem, 4vw, 5.8rem);
 				display: block;
 			}
 		}
-		// mobile md [width:398px-554px]
+
 		@media (min-width: 398px) and (max-width: 554px) {
 			.bgPortraitMobileMd {
 				display: block;
 			}
 		}
-		// mobile md [width:554px-1100px]
-		//		@media (min-width: 554px) and (max-width: 1199px) {
-		//			.bgPortraitMobileXl{
-		//				display: block;
-		//			}
-		//		}
 		@media (min-width: 554px) and (max-width: 1199px) {
 			.bgPortraitMobileLg {
 				display: block;
 			}
 		}
-		// mobile lg [width:554px-1100px]
-		
-		
-		// desktop < 1100px
 		@media (min-width: 1199px) {
 			.bgPortraitDesktop {
 				display: block;

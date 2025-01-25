@@ -33,12 +33,20 @@ export default function Home() {
 				priority
 			/>
 			<div className={styles.bgImageWrapper}>
-				{/* mobile sm [width:0px-398px] */}
+				{/* mobile sm [width:0px-330px] */}
 				<Image
 					className={classNames(styles.bgPortrait, styles.bgPortraitMobileSm)}
 					src={bgPortraitMobileSm}
 					alt='Background image Veronika Brook'
-					sizes='100vw'
+					sizes='370vw'
+					priority
+				/>
+				{/* mobile md [width:330px-398px] */}
+				<Image
+					className={classNames(styles.bgPortrait, styles.bgPortraitMobileXl)}
+					src={bgPortraitMobileXl}
+					alt='Background image Veronika Brook'
+					sizes='355vw'
 					priority
 				/>
 				{/* mobile md [width:398px-554px] */}
@@ -46,22 +54,15 @@ export default function Home() {
 					className={classNames(styles.bgPortrait, styles.bgPortraitMobileMd)}
 					src={bgPortraitMobileMd}
 					alt='Background image Veronika Brook'
-					sizes='100vw'
+					sizes='315vw'
 					priority
 				/>
 				{/* mobile md [width:554px-1100px] */}
 				<Image
-					className={classNames(styles.bgPortrait, styles.bgPortraitMobileXl)}
-					src={bgPortraitMobileXl}
-					alt='Background image Veronika Brook'
-					sizes='100vw'
-					priority
-				/>
-				<Image
 					className={classNames(styles.bgPortrait, styles.bgPortraitMobileLg)}
 					src={bgPortraitMobileLg}
 					alt='Background image Veronika Brook'
-					sizes='100vw'
+					sizes='130vw'
 					priority
 				/>
 				{/* desktop < 1100px */}
@@ -81,11 +82,11 @@ export default function Home() {
 						</h1>
 						<div className={styles.line2Wrapper}>
 							<div className={styles.line2WrapperAbsolute}>
-								<Image className={styles.wingLeft} src={leftWingIcon} alt='left wing icon' />
+								<Image className={styles.wingLeft} src={leftWingIcon} alt='left wing icon' priority />
 								<h2 className={styles.line2}>
 									Soprano coloratura
 								</h2>
-								<Image className={styles.wingRight} src={rightWingIcon} alt='right wing icon' />
+								<Image className={styles.wingRight} src={rightWingIcon} alt='right wing icon' priority />
 							</div>
 						</div>
 					</div>
