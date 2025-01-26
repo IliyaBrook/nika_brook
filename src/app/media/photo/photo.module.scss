@@ -7,9 +7,9 @@
 	:global{
 		[class^="mediaPhotoCreditTo--gallery_item"] {
 			position: absolute;
-			bottom: 5%;
+			bottom: -16px;
 			left: 35%;
-			font-size: 14px;
+			font-size: 12px;
 		}
 	}
 	.sekeltonItemWrapper{
@@ -32,7 +32,7 @@
 
 			.thumbnailImage {
 				position: relative;
-				overflow: hidden;
+//				overflow: hidden;
 				max-height: 60vh;
 				border-radius: 6px;
 
@@ -54,14 +54,6 @@
 						position: unset !important;
 					}
 				}
-//				.imageItemWrapper{
-//					.galleryImgSkeleton{
-//						height: 50vh;
-//						width: 50vw;
-//						position: absolute!important;
-//
-//					}
-//				}
 			}
 		}
 	}
@@ -80,6 +72,7 @@
 					.p-carousel-item {
 						display: flex;
 						align-items: center;
+						
 					}
 					
 				}
