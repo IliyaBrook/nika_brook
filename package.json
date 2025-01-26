@@ -15,15 +15,13 @@
     "@fortawesome/free-brands-svg-icons": "^6.7.2",
     "@fortawesome/free-solid-svg-icons": "^6.7.2",
     "@fortawesome/react-fontawesome": "^0.2.2",
-    "@reduxjs/toolkit": "^2.5.0",
     "classnames": "^2.5.1",
     "next": "15.1.6",
     "primeflex": "^3.3.1",
     "primeicons": "^7.0.0",
     "primereact": "^10.9.1",
     "react": "19.0.0",
-    "react-dom": "19.0.0",
-    "react-redux": "^9.2.0"
+    "react-dom": "19.0.0"
   },
   "devDependencies": {
     "@next/bundle-analyzer": "15.1.6",

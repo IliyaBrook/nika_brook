@@ -17,8 +17,18 @@ import 'primereact/resources/primereact.min.css'
 import 'primeicons/primeicons.css'
 import 'primeflex/primeflex.css'
 
-const hedvigLettersSerif = Hedvig_Letters_Serif({ subsets: ['latin'], weight: '400', display: 'swap', variable: '--font-hedvig-letters-serif' })
-const josefinSans = Josefin_Sans({ subsets: ['latin'], weight: '400', display: 'swap', variable: '--font-josefin-sans' })
+const hedvigLettersSerif = Hedvig_Letters_Serif({
+	subsets: ['latin'],
+	weight: '400',
+	display: 'swap',
+	variable: '--font-hedvig-letters-serif'
+})
+const josefinSans = Josefin_Sans({
+	subsets: ['latin'],
+	weight: '400',
+	display: 'swap',
+	variable: '--font-josefin-sans'
+})
 const alexBrush = Alex_Brush({ subsets: ['latin'], weight: '400', display: 'swap', variable: '--font-alex-brush' })
 // const alexBrush = localFont({
 // 	src: '../../public/fonts/google/Alex_Brush/AlexBrush-Regular.ttf',
@@ -74,14 +84,14 @@ const schemaOrgJson = {
 }
 
 export default function RootLayout({
-	children
-}: Readonly<{
+	                                   children
+                                   }: Readonly<{
 	children: React.ReactNode
 }>) {
 	return (
 		<PrimeReactProvider value={primeReactConfig}>
 			<html
-				lang="en"
+				lang='en'
 				className={classNames(
 					hedvigLettersSerif.variable,
 					josefinSans.variable,
@@ -89,7 +99,6 @@ export default function RootLayout({
 				)}
 			>
 				<body>
-				<StoreProvider>
 					<div className={styles.root}>
 						<div className={styles.navbar}>
 							<Navbar />
@@ -98,8 +107,7 @@ export default function RootLayout({
 							<div className={styles.main}>{children}</div>
 						</ScrollBarWrapper>
 					</div>
-				</StoreProvider>
-				<StructuredData data={schemaOrgJson} />
+					<StructuredData data={schemaOrgJson} />
 				</body>
 			</html>
 		</PrimeReactProvider>
