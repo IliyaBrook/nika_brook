@@ -1,5 +1,4 @@
 import styles from '@/app/media/photo/photo.module.scss'
-import { ImagePrimeNext } from '@/components/ImagePrimeNext/ImagePrimeNext'
 import type { ImageItem } from '@/types/sharable.types.ts'
 import getElementsByXPath from '@/utils/getElementsByXPath'
 import classNames from 'classnames'
@@ -7,7 +6,7 @@ import { Image as PrimeImage } from 'primereact/image'
 import React, { useEffect, useRef } from 'react'
 
 
-export const ItemTemplate = ({ isReady, index,...item }: ImageItem) => {
+export const ItemTemplate = ({ isReady, index, ...item }: ImageItem) => {
 	const currentElementRendered = useRef(0)
 	
 	useEffect(() => {
@@ -16,12 +15,12 @@ export const ItemTemplate = ({ isReady, index,...item }: ImageItem) => {
 				`
 				<div
 					class='mediaPhotoCreditTo--${item.id}'
-					style="color: ${item?.creditColor}"
+					style='color: ${item?.creditColor}'
 				>
 					${item?.credit ?? ''}
 				</div>
 			`
-			const carouselItems = getElementsByXPath({xpath: `//div[contains(@class, 'p-carousel-item') and @aria-label='${index}']`})
+			const carouselItems = getElementsByXPath({ xpath: `//div[contains(@class, 'p-carousel-item') and @aria-label='${index}']` })
 			if (carouselItems?.length > 0) {
 				const carouselItem = carouselItems[0]
 				if (carouselItem instanceof HTMLElement && currentElementRendered.current === 0) {
@@ -36,20 +35,26 @@ export const ItemTemplate = ({ isReady, index,...item }: ImageItem) => {
 	return (
 		<div className={classNames(styles.itemTemplate)}>
 			<div className={styles.thumbnailImage}>
-				{isReady ? <PrimeImage
-					src={item?.itemImageSrc}
-					alt={item?.alt}
-					preview
-					loading='lazy'
-					className={styles.img}
-					
-				/> : 	<PrimeImage
-					src='/images/skeleton.svg'
-					alt='sekelton'
-					preview
-					loading='eager'
-					className={styles.img}
-				/>}
+				<div className={styles.imageItemWrapper}>
+					<PrimeImage
+						src={item?.itemImageSrc}
+						alt={item?.alt}
+						preview
+						loading='eager'
+						className={`${styles.img} galleryImageItem`}
+						style={{visibility: isReady ? 'visible' : 'hidden'}}
+						
+					/>
+					{!isReady && (
+						<PrimeImage
+							src='/images/skeleton.svg'
+							alt='sekelton'
+							preview
+							loading='eager'
+							className={`${styles.img} ${styles.galleryImgSkeleton}`}
+						/>
+					)}
+				</div>
 			</div>
 		</div>
 	)

@@ -1,20 +1,35 @@
 'use client'
-import { ItemTemplate } from '@/app/media/photo/components/ItemTemplate'
 import { images } from '@/app/media/photo/data'
 import { isDevelopment } from '@/utils/enviroments'
 import getElementsByXPath from '@/utils/getElementsByXPath'
 import dynamic from 'next/dynamic'
-import { Carousel as CarouselComponent, CarouselResponsiveOption } from 'primereact/carousel'
+import { CarouselResponsiveOption } from 'primereact/carousel'
 import React, { useEffect, useRef, useState } from 'react'
 import styles from '../photo.module.scss'
 
-const Carousel = (dynamic(() => import('primereact/carousel').then(({ Carousel }) => Carousel), { ssr: false }) as typeof CarouselComponent)
+const Carousel = dynamic(
+	() =>
+		import('primereact/carousel').then(
+			({ Carousel }) => Carousel
+		),
+	{
+		ssr: false,
+	}
+)
+
+const ItemTemplate = dynamic(
+	() =>
+		import('@/app/media/photo/components/ItemTemplate').then(
+			({ ItemTemplate }) => ItemTemplate
+		),
+	{
+		ssr: false,
+	}
+)
 
 export default function PhotoGalleria() {
-	const carouselRef = useRef<CarouselComponent>(null)
+	const carouselRef = useRef<any>(null)
 	
-	
-	const [isClient, setIsClient] = useState<boolean>(false)
 	const [isReady, setReady] = useState<boolean>(false)
 	const responsiveOptions: CarouselResponsiveOption[] = [
 		{
@@ -39,53 +54,51 @@ export default function PhotoGalleria() {
 		}
 	]
 	useEffect(() => {
-		setIsClient(true)
-	}, [])
-	
-	
+		if (carouselRef?.current) {
+			carouselRef.current.stopAutoplay()
+		}
+	}, [carouselRef?.current])
 	useEffect(() => {
-		
-		if (isClient) {
-			
-			const observer = new MutationObserver(mutationsList => {
-				for (const mutation of mutationsList) {
-			
-					if (mutation.type === 'attributes' && mutation.target instanceof Element) {
-						if (mutation.target?.tagName === 'IMG') {
-							const imageNumbers = images.length
-							const carouselItems = document.querySelectorAll('.p-carousel-item')
-							if (carouselItems.length === imageNumbers) {
+		const observer = new MutationObserver(mutationsList => {
+			for (const mutation of mutationsList) {
+				if (mutation.type === 'attributes' && mutation.target instanceof Element) {
+					if (mutation.target?.tagName === 'IMG') {
+						const carouselItems = document.querySelectorAll('.p-carousel-item')
+						if (carouselItems.length > 0) {
+							setTimeout(() => {
 								setReady(true)
-							}
+							}, 1000)
 						}
 					}
 				}
-			})
-			if (observer) {
-				try {
-					observer.observe(document, { childList: true, subtree: true, attributes: true })
-				} catch (e) {
-					console.log("observer error :", e)
-					
-				}
 			}
-			
-			return () => {
-				observer.disconnect()
+		})
+		if (observer) {
+			try {
+				observer.observe(document, { childList: true, subtree: true, attributes: true })
+			} catch (e) {
+				console.log("observer error :", e)
 			}
 		}
-	}, [isClient])
+		
+		return () => {
+			observer.disconnect()
+		}
+	}, [])
 	
 	useEffect(() => {
 		const imageButton = getElementsByXPath({xpath: "//div[@class='p-carousel-items-content']//button"})
 		if (imageButton && imageButton.length > 0 && isReady) {
+			carouselRef.current.startAutoplay()
 
 			const handleMouseEnter = () => {
 				carouselRef.current.stopAutoplay()
 			};
 
 			const handleMouseLeave = () => {
-				carouselRef.current.startAutoplay()
+				setTimeout(() => {
+					carouselRef.current.startAutoplay()
+				}, 1000)
 			};
 			for (const btn of imageButton) {
 				btn.addEventListener('mouseenter', handleMouseEnter);
@@ -101,12 +114,13 @@ export default function PhotoGalleria() {
 		}
 	}, [isReady])
 	
-	// const autoplayInterval = !isDevelopment ? 3000 : undefined
+	
 	const autoplayInterval = !isDevelopment ? 3000 : undefined
 	
 	return (
 		<div className={styles.carouselWrapper}>
 			<Carousel
+				/* @ts-ignore */
 				ref={carouselRef}
 				value={images}
 				numVisible={3}
