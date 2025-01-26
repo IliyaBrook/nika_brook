@@ -155,7 +155,7 @@
   }
   .carouselContainer {
 //    height: 100svmax;
-    height: 100vh;
+    height: calc(100svmax - var(--navbar-height));
     .carousel {
       flex-direction: column;
       overflow-y: auto;

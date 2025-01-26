@@ -15,6 +15,8 @@ const Menubar = (dynamic(
 
 const Navbar = () => {
 	const [isMenuNavReady, setMenuNavReady] = useState<boolean>(false)
+	const navBarRef = React.createRef<HTMLDivElement>()
+	
 	useEffect(() => {
 		const observer = new MutationObserver(mutationsList => {
 			for (const mutation of mutationsList) {
@@ -32,10 +34,17 @@ const Navbar = () => {
 		}
 	}, [])
 	
+	useEffect(() => {
+		if (navBarRef?.current){
+			const navBarHeight = navBarRef?.current?.clientHeight;
+			document.documentElement.style.setProperty('--navbar-height', `${navBarHeight || 102.8}px`);
+		}
+	}, [navBarRef?.current])
+	
 	const pathname = usePathname()
 	const navBarItems = useMemo(() => getNavBarItems(pathname), [pathname])
 	return (
-		<div className={styles.root} id="navbar">
+		<div className={styles.root} ref={navBarRef}>
 			<Menubar
 				model={isMenuNavReady ? navBarItems : []}
 			/>
