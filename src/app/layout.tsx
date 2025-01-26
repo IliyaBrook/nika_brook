@@ -1,20 +1,18 @@
+import { primeReactConfig } from '@/app/primeReactConfig'
 import Navbar from '@/components/Navbar/Navbar'
 import { StructuredData } from '@/components/StructuredData'
-import type { Metadata } from 'next'
-import { Hedvig_Letters_Serif, Josefin_Sans, Alex_Brush } from 'next/font/google'
-import localFont from 'next/font/local'
-
-import React from 'react'
-import StoreProvider from '@/app/StoreProvider'
-import { PrimeReactProvider } from 'primereact/api'
-import { primeReactConfig } from '@/app/primeReactConfig'
 import { ScrollBarWrapper } from '@/components/Wrappers/ScrollBarWrapper/ScrollBarWrapper'
-import styles from './layout.module.scss'
 import classNames from 'classnames'
 import './shareableStyles/globals.scss'
 import 'primereact/resources/themes/lara-light-cyan/theme.css'
 import 'primereact/resources/primereact.min.css'
 import 'primeicons/primeicons.css'
+import type { Metadata } from 'next'
+import { Alex_Brush, Hedvig_Letters_Serif, Josefin_Sans } from 'next/font/google'
+import { PrimeReactProvider } from 'primereact/api'
+
+import React from 'react'
+import styles from './layout.module.scss'
 import 'primeflex/primeflex.css'
 
 const hedvigLettersSerif = Hedvig_Letters_Serif({

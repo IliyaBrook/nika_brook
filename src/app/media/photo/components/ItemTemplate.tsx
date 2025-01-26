@@ -14,71 +14,49 @@ interface ItemTemplateProps extends ImageItem{
 
 export function ItemTemplate({ index, onLoad, ...item }: ItemTemplateProps) {
 	const [loaded, setLoaded] = useState(false)
-	const creditInserted = useRef(false)
-	
-	useEffect(() => {
-		if (!loaded || creditInserted.current) return
-		
-		const creditTo = `
-      <div
-        class='mediaPhotoCreditTo--${item.id}'
-        style='color: ${item?.creditColor}'
-      >
-        ${item?.credit ?? ''}
-      </div>
-    `
-		const carouselItems = getElementsByXPath({
-			xpath: `//div[contains(@class, 'p-carousel-item') and @aria-label='${index}']`
-		})
-		
-		if (carouselItems?.length > 0) {
-			const carouselItem = carouselItems[0]
-			if (carouselItem instanceof HTMLElement) {
-				const pImage = carouselItem?.childNodes?.[0]?.childNodes?.[0]?.childNodes?.[0]?.childNodes?.[0]
-				if (pImage instanceof HTMLElement) {
-					pImage.insertAdjacentHTML('beforeend', creditTo)
-					pImage.style.position = 'relative'
-					creditInserted.current = true
-				}
-				// carouselItem.insertAdjacentHTML('beforeend', creditTo)
-				// carouselItem.style.position = 'relative'
-				// creditInserted.current = true
-			}
-		}
-	}, [loaded, index, item])
 	
 	return (
 		<div className={classNames(styles.itemTemplate)}>
 			<div className={styles.thumbnailImage}>
-				<div className={styles.imageItemWrapper}>
-					
-					{!loaded && (
-						<img
-							src="/images/skeleton.svg"
-							alt="Loading skeleton"
-							className={styles.img}
-						/>
-					)}
-					
-					<PrimeImage
-						src={item.itemImageSrc}
-						alt={item.alt}
-						preview
-						style={{ display: loaded ? 'block' : 'none' }}
+				
+				{!loaded && (
+					<img
+						src="/images/skeleton.svg"
+						alt="Loading skeleton"
 						className={styles.img}
-						pt={{
-							image: {
-								onLoad: () => {
-									setTimeout(() => {
-										setLoaded(true)
-										onLoad?.()
-									}, 1000)
-								}
-							}
-						}}
 					/>
-				</div>
+				)}
+		
+				
+				<PrimeImage
+					src={item.itemImageSrc}
+					alt={item.alt}
+					preview
+					style={{ display: loaded ? 'block' : 'none' }}
+					className={styles.img}
+					pt={{
+						image: {
+							onLoad: () => {
+								setTimeout(() => {
+									setLoaded(true)
+									onLoad?.()
+								}, 1000)
+							}
+						}
+					}}
+				/>
+			
 			</div>
+			{
+				loaded && (
+					<div
+						className={styles.mediaPhotoCreditTo}
+						style={{ color: item.creditColor }}
+					>
+						{item.credit}
+					</div>
+				)
+			}
 		</div>
 	)
 }
