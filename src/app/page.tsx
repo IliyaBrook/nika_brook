@@ -29,8 +29,8 @@ export default function Home() {
 				className={styles.bgOfPortrait}
 				src={bgOfPortrait}
 				alt='Background home page color'
-				sizes='100vw'
 				priority
+				loading="eager"
 			/>
 			<div className={styles.bgImageWrapper}>
 				{/* mobile sm [width:0px-330px] */}
@@ -38,61 +38,75 @@ export default function Home() {
 					className={classNames(styles.bgPortrait, styles.bgPortraitMobileSm)}
 					src={bgPortraitMobileSm}
 					alt='Background image Veronika Brook'
-					sizes='370vw'
 					priority
+					loading="eager"
 				/>
 				{/* mobile md [width:330px-398px] */}
 				<Image
 					className={classNames(styles.bgPortrait, styles.bgPortraitMobileXl)}
 					src={bgPortraitMobileXl}
 					alt='Background image Veronika Brook'
-					sizes='355vw'
 					priority
+					loading="eager"
 				/>
 				{/* mobile md [width:398px-554px] */}
 				<Image
 					className={classNames(styles.bgPortrait, styles.bgPortraitMobileMd)}
 					src={bgPortraitMobileMd}
 					alt='Background image Veronika Brook'
-					sizes='315vw'
-					priority
+					loading="eager"
 				/>
 				{/* mobile md [width:554px-1100px] */}
 				<Image
 					className={classNames(styles.bgPortrait, styles.bgPortraitMobileLg)}
 					src={bgPortraitMobileLg}
 					alt='Background image Veronika Brook'
-					sizes='120vw'
 					priority
+					loading="eager"
 				/>
 				{/* desktop < 1100px */}
 				<Image
 					className={classNames(styles.bgPortrait, styles.bgPortraitDesktop)}
 					src={bgPortraitDesktop}
 					alt='Background image Veronika Brook'
-					sizes='100vw'
 					priority
+					loading="eager"
 				/>
 			</div>
 			<div className={styles.textWrapper}>
 				<div className={styles.innerTextWrapper}>
-					<div className={styles.line1And2Wrapper}>
-						<h1 className={styles.line1}>
-							OPERA SINGER
-						</h1>
-						<div className={styles.line2Wrapper}>
-							<div className={styles.line2WrapperAbsolute}>
-								<Image className={styles.wingLeft} src={leftWingIcon} alt='left wing icon' priority />
-								<h2 className={styles.line2}>
-									Soprano coloratura
-								</h2>
-								<Image className={styles.wingRight} src={rightWingIcon} alt='right wing icon' priority />
+					<div className={styles.textJutifyWrapper}>
+						<div className={styles.line1And2Wrapper} >
+							<h1 className={styles.line1}>
+								OPERA SINGER
+							</h1>
+							<div className={styles.line2Wrapper}>
+								<div className={styles.line2WrapperAbsolute}>
+									<Image
+										className={styles.wingLeft}
+										src={leftWingIcon}
+										alt='left wing icon'
+										priority
+										loading="eager"
+									/>
+									<h2 className={styles.line2}>
+										Soprano coloratura
+									</h2>
+									<Image
+										className={styles.wingRight}
+										src={rightWingIcon}
+										alt='right wing icon'
+										priority
+										loading="eager"
+									/>
+								</div>
 							</div>
 						</div>
+						
+						<h2 className={styles.line3}>
+							CLASSICAL CROSSOVER ARTIST
+						</h2>
 					</div>
-					<h2 className={styles.line3}>
-						CLASSICAL CROSSOVER ARTIST
-					</h2>
 				</div>
 			</div>
 		</main>
