@@ -35,7 +35,7 @@ const Navbar = () => {
 	const pathname = usePathname()
 	const navBarItems = useMemo(() => getNavBarItems(pathname), [pathname])
 	return (
-		<div className={styles.root}>
+		<div className={styles.root} id="navbar">
 			<Menubar
 				model={isMenuNavReady ? navBarItems : []}
 			/>

@@ -16,7 +16,7 @@ export const dynamic = 'force-static'
 
 export default function Video() {
 	return (
-		<div className={styles.main}>
+		<div className={styles.photo}>
 			<title>{video.title}</title>
 			<main>
 				<VideoGallery />

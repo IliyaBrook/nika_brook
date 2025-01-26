@@ -1,9 +1,10 @@
-.main {
+.photo {
   height: 100vh;
   main{
     display: flex;
     background: rgba(0, 0, 0, 0.9);
     min-height: 100%;
+    padding-right: 20px;
   }
 }
 
@@ -65,7 +66,7 @@
     flex: 0 0 35%;
     transition: transform 0.5s ease;
     position: relative;
-    height: 20vmax;
+    height: 25vmax;
     margin: 0 5px;
 
     .videoOverlay {
@@ -79,10 +80,6 @@
       align-items: center;
       justify-content: center;
       background: rgba(0, 0, 0, 0.5);
-
-      .playIcon {
-        // styled icon
-      }
     }
 
     .videoInfo {
@@ -115,7 +112,7 @@
     font-size: 24px;
     z-index: 10;
     background-color: transparent;
-    padding: 10px;
+//    padding: 10px 30px 10px 10px;
 
     &:hover {
       background-color: rgba(255, 255, 255, 0.2);
@@ -157,6 +154,7 @@
     }
   }
   .carouselContainer {
+//    height: 100svmax;
     height: 100vh;
     .carousel {
       flex-direction: column;

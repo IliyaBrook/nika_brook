@@ -67,7 +67,7 @@ export const dynamic = 'force-static'
 
 export default function Photo() {
 	return (
-		<div className={styles.main}>
+		<div className={styles.photo}>
 			<main>
 				<MediaGalleria />
 			</main>
