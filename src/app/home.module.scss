@@ -2,7 +2,7 @@ $font-alex-brush: var(--font-alex-brush);
 $white: #F5F5F5;
 $yellow: rgb(251, 244, 227);
 // min-574px text
-$font-text-1: clamp(2.2rem, 2.5vw, 3.2rem);
+$font-text-1: clamp(2.2rem, 3vw, 3.2rem);
 $font-text-2: clamp(1.8rem, 2.5vw, 2.5rem);
 $font-text-3: clamp(2rem, 2.5vw, 3rem);
 //
@@ -114,14 +114,10 @@ $wings-width: clamp(3.5rem, 4vw, 5.8rem);
 				font-family: 'Times New Roman', serif;
 			}
 			
-			.line3 {
-				margin-top: 2rem;
-			}
-			
 			.line1, .line2, .line3 {
 				text-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
 			}
-			
+	
 			.line3 {
 				color: $yellow;
 				font-weight: 400;
@@ -134,7 +130,7 @@ $wings-width: clamp(3.5rem, 4vw, 5.8rem);
 				width: 100%;
 				
 				.line1 {
-					font-weight: 600;
+					font-weight: 450;
 				}
 				
 				.line1, .line2 {

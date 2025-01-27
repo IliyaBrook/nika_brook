@@ -102,7 +102,6 @@ export default function Home() {
 								</div>
 							</div>
 						</div>
-						
 						<h2 className={styles.line3}>
 							CLASSICAL CROSSOVER ARTIST
 						</h2>
