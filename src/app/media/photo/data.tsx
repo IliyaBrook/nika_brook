@@ -114,24 +114,3 @@ export const images: Array<ImageItem> = [
     index: 13
   }
 ];
-
-export const skeletonImages:MediaElementSekelton[] = [
-  {
-    itemImageSrc: '/images/skeleton.svg',
-    alt: 'loader 1',
-    id: '0',
-    index: 0
-  },
-  {
-    itemImageSrc: '/images/skeleton.svg',
-    alt: 'loader 2',
-    id: '1',
-    index: 1
-  },
-  {
-    itemImageSrc: '/images/skeleton.svg',
-    alt: 'loader 3',
-    id: '2',
-    index: 2
-  },
-]

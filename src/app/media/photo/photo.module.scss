@@ -15,6 +15,19 @@
 		position: relative;
 		@include colors.bg-gradient();
 	}
+	:global{
+		.mediaPhotoCreditToWrapper{
+			position: relative;
+			display: contents;
+			.mediaPhotoCreditTo{
+				$relative-margin: 0.5rem;
+				font-size: 12px;
+				position: absolute;
+				bottom: 2px;
+				right: calc(2px + #{$relative-margin});
+			}
+		}
+	}
 	.carouselWrapper {
 		display: flex;
 		justify-content: center;
@@ -23,8 +36,6 @@
 			text-align: center;
 			.thumbnailImage {
 				position: relative;
-				overflow: hidden;
-				max-height: 60vh;
 				border-radius: 6px;
 				:global {
 					img {
@@ -42,10 +53,7 @@
 					}
 				}
 			}
-			.mediaPhotoCreditTo{
-				font-size: 14px;
-				margin-top: 10px;
-			}
+	
 		}
 	}
 }
@@ -86,6 +94,7 @@
 			max-height: unset;
 			.thumbnailImage {
 				max-height: 100% !important;
+				
 				:global {
 					.p-image-preview-container {
 						display: flex;
