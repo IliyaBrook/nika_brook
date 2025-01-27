@@ -16,16 +16,13 @@
 		@include colors.bg-gradient();
 	}
 	:global{
-		.mediaPhotoCreditToWrapper{
-			position: relative;
-			display: contents;
-			.mediaPhotoCreditTo{
-				$relative-margin: 0.5rem;
-				font-size: 12px;
-				position: absolute;
-				bottom: 2px;
-				right: calc(2px + #{$relative-margin});
-			}
+		.mediaPhotoCreditTo{
+			$relative-margin: 0.5rem;
+			font-size: 12px;
+			margin-top: 10px;
+			position: absolute;
+			top: 2px;
+			right: calc(2px + #{$relative-margin});
 		}
 	}
 	.carouselWrapper {
@@ -94,7 +91,6 @@
 			max-height: unset;
 			.thumbnailImage {
 				max-height: 100% !important;
-				
 				:global {
 					.p-image-preview-container {
 						display: flex;

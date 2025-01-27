@@ -15,32 +15,35 @@ interface ItemTemplateProps extends ImageItem {
 export function ItemTemplate({ index, onLoad, ...item }: ItemTemplateProps) {
 	const [loaded, setLoaded] = useState(false)
 	const creditInserted = useRef(false)
-	// useEffect(() => {
-	// 	if (!loaded || creditInserted.current) return
-	//
-	// 	const creditTo = `
-  //     <div class='mediaPhotoCreditToWrapper'>
-  //       <div
-	//         class='mediaPhotoCreditTo'
-	//         style='color: ${item?.creditColor}'
-  //     >
-  //         ${item?.credit ?? ''}
-  //       </div>
-  //   </div>
-  //   `
-	// 	const carouselItems = getElementsByXPath({
-	// 		xpath: `//div[contains(@class, 'p-carousel-item') and @aria-label='${index}']`
-	// 	})
-	//
-	// 	if (carouselItems?.length > 0) {
-	// 		const carouselItem = carouselItems[0]
-	// 		if (carouselItem instanceof HTMLElement) {
-	// 			carouselItem.insertAdjacentHTML('beforeend', creditTo)
-	// 			carouselItem.style.position = 'relative'
-	// 			creditInserted.current = true
-	// 		}
-	// 	}
-	// }, [loaded, index, item])
+	useEffect(() => {
+		if (!loaded || creditInserted.current) return
+
+		const creditTo = `
+       <div
+	        class='mediaPhotoCreditTo'
+	        style='color: ${item?.creditColor}'
+       >
+          ${item?.credit ?? ''}
+      </div>
+    `
+		const carouselItems = getElementsByXPath({
+			xpath: `//div[contains(@class, 'p-carousel-item') and @aria-label='${index}']`
+		})
+
+		if (carouselItems?.length > 0) {
+			const carouselItem = carouselItems[0]
+			if (carouselItem instanceof HTMLElement) {
+					const pImage = carouselItem?.childNodes?.[0]?.childNodes?.[0]?.childNodes[0]
+				if (pImage instanceof HTMLElement) {
+					pImage.insertAdjacentHTML('beforeend', creditTo)
+					creditInserted.current = true
+				}
+				// carouselItem.insertAdjacentHTML('beforeend', creditTo)
+				// carouselItem.style.position = 'relative'
+				// creditInserted.current = true
+			}
+		}
+	}, [loaded, index, item])
 	
 	return (
 		<div className={classNames(styles.itemTemplate)}>
@@ -68,20 +71,22 @@ export function ItemTemplate({ index, onLoad, ...item }: ItemTemplateProps) {
 									onLoad?.()
 								}, 1000)
 							},
-						}
+							title: item.alt,
+						},
 					}}
 				/>
-				{loaded && item.credit && (
-					<div className={styles.mediaPhotoCreditToWrapper}>
-						<div
-							className={styles.mediaPhotoCreditTo}
-							style={{ color: item.creditColor }}
-						>
-							{item.credit}
-						</div>
-					</div>
-				)}
+		
 			</div>
+			{/* {loaded && item.credit && ( */}
+			{/* 	<div className={styles.mediaPhotoCreditToWrapper}> */}
+			{/* 		<div */}
+			{/* 			className={styles.mediaPhotoCreditTo} */}
+			{/* 			style={{ color: item.creditColor }} */}
+			{/* 		> */}
+			{/* 			{item.credit} */}
+			{/* 		</div> */}
+			{/* 	</div> */}
+			{/* )} */}
 		</div>
 	)
 }
