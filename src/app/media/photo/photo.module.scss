@@ -29,7 +29,7 @@
 		display: flex;
 		justify-content: center;
 		.itemTemplate {
-			margin: 0.5rem;
+			margin: 0 0.5rem;
 			text-align: center;
 			.thumbnailImage {
 				position: relative;
@@ -44,7 +44,6 @@
 						position: absolute !important;
 						top: 50% !important;
 					}
-
 					.p-image-preview-container {
 						position: unset !important;
 					}
@@ -62,15 +61,19 @@
 			height: 100%;
 			@include colors.bg-gradient();
 			.p-carousel-container {
-				height: 90%;
-				.p-carousel-items-container {
-					height: 100%;
-					.p-carousel-item {
-						display: flex;
-						align-items: center;
-						overflow: visible !important;
+				@media (min-height: 1200px) {
+					height: 90%;
+					.p-carousel-items-container {
+						height: 100%;
+						.p-carousel-item {
+							display: flex;
+							align-items: center;
+							overflow: visible !important;
+						}
 					}
-					
+					.p-carousel-item{
+						align-items: flex-start;
+					}
 				}
 				@media(min-width: 571px) {
 					padding-right: 20px;
