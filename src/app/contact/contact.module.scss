@@ -1,10 +1,13 @@
+$scrollbar-padding: 18px;
 .main {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	max-width: 1200px;
 	margin: 0 auto;
-	padding: 0 20px 40px 20px;
+	padding-right: calc(20px + $scrollbar-padding);
+	padding-left: 20px;
+	padding-bottom: 40px;
 	font-family: 'Source Sans Pro', sans-serif;
 	
 	.contactImageWrapper {
@@ -58,7 +61,6 @@
 				strong {
 					font-weight: 600;
 				}
-				
 				a {
 					text-decoration: underline;
 					&:hover {
@@ -72,10 +74,49 @@
 			}
 		}
 	}
-	
-	@media (min-width: 768px) {
+}
+@media (min-width: 1199px) and (max-height: 789px) {
+	.main{
 		.contactImageWrapper {
 			height: 70vh;
 		}
 	}
 }
+@media (min-width: 905px) and (max-height: 600px) {
+	.main{
+		.contactImageWrapper {
+			height: 100vh;
+		}
+	}
+}
+
+@media (max-width: 1199px) {
+	.main{
+		padding-right: $scrollbar-padding;
+		padding-left: 0;
+		padding-bottom: 0;
+	}
+}
+
+@media (max-height: 986px) {
+	.main{
+		padding-bottom: 50px;
+	}
+}
+
+@media (max-width: 386px) {
+	.main{
+		.contactDataWrapper{
+			.contacts{
+				align-items: center;
+				p:nth-child(1){
+					flex-direction: column;
+					svg{
+						display: none;
+					}
+				}
+			}
+		}
+	}
+}
+

@@ -45,7 +45,7 @@ export default function Contact() {
 					<p>
 						<FontAwesomeIcon icon={faEnvelope} />
 						<strong>Email:</strong>
-						<a href="mailto:nikaSemagina@gmail.com">nikaSemagina@gmail.com</a>
+						<a href="mailto:nikaSemagina@gmail.com">vbrookartist@gmail.com</a>
 					</p>
 				</div>
 			</div>
