@@ -4,8 +4,7 @@ import { images } from '@/app/media/photo/data'
 import getElementsByXPath from '@/utils/getElementsByXPath'
 import dynamic from 'next/dynamic'
 import { CarouselResponsiveOption } from 'primereact/carousel'
-import { Skeleton } from 'primereact/skeleton'
-import React, { Suspense, useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import styles from '../photo.module.scss'
 
 const Carousel = dynamic(
@@ -80,27 +79,25 @@ export const PhotoGalleria = () =>  {
 	
 	return (
 		<div className={styles.carouselWrapper}>
-			<Suspense fallback={<Skeleton/>}>
-				<Carousel
-					/* @ts-ignore */
-					ref={carouselRef}
-					value={images}
-					circular
-					numVisible={3}
-					autoplayInterval={autoplayInterval}
-					orientation="horizontal"
-					verticalViewPortHeight="360px"
-					responsiveOptions={responsiveOptions}
-					itemTemplate={(item) => (
-						<ItemTemplate
-							{...item}
-							index={images.indexOf(item)}
-							onLoad={handleImageLoad}
-							setIsPreviewOpen={setIsPreviewOpen}
-						/>
-					)}
-				/>
-			</Suspense>
+			<Carousel
+				/* @ts-ignore */
+				ref={carouselRef}
+				value={images}
+				circular
+				numVisible={3}
+				autoplayInterval={autoplayInterval}
+				orientation="horizontal"
+				verticalViewPortHeight="360px"
+				responsiveOptions={responsiveOptions}
+				itemTemplate={(item) => (
+					<ItemTemplate
+						{...item}
+						index={images.indexOf(item)}
+						onLoad={handleImageLoad}
+						setIsPreviewOpen={setIsPreviewOpen}
+					/>
+				)}
+			/>
 		</div>
 	)
 }

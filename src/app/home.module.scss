@@ -191,7 +191,7 @@ $wings-width: clamp(3.5rem, 4vw, 5.8rem);
 			}
 		}
 		@media (max-width: 785px) or (min-height: 858px) {
-			top: 50vh;
+			top: calc(50vh - var(--ios-bottom-padding, 0px));
 			padding: 25px 0;
 			background-color: rgba(0, 0, 0, 0.5);
 			width: 100%;

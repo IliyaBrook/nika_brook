@@ -99,11 +99,11 @@ export default function RootLayout({
 						<ScrollBarWrapper className={styles.scrollBar}>
 							<div className={styles.main}>{children}</div>
 						</ScrollBarWrapper>
+						<Initializer/>
 					</div>
 					<StructuredData data={schemaOrgJson} />
 				</body>
 			</html>
-			<Initializer/>
 		</PrimeReactProvider>
 	)
 }

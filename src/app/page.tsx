@@ -1,4 +1,3 @@
-'use cache'
 import { StructuredData } from '@/components/StructuredData'
 import classNames from 'classnames'
 import { Metadata } from 'next'
@@ -70,6 +69,7 @@ const websiteSchema = {
 };
 
 export default async function Home() {
+	
 	return (
 		<>
 			<StructuredData data={websiteSchema} />
