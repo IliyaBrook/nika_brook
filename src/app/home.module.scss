@@ -116,6 +116,7 @@ $wings-width: clamp(3.5rem, 4vw, 5.8rem);
 			
 			.line1, .line2, .line3 {
 				text-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+				margin: 0;
 			}
 	
 			.line3 {
@@ -123,12 +124,13 @@ $wings-width: clamp(3.5rem, 4vw, 5.8rem);
 				font-weight: 400;
 			}
 			
-			.line1And2Wrapper {
+			.line1And2And3Wrapper {
 				display: flex;
 				flex-direction: column;
 				align-items: center;
 				width: 100%;
-				
+				gap: 1.2rem;
+		
 				.line1 {
 					font-weight: 450;
 				}
@@ -147,11 +149,14 @@ $wings-width: clamp(3.5rem, 4vw, 5.8rem);
 					
 					.line2WrapperAbsolute {
 						top: -0.5rem;
+						
 						height: 100%;
 						display: flex;
 						position: absolute;
 						align-items: flex-end;
-						
+						@media (max-width: 574px) {
+							 	top: -2rem;
+						}
 						.wingLeft, .wingRight {
 							width: $wings-width;
 							height: $wings-height;

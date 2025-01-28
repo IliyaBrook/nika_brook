@@ -76,7 +76,7 @@ export default function Home() {
 			<div className={styles.textWrapper}>
 				<div className={styles.innerTextWrapper}>
 					<div className={styles.textJutifyWrapper}>
-						<div className={styles.line1And2Wrapper} >
+						<div className={styles.line1And2And3Wrapper} >
 							<h1 className={styles.line1}>
 								OPERA SINGER
 							</h1>
@@ -101,10 +101,10 @@ export default function Home() {
 									/>
 								</div>
 							</div>
+							<h2 className={styles.line3}>
+								CLASSICAL CROSSOVER ARTIST
+							</h2>
 						</div>
-						<h2 className={styles.line3}>
-							CLASSICAL CROSSOVER ARTIST
-						</h2>
 					</div>
 				</div>
 			</div>
