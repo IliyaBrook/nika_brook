@@ -38,9 +38,6 @@ export function ItemTemplate({ index, onLoad, ...item }: ItemTemplateProps) {
 					pImage.insertAdjacentHTML('beforeend', creditTo)
 					creditInserted.current = true
 				}
-				// carouselItem.insertAdjacentHTML('beforeend', creditTo)
-				// carouselItem.style.position = 'relative'
-				// creditInserted.current = true
 			}
 		}
 	}, [loaded, index, item])
@@ -75,18 +72,7 @@ export function ItemTemplate({ index, onLoad, ...item }: ItemTemplateProps) {
 						},
 					}}
 				/>
-		
 			</div>
-			{/* {loaded && item.credit && ( */}
-			{/* 	<div className={styles.mediaPhotoCreditToWrapper}> */}
-			{/* 		<div */}
-			{/* 			className={styles.mediaPhotoCreditTo} */}
-			{/* 			style={{ color: item.creditColor }} */}
-			{/* 		> */}
-			{/* 			{item.credit} */}
-			{/* 		</div> */}
-			{/* 	</div> */}
-			{/* )} */}
 		</div>
 	)
 }
