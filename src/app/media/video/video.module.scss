@@ -1,184 +1,189 @@
 .photo {
-  height: 100vh;
-  main{
-    display: flex;
-    background: rgba(0, 0, 0, 0.9);
-    padding-right: 20px;
-    @media (min-width: 768px) {
-      min-height: 100%;
-    }
-  }
+	height: 100vh;
+	margin-right: 5px;
+	main {
+		display: flex;
+		background: rgba(0, 0, 0, 0.9);
+		padding-right: 20px;
+		@media (min-width: 768px) {
+			min-height: 100%;
+		}
+	}
 }
 
 .thumbnailTemplate {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-height: 160px;
-  padding: 10px;
-
-  .img {
-    margin: 0 10px;
-  }
-
-  .videoTitle {
-    max-width: 120px;
-    color: #ffffff;
-  }
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	min-height: 160px;
+	padding: 10px;
+	
+	.img {
+		margin: 0 10px;
+		display: block;
+		cursor: pointer;
+	}
+	
+	.videoTitle {
+		max-width: 120px;
+		color: #ffffff;
+	}
 }
 
 .root {
-  display: flex;
-  justify-content: center;
-
-  .imageWrapper {
-    max-width: 400px;
-    display: flex;
-    flex-wrap: wrap;
-    margin-right: -0.5rem;
-    margin-left: -0.5rem;
-    margin-top: -0.5rem;
-
-    img {
-
-    }
-
-    .videoTitle {
-      max-width: 120px;
-      color: #000000;
-    }
-  }
-
+	display: flex;
+	justify-content: center;
+	
+	.imageWrapper {
+		max-width: 400px;
+		display: flex;
+		flex-wrap: wrap;
+		margin-right: -0.5rem;
+		margin-left: -0.5rem;
+		margin-top: -0.5rem;
+		
+		img {
+		
+		}
+		
+		.videoTitle {
+			max-width: 120px;
+			color: #000000;
+		}
+	}
+	
 }
 
 .carouselContainer {
-  align-self: center;
-  position: relative;
-  overflow: hidden;
-  width: 100%;
-
-  .carousel {
-    display: flex;
-    gap: 1px;
-    margin: 0;
-    @media (min-width: 768px) {
-      padding: 2rem 0 8rem 0;
-    }
-  }
-
-  .carouselItem {
-    flex: 0 0 35%;
-    transition: transform 0.5s ease;
-    position: relative;
-    height: 25vmax;
-    margin: 0 5px;
-
-    .videoOverlay {
-      cursor: pointer;
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: rgba(0, 0, 0, 0.5);
-    }
-
-    .videoInfo {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      padding: 10px;
-      background: rgba(0, 0, 0, 0.7);
-
-      .videoTitle {
-        color: white;
-        font-size: 1.2em;
-      }
-
-      .videoDescription {
-        color: white;
-        font-size: 0.8em;
-        max-height: 100px;
-        overflow: hidden;
-      }
-    }
-  }
-
-  .button {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    border: none;
-    cursor: pointer;
-    font-size: 24px;
-    z-index: 10;
-    background-color: transparent;
-    &:hover {
-      background-color: rgba(255, 255, 255, 0.2);
-    }
-
-    &.prevButton {
-      left: 0;
-    }
-
-    &.nextButton {
-      right: 0;
-    }
-
-    .icon {
-      color: #ffffff;
-    }
-  }
+	align-self: center;
+	position: relative;
+	overflow: hidden;
+	width: 100%;
+	.carousel {
+		display: flex;
+		gap: 1px;
+		margin: 0;
+		@media (min-width: 768px) {
+			padding: 2rem 0 8rem 0;
+		}
+	}
+	.carouselItem {
+		flex: 0 0 35%;
+		transition: transform 0.5s ease;
+		position: relative;
+		height: 25vmax;
+		margin: 0 5px;
+		
+		.videoOverlay {
+			cursor: pointer;
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			background: rgba(0, 0, 0, 0.5);
+		}
+		
+		.videoInfo {
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			padding: 10px;
+			background: rgba(0, 0, 0, 0.7);
+			
+			.videoTitle {
+				color: white;
+				font-size: 1.2em;
+			}
+			
+			.videoDescription {
+				color: white;
+				font-size: 0.8em;
+				max-height: 100px;
+				overflow: hidden;
+			}
+		}
+	}
+	
+	.button {
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		border: none;
+		cursor: pointer;
+		font-size: 24px;
+		z-index: 10;
+		background-color: transparent;
+		
+		&:hover {
+			background-color: rgba(255, 255, 255, 0.2);
+		}
+		
+		&.prevButton {
+			left: 0;
+		}
+		
+		&.nextButton {
+			right: 0;
+		}
+		
+		.icon {
+			color: #ffffff;
+		}
+	}
 }
 
 @media (max-width: 768px) {
-  .galleria{
-    width: 100%;
-    :global{
-      .p-galleria-item-nav{
-        top:37%;
-      }
-      .p-galleria-content{
-        padding:20px;
-      }
-    }
-  }
-  .videoInfo {
-    h3{
-      font-size: 1em!important;
-      margin: 0;
-    }
-    p{
-      margin: 5px 0;
-    }
-  }
-  .carouselContainer {
-//    height: 100svmax;
-    height: calc(100svmax - var(--navbar-height));
-    .carousel {
-      flex-direction: column;
-      overflow-y: auto;
-      height: 100%;
-      align-items: center;
-      padding-right: 18px;
-    }
-
-    .carouselItem {
-      width: 90%;
-      margin: 10px 0;
-      height: auto;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .button {
-      display: none;
-    }
-  }
+	.galleria {
+		width: 100%;
+		
+		:global {
+			.p-galleria-item-nav {
+				top: 37%;
+			}
+			
+			.p-galleria-content {
+				padding: 20px;
+			}
+		}
+	}
+	.videoInfo {
+		h3 {
+			font-size: 1em !important;
+			margin: 0;
+		}
+		
+		p {
+			margin: 5px 0;
+		}
+	}
+	.carouselContainer {
+		height: calc(100svmax - var(--navbar-height));
+		
+		.carousel {
+			flex-direction: column;
+			overflow-y: auto;
+			height: 100%;
+			align-items: center;
+			padding-right: 18px;
+		}
+		
+		.carouselItem {
+			width: 90%;
+			margin: 10px 0;
+			height: auto;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+		}
+		
+		.button {
+			display: none;
+		}
+	}
 }
 

@@ -37,12 +37,12 @@ export const PhotoGalleria = () =>  {
 				orientation="horizontal"
 				verticalViewPortHeight="360px"
 				responsiveOptions={responsiveOptions}
-				itemTemplate={(item) => (
-					<ItemTemplate
-						{...item}
-						index={images.indexOf(item)}
-					/>
-				)}
+				itemTemplate={(item) => {
+						return <ItemTemplate
+							{...item}
+							index={item.index}
+						/>
+				}}
 			/>
 		</div>
 	)

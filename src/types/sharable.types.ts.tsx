@@ -32,4 +32,5 @@ export interface VideoItem {
 	thumbnailImageSrcHd: string;
 	title: string;
 	description?: string;
+	index: number;
 }
