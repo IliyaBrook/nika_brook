@@ -28,11 +28,6 @@ const josefinSans = Josefin_Sans({
 	variable: '--font-josefin-sans'
 })
 const alexBrush = Alex_Brush({ subsets: ['latin'], weight: '400', display: 'swap', variable: '--font-alex-brush' })
-// const alexBrush = localFont({
-// 	src: '../../public/fonts/google/Alex_Brush/AlexBrush-Regular.ttf',
-// 	display: 'swap',
-// 	variable: '--font-alex-brush',
-// });
 
 export const metadata: Metadata = {
 	title: 'Media - Veronika Brook',
