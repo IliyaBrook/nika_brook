@@ -116,8 +116,6 @@
     font-size: 24px;
     z-index: 10;
     background-color: transparent;
-//    padding: 10px 30px 10px 10px;
-
     &:hover {
       background-color: rgba(255, 255, 255, 0.2);
     }
@@ -165,6 +163,7 @@
       overflow-y: auto;
       height: 100%;
       align-items: center;
+      padding-right: 18px;
     }
 
     .carouselItem {

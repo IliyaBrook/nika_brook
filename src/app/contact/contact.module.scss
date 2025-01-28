@@ -19,13 +19,7 @@ $scrollbar-padding: 18px;
 		.contactImage {
 			width: 100%;
 			height: 100%;
-			
-			.img {
-				object-fit: cover;
-			}
-		}
-		.creditText {
-			font-size: clamp(10px, 1rem, 14px);
+			object-fit: cover;
 		}
 	}
 	
@@ -111,9 +105,23 @@ $scrollbar-padding: 18px;
 				align-items: center;
 				p:nth-child(1){
 					flex-direction: column;
-					svg{
-						display: none;
-					}
+				}
+			}
+		}
+	}
+}
+
+@media (max-width: 768px) {
+	.main{
+		.contactDataWrapper{
+			padding: 0 20px;
+			.contacts{
+				svg{
+					display: none;
+				}
+				p{
+					margin: 0.5rem 0;
+					font-size: 16px;
 				}
 			}
 		}

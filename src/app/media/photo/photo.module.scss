@@ -84,6 +84,12 @@
 					}
 				}
 			}
+			@media (min-width: 768px) {
+				padding-left: 18px;
+			}
+			@media (max-width: 768px) {
+				padding-right: 18px;
+			}
 		}
 	}
 }

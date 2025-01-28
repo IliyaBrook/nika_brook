@@ -13,7 +13,7 @@ interface ItemTemplateProps extends ImageItem {
 	setIsPreviewOpen: (state: boolean) => void
 }
 
-export function ItemTemplate({ index, onLoad, setIsPreviewOpen, ...item }: ItemTemplateProps) {
+export function ItemTemplate({ index, ...item }: ItemTemplateProps) {
 	const [loaded, setLoaded] = useState(false)
 	const creditInserted = useRef(false)
 	const [hasError, setHasError] = useState(false)
@@ -23,7 +23,6 @@ export function ItemTemplate({ index, onLoad, setIsPreviewOpen, ...item }: ItemT
 		img.src = item.itemImageSrc
 		img.onload = () => {
 			setLoaded(true)
-			onLoad?.()
 		}
 		img.onerror = () => setHasError(true)
 	}, [item.itemImageSrc])
@@ -72,14 +71,11 @@ export function ItemTemplate({ index, onLoad, setIsPreviewOpen, ...item }: ItemT
 						loading="eager"
 						style={{ display: loaded ? 'block' : 'none' }}
 						className={styles.img}
-						onShow={() => setIsPreviewOpen(true)}
-						onHide={() => setIsPreviewOpen(false)}
 						onError={() => setHasError(true)}
 						pt={{
 							image: {
 								onLoad: () => {
 									setLoaded(true)
-									onLoad?.()
 								},
 								title: item.alt,
 							},

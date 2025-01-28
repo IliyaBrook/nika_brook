@@ -1,15 +1,13 @@
 'use cache'
-import ImageWithCredit from '@/components/ImageWithCredit/ImageWithCredit'
 import SocialNavLinks from '@/components/socialNavLinks/socialNavLinks'
 import { StructuredData } from '@/components/StructuredData'
 import { sameAs } from '@/seoData'
-import { Metadata } from 'next'
-import type { ImageProps } from 'next/image'
-import styles from './contact.module.scss'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { Metadata } from 'next'
 import Image from 'next/image'
 import React from 'react'
+import styles from './contact.module.scss'
 
 export const metadata: Metadata = {
 	title: 'Contact & Book Veronika Brook - Opera Singer',
@@ -49,7 +47,7 @@ export const metadata: Metadata = {
 	alternates: {
 		canonical: 'https://veronikabrook.com/contact'
 	}
-};
+}
 
 const biographySchema = {
 	'@context': 'https://schema.org',
@@ -84,7 +82,7 @@ const biographySchema = {
 		knowsLanguage: ['English', 'Hebrew', 'Russian', 'Italian'],
 		sameAs
 	}
-};
+}
 
 export default async function Contact() {
 	return (
@@ -92,21 +90,13 @@ export default async function Contact() {
 			<StructuredData data={biographySchema} />
 			<main className={styles.main}>
 				<div className={styles.contactImageWrapper}>
-					<ImageWithCredit<ImageProps>
-						creditTextProps={{
-							className: styles.creditText
-						}}
+					<Image
+						src='/images/contact/elenaProsdocimoC1.jpg'
+						alt='Contact page image'
+						fill
+						priority
 						className={styles.contactImage}
-						ImageComponentInstance={Image}
-						creditText='Elena Prosdocimo'
-						imageProps={{
-							src: '/images/contact/elenaProsdocimoC1.jpg',
-							alt: 'Contact page image',
-							fill: true,
-							priority: true,
-							className: styles.img,
-							loading: 'eager'
-						}}
+						loading='eager'
 					/>
 				</div>
 				<div className={styles.contactDataWrapper}>
