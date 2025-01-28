@@ -30,6 +30,7 @@ const ItemTemplate = dynamic(
 export default function PhotoGalleria() {
 	const carouselRef = useRef<any>(null)
 	const [loadedCount, setLoadedCount] = useState(0)
+	const [isPreviewOpen, setIsPreviewOpen] = useState(false)
 	const handleImageLoad = () => setLoadedCount(prev => prev + 1)
 	
 	const responsiveOptions: CarouselResponsiveOption[] = [
@@ -39,16 +40,17 @@ export default function PhotoGalleria() {
 		{ breakpoint: '575px', numVisible: 1, numScroll: 1 }
 	]
 	
-	const startAutoplay = useCallback(() => {
-		if (carouselRef.current){
+	const startAutoplay = () => {
+		if (carouselRef.current  && !isPreviewOpen){
 			carouselRef.current.startAutoplay()
 		}
-	}, [loadedCount])
-	const stopAutoplay = useCallback(() => {
+	}
+	
+	const stopAutoplay = () => {
 		if (carouselRef.current){
 			carouselRef.current.stopAutoplay()
 		}
-	}, [loadedCount])
+	}
 	
 	useEffect(() => {
 		if (loadedCount === images.length) {
@@ -57,8 +59,12 @@ export default function PhotoGalleria() {
 	}, [loadedCount])
 	
 	useEffect(() => {
-		stopAutoplay()
-	}, [])
+		if (isPreviewOpen) {
+			stopAutoplay()
+		} else {
+			startAutoplay()
+		}
+	}, [isPreviewOpen])
 	
 	useEffect(() => {
 		const imageButton = getElementsByXPath({xpath: "//div[@class='p-carousel-items-content']//button"})
@@ -78,7 +84,8 @@ export default function PhotoGalleria() {
 	}, [loadedCount])
 	
 	
-	const autoplayInterval = !isDevelopment ? 3000 : undefined
+	// const autoplayInterval = !isDevelopment ? 5000 : undefined
+	const autoplayInterval = 5000
 	
 	return (
 		<div className={styles.carouselWrapper}>
@@ -96,6 +103,7 @@ export default function PhotoGalleria() {
 						{...item}
 						index={images.indexOf(item)}
 						onLoad={handleImageLoad}
+						setIsPreviewOpen={setIsPreviewOpen}
 					/>
 				)}
 			/>

@@ -10,9 +10,10 @@ interface ItemTemplateProps extends ImageItem {
 	item: ImageItem
 	index: number
 	onLoad?: () => void
+	setIsPreviewOpen: (state: boolean) => void
 }
 
-export function ItemTemplate({ index, onLoad, ...item }: ItemTemplateProps) {
+export function ItemTemplate({ index, onLoad, setIsPreviewOpen, ...item }: ItemTemplateProps) {
 	const [loaded, setLoaded] = useState(false)
 	const creditInserted = useRef(false)
 	useEffect(() => {
@@ -60,6 +61,8 @@ export function ItemTemplate({ index, onLoad, ...item }: ItemTemplateProps) {
 					loading='eager'
 					style={{ display: loaded ? 'block' : 'none' }}
 					className={styles.img}
+					onShow={() => setIsPreviewOpen(true)}
+					onHide={() => setIsPreviewOpen(false)}
 					pt={{
 						image: {
 							onLoad: () => {
