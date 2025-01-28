@@ -15,8 +15,7 @@ const Galleria = (dynamic(
   { ssr: false }
 ) as typeof GalleriaComponent)
 
-
-export default function VideoGallery() {
+const VideoGallery = () => {
   const [activeIndex, setActiveIndex] = useState<number>(0)
   const galleriaRef = useRef<GalleriaComponent>(null)
   const visibleItems = 3
@@ -201,3 +200,5 @@ export default function VideoGallery() {
     </>
   )
 }
+
+export default VideoGallery

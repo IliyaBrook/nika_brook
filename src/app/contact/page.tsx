@@ -1,3 +1,4 @@
+'use cache'
 import ImageWithCredit from '@/components/ImageWithCredit/ImageWithCredit'
 import SocialNavLinks from '@/components/socialNavLinks/socialNavLinks'
 import { StructuredData } from '@/components/StructuredData'
@@ -85,7 +86,7 @@ const biographySchema = {
 	}
 };
 
-export default function Contact() {
+export default async function Contact() {
 	return (
 		<>
 			<StructuredData data={biographySchema} />

@@ -14,6 +14,9 @@ const nextConfig = {
 				hostname: 'img.youtube.com'
 			}
 		]
+	},
+	experimental: {
+		dynamicIO: true
 	}
 }
 

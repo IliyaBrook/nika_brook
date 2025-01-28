@@ -1,3 +1,4 @@
+'use cache'
 import ImageWithCredit from '@/components/ImageWithCredit/ImageWithCredit'
 import { StructuredData } from '@/components/StructuredData'
 import { sameAs } from '@/seoData'
@@ -84,7 +85,7 @@ const biographySchema = {
 	}
 };
 
-export default function Biography () {
+export default async function Biography () {
 	return (
 		<>
 			<StructuredData data={biographySchema} />

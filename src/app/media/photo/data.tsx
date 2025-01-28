@@ -74,7 +74,7 @@ export const images: Array<ImageItem> = [
     index: 8
   },
   {
-    itemImageSrc: '/images/mediaPhoto/6_credit_Elia_Haizis.jpg',
+    itemImageSrc: '/images/mediaPhoto/6_credit_elia_haizis.jpg',
     alt: 'Photo 8',
     credit: 'photo: Elia Haizis',
     creditColor: 'white',

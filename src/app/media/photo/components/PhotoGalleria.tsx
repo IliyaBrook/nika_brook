@@ -18,7 +18,7 @@ const Carousel = dynamic(
 	}
 )
 
-export default function PhotoGalleria() {
+export const PhotoGalleria = () =>  {
 	const carouselRef = useRef<any>(null)
 	const [loadedCount, setLoadedCount] = useState(0)
 	const [isPreviewOpen, setIsPreviewOpen] = useState(false)
@@ -104,3 +104,5 @@ export default function PhotoGalleria() {
 		</div>
 	)
 }
+
+export default PhotoGalleria
