@@ -75,9 +75,9 @@ const VideoGallery = () => {
     }
   }, [])
 
-  const thumbnailTemplate = (item: VideoItem, index: number) => {
+  const thumbnailTemplate = (item: VideoItem) => {
     return (
-      <div className={styles.thumbnailTemplate}>
+      <div className={styles.thumbnailTemplate} key={`thumbnail-template-${item.index}`}>
         <Image
           src={item.thumbnailImageSrc}
           alt={item.alt}
@@ -88,7 +88,6 @@ const VideoGallery = () => {
             galleriaRef.current?.show();
           }}
         />
-        <div className={styles.videoTitle}>{item.title}</div>
       </div>
     )
   }
@@ -125,10 +124,7 @@ const VideoGallery = () => {
         showItemNavigators
         showThumbnails={true}
         item={itemTemplate}
-        thumbnail={(item) => {
-          const index = item.index
-          return thumbnailTemplate(item, index)
-        }}
+        thumbnail={(item) => thumbnailTemplate(item)}
       />
 
       <div className={styles.carouselContainer}>
@@ -153,7 +149,7 @@ const VideoGallery = () => {
               >
                 <Image
                   src={video.thumbnailImageSrcHd}
-                  alt={video.title}
+                  alt={video.alt}
                   fill
                   className={styles.thumbnailImage}
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -177,7 +173,6 @@ const VideoGallery = () => {
                     </svg>
                   </div>
                   <div className={styles.videoInfo}>
-                    <h3 className={styles.videoTitle}>{video.title}</h3>
                     <p className={styles.videoDescription}>{video.description}</p>
                   </div>
                 </div>

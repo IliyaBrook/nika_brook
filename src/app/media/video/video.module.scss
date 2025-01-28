@@ -23,11 +23,6 @@
 		display: block;
 		cursor: pointer;
 	}
-	
-	.videoTitle {
-		max-width: 120px;
-		color: #ffffff;
-	}
 }
 
 .root {
@@ -41,17 +36,7 @@
 		margin-right: -0.5rem;
 		margin-left: -0.5rem;
 		margin-top: -0.5rem;
-		
-		img {
-		
-		}
-		
-		.videoTitle {
-			max-width: 120px;
-			color: #000000;
-		}
 	}
-	
 }
 
 .carouselContainer {
@@ -93,11 +78,6 @@
 			left: 0;
 			padding: 10px;
 			background: rgba(0, 0, 0, 0.7);
-			
-			.videoTitle {
-				color: white;
-				font-size: 1.2em;
-			}
 			
 			.videoDescription {
 				color: white;

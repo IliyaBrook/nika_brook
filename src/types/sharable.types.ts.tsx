@@ -30,7 +30,6 @@ export interface VideoItem {
 	alt: string;
 	thumbnailImageSrc: string;
 	thumbnailImageSrcHd: string;
-	title: string;
 	description?: string;
 	index: number;
 }
