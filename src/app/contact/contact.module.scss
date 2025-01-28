@@ -1,89 +1,81 @@
-// contact.module.scss
 .main {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	padding: 0 20px;
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 20px 40px 20px;
 	font-family: 'Source Sans Pro', sans-serif;
-	height: 100%;
-	justify-content: center;
-	.contactImageWrapper{
-		width: 768px;
-		height: 80%;
-		display: flex;
-		justify-content: center;
-		max-width: 640px;
+	
+	.contactImageWrapper {
+		width: 100%;
+		height: 60vh;
 		position: relative;
-		.contactImage{
-			height: fit-content;
+		margin-bottom: 15px;
+		
+		.contactImage {
 			width: 100%;
-			.img{
-				object-fit: fill;
+			height: 100%;
+			
+			.img {
+				object-fit: cover;
 			}
 		}
+		.creditText {
+			font-size: clamp(10px, 1rem, 14px);
+		}
 	}
-	.contactDataWrapper{
-		height: 20%;
+	
+	.contactDataWrapper {
+		width: 100%;
 		display: flex;
 		flex-direction: column;
-		width: 100%;
-		max-width: 640px;
-
+		align-items: center;
+		gap: 1rem;
 		.socials {
 			display: flex;
-			gap: 15px;
-			justify-content: space-between;
-			margin-top: 10px;
+			justify-content: center;
+			gap: 20px;
+			font-size: 1.2rem;
 			background-color: #ffffff;
-			
-//			a {
-//				color: #3c3c3c;
-//				font-size: 25px;
-//				transition: color 0.3s;
-//
-//				&:hover {
-//					color: #007bff;
-//				}
-//			}
 		}
-		.contacts{
+		
+		.contacts {
+			display: flex;
+			align-items: flex-start;
+			flex-direction: column;
 			p {
-				font-weight: 300;
-				line-height: 1.5em;
-				font-size: 19px;
-				text-align: left;
-				color: #3c3c3c;
-				margin-bottom: 1em;
 				display: flex;
 				align-items: center;
-				
+				font-weight: 400;
+				color: #3c3c3c;
+				font-size: 1.1rem;
+				gap:0.3rem;
 				svg {
-					margin-right: 10px;
-					font-size: 15px;
-					color: #3c3c3c;
+					font-size: 1rem;
+				}
+				
+				strong {
+					font-weight: 600;
 				}
 				
 				a {
-					margin-left: 10px;
-					font-weight: 300;
-					font-size: 19px;
-					color: #3c3c3c;
 					text-decoration: underline;
-					
 					&:hover {
 						color: #007bff;
 						text-decoration: none;
 					}
 				}
-				
-				strong {
-					font-weight: 600;
-					margin-right: 5px;
-				}
+			}
+			a{
+				color:#3c3c3c;
 			}
 		}
 	}
-	@media (min-width: 1199px) {
-		padding-bottom: 82px;
+	
+	@media (min-width: 768px) {
+		.contactImageWrapper {
+			height: 70vh;
+		}
 	}
 }

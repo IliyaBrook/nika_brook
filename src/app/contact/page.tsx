@@ -4,10 +4,8 @@ import { Metadata } from 'next'
 import type { ImageProps } from 'next/image'
 import styles from './contact.module.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faApple, faFacebookF, faInstagram, faSpotify, faYoutube } from '@fortawesome/free-brands-svg-icons'
-import Image from 'next/image'
 import { faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons'
-import contactImage from '../../../public/images/contact/elenaProsdocimoC1.jpg'
+import Image from 'next/image'
 import React from 'react'
 
 export const metadata: Metadata = {
@@ -20,11 +18,13 @@ export default function Contact() {
 		<main className={styles.main}>
 			<div className={styles.contactImageWrapper}>
 				<ImageWithCredit<ImageProps>
+					creditTextProps={{
+						className: styles.creditText
+					}}
 					className={styles.contactImage}
 					ImageComponentInstance={Image}
-					creditText='Elena Prosdocimo'
+					creditText="Elena Prosdocimo"
 					imageProps={{
-						// src: contactImage,
 						src: '/images/contact/elenaProsdocimoC1.jpg',
 						alt: 'Contact page image',
 						fill: true,
@@ -40,18 +40,15 @@ export default function Contact() {
 					<p>
 						<FontAwesomeIcon icon={faPhone} />
 						<strong>GENERAL MANAGEMENT:</strong>
-						<p>Alex Gold</p>
-						<a href='tel:+972545255936'>+972 54 5255936</a>
+						<a href="tel:+972545255936">+972 54 5255936</a>
 					</p>
-					
 					<p>
 						<FontAwesomeIcon icon={faEnvelope} />
 						<strong>Email:</strong>
-						<a href='mailto:nikaSemagina@gmail.com'>nikaSemagina@gmail.com</a>
+						<a href="mailto:nikaSemagina@gmail.com">nikaSemagina@gmail.com</a>
 					</p>
 				</div>
 			</div>
-	
 		</main>
 	)
 }

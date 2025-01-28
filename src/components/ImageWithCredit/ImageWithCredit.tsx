@@ -24,6 +24,7 @@ const ImageWithCredit = <ImageProps extends Record<string, any>>({
 	                                                                   creaditTextSpacing = '1vw',
 	                                                                   creditTextColor = 'white',
 	                                                                   ImageComponentInstance,
+	
 	                                                                   ...rest
                                                                    }: IImageWithCredit<ImageProps>) => {
 	return (
@@ -34,7 +35,7 @@ const ImageWithCredit = <ImageProps extends Record<string, any>>({
 			/>
 			<div
 				{...creditTextProps}
-				className={styles.credit}
+				className={classNames(styles.credit, creditTextProps?.className)}
 				style={{
 					[creditTextPosition]: creaditTextSpacing,
 					color: creditTextColor,
