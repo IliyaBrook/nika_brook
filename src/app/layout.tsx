@@ -1,4 +1,5 @@
 import { primeReactConfig } from '@/app/primeReactConfig'
+import { Initializer } from '@/components/Initializer'
 import Navbar from '@/components/Navbar/Navbar'
 import { StructuredData } from '@/components/StructuredData'
 import { ScrollBarWrapper } from '@/components/Wrappers/ScrollBarWrapper/ScrollBarWrapper'
@@ -102,6 +103,7 @@ export default function RootLayout({
 					<StructuredData data={schemaOrgJson} />
 				</body>
 			</html>
+			<Initializer/>
 		</PrimeReactProvider>
 	)
 }
