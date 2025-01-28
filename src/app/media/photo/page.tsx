@@ -1,49 +1,47 @@
+import { images } from '@/app/media/photo/data'
+import { StructuredData } from '@/components/StructuredData'
 import { Metadata } from 'next'
 import MediaGalleria from '@/app/media/photo/components/PhotoGalleria'
 import styles from './photo.module.scss'
 import React from 'react'
 
 export const metadata: Metadata = {
-	title: 'Photo Gallery - Veronika Brook',
-	description:
-		'Explore the photo gallery of Veronika Brook, showcasing her roles in operas like Rigoletto, La Traviata, and more.',
+	title: 'Photo Gallery - Veronika Brook | Exclusive Opera Moments',
+	description: 'Discover an exclusive collection of Veronika Brook’s opera performances, featuring roles in Rigoletto, La Traviata, and more.',
 	keywords: [
 		'Veronika Brook photos',
 		'photo gallery',
-		'opera performances',
-		'Rigoletto photos',
+		'opera singer photos',
+		'classical music photography',
+		'Rigoletto opera images',
 		'La Traviata photos',
-		'classical music photography'
+		'Veronika Brook exclusive photos',
+		'stage performance pictures'
 	],
 	openGraph: {
-		title: 'Photo Gallery - Veronika Brook',
-		description: 'Browse photos of Veronika Brook in various opera roles.',
+		title: 'Photo Gallery - Veronika Brook | Exclusive Opera Moments',
+		description: 'Discover an exclusive collection of Veronika Brook’s opera performances, featuring roles in Rigoletto, La Traviata, and more.',
 		url: 'https://veronikabrook.com/media/photo',
-		type: 'article',
-		images: [
-			{
-				url: 'https://veronikabrook.com/images/mediaPhoto/photo2.jpg',
-				width: 1200,
-				height: 630,
-				alt: 'Veronika Brook in performance'
-			},
-			{
-				url: 'https://veronikabrook.com/images/mediaPhoto/photo10.jpg',
-				width: 1200,
-				height: 630,
-				alt: 'Veronika Brook portrait'
-			}
-		]
+		type: 'website',
+		images: images.map(img => ({
+			url: `https://veronikabrook.com${img.itemImageSrc}`,
+			width: 1200,
+			height: 800,
+			alt: img.alt
+		}))
 	},
 	twitter: {
 		card: 'summary_large_image',
-		title: 'Photo Gallery - Veronika Brook',
-		description: 'Browse photos of Veronika Brook in various opera roles.',
-		images: ['https://veronikabrook.com/images/mediaPhoto/photo2.jpg']
+		title: 'Photo Gallery - Veronika Brook | Exclusive Opera Moments',
+		description: 'Discover an exclusive collection of Veronika Brook’s opera performances.',
+		images: images.map(img => `https://veronikabrook.com${img.itemImageSrc}`)
 	},
 	robots: {
 		index: true,
 		follow: true
+	},
+	alternates: {
+		canonical: 'https://veronikabrook.com/media/photo'
 	}
 };
 
@@ -51,26 +49,22 @@ const photoSchema = {
 	'@context': 'https://schema.org',
 	'@type': 'ImageGallery',
 	name: 'Photo Gallery - Veronika Brook',
-	description: 'A collection of photos featuring Veronika Brook in opera roles.',
-	image: [
-		'https://veronikabrook.com/images/mediaPhoto/photo2.jpg',
-		'https://veronikabrook.com/images/mediaPhoto/photo10.jpg',
-		'https://veronikabrook.com/images/mediaPhoto/photo12.jpg'
-	],
+	description: 'A collection of high-quality opera performance images featuring Veronika Brook.',
+	url: 'https://veronikabrook.com/media/photo',
+	image: images.map(img => `https://veronikabrook.com${img.itemImageSrc}`),
 	author: {
 		'@type': 'Person',
 		name: 'Veronika Brook'
 	}
 };
 
-export const dynamic = 'force-static'
-
 export default function Photo() {
 	return (
-		<div className={styles.photo}>
-			<main>
+		<>
+			<StructuredData data={photoSchema} />
+			<main className={styles.photo}>
 				<MediaGalleria />
 			</main>
-		</div>
+		</>
 	)
 }

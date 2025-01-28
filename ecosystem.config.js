@@ -1,7 +1,7 @@
 module.exports = {
 	apps: [
 		{
-			name: 'nika_brook',
+			name: 'veronika',
 			script: 'yarn',
 			args: 'start-prod',
 			cwd: '/var/www/nika-brook',

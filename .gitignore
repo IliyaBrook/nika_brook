@@ -35,12 +35,11 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 cheatsheet/
-/scripts/
 /testQueries/
 .idea/
 Makefile
 env_files/*
-.secrets
+
 deploy.git
 tmp
 
@@ -48,3 +47,5 @@ tmp
 node_modules
 amplify_outputs*
 amplifyconfiguration*
+
+.vercel

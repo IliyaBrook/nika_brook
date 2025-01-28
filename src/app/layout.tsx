@@ -2,6 +2,7 @@ import { primeReactConfig } from '@/app/primeReactConfig'
 import Navbar from '@/components/Navbar/Navbar'
 import { StructuredData } from '@/components/StructuredData'
 import { ScrollBarWrapper } from '@/components/Wrappers/ScrollBarWrapper/ScrollBarWrapper'
+import { sameAs } from '@/seoData'
 import classNames from 'classnames'
 import './shareableStyles/globals.scss'
 import 'primereact/resources/themes/lara-light-cyan/theme.css'
@@ -56,6 +57,9 @@ export const metadata: Metadata = {
 	robots: {
 		index: true,
 		follow: true
+	},
+	alternates: {
+		canonical: 'https://veronikabrook.com'
 	}
 }
 
@@ -68,12 +72,7 @@ const schemaOrgJson = {
 	birthPlace: 'Estonia',
 	description: 'An accomplished soprano opera singer with a rich operatic repertoire...',
 	url: 'https://veronikabrook.com',
-	sameAs: [
-		'https://www.instagram.com/vero_nika_brook',
-		'https://www.youtube.com/channel/UCbNqjRLtT6dSh1qCWhIdxNw',
-		'https://music.apple.com/hu/artist/veronika-brook/1502987264',
-		'https://open.spotify.com/artist/0922dzQ9qrAJ1sTf1hf067'
-	]
+	sameAs
 }
 
 export default function RootLayout({

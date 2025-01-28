@@ -1,4 +1,4 @@
-# Nika Brook Web Page 🎵
+# Veronika Brook Web Page 🎵
 
 ![Nika Brook Banner](./public/banner.png)
 

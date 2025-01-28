@@ -1,8 +1,8 @@
 {
-  "name": "nika_brook",
+  "name": "veronika",
   "version": "0.1.0",
   "private": true,
-  "repository": "https://github.com/IliyaBrook/nika_brook",
+  "repository": "https://github.com/IliyaBrook/veronika",
   "author": "Iliya Brook <iliyabrook1987@gmail.com>",
   "scripts": {
     "start": "next start",
@@ -29,10 +29,7 @@
     "@types/bcrypt": "^5.0.2",
     "@types/node": "^20.11.30",
     "@types/react-dom": "19.0.3",
-    "aws-cdk": "^2.176.0",
-    "aws-cdk-lib": "^2.176.0",
     "constructs": "^10.4.2",
-    "cross-env": "^7.0.3",
     "esbuild": "^0.24.2",
     "eslint": "^9.18.0",
     "eslint-config-next": "15.1.6",
