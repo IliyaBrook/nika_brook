@@ -1,10 +1,16 @@
 import { setActivePath } from '@/utils/setActivePath'
 import classNames from 'classnames'
+import type { AppRouterInstance } from 'next/dist/shared/lib/app-router-context.shared-runtime'
 import Link from 'next/link'
 import { MenuItem, type MenuItemOptions } from 'primereact/menuitem'
 import { Skeleton } from 'primereact/skeleton'
 import styles from './Navbar.module.scss'
 import React from 'react'
+
+interface IGetNavBarItems {
+	pathname: string;
+	router: AppRouterInstance;
+}
 
 const RouteTemplate = (item: MenuItem, options: MenuItemOptions, pathname: string) => {
 	const routeName = item.id
@@ -21,7 +27,8 @@ const RouteTemplate = (item: MenuItem, options: MenuItemOptions, pathname: strin
 	)
 }
 
-const getNavBarItems = (pathname: string): MenuItem[] => {
+
+const getNavBarItems = ({pathname, router}: IGetNavBarItems): MenuItem[] => {
 	const template = (item: MenuItem, options: MenuItemOptions) => RouteTemplate(item, options, pathname)
 	return [
 		{
@@ -37,7 +44,10 @@ const getNavBarItems = (pathname: string): MenuItem[] => {
 		{
 			className: 'nav-bar-artist-name',
 			template: (
-				<div className={styles.navBarArtistNameDesktop}>
+				<div
+					className={styles.navBarArtistNameDesktop}
+					onClick={() => router.push('/')}
+				>
 					<div className={styles.text}>Veronika Brook</div>
 				</div>
 			)

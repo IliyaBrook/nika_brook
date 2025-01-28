@@ -11,6 +11,12 @@ $font-size-artist-name:clamp(23px, 5vw, 33px);
 	line-height: 0.969327em;
 	text-align: center;
 	text-transform: uppercase;
+	@media (min-width: 600px) {
+		&:hover {
+			color: rgb(236, 199, 145);
+			cursor: pointer;
+		}
+	}
 }
 .root {
 	position: relative;

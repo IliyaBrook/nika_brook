@@ -8,10 +8,6 @@ export type DeviceType =
 	| 'Linux'
 	| 'unknown'
 
-export type classNameType = {
-	[key in DeviceType as `${Capitalize<key>}ClassName`]: React.CSSProperties
-}
-
 import type { CSSProperties } from 'react'
 
 export interface ImageItem {

@@ -2,7 +2,7 @@
 import SocialNavLinks from '@/components/socialNavLinks/socialNavLinks'
 import getNavBarItems, { navBarSkeleton } from '@/components/Navbar/navBarItems'
 import dynamic from 'next/dynamic'
-import { usePathname } from 'next/navigation'
+import { usePathname, useRouter } from 'next/navigation'
 import { Menubar as MenubarComponent } from 'primereact/menubar'
 import { Skeleton } from 'primereact/skeleton'
 import React, { useEffect, useMemo, useState } from 'react'
@@ -16,6 +16,7 @@ const Menubar = (dynamic(
 const Navbar = () => {
 	const [isMenuNavReady, setMenuNavReady] = useState<boolean>(false)
 	const navBarRef = React.createRef<HTMLDivElement>()
+	const router = useRouter()
 	
 	useEffect(() => {
 		const observer = new MutationObserver(mutationsList => {
@@ -42,13 +43,20 @@ const Navbar = () => {
 	}, [navBarRef?.current])
 	
 	const pathname = usePathname()
-	const navBarItems = useMemo(() => getNavBarItems(pathname), [pathname])
+	const navBarItems = useMemo(() => getNavBarItems({ pathname, router }), [pathname])
 	return (
 		<div className={styles.root} ref={navBarRef}>
 			<Menubar
 				model={isMenuNavReady ? navBarItems : []}
 			/>
-			{isMenuNavReady && <div className={styles.navBarArtistNameMobile}>Veronika Brook</div>}
+			{isMenuNavReady && (
+				<div
+					className={styles.navBarArtistNameMobile}
+					onClick={() => router.push('/')}
+				>
+					Veronika Brook
+				</div>
+			)}
 			{!isMenuNavReady && <Skeleton
 				className={styles.mobileMenuSkeleton}
 			/>}

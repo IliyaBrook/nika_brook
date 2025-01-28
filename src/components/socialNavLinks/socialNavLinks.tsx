@@ -1,7 +1,7 @@
-import classNames from 'classnames'
-import React from 'react'
 import LinkIconWithToolTip from '@/components/socialNavLinks/LinkIconWithToolTip'
 import { faApple, faFacebookF, faInstagram, faSpotify, faYoutube } from '@fortawesome/free-brands-svg-icons'
+import classNames from 'classnames'
+import React from 'react'
 import styles from './socialNavLinks.module.scss'
 
 interface ISocialNavLinks {
@@ -9,7 +9,7 @@ interface ISocialNavLinks {
 	style?: React.CSSProperties;
 	iconSize?: string;
 }
-const SocialNavLinks:React.FC<ISocialNavLinks> = ({className, style, iconSize = '20px'}) => {
+const SocialNavLinks:React.FC<ISocialNavLinks> = ({className, style}) => {
 	
 	return (
 		<div

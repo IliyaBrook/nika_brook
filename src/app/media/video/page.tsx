@@ -68,7 +68,7 @@ async function getVideoSchema() {
 		url: 'https://veronikabrook.com/media/video',
 		video: videos.map(video => ({
 			'@type': 'VideoObject',
-			name: video.title,
+			name: video.alt,
 			description: video.description,
 			thumbnailUrl: video.thumbnailImageSrcHd,
 			uploadDate: '2024-01-01',
