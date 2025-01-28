@@ -1,4 +1,4 @@
-import type { ImageItem, MediaElementSekelton } from '@/types/sharable.types.ts'
+import type { ImageItem } from '@/types/sharable.types.ts'
 
 export const images: Array<ImageItem> = [
   {

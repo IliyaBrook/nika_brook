@@ -1,6 +1,6 @@
 import ImageWithCredit from '@/components/ImageWithCredit/ImageWithCredit'
 import classNames from 'classnames'
-import { Metadata, NextPage } from 'next'
+import { Metadata } from 'next'
 import Image, { ImageProps } from 'next/image'
 import styles from './biography.module.scss'
 

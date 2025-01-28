@@ -33,10 +33,3 @@ export interface VideoItem {
 	title: string;
 	description?: string;
 }
-
-export interface MediaElementSekelton {
-	itemImageSrc:string;
-	alt: string;
-	id: string;
-	index: number;
-}
