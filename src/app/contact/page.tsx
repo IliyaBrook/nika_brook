@@ -103,9 +103,14 @@ export default async function Contact() {
 					<SocialNavLinks className={styles.socials} />
 					<div className={styles.contacts}>
 						<p>
-							<FontAwesomeIcon icon={faPhone} />
-							<strong>GENERAL MANAGEMENT:</strong>
-							<a href='tel:+972545255936'>+972 54 5255936</a>
+							<span>
+								<strong>GENERAL MANAGEMENT:</strong>
+								<span>
+    								<FontAwesomeIcon icon={faPhone} />
+    								<a href='tel:+972545255936'>+972 54 5255936</a>
+    							</span>
+							</span>
+						
 						</p>
 						<p>
 							<FontAwesomeIcon icon={faEnvelope} />

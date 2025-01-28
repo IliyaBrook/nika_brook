@@ -127,4 +127,22 @@ $scrollbar-padding: 18px;
 		}
 	}
 }
-
+@media (min-width: 768px) {
+	.main{
+		.contactDataWrapper{
+			.contacts{
+				p{
+					span:first-child{
+						display: flex;
+						flex-direction: column;
+						gap: 0.5rem;
+						span{
+							display: flex;
+							gap: 0.5rem;
+						}
+					}
+				}
+			}
+		}
+	}
+}
