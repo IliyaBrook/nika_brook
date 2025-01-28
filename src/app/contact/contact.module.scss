@@ -1,66 +1,89 @@
 // contact.module.scss
-
 .main {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	padding: 20px;
+	padding: 0 20px;
 	font-family: 'Source Sans Pro', sans-serif;
 	height: 100%;
 	justify-content: center;
-	.contactWrapper{
+	.contactImageWrapper{
+		width: 768px;
+		height: 80%;
+		display: flex;
+		justify-content: center;
+		max-width: 640px;
+		position: relative;
+		.contactImage{
+			height: fit-content;
+			width: 100%;
+			.img{
+				object-fit: fill;
+			}
+		}
+	}
+	.contactDataWrapper{
+		height: 20%;
 		display: flex;
 		flex-direction: column;
-	}
-	p {
-		font-weight: 300;
-		line-height: 1.5em;
-		font-size: 19px;
-		text-align: left;
-		color: #3c3c3c;
-		margin-bottom: 1em;
-		display: flex;
-		align-items: center;
-		
-		svg {
-			margin-right: 10px;
-			font-size: 20px;
-			color: #3c3c3c;
-		}
-		
-		a {
-			margin-left: 10px;
-			font-weight: 300;
-			font-size: 19px;
-			color: #3c3c3c;
-			text-decoration: underline;
+		width: 100%;
+		max-width: 640px;
+
+		.socials {
+			display: flex;
+			gap: 15px;
+			justify-content: space-between;
+			margin-top: 10px;
+			background-color: #ffffff;
 			
-			&:hover {
-				color: #007bff;
-				text-decoration: none;
+//			a {
+//				color: #3c3c3c;
+//				font-size: 25px;
+//				transition: color 0.3s;
+//
+//				&:hover {
+//					color: #007bff;
+//				}
+//			}
+		}
+		.contacts{
+			p {
+				font-weight: 300;
+				line-height: 1.5em;
+				font-size: 19px;
+				text-align: left;
+				color: #3c3c3c;
+				margin-bottom: 1em;
+				display: flex;
+				align-items: center;
+				
+				svg {
+					margin-right: 10px;
+					font-size: 15px;
+					color: #3c3c3c;
+				}
+				
+				a {
+					margin-left: 10px;
+					font-weight: 300;
+					font-size: 19px;
+					color: #3c3c3c;
+					text-decoration: underline;
+					
+					&:hover {
+						color: #007bff;
+						text-decoration: none;
+					}
+				}
+				
+				strong {
+					font-weight: 600;
+					margin-right: 5px;
+				}
 			}
 		}
-		
-		strong {
-			font-weight: 600;
-			margin-right: 5px;
-		}
 	}
-	
-	.socials {
-		display: flex;
-		gap: 15px;
-		justify-content: center;
-		margin-top: 20px;
-		
-		a {
-			color: #3c3c3c;
-			font-size: 25px;
-			transition: color 0.3s;
-			
-			&:hover {
-				color: #007bff;
-			}
-		}
+	@media (min-width: 1199px) {
+		padding-bottom: 82px;
 	}
 }

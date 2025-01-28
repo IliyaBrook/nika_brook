@@ -1,12 +1,22 @@
+import classNames from 'classnames'
 import React from 'react'
-import LinkIconWithToolTip from '@/components/Navbar/socialNavLinks/LinkIconWithToolTip'
+import LinkIconWithToolTip from '@/components/socialNavLinks/LinkIconWithToolTip'
 import { faApple, faFacebookF, faInstagram, faSpotify, faYoutube } from '@fortawesome/free-brands-svg-icons'
 import styles from './socialNavLinks.module.scss'
 
-const SocialNavLinks = () => {
+interface ISocialNavLinks {
+	className?: string;
+	style?: React.CSSProperties;
+	iconSize?: string;
+}
+const SocialNavLinks:React.FC<ISocialNavLinks> = ({className, style, iconSize = '20px'}) => {
 	
 	return (
-		<div className={styles.socialNavLinks} id="socialNavLinksContainer">
+		<div
+			className={classNames(styles.socialNavLinks, className)}
+			style={style}
+			id="socialNavLinksContainer"
+		>
 			<LinkIconWithToolTip
 				id='facebookLink'
 				href='https://www.facebook.com/profile.php?id=100004158911717'

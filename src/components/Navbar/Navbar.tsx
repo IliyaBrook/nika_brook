@@ -1,5 +1,5 @@
 'use client'
-import SocialNavLinks from '@/components/Navbar/socialNavLinks/socialNavLinks'
+import SocialNavLinks from '@/components/socialNavLinks/socialNavLinks'
 import getNavBarItems, { navBarSkeleton } from '@/components/Navbar/navBarItems'
 import dynamic from 'next/dynamic'
 import { usePathname } from 'next/navigation'
