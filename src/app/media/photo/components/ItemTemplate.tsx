@@ -16,65 +16,76 @@ interface ItemTemplateProps extends ImageItem {
 export function ItemTemplate({ index, onLoad, setIsPreviewOpen, ...item }: ItemTemplateProps) {
 	const [loaded, setLoaded] = useState(false)
 	const creditInserted = useRef(false)
+	const [hasError, setHasError] = useState(false)
+	
+	useEffect(() => {
+		const img = new Image()
+		img.src = item.itemImageSrc
+		img.onload = () => {
+			setLoaded(true)
+			onLoad?.()
+		}
+		img.onerror = () => setHasError(true)
+	}, [item.itemImageSrc])
+	
 	useEffect(() => {
 		if (!loaded || creditInserted.current) return
-
+		
 		const creditTo = `
-       <div
-	        class='mediaPhotoCreditTo'
-	        style='color: ${item?.creditColor}'
-       >
-          ${item?.credit ?? ''}
-      </div>
-    `
+			<div class='mediaPhotoCreditTo' style='color: ${item?.creditColor}'>
+				${item?.credit ?? ''}
+			</div>
+		`
 		const carouselItems = getElementsByXPath({
 			xpath: `//div[contains(@class, 'p-carousel-item') and @aria-label='${index}']`
 		})
-
+		
 		if (carouselItems?.length > 0) {
 			const carouselItem = carouselItems[0]
 			if (carouselItem instanceof HTMLElement) {
-					const pImage = carouselItem?.childNodes?.[0]?.childNodes?.[0]?.childNodes[0]
+				const pImage = carouselItem?.childNodes?.[0]?.childNodes?.[0]?.childNodes[0]
 				if (pImage instanceof HTMLElement) {
 					pImage.insertAdjacentHTML('beforeend', creditTo)
 					creditInserted.current = true
 				}
 			}
 		}
-	}, [loaded, index, item])
+	}, [loaded, item])
+
 	
 	return (
 		<div className={classNames(styles.itemTemplate)}>
 			<div className={styles.thumbnailImage}>
-				{!loaded && (
+				{(!loaded || hasError) && (
 					<img
-						src='/images/skeleton.svg'
-						alt='Loading skeleton'
+						src="/images/skeleton.svg"
+						alt="Loading skeleton"
 						className={styles.img}
 					/>
 				)}
-				<PrimeImage
-					src={item.itemImageSrc}
-					alt={item.alt}
-					preview
-					aria-labelledby={item?.creditColor}
-					loading='eager'
-					style={{ display: loaded ? 'block' : 'none' }}
-					className={styles.img}
-					onShow={() => setIsPreviewOpen(true)}
-					onHide={() => setIsPreviewOpen(false)}
-					pt={{
-						image: {
-							onLoad: () => {
-								setTimeout(() => {
+				{!hasError && (
+					<PrimeImage
+						src={item.itemImageSrc}
+						alt={item.alt}
+						preview
+						aria-labelledby={item?.creditColor}
+						loading="eager"
+						style={{ display: loaded ? 'block' : 'none' }}
+						className={styles.img}
+						onShow={() => setIsPreviewOpen(true)}
+						onHide={() => setIsPreviewOpen(false)}
+						onError={() => setHasError(true)}
+						pt={{
+							image: {
+								onLoad: () => {
 									setLoaded(true)
 									onLoad?.()
-								}, 1000)
+								},
+								title: item.alt,
 							},
-							title: item.alt,
-						},
-					}}
-				/>
+						}}
+					/>
+				)}
 			</div>
 		</div>
 	)

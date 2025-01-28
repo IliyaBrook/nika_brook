@@ -1,26 +1,17 @@
 'use client'
+import { ItemTemplate } from '@/app/media/photo/components/ItemTemplate'
 import { images } from '@/app/media/photo/data'
-import { isDevelopment } from '@/utils/enviroments'
 import getElementsByXPath from '@/utils/getElementsByXPath'
 import dynamic from 'next/dynamic'
 import { CarouselResponsiveOption } from 'primereact/carousel'
-import React, { useCallback, useEffect, useRef, useState } from 'react'
+import { Skeleton } from 'primereact/skeleton'
+import React, { Suspense, useEffect, useRef, useState } from 'react'
 import styles from '../photo.module.scss'
 
 const Carousel = dynamic(
 	() =>
 		import('primereact/carousel').then(
 			({ Carousel }) => Carousel
-		),
-	{
-		ssr: false
-	}
-)
-
-const ItemTemplate = dynamic(
-	() =>
-		import('@/app/media/photo/components/ItemTemplate').then(
-			({ ItemTemplate }) => ItemTemplate
 		),
 	{
 		ssr: false
@@ -41,13 +32,13 @@ export default function PhotoGalleria() {
 	]
 	
 	const startAutoplay = () => {
-		if (carouselRef.current  && !isPreviewOpen){
+		if (carouselRef.current && !isPreviewOpen) {
 			carouselRef.current.startAutoplay()
 		}
 	}
 	
 	const stopAutoplay = () => {
-		if (carouselRef.current){
+		if (carouselRef.current) {
 			carouselRef.current.stopAutoplay()
 		}
 	}
@@ -67,46 +58,49 @@ export default function PhotoGalleria() {
 	}, [isPreviewOpen])
 	
 	useEffect(() => {
-		const imageButton = getElementsByXPath({xpath: "//div[@class='p-carousel-items-content']//button"})
+		const imageButton = getElementsByXPath({ xpath: "//div[@class='p-carousel-items-content']//button" })
 		if (imageButton && imageButton.length > 0 && loadedCount > 0) {
 			for (const btn of imageButton) {
-				btn.addEventListener('mouseenter', stopAutoplay);
-				btn.addEventListener('mouseleave', startAutoplay);
+				btn.addEventListener('mouseenter', stopAutoplay)
+				btn.addEventListener('mouseleave', startAutoplay)
 			}
-
+			
 			return () => {
 				for (const btn of imageButton) {
-					btn.removeEventListener('mouseenter', stopAutoplay);
-					btn.removeEventListener('mouseleave', startAutoplay);
+					btn.removeEventListener('mouseenter', stopAutoplay)
+					btn.removeEventListener('mouseleave', startAutoplay)
 				}
-			};
+			}
 		}
 	}, [loadedCount])
 	
 	
 	// const autoplayInterval = !isDevelopment ? 5000 : undefined
-	const autoplayInterval = 5000
+	const autoplayInterval = 3000
 	
 	return (
 		<div className={styles.carouselWrapper}>
-			<Carousel
-				/* @ts-ignore */
-				ref={carouselRef}
-				value={images}
-				numVisible={3}
-				orientation='horizontal'
-				verticalViewPortHeight='360px'
-				autoplayInterval={autoplayInterval}
-				responsiveOptions={responsiveOptions}
-				itemTemplate={(item) => (
-					<ItemTemplate
-						{...item}
-						index={images.indexOf(item)}
-						onLoad={handleImageLoad}
-						setIsPreviewOpen={setIsPreviewOpen}
-					/>
-				)}
-			/>
+			<Suspense fallback={<Skeleton/>}>
+				<Carousel
+					/* @ts-ignore */
+					ref={carouselRef}
+					value={images}
+					circular
+					numVisible={3}
+					autoplayInterval={autoplayInterval}
+					orientation="horizontal"
+					verticalViewPortHeight="360px"
+					responsiveOptions={responsiveOptions}
+					itemTemplate={(item) => (
+						<ItemTemplate
+							{...item}
+							index={images.indexOf(item)}
+							onLoad={handleImageLoad}
+							setIsPreviewOpen={setIsPreviewOpen}
+						/>
+					)}
+				/>
+			</Suspense>
 		</div>
 	)
 }
