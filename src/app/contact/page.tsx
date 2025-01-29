@@ -1,7 +1,7 @@
 'use cache'
 import SocialNavLinks from '@/components/socialNavLinks/socialNavLinks'
 import { StructuredData } from '@/components/StructuredData'
-import { sameAs } from '@/seoData'
+import { sameAs } from '@/data'
 import { faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Metadata } from 'next'
@@ -115,7 +115,7 @@ export default async function Contact() {
 						<p>
 							<FontAwesomeIcon icon={faEnvelope} />
 							<strong>Email:</strong>
-							<a href='mailto:nikaSemagina@gmail.com'>vbrookartist@gmail.com</a>
+							<a href='mailto:vbrookartist@gmail.com'>vbrookartist@gmail.com</a>
 						</p>
 					</div>
 				</div>

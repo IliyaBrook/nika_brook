@@ -1,4 +1,5 @@
 import LinkIconWithToolTip from '@/components/socialNavLinks/LinkIconWithToolTip'
+import { appleMusic, facebook, instagram, spotify, youtube } from '@/data'
 import { faApple, faFacebookF, faInstagram, faSpotify, faYoutube } from '@fortawesome/free-brands-svg-icons'
 import classNames from 'classnames'
 import React from 'react'
@@ -19,28 +20,28 @@ const SocialNavLinks:React.FC<ISocialNavLinks> = ({className, style}) => {
 		>
 			<LinkIconWithToolTip
 				id='facebookLink'
-				href='https://www.facebook.com/profile.php?id=100004158911717'
+				href={facebook}
 				classNameLink={styles.facebookLink}
 				tooltipText='Facebook'
 				icon={faFacebookF}
 			/>
 			<LinkIconWithToolTip
 				id='instagramLink'
-				href='https://www.instagram.com/vero_nika_brook'
+				href={instagram}
 				classNameLink={styles.instagramLink}
 				tooltipText='Instagram'
 				icon={faInstagram}
 			/>
 			<LinkIconWithToolTip
 				id='youtubeLink'
-				href='https://www.youtube.com/channel/UCbNqjRLtT6dSh1qCWhIdxNw'
+				href={youtube}
 				classNameLink={styles.youtubeLink}
 				tooltipText='YoutTube'
 				icon={faYoutube}
 			/>
 			<LinkIconWithToolTip
 				id='appleLink'
-				href={'https://music.apple.com/hu/artist/veronika-brook/1502987264'}
+				href={appleMusic}
 				classNameLink={styles.appleLink}
 				tooltipText='Apple Music'
 				icon={faApple}
@@ -48,7 +49,7 @@ const SocialNavLinks:React.FC<ISocialNavLinks> = ({className, style}) => {
 			
 			<LinkIconWithToolTip
 				id='spotifyLink'
-				href={'https://open.spotify.com/artist/0922dzQ9qrAJ1sTf1hf067'}
+				href={spotify}
 				classNameLink={styles.spotifyLink}
 				tooltipText='Spotify'
 				icon={faSpotify}

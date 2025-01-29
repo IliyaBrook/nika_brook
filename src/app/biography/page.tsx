@@ -1,7 +1,7 @@
 'use cache'
 import ImageWithCredit from '@/components/ImageWithCredit/ImageWithCredit'
 import { StructuredData } from '@/components/StructuredData'
-import { sameAs } from '@/seoData'
+import { sameAs } from '@/data'
 import classNames from 'classnames'
 import { Metadata } from 'next'
 import Image, { ImageProps } from 'next/image'

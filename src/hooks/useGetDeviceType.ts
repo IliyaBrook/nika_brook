@@ -1,5 +1,12 @@
 import { useEffect, useState } from 'react'
-import type { DeviceType } from '@/types/sharable.types.ts'
+
+export type DeviceType =
+	| 'iOS'
+	| 'Android'
+	| 'Windows'
+	| 'MacOS'
+	| 'Linux'
+	| 'unknown'
 
 export const useGetDeviceType = (): DeviceType => {
 	const [deviceType, setDeviceType] = useState<DeviceType>('unknown')

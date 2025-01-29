@@ -1,13 +1,3 @@
-import React from 'react'
-
-export type DeviceType =
-	| 'iOS'
-	| 'Android'
-	| 'Windows'
-	| 'MacOS'
-	| 'Linux'
-	| 'unknown'
-
 import type { CSSProperties } from 'react'
 
 export interface ImageItem {
