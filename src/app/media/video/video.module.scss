@@ -52,7 +52,7 @@
 	width: 100%;
 	.carousel {
 		display: flex;
-		gap: 1px;
+		flex-direction: row;
 		@media (min-width: 768px) {
 			margin-right: 9vw;
 		}
