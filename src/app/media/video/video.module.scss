@@ -1,6 +1,8 @@
 .photo {
-//	height: 100vh;
-	margin-right: 5px;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	padding: 0 5px;
 	main {
 		display: flex;
 		background: rgba(0, 0, 0, 0.9);
@@ -8,13 +10,6 @@
 		@media (min-width: 768px) {
 			min-height: 100%;
 		}
-	}
-
-	@media (min-width: 768px) {
-		margin-right: 25px;
-		margin-left: 10px;
-		display: flex;
-		align-items: center;
 	}
 }
 
@@ -47,15 +42,15 @@
 }
 
 .carouselContainer {
-	align-self: center;
+	background-color: var(--foreground-rgb);
 	position: relative;
 	width: 100%;
+	display: flex;
 	.carousel {
 		display: flex;
-		flex-direction: row;
-		@media (min-width: 768px) {
-			margin-right: 9vw;
-		}
+		width: 95%;
+		overflow: hidden;
+		align-items: center;
 	}
 	.carouselItem {
 		flex: 0 0 35%;
@@ -92,41 +87,45 @@
 			}
 		}
 	}
-	
-	.button {
-		position: absolute;
-		top: 50%;
-		transform: translateY(-50%);
-		cursor: pointer;
-		font-size: 24px;
-		z-index: 10;
-		width: 2rem;
-		height: 2rem;
-		color: #6b7280;
-		border: 0 none;
-		background: transparent;
-		border-radius: 50%;
-		transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
-	
-		
-		&.prevButton {
-			left: 0;
-		}
-		
-		&.nextButton {
-			right: 0;
-		}
-		.icon {
-			color: #ffff;
-		}
-		&:hover {
-			color: #374151;
-			border-color: transparent;
-			background: #f3f4f6;
+	.buttonWrapper{
+		display: flex;
+		height: inherit;
+		justify-content: center;
+		align-items: center;
+		.button {
+			width: 2rem;
+			height: 2rem;
+			border: 0 none;
+			background: transparent;
+			border-radius: 50%;
+			transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
+			flex-grow: 0;
+			flex-shrink: 0;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			overflow: hidden;
+			position: relative;
 			.icon {
-				color: rgb(55, 65, 81);
+				color: #6b7280;
+			}
+			&:hover {
+				color: #374151;
+				border-color: transparent;
+				background-color: #dddcdc;
+				cursor: pointer;
+				.icon {
+					color: rgb(55, 65, 81);
+				}
 			}
 		}
+	}
+	&.prevButton {
+		width: 2%;
+	}
+	
+	&.nextButton {
+		width: 3%;
 	}
 }
 
@@ -174,10 +173,9 @@
 			justify-content: center;
 			align-items: center;
 		}
-		
-		.button {
-			display: none;
-		}
+	}
+	.buttonWrapper {
+		display: none!important;
 	}
 }
 

@@ -80,10 +80,10 @@ async function getVideoSchema() {
 }
 
 export default async function Video() {
-	const videoSchema = await getVideoSchema();
+	// const videoSchema = await getVideoSchema();
 	return (
 		<>
-			<StructuredData data={videoSchema} />
+			{/* <StructuredData data={videoSchema} /> */}
 			<main className={styles.photo}>
 				<VideoGallery />
 			</main>
