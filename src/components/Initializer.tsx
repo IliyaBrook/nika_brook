@@ -9,6 +9,7 @@ export const Initializer = () => {
 		if (deviceType) {
 			if (deviceType === 'iOS') {
 				document.documentElement.style.setProperty('--ios-bottom-padding', '40px')
+				document.documentElement.style.setProperty('--ios-overflow', 'hidden')
 			}
 		}
 	}, [deviceType])

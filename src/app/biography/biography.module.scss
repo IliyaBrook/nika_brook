@@ -18,8 +18,8 @@ $bg-sec-color: #F0EEEC;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	border-radius: 15px;
 	@media (min-width: 768px) {
+		border-radius: 15px;
 		margin-bottom: 30px;
 	}
 }
@@ -113,7 +113,7 @@ $bg-sec-color: #F0EEEC;
 
 @media (min-width: 1040px) {
 	.root{
-		padding: 80px 120px 150px 120px;
+		padding: 80px 120px 60px 120px;
 	}
 }
 
