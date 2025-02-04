@@ -47,9 +47,9 @@ export async function generateMetadata(): Promise<Metadata> {
 	};
 }
 
-async function getVideoImages() {
+async function getVideoImages(): Promise<{ url: string; width: number; height: number; alt: string }[]> {
 	return videos.map(video => ({
-		url: video.thumbnailImageSrcHd,
+		url: video.thumbnailUrl,
 		width: 1280,
 		height: 720,
 		alt: video.alt
@@ -57,7 +57,7 @@ async function getVideoImages() {
 }
 
 async function getTwitterImages() {
-	return videos.map(video => video.thumbnailImageSrcHd)
+	return videos.map(video => video.thumbnailUrl)
 }
 
 async function getVideoSchema() {
@@ -71,7 +71,7 @@ async function getVideoSchema() {
 			'@type': 'VideoObject',
 			name: video.alt,
 			description: video.description,
-			thumbnailUrl: video.thumbnailImageSrcHd,
+			thumbnailUrl: video.thumbnailUrl,
 			uploadDate: '2024-01-01',
 			contentUrl: `https://www.youtube.com/watch?v=${video.youtubeId}`,
 			embedUrl: `https://www.youtube.com/embed/${video.youtubeId}`,
@@ -81,10 +81,10 @@ async function getVideoSchema() {
 }
 
 export default async function Video() {
-	// const videoSchema = await getVideoSchema();
+	const videoSchema = await getVideoSchema();
 	return (
 		<>
-			{/* <StructuredData data={videoSchema} /> */}
+			<StructuredData data={videoSchema} />
 			<main className={styles.photo}>
 				<VideoGallery />
 			</main>

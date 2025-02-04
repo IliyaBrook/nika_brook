@@ -1,5 +1,4 @@
 import type { StaticImport } from 'next/dist/shared/lib/get-img-props'
-import type { StaticImageData } from 'next/image'
 import type { CSSProperties } from 'react'
 
 export interface ImageItem {
@@ -12,18 +11,13 @@ export interface ImageItem {
 	index: number;
 }
 
-export interface VideoItem {
+export interface VideoGallery {
 	id:string;
 	youtubeId: string;
 	alt: string;
 	description?: string;
-	index: number;
-}
-
-export interface VideoThumbnail {
-	id:string;
-	thumbnailImageSrcHd:string | StaticImport;
-	thumbnailImageSrc: string | StaticImport;
+	thumbnailImageSrc:string | StaticImport;
+	thumbnailUrl:string,
 	index: number;
 }
 
