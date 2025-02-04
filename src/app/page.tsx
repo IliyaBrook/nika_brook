@@ -80,7 +80,7 @@ export default async function Home() {
 					src={bgOfPortrait}
 					alt='Background home page color'
 					priority
-					loading='eager'
+					placeholder="blur"
 				/>
 				<div className={styles.bgImageWrapper}>
 					{/* mobile sm [width:0px-330px] */}
@@ -90,6 +90,7 @@ export default async function Home() {
 						alt='Background image Veronika Brook'
 						priority
 						loading='eager'
+						placeholder="blur"
 					/>
 					{/* mobile md [width:330px-398px] */}
 					<Image
@@ -98,6 +99,7 @@ export default async function Home() {
 						alt='Background image Veronika Brook'
 						priority
 						loading='eager'
+						placeholder="blur"
 					/>
 					{/* mobile md [width:398px-554px] */}
 					<Image
@@ -105,6 +107,7 @@ export default async function Home() {
 						src={bgPortraitMobileMd}
 						alt='Background image Veronika Brook'
 						loading='eager'
+						placeholder="blur"
 					/>
 					{/* mobile md [width:554px-1100px] */}
 					<Image
@@ -113,6 +116,7 @@ export default async function Home() {
 						alt='Background image Veronika Brook'
 						priority
 						loading='eager'
+						placeholder="blur"
 					/>
 					{/* desktop < 1100px */}
 					<Image
@@ -121,6 +125,7 @@ export default async function Home() {
 						alt='Background image Veronika Brook'
 						priority
 						loading='eager'
+						placeholder="blur"
 					/>
 				</div>
 				<div className={styles.textWrapper}>

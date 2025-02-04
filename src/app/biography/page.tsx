@@ -12,7 +12,6 @@ import imageSec2_1 from '../../../public/images/bioPage/bio_sec_2_1.jpg'
 import imageSec2_2 from '../../../public/images/bioPage/bio_sec_2_2.jpg'
 import imageSec3 from '../../../public/images/bioPage/bio_sec_3.jpg'
 
-
 export const metadata: Metadata = {
 	title: 'Veronika Brook - Award-Winning Opera Singer & Biography',
 	description:
