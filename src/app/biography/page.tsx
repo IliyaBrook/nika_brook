@@ -6,6 +6,11 @@ import classNames from 'classnames'
 import { Metadata } from 'next'
 import Image, { ImageProps } from 'next/image'
 import styles from './biography.module.scss'
+import imageSec1 from '../../../public/images/bioPage/bio_sec_1.jpg'
+import imageSec2_1 from '../../../public/images/bioPage/bio_sec_2_1.jpg'
+import imageSec2_2 from '../../../public/images/bioPage/bio_sec_2_2.jpg'
+import imageSec3 from '../../../public/images/bioPage/bio_sec_3.jpg'
+
 
 export const metadata: Metadata = {
 	title: 'Veronika Brook - Award-Winning Opera Singer & Biography',
@@ -97,12 +102,13 @@ export default async function Biography () {
 							className={styles.bioSection1Img}
 							creditText='Yossi Zwecker'
 							imageProps={{
-								src: '/images/bioPage/bio_sec_1.jpg',
+								src: imageSec1,
 								alt: 'Biography page image 1',
 								fill: true,
 								sizes: '(max-width: 768px) 100vw, (max-width: 1200px) 70vw, 50vw',
-								priority: true,
-								className: styles.bioImage
+								loading:'lazy',
+								className: styles.bioImage,
+								placeholder:'blur'
 							}}
 						/>
 						<div className={styles.bioSection1Text}>
@@ -176,12 +182,13 @@ export default async function Biography () {
 								className={styles.bioSection2Img1}
 								creditText='Yossi Zwecker'
 								imageProps={{
-									src: '/images/bioPage/bio_sec_2_1.jpg',
+									src: imageSec2_1,
 									alt: 'Biography page image section 2.1',
 									fill: true,
 									sizes: '(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw',
-									priority: true,
-									className: styles.bioImage
+									loading:'lazy',
+									className: styles.bioImage,
+									placeholder:'blur'
 								}}
 							/>
 							<ImageWithCredit<ImageProps>
@@ -189,12 +196,13 @@ export default async function Biography () {
 								ImageComponentInstance={Image}
 								creditText='Yossi Zwecker'
 								imageProps={{
-									src: '/images/bioPage/bio_sec_2_2.jpg',
+									src: imageSec2_2,
 									alt: 'Biography page image section 2.2',
 									fill: true,
 									className: styles.bioImage,
 									sizes: '(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw',
-									priority: true
+									loading:'lazy',
+									placeholder:'blur'
 								}}
 							/>
 						</div>
@@ -205,12 +213,13 @@ export default async function Biography () {
 							ImageComponentInstance={Image}
 							creditText='Yoel Levy'
 							imageProps={{
-								src: '/images/bioPage/bio_sec_3.jpg',
+								src: imageSec3,
 								alt: 'Biography page image section 3',
 								fill: true,
 								className: styles.bioImage,
 								sizes: '(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 80vw',
-								priority: true
+								loading:'lazy',
+								placeholder:'blur'
 							}}
 						/>
 					</div>
