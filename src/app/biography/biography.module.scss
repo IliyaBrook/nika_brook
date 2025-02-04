@@ -168,11 +168,16 @@ $bg-sec-color: #F0EEEC;
 		.bioSection2Imgs{
 			margin-bottom: 1rem;
 		}
-		.bioDesktopImage{
-			display: none;
-		}
+	
 		p {
 			letter-spacing: 1.5px;
+		}
+	}
+//	rm bioSection3 with img on small size
+	.bioSection3{
+		display: none!important;
+		.bioDesktopImage{
+			display: none;
 		}
 	}
 }
