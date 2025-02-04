@@ -1,7 +1,6 @@
 .photo {
-	height: 100vh;
-	margin-right: 20px;
-	margin-left: 10px;
+//	height: 100vh;
+	margin-right: 5px;
 	main {
 		display: flex;
 		background: rgba(0, 0, 0, 0.9);
@@ -9,6 +8,13 @@
 		@media (min-width: 768px) {
 			min-height: 100%;
 		}
+	}
+
+	@media (min-width: 768px) {
+		margin-right: 25px;
+		margin-left: 10px;
+		display: flex;
+		align-items: center;
 	}
 }
 
@@ -43,15 +49,13 @@
 .carouselContainer {
 	align-self: center;
 	position: relative;
-	overflow: hidden;
 	width: 100%;
 	.carousel {
 		display: flex;
 		gap: 1px;
-//		margin: 0;
-//		@media (min-width: 768px) {
-//			padding: 2rem 0 8rem 0;
-//		}
+		@media (min-width: 768px) {
+			margin-right: 9vw;
+		}
 	}
 	.carouselItem {
 		flex: 0 0 35%;
@@ -93,15 +97,17 @@
 		position: absolute;
 		top: 50%;
 		transform: translateY(-50%);
-		border: none;
 		cursor: pointer;
 		font-size: 24px;
 		z-index: 10;
-		background-color: transparent;
-		
-		&:hover {
-			background-color: rgba(255, 255, 255, 0.2);
-		}
+		width: 2rem;
+		height: 2rem;
+		color: #6b7280;
+		border: 0 none;
+		background: transparent;
+		border-radius: 50%;
+		transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
+	
 		
 		&.prevButton {
 			left: 0;
@@ -110,9 +116,16 @@
 		&.nextButton {
 			right: 0;
 		}
-		
 		.icon {
-			color: #ffffff;
+			color: #ffff;
+		}
+		&:hover {
+			color: #374151;
+			border-color: transparent;
+			background: #f3f4f6;
+			.icon {
+				color: rgb(55, 65, 81);
+			}
 		}
 	}
 }

@@ -1,6 +1,7 @@
 'use client'
 import SocialNavLinks from '@/components/socialNavLinks/socialNavLinks'
 import getNavBarItems, { navBarSkeleton } from '@/components/Navbar/navBarItems'
+import classNames from 'classnames'
 import dynamic from 'next/dynamic'
 import { usePathname, useRouter } from 'next/navigation'
 import { Menubar as MenubarComponent } from 'primereact/menubar'
@@ -17,6 +18,8 @@ const Navbar = () => {
 	const [isMenuNavReady, setMenuNavReady] = useState<boolean>(false)
 	const navBarRef = React.createRef<HTMLDivElement>()
 	const router = useRouter()
+	const pathname = usePathname()
+	const isMedia = pathname.includes('/media')
 	
 	useEffect(() => {
 		const observer = new MutationObserver(mutationsList => {
@@ -42,10 +45,9 @@ const Navbar = () => {
 		}
 	}, [navBarRef?.current])
 	
-	const pathname = usePathname()
 	const navBarItems = useMemo(() => getNavBarItems({ pathname, router }), [pathname])
 	return (
-		<div className={styles.root} ref={navBarRef}>
+		<div className={classNames(styles.root, {[styles.mediaRoutes]: isMedia})} ref={navBarRef}>
 			<Menubar
 				model={isMenuNavReady ? navBarItems : []}
 			/>

@@ -1,7 +1,9 @@
+@use '@/app/shareableStyles/colors.scss' as colors;
 .root {
   display: flex;
   flex-direction: column;
   height: 100dvh;
+  background-color: colors.$bg-main;
   .navbar{
     position: relative;
     z-index: 3;
@@ -14,8 +16,8 @@
       }
     }
     .main{
-//      flex-grow: 1;
       width:100%;
+      background-color: colors.$bg-main;
     }
   }
 }
