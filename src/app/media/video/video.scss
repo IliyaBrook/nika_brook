@@ -1,0 +1,40 @@
+.videoIframeWrapper {
+	display: flex;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	background: rgba(0, 0, 0, 0.8);
+	justify-content: center;
+	align-items: center;
+	z-index: 9999;
+	
+	.closeButton {
+		position: absolute;
+		top: 20px;
+		right: 20px;
+		background: none;
+		border: none;
+		cursor: pointer;
+		z-index: 10000;
+		
+		img {
+			width: 32px;
+			height: 32px;
+			filter: invert(1);
+		}
+		
+		&:hover {
+			transform: scale(1.1);
+		}
+	}
+	
+	.iframeFullScreen {
+		width: 90vw;
+		height: 90vh;
+		border: none;
+		border-radius: 10px;
+		box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+	}
+}

@@ -25,6 +25,9 @@ $font-size-artist-name:clamp(23px, 5vw, 33px);
 	flex-direction: column;
 	justify-content: space-evenly;
 	background-color: #{colors.$bg-color-navbar};
+	.navBar{
+		z-index: 3;
+	}
 	.navBarArtistNameMobile {
 		display: none;
 	}
