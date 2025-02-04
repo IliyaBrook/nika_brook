@@ -19,3 +19,11 @@ export interface VideoItem {
 	description?: string;
 	index: number;
 }
+
+export type DeviceType =
+	| 'iOS'
+	| 'Android'
+	| 'Windows'
+	| 'MacOS'
+	| 'Linux'
+	| 'unknown'

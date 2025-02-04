@@ -4,6 +4,7 @@ import { useEffect } from 'react'
 
 export const Initializer = () => {
 	const deviceType = useGetDeviceType()
+	
 	useEffect(() => {
 		if (deviceType) {
 			if (deviceType === 'iOS') {

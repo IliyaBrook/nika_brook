@@ -1,10 +1,11 @@
-'use cache'
 import ImageWithCredit from '@/components/ImageWithCredit/ImageWithCredit'
 import { StructuredData } from '@/components/StructuredData'
 import { sameAs } from '@/data'
+import { getDeviceType } from '@/utils/getDeviceType'
 import classNames from 'classnames'
 import { Metadata } from 'next'
 import Image, { ImageProps } from 'next/image'
+import { headers } from 'next/headers'
 import styles from './biography.module.scss'
 import imageSec1 from '../../../public/images/bioPage/bio_sec_1.jpg'
 import imageSec2_1 from '../../../public/images/bioPage/bio_sec_2_1.jpg'
@@ -91,10 +92,19 @@ const biographySchema = {
 };
 
 export default async function Biography () {
+	let deviceType = 'unknown'
+	const headerList = await headers()
+	const userAgent = headerList.get('user-agent')
+	if (userAgent && typeof userAgent === 'string') {
+		getDeviceType(userAgent, (d) => deviceType = d)
+	}
+	
+	const isIos = deviceType === 'iOS'
+	
 	return (
 		<>
 			<StructuredData data={biographySchema} />
-			<main className={styles.root}>
+			<main className={classNames(styles.root, { [styles.iosRoot]: isIos })}>
 				<div className={styles.biographyContainer}>
 					<div className={styles.bioSection1}>
 						<ImageWithCredit<ImageProps>
@@ -107,7 +117,7 @@ export default async function Biography () {
 								fill: true,
 								sizes: '(max-width: 768px) 100vw, (max-width: 1200px) 70vw, 50vw',
 								loading:'lazy',
-								className: styles.bioImage,
+								className: classNames(styles.bioImage , { [styles.iosImg]: isIos }),
 								placeholder:'blur'
 							}}
 						/>
@@ -187,7 +197,7 @@ export default async function Biography () {
 									fill: true,
 									sizes: '(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw',
 									loading:'lazy',
-									className: styles.bioImage,
+									className: classNames(styles.bioImage , { [styles.iosImg]: isIos }),
 									placeholder:'blur'
 								}}
 							/>
@@ -199,7 +209,7 @@ export default async function Biography () {
 									src: imageSec2_2,
 									alt: 'Biography page image section 2.2',
 									fill: true,
-									className: styles.bioImage,
+									className: classNames(styles.bioImage , { [styles.iosImg]: isIos }),
 									sizes: '(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw',
 									loading:'lazy',
 									placeholder:'blur'
@@ -216,7 +226,7 @@ export default async function Biography () {
 								src: imageSec3,
 								alt: 'Biography page image section 3',
 								fill: true,
-								className: styles.bioImage,
+								className: classNames(styles.bioImage , { [styles.iosImg]: isIos }),
 								sizes: '(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 80vw',
 								loading:'lazy',
 								placeholder:'blur'

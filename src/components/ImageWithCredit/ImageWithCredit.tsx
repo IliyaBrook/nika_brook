@@ -3,7 +3,7 @@ import classNames from 'classnames'
 import React, { type ComponentType, type CSSProperties } from 'react'
 import styles from './ImageWithCredit.module.scss'
 
-interface IImageWithCredit <TImageProps extends Record<string, any>> extends React.HTMLAttributes<HTMLDivElement>  {
+interface IImageWithCredit<TImageProps extends Record<string, any>> extends React.HTMLAttributes<HTMLDivElement> {
 	creditTextPosition?: 'left' | 'right';
 	creditOnTop?: boolean;
 	creditText: string;
@@ -16,17 +16,16 @@ interface IImageWithCredit <TImageProps extends Record<string, any>> extends Rea
 
 
 const ImageWithCredit = <ImageProps extends Record<string, any>>({
-	                                                                   imageProps,
-	                                                                   creditText,
-																																		 creditOnTop = false,
-	                                                                   creditTextPosition = 'right',
-	                                                                   creditTextProps,
-	                                                                   creaditTextSpacing = '1vw',
-	                                                                   creditTextColor = 'white',
-	                                                                   ImageComponentInstance,
-	
-	                                                                   ...rest
-                                                                   }: IImageWithCredit<ImageProps>) => {
+	                                                                 imageProps,
+	                                                                 creditText,
+	                                                                 creditOnTop = false,
+	                                                                 creditTextPosition = 'right',
+	                                                                 creditTextProps,
+	                                                                 creaditTextSpacing = '1vw',
+	                                                                 creditTextColor = 'white',
+	                                                                 ImageComponentInstance,
+	                                                                 ...rest
+                                                                 }: IImageWithCredit<ImageProps>) => {
 	return (
 		<div className={styles.imageWithCredit} {...rest}>
 			<ImageComponentInstance
@@ -40,13 +39,13 @@ const ImageWithCredit = <ImageProps extends Record<string, any>>({
 					[creditTextPosition]: creaditTextSpacing,
 					color: creditTextColor,
 					top: creditOnTop ? '10px' : 'unset',
-					bottom: creditOnTop ? 'unset' : '10px',
+					bottom: creditOnTop ? 'unset' : '10px'
 				}}
 			>
 				{`${creditText} ©`}
 			</div>
 		</div>
-	);
-};
+	)
+}
 
-export default ImageWithCredit;
+export default ImageWithCredit

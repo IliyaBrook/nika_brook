@@ -52,10 +52,9 @@ $bg-sec-color: #F0EEEC;
 	}
 	
 	.bioSection1 {
-		@include borederedContainer();
 		gap: 100px;
 		padding: 44px 74px 44px 44px;
-		
+		@include borederedContainer();
 		.bioSection1Img {
 			position: relative;
 			width: clamp(335px, 48vw, 486px);
@@ -69,13 +68,12 @@ $bg-sec-color: #F0EEEC;
 	}
 	
 	.bioSection2 {
-		@include borederedContainer();
 		padding: 44px;
 		gap: 20px;
-		
+		@include borederedContainer();
 		.bioSection2Text {
-			@include flexColBetween();
 			align-items: flex-start;
+			@include flexColBetween();
 		}
 		
 		.bioSection2Imgs {
@@ -93,10 +91,9 @@ $bg-sec-color: #F0EEEC;
 	}
 	
 	.bioSection3 {
-		@include borederedContainer();
 		padding: 44px;
 		gap: 20px;
-		
+		@include borederedContainer();
 		.bioSection3Text {
 			@include flexColBetween();
 		}
@@ -139,12 +136,12 @@ $bg-sec-color: #F0EEEC;
 		.bioSection1,
 		.bioSection2,
 		.bioSection3 {
-			@include borederedContainer();
 			background-color: transparent;
 			border-radius: 0;
 			flex-direction: column;
 			gap: 20px;
 			padding: 20px;
+			@include borederedContainer();
 		}
 		.bioSection3 {
 			&:after{
@@ -178,4 +175,12 @@ $bg-sec-color: #F0EEEC;
 			letter-spacing: 1.5px;
 		}
 	}
+}
+
+// ios fixing styles
+.iosRoot {
+	overscroll-behavior: none;
+}
+.iosImg {
+	touch-action: pan-y;
 }
