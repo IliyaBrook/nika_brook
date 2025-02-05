@@ -17,3 +17,4 @@ export const sameAs = [
 
 export const metadataAndOpenGMainImage = 'https://veronikabrook.com/images/home/bgPortraitDesktop.jpg'
 
+export const defaultTitle = 'Veronika Brook - Opera Singer & Crossover Artist'

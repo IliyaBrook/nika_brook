@@ -3,7 +3,7 @@ import { Initializer } from '@/components/Initializer'
 import Navbar from '@/components/Navbar/Navbar'
 import { StructuredData } from '@/components/StructuredData'
 import { ScrollBarWrapper } from '@/components/Wrappers/ScrollBarWrapper/ScrollBarWrapper'
-import { metadataAndOpenGMainImage, sameAs } from '@/data'
+import { defaultTitle, metadataAndOpenGMainImage, sameAs } from '@/data'
 import classNames from 'classnames'
 import './shareableStyles/globals.scss'
 import 'primereact/resources/themes/lara-light-cyan/theme.css'
@@ -32,7 +32,7 @@ const josefinSans = Josefin_Sans({
 const alexBrush = Alex_Brush({ subsets: ['latin'], weight: '400', display: 'swap', variable: '--font-alex-brush' })
 
 export const metadata: Metadata = {
-	title: 'Veronika Brook - Opera Singer & Crossover Artist',
+	title: defaultTitle,
 	description:
 		"Experience the artistry of Veronika Brook, an internationally acclaimed opera singer and crossover artist. Explore her performances and music career.",
 	keywords: [
@@ -64,7 +64,7 @@ export const metadata: Metadata = {
 		{ url: '/favicon/apple-touch-icon.png', type: 'image/png', sizes: '180x180', rel: 'apple-touch-icon' }
 	],
 	openGraph: {
-		title: 'Veronika Brook - Opera Singer & Crossover Artist',
+		title: defaultTitle,
 		description:
 			"Experience the artistry of Veronika Brook, an internationally acclaimed opera singer and crossover artist. Explore her performances and music career.",
 		url: 'https://veronikabrook.com',
@@ -137,10 +137,6 @@ export default function RootLayout({
 						alexBrush.variable
 					)}
 				>
-				<head>
-					<link rel="manifest" href="/site.webmanifest" />
-					<title></title>
-				</head>
 				<body>
 				<div className={styles.root}>
 					<div className={styles.navbar}>
