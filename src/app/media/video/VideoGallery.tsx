@@ -1,6 +1,7 @@
 'use client'
 import { videos } from '@/app/media/video/data'
 import type { VideoGallery } from '@/types/sharable.types.ts.tsx'
+import getElementsByXPath from '@/utils/getElementsByXPath'
 import classNames from 'classnames'
 import Image from 'next/image'
 import { Galleria as GalleriaComponent } from 'primereact/galleria'
@@ -60,11 +61,13 @@ const VideoGallery = () => {
             width="100%"
             height="100%"
             title="${selectedVideo.alt}"
-            src="https://www.youtube.com/embed/${selectedVideo.youtubeId}?autoplay=1"
+            src="https://www.youtube.com/embed/${selectedVideo.youtubeId}?autoplay=1&controls=0&rel=0&enablejsapi=1"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen
+            id="ytPlayer"
         ></iframe>
     `;
+
 		
 		document.body.appendChild(wrapper);
 		const closeButton = wrapper.querySelector('.closeButton');
@@ -81,6 +84,34 @@ const VideoGallery = () => {
 	}, [selectedVideo]);
 	
 	useEffect(() => {
+		
+		const observer = new MutationObserver((mutationList) => {
+			for (const mutation of mutationList) {
+				if (mutation.type === 'childList') {
+					mutation.addedNodes.forEach((node) => {
+						if (node instanceof HTMLElement && node.querySelector("iframe")) {
+							console.log("Added iframe:", node);
+							
+							
+							setTimeout(() => {
+								const gradientTop = node.querySelector(".ytp-gradient-top");
+								if (gradientTop) {
+									console.log("Removing YouTube gradient:", gradientTop);
+									gradientTop.remove();
+								}
+							}, 1000);
+							
+						}
+					});
+				}
+			}
+		})
+		if (observer) {
+			try {
+				observer.observe(document, { childList: true, subtree: true })
+			} catch  {}
+		}
+		
 		const keyEventHandler = (event: KeyboardEvent) => {
 			switch (event.key) {
 				case 'Escape':
@@ -117,6 +148,7 @@ const VideoGallery = () => {
 		return () => {
 			document.removeEventListener('mousedown', handleClickOutside)
 			document.removeEventListener('keydown', keyEventHandler)
+			observer.disconnect()
 		}
 	}, [])
 	
