@@ -58,7 +58,7 @@ const VideoGallery = () => {
             width="100%"
             height="100%"
             title="${selectedVideo.alt}"
-            src="https://www.youtube.com/embed/${selectedVideo.youtubeId}?autoplay=1&controls=0&rel=0&enablejsapi=1"
+            src="https://www.youtube.com/embed/${selectedVideo.youtubeId}?autoplay=1&controls=1&rel=0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen
             id="ytPlayer"
