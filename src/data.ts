@@ -15,3 +15,5 @@ export const sameAs = [
 	facebook
 ]
 
+export const metadataAndOpenGMainImage = 'https://veronikabrook.com/images/home/bgPortraitDesktop.jpg'
+

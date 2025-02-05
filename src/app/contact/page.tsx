@@ -1,7 +1,6 @@
 'use cache'
 import SocialNavLinks from '@/components/socialNavLinks/socialNavLinks'
 import { StructuredData } from '@/components/StructuredData'
-import { sameAs } from '@/data'
 import { faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Metadata } from 'next'
@@ -10,84 +9,53 @@ import React from 'react'
 import styles from './contact.module.scss'
 
 export const metadata: Metadata = {
-	title: 'Contact & Book Veronika Brook - Opera Singer',
-	description: 'Reach out to Veronika Brook for bookings, collaborations, and performance inquiries. Contact via email or phone.',
-	keywords: [
-		'Contact Veronika Brook',
-		'Veronika Brook bookings',
-		'book opera singer',
-		'performance requests',
-		'Veronika Brook email',
-		'Veronika Brook management'
-	],
+	title: "Contact & Book Veronika Brook - Opera Singer",
+	description: "Reach out to Veronika Brook for bookings, collaborations, and performance inquiries. Contact via email or phone.",
 	openGraph: {
-		title: 'Contact & Book Veronika Brook - Opera Singer',
-		description: 'Reach out to Veronika Brook for bookings, collaborations, or inquiries.',
-		url: 'https://veronikabrook.com/contact',
-		type: 'website',
-		images: [
-			{
-				url: 'https://veronikabrook.com/images/contact/elenaProsdocimoC1.jpg',
-				width: 1200,
-				height: 630,
-				alt: 'Veronika Brook Contact Page'
-			}
-		]
-	},
-	twitter: {
-		card: 'summary_large_image',
-		title: 'Contact & Book Veronika Brook - Opera Singer',
-		description: 'Reach out to Veronika Brook for bookings, collaborations, or inquiries.',
-		images: ['https://veronikabrook.com/images/contact/elenaProsdocimoC1.jpg']
-	},
-	robots: {
-		index: true,
-		follow: true
-	},
-	alternates: {
-		canonical: 'https://veronikabrook.com/contact'
+		title: "Contact & Book Veronika Brook - Opera Singer",
+		description: "Reach out to Veronika Brook for bookings, collaborations, or inquiries.",
+		url: "https://veronikabrook.com/contact",
+		type: "website"
 	}
-}
+};
 
-const biographySchema = {
-	'@context': 'https://schema.org',
-	'@type': 'ProfilePage',
-	name: 'Veronika Brook - Biography',
-	url: 'https://veronikabrook.com/biography',
-	description: 'Biography of Veronika Brook, an accomplished soprano with a rich operatic repertoire.',
-	image: 'https://veronikabrook.com/images/bioPage/bio_sec_1.jpg',
-	breadcrumb: {
-		'@type': 'BreadcrumbList',
-		itemListElement: [
+const contactSchema = {
+	"@context": "https://schema.org",
+	"@type": "ContactPage",
+	"name": "Contact Veronika Brook",
+	"url": "https://veronikabrook.com/contact",
+	"description": "Contact Veronika Brook for bookings, collaborations, and inquiries.",
+	"image": "https://veronikabrook.com/images/contact/elenaProsdocimoC1.jpg",
+	"breadcrumb": {
+		"@type": "BreadcrumbList",
+		"itemListElement": [
 			{
-				'@type': 'ListItem',
-				position: 1,
-				name: 'Home',
-				item: 'https://veronikabrook.com'
+				"@type": "ListItem",
+				"position": 1,
+				"name": "Home",
+				"item": "https://veronikabrook.com"
 			},
 			{
-				'@type': 'ListItem',
-				position: 2,
-				name: 'Biography',
-				item: 'https://veronikabrook.com/biography'
+				"@type": "ListItem",
+				"position": 2,
+				"name": "Contact",
+				"item": "https://veronikabrook.com/contact"
 			}
 		]
 	},
-	mainEntity: {
-		'@type': 'Person',
-		name: 'Veronika Brook',
-		alternateName: 'Veronika Brook Soprano',
-		jobTitle: 'Opera Singer',
-		nationality: 'Estonian',
-		knowsLanguage: ['English', 'Hebrew', 'Russian', 'Italian'],
-		sameAs
+	"contactPoint": {
+		"@type": "ContactPoint",
+		"contactType": "Booking Agent",
+		"email": "vbrookartist@gmail.com",
+		"telephone": "+972-54-5856-009",
+		"availableLanguage": ["English", "Hebrew", "Russian", "Italian"]
 	}
-}
+};
 
 export default async function Contact() {
 	return (
 		<>
-			<StructuredData data={biographySchema} />
+			<StructuredData data={contactSchema} />
 			<main className={styles.main}>
 				<div className={styles.contactImageWrapper}>
 					<Image

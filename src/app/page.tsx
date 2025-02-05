@@ -1,78 +1,19 @@
-import { StructuredData } from '@/components/StructuredData'
 import classNames from 'classnames'
-import { Metadata } from 'next'
 import Image from 'next/image'
-import styles from './home.module.scss'
 import bgOfPortrait from '../../public/images/home/bgOfPortrait.jpg'
+import bgPortraitDesktop from '../../public/images/home/bgPortraitDesktop.jpg'
+import bgPortraitMobileLg from '../../public/images/home/bgPortraitDesktopLg.jpg'
+import bgPortraitMobileMd from '../../public/images/home/bgPortraitMobileMd.jpg'
+import bgPortraitMobileSm from '../../public/images/home/bgPortraitMobileSm.jpg'
+import bgPortraitMobileXl from '../../public/images/home/bgPortraitMobileXl.jpg'
 import leftWingIcon from '../../public/images/icons/left_wing.svg'
 import rightWingIcon from '../../public/images/icons/right_wing.svg'
-import bgPortraitMobileSm from '../../public/images/home/bgPortraitMobileSm.jpg'
-import bgPortraitMobileMd from '../../public/images/home/bgPortraitMobileMd.jpg'
-import bgPortraitMobileXl from '../../public/images/home/bgPortraitMobileXl.jpg'
-import bgPortraitMobileLg from '../../public/images/home/bgPortraitDesktopLg.jpg'
-import bgPortraitDesktop from '../../public/images/home/bgPortraitDesktop.jpg'
+import styles from './home.module.scss'
 
-
-export const metadata: Metadata  = {
-	title: 'Veronika Brook - Opera Singer & Crossover Artist',
-	description:
-		'Experience the artistry of Veronika Brook, an internationally acclaimed opera singer and crossover artist. Explore her performances and music career.',
-	keywords: [
-		'Veronika Brook',
-		'opera singer',
-		'coloratura soprano',
-		'classical crossover artist',
-		'Veronika Brook music',
-		'Veronika Brook performances',
-		'vocalist',
-		'classical music'
-	],
-	openGraph: {
-		title: 'Veronika Brook - Opera Singer & Crossover Artist',
-		description: 'Experience the artistry of Veronika Brook, an internationally acclaimed opera singer and crossover artist.',
-		url: 'https://veronikabrook.com',
-		type: 'website',
-		images: [
-			{
-				url: 'https://veronikabrook.com/images/home/bgPortraitDesktop.jpg',
-				width: 1200,
-				height: 800,
-				alt: 'Veronika Brook - Opera Singer'
-			}
-		]
-	},
-	twitter: {
-		card: 'summary_large_image',
-		title: 'Veronika Brook - Opera Singer & Crossover Artist',
-		description: 'Experience the artistry of Veronika Brook, an internationally acclaimed opera singer and crossover artist.',
-		images: ['https://veronikabrook.com/images/home/bgPortraitDesktop.jpg']
-	},
-	robots: {
-		index: true,
-		follow: true
-	},
-	alternates: {
-		canonical: 'https://veronikabrook.com'
-	}
-};
-
-const websiteSchema = {
-	'@context': 'https://schema.org',
-	'@type': 'WebSite',
-	name: 'Veronika Brook Official',
-	url: 'https://veronikabrook.com',
-	potentialAction: {
-		'@type': 'SearchAction',
-		target: 'https://veronikabrook.com/?s={search_term_string}',
-		'query-input': 'required name=search_term_string'
-	}
-};
 
 export default async function Home() {
-	
 	return (
 		<>
-			<StructuredData data={websiteSchema} />
 			<main className={styles.main}>
 				{/* background image of image portrait */}
 				<Image

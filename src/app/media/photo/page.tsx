@@ -23,16 +23,6 @@ export async function generateMetadata(): Promise<Metadata> {
 	return {
 		title: 'Photo Gallery - Veronika Brook | Exclusive Opera Moments',
 		description: 'Discover an exclusive collection of Veronika Brook’s opera performances, featuring roles in Rigoletto, La Traviata, and more.',
-		keywords: [
-			'Veronika Brook photos',
-			'photo gallery',
-			'opera singer photos',
-			'classical music photography',
-			'Rigoletto opera images',
-			'La Traviata photos',
-			'Veronika Brook exclusive photos',
-			'stage performance pictures'
-		],
 		openGraph: {
 			title: 'Photo Gallery - Veronika Brook | Exclusive Opera Moments',
 			description: 'Discover an exclusive collection of Veronika Brook’s opera performances, featuring roles in Rigoletto, La Traviata, and more.',
@@ -46,17 +36,11 @@ export async function generateMetadata(): Promise<Metadata> {
 			description: 'Discover an exclusive collection of Veronika Brook’s opera performances.',
 			images: await getTwitterVideo()
 		},
-		robots: {
-			index: true,
-			follow: true
-		},
 		alternates: {
 			canonical: 'https://veronikabrook.com/media/photo'
 		}
 	};
-	
 }
-
 
 async function getPhotoSchema() {
 	const imagesData = images.map(img => `https://veronikabrook.com${img.itemImageSrc}`)

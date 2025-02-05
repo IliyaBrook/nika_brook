@@ -13,19 +13,10 @@ export async function generateMetadata(): Promise<Metadata> {
 	
 	return {
 		title: 'Video Gallery - Veronika Brook | Opera Performances',
-		description: 'Watch Veronika Brook’s best opera performances in productions like Rigoletto, La Traviata, and Die Zauberflöte.',
-		keywords: [
-			'Veronika Brook videos',
-			'opera singer videos',
-			'classical music videos',
-			'Verdi Rigoletto performance',
-			'Die Zauberflöte video',
-			'La Traviata soprano',
-			'Veronika Brook performances'
-		],
+		description: 'Explore media content featuring Veronika Brook, including her roles in various operas like Rigoletto, La traviata, and Die Zauberflote.',
 		openGraph: {
 			title: 'Video Gallery - Veronika Brook | Opera Performances',
-			description: 'Watch Veronika Brook’s best opera performances in productions like Rigoletto, La Traviata, and Die Zauberflöte.',
+			description: 'Explore media content featuring Veronika Brook, including her roles in various operas like Rigoletto, La traviata, and Die Zauberflote.',
 			url: 'https://veronikabrook.com/media/video',
 			type: 'video.other',
 			images: videoImages
@@ -35,10 +26,6 @@ export async function generateMetadata(): Promise<Metadata> {
 			title: 'Video Gallery - Veronika Brook',
 			description: 'Enjoy a collection of opera performance videos by Veronika Brook.',
 			images: twitterImages
-		},
-		robots: {
-			index: true,
-			follow: true
 		},
 		alternates: {
 			canonical: 'https://veronikabrook.com/media/video'

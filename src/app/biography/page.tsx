@@ -35,7 +35,25 @@ export const metadata: Metadata = {
 				url: 'https://veronikabrook.com/images/bioPage/bio_sec_1.jpg',
 				width: 1200,
 				height: 800,
-				alt: 'Veronika Brook Biography'
+				alt: 'Veronika Brook Biography Image black coat'
+			},
+			{
+				url: 'https://veronikabrook.com/images/bioPage/bio_sec_2_1.jpg',
+				width: 1200,
+				height: 800,
+				alt: 'Veronika Brook Biography Performance'
+			},
+			{
+				url: 'https://veronikabrook.com/images/bioPage/bio_sec_2_2.jpg',
+				width: 1200,
+				height: 800,
+				alt: 'Veronika Brook Biography Singing'
+			},
+			{
+				url: 'https://veronikabrook.com/images/bioPage/bio_sec_3.jpg',
+				width: 1200,
+				height: 800,
+				alt: 'Veronika Brook Biography Performance with a symphony orchestra'
 			}
 		]
 	},
@@ -112,12 +130,12 @@ export default async function Biography () {
 							creditText='Yossi Zwecker'
 							imageProps={{
 								src: imageSec1,
-								alt: 'Biography page image 1',
+								alt: 'Veronika Brook Biography Image black coat',
 								fill: true,
 								sizes: '(max-width: 768px) 100vw, (max-width: 1200px) 70vw, 50vw',
 								loading:'lazy',
 								className: classNames(styles.bioImage , { [styles.iosImg]: isIos }),
-								placeholder:'blur'
+								placeholder:'blur',
 							}}
 						/>
 						<div className={styles.bioSection1Text}>
@@ -192,7 +210,7 @@ export default async function Biography () {
 								creditText='Yossi Zwecker'
 								imageProps={{
 									src: imageSec2_1,
-									alt: 'Biography page image section 2.1',
+									alt: 'Veronika Brook Biography Performance',
 									fill: true,
 									sizes: '(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw',
 									loading:'lazy',
@@ -206,7 +224,7 @@ export default async function Biography () {
 								creditText='Yossi Zwecker'
 								imageProps={{
 									src: imageSec2_2,
-									alt: 'Biography page image section 2.2',
+									alt: 'Veronika Brook Biography Singing',
 									fill: true,
 									className: classNames(styles.bioImage , { [styles.iosImg]: isIos }),
 									sizes: '(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw',
@@ -223,7 +241,7 @@ export default async function Biography () {
 							creditText='Yoel Levy'
 							imageProps={{
 								src: imageSec3,
-								alt: 'Biography page image section 3',
+								alt: 'Veronika Brook Biography Performance with a symphony orchestra',
 								fill: true,
 								className: classNames(styles.bioImage , { [styles.iosImg]: isIos }),
 								sizes: '(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 80vw',

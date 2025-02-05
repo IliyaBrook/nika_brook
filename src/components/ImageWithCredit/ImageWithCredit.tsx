@@ -8,7 +8,7 @@ interface IImageWithCredit<TImageProps extends Record<string, any>> extends Reac
 	creditOnTop?: boolean;
 	creditText: string;
 	creditTextProps?: React.HTMLAttributes<HTMLDivElement>;
-	creaditTextSpacing?: string;
+	creditTextSpacing?: string;
 	creditTextColor?: CSSProperties['color'];
 	imageProps: TImageProps;
 	ImageComponentInstance: ComponentType<TImageProps>;
@@ -21,7 +21,7 @@ const ImageWithCredit = <ImageProps extends Record<string, any>>({
 	                                                                 creditOnTop = false,
 	                                                                 creditTextPosition = 'right',
 	                                                                 creditTextProps,
-	                                                                 creaditTextSpacing = '1vw',
+	                                                                 creditTextSpacing = '1vw',
 	                                                                 creditTextColor = 'white',
 	                                                                 ImageComponentInstance,
 	                                                                 ...rest
@@ -36,7 +36,7 @@ const ImageWithCredit = <ImageProps extends Record<string, any>>({
 				{...creditTextProps}
 				className={classNames(styles.credit, creditTextProps?.className)}
 				style={{
-					[creditTextPosition]: creaditTextSpacing,
+					[creditTextPosition]: creditTextSpacing,
 					color: creditTextColor,
 					top: creditOnTop ? '10px' : 'unset',
 					bottom: creditOnTop ? 'unset' : '10px'

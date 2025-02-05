@@ -3,7 +3,7 @@ import { Initializer } from '@/components/Initializer'
 import Navbar from '@/components/Navbar/Navbar'
 import { StructuredData } from '@/components/StructuredData'
 import { ScrollBarWrapper } from '@/components/Wrappers/ScrollBarWrapper/ScrollBarWrapper'
-import { sameAs } from '@/data'
+import { metadataAndOpenGMainImage, sameAs } from '@/data'
 import classNames from 'classnames'
 import './shareableStyles/globals.scss'
 import 'primereact/resources/themes/lara-light-cyan/theme.css'
@@ -32,28 +32,57 @@ const josefinSans = Josefin_Sans({
 const alexBrush = Alex_Brush({ subsets: ['latin'], weight: '400', display: 'swap', variable: '--font-alex-brush' })
 
 export const metadata: Metadata = {
-	title: 'Media - Veronika Brook',
+	title: 'Veronika Brook - Opera Singer & Crossover Artist',
 	description:
-		'Explore media content featuring Veronika Brook, including her roles in various operas like Rigoletto, La traviata, and Die Zauberflote.',
+		"Experience the artistry of Veronika Brook, an internationally acclaimed opera singer and crossover artist. Explore her performances and music career.",
 	keywords: [
-		'opera',
+		'Veronika Brook',
+		'veronika brook',
+		'Nika Brook',
+		'nika brook',
+		'Opera Singer',
+		'opera singer',
+		'Coloratura Soprano',
 		'coloratura soprano',
-		'music',
-		'israel artist'
+		'Classical Crossover Artist',
+		'classical crossover artist',
+		'Veronika Brook music',
+		'veronika brook music',
+		'Veronika Brook performances',
+		'veronika brook performances',
+		'Vocalist',
+		'vocalist',
+		'Classical music',
+		'classical music',
+		'Crossover artist',
+		'crossover artist'
+	],
+	icons: [
+		{ url: '/favicon/favicon.png', type: 'image/png', sizes: '32x32' },
+		{ url: '/favicon/favicon-192x192.png', type: 'image/png', sizes: '192x192' },
+		{ url: '/favicon/favicon-512x512.png', type: 'image/png', sizes: '512x512' },
+		{ url: '/favicon/apple-touch-icon.png', type: 'image/png', sizes: '180x180', rel: 'apple-touch-icon' }
 	],
 	openGraph: {
-		title: 'Media - Veronika Brook',
-		description: 'Explore media content featuring Veronika Brook.',
+		title: 'Veronika Brook - Opera Singer & Crossover Artist',
+		description:
+			"Experience the artistry of Veronika Brook, an internationally acclaimed opera singer and crossover artist. Explore her performances and music career.",
 		url: 'https://veronikabrook.com',
 		images: [
 			{
-				url: 'https://veronikabrook.com/images/mediaPhoto/photo3.jpg',
+				url: metadataAndOpenGMainImage,
 				width: 469,
 				height: 700,
 				alt: 'Veronika Brook'
 			}
 		],
 		type: 'website'
+	},
+	twitter: {
+		card: 'summary_large_image',
+		title: 'Veronika Brook - Opera Singer & Crossover Artist',
+		description: 'Experience the artistry of Veronika Brook, an internationally acclaimed opera singer and crossover artist.',
+		images: metadataAndOpenGMainImage,
 	},
 	robots: {
 		index: true,
@@ -65,16 +94,30 @@ export const metadata: Metadata = {
 }
 
 const schemaOrgJson = {
-	'@context': 'https://schema.org',
-	'@type': 'Person',
-	name: 'Veronika Brook',
-	voiceType: 'Soprano',
-	jobTitle: 'Opera Singer',
-	birthPlace: 'Estonia',
-	description: 'An accomplished soprano opera singer with a rich operatic repertoire...',
-	url: 'https://veronikabrook.com',
-	sameAs
-}
+	"@context": "https://schema.org",
+	"@type": "Person",
+	"name": "Veronika Brook",
+	"alternateName": "Nika Brook",
+	"voiceType": "Soprano",
+	"jobTitle": "Opera Singer",
+	"description": "An accomplished soprano opera singer with a rich operatic repertoire...",
+	"birthPlace": "Estonia",
+	"url": "https://veronikabrook.com",
+	"sameAs": sameAs
+};
+
+const websiteSchema = {
+	"@context": "https://schema.org",
+	"@type": "WebSite",
+	"name": "Veronika Brook Official",
+	"alternateName": "Nika Brook",
+	"url": "https://veronikabrook.com",
+	"potentialAction": {
+		"@type": "SearchAction",
+		"target": "https://veronikabrook.com/?s={search_term_string}",
+		"query-input": "required name=search_term_string"
+	}
+};
 
 export default function RootLayout({
 	                                   children
@@ -82,28 +125,36 @@ export default function RootLayout({
 	children: React.ReactNode
 }>) {
 	return (
-		<PrimeReactProvider value={primeReactConfig}>
-			<html
-				lang='en'
-				className={classNames(
-					hedvigLettersSerif.variable,
-					josefinSans.variable,
-					alexBrush.variable
-				)}
-			>
+		<>
+			<StructuredData data={websiteSchema} />
+			<StructuredData data={schemaOrgJson} />
+			<PrimeReactProvider value={primeReactConfig}>
+				<html
+					lang='en'
+					className={classNames(
+						hedvigLettersSerif.variable,
+						josefinSans.variable,
+						alexBrush.variable
+					)}
+				>
+				<head>
+					<link rel="manifest" href="/site.webmanifest" />
+					<title></title>
+				</head>
 				<body>
-					<div className={styles.root}>
-						<div className={styles.navbar}>
-							<Navbar />
-						</div>
-						<ScrollBarWrapper className={styles.scrollBar}>
-							<div className={styles.main}>{children}</div>
-						</ScrollBarWrapper>
-						<Initializer/>
+				<div className={styles.root}>
+					<div className={styles.navbar}>
+						<Navbar />
 					</div>
-					<StructuredData data={schemaOrgJson} />
+					<ScrollBarWrapper className={styles.scrollBar}>
+						<div className={styles.main}>{children}</div>
+					</ScrollBarWrapper>
+					<Initializer />
+				</div>
+				<StructuredData data={schemaOrgJson} />
 				</body>
-			</html>
-		</PrimeReactProvider>
+				</html>
+			</PrimeReactProvider>
+		</>
 	)
 }
