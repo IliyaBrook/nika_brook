@@ -73,29 +73,18 @@ const VideoGallery = () => {
 			setSelectedVideo(null);
 		}
 		closeButton?.addEventListener('click', clickListener);
-		const keyDownListener = (event: KeyboardEvent) => {
-			if (event.key === 'Escape') {
-				document.body.removeChild(wrapper);
-				setSelectedVideo(null);
-			}
-		}
-		document.body.addEventListener('keydown', keyDownListener)
 		
 		return () => {
 			if (document.body.contains(wrapper)) {
 				document.body.removeChild(wrapper);
+				closeButton?.removeEventListener('click', clickListener);
 			}
-			closeButton?.removeEventListener('click', clickListener);
-			document.body.removeEventListener('keydown', keyDownListener)
 		};
 	}, [selectedVideo]);
 	
 	useEffect(() => {
 		const keyEventHandler = (event: KeyboardEvent) => {
 			switch (event.key) {
-				case 'Escape':
-					handleCloseVideo()
-					break
 				case 'ArrowLeft':
 					goToPrev()
 					break
