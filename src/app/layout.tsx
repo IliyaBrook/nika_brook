@@ -57,12 +57,6 @@ export const metadata: Metadata = {
 		'Crossover artist',
 		'crossover artist'
 	],
-	icons: [
-		{ url: '/favicon/favicon.png', type: 'image/png', sizes: '32x32' },
-		{ url: '/favicon/favicon-192x192.png', type: 'image/png', sizes: '192x192' },
-		{ url: '/favicon/favicon-512x512.png', type: 'image/png', sizes: '512x512' },
-		{ url: '/favicon/apple-touch-icon.png', type: 'image/png', sizes: '180x180', rel: 'apple-touch-icon' }
-	],
 	openGraph: {
 		title: defaultTitle,
 		description:
