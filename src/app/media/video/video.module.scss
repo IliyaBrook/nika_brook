@@ -11,8 +11,10 @@
 		.carousel {
 			display: flex;
 			width: 95%;
-			overflow: hidden;
 			align-items: center;
+			@media (min-width: 768px) {
+				overflow: hidden;
+			}
 		}
 		.carouselItem {
 			flex: 0 0 35%;
@@ -47,93 +49,79 @@
 					max-height: 100px;
 					overflow: hidden;
 				}
-			}
-		}
-		.button {
-			align-self: center;
-			height: 2rem;
-			border: 0 none;
-			background: transparent;
-			border-radius: 50%;
-			transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
-			flex-grow: 0;
-			flex-shrink: 0;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			overflow: hidden;
-			position: relative;
-			.icon {
-				color: #6b7280;
-			}
-			&:hover {
-				color: #374151;
-				border-color: transparent;
-				background-color: #dddcdc;
-				cursor: pointer;
-				.icon {
-					color: rgb(55, 65, 81);
+				@media (max-width: 768px) {
+					h3 {
+						font-size: 1em !important;
+						margin: 0;
+					}
+					
+					p {
+						margin: 5px 0;
+					}
 				}
 			}
-		}
-		&.prevButton {
-			width: 2%;
-		}
-		
-		&.nextButton {
-			width: 3%;
-		}
-	}
-}
-
-
-@media (max-width: 768px) {
-	.galleria {
-		width: 100%;
-		
-		:global {
-			.p-galleria-item-nav {
-				top: 37%;
-			}
-			
-			.p-galleria-content {
-				padding: 20px;
+			@media (max-width: 768px) {
+				width: 90%;
+				margin: 10px 0;
+				height: auto;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
 			}
 		}
-	}
-	.videoInfo {
-		h3 {
-			font-size: 1em !important;
-			margin: 0;
-		}
-		
-		p {
-			margin: 5px 0;
-		}
-	}
-	.carouselContainer {
-		height: calc(100svmax - var(--navbar-height));
-		
-		.carousel {
-			flex-direction: column;
-			overflow-y: auto;
-			height: 100%;
-			align-items: center;
-			padding-right: 18px;
-		}
-		
-		.carouselItem {
-			width: 90%;
-			margin: 10px 0;
-			height: auto;
+		.buttonWrapper{
 			display: flex;
-			flex-direction: column;
+			height: inherit;
 			justify-content: center;
 			align-items: center;
+			.button {
+				width: 2rem;
+				height: 2rem;
+				border: 0 none;
+				background: transparent;
+				border-radius: 50%;
+				transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
+				flex-grow: 0;
+				flex-shrink: 0;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				overflow: hidden;
+				position: relative;
+				.icon {
+					color: #6b7280;
+				}
+				&:hover {
+					color: #374151;
+					border-color: transparent;
+					background-color: #dddcdc;
+					cursor: pointer;
+					.icon {
+						color: rgb(55, 65, 81);
+					}
+				}
+			}
+			&.prevButton {
+				width: 2%;
+			}
+			
+			&.nextButton {
+				width: 3%;
+			}
+			@media (max-width: 768px) {
+				display: none;
+			}
 		}
-	}
-	.buttonWrapper {
-		display: none!important;
+		@media (max-width: 768px) {
+			height: calc(100svmax - var(--navbar-height));
+			.carousel {
+				flex-direction: column;
+				overflow-y: auto;
+				height: 100%;
+				align-items: center;
+			}
+		}
 	}
 }
 
