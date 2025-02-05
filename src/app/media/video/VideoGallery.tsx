@@ -46,43 +46,39 @@ const VideoGallery = () => {
 	}
 	
 	useEffect(() => {
+		if (!selectedVideo) return;
+		
 		const wrapper = document.createElement('div');
 		wrapper.className = 'videoIframeWrapper';
-		if (selectedVideo) {
-			wrapper.innerHTML = `
-        <div class="videoIframeWrapper">
-	        <button class="closeButton">
-	          <img src="/images/icons/close_icon.png" alt="Close" />
-			    </button>
-	        <iframe
-	            class="iframeFullScreen"
-	            width="100%"
-	            height="100%"
-	            title="${selectedVideo.alt}"
-	            src="https://www.youtube.com/embed/${selectedVideo.youtubeId}"
-	            title="YouTube video player"
-	            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-	            allowfullscreen
-	        ></iframe>
-        </div>
+		
+		wrapper.innerHTML = `
+        <button class="closeButton">
+            <img src="/images/icons/close_icon.png" alt="Close" />
+        </button>
+        <iframe
+            class="iframeFullScreen"
+            width="100%"
+            height="100%"
+            title="${selectedVideo.alt}"
+            src="https://www.youtube.com/embed/${selectedVideo.youtubeId}?autoplay=1"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+        ></iframe>
     `;
-			document.body.appendChild(wrapper);
-			const closeButton = wrapper.querySelector('.closeButton');
-			closeButton?.addEventListener('click', () => {
-				document.body.removeChild(wrapper);
-			});
-		}else if (!selectedVideo && document.body.contains(wrapper)) {
-			if (wrapper){
-				document.body.removeChild(wrapper);
-			}
-		}
-	
+		
+		document.body.appendChild(wrapper);
+		const closeButton = wrapper.querySelector('.closeButton');
+		closeButton?.addEventListener('click', () => {
+			document.body.removeChild(wrapper);
+			setSelectedVideo(null);
+		});
+		
 		return () => {
-			if (document.body.contains(wrapper)){
+			if (document.body.contains(wrapper)) {
 				document.body.removeChild(wrapper);
 			}
-		}
-	}, [selectedVideo?.youtubeId])
+		};
+	}, [selectedVideo]);
 	
 	useEffect(() => {
 		const keyEventHandler = (event: KeyboardEvent) => {
@@ -107,9 +103,7 @@ const VideoGallery = () => {
 			if (!(event.target instanceof Element)) {
 				return
 			}
-			
 			const galleriaElement = event.target.closest('.p-galleria')
-			
 			if (
 				!galleriaElement &&
 				galleriaRef.current &&
