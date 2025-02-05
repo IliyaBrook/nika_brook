@@ -98,15 +98,13 @@ const VideoGallery = () => {
 	return (
 		<>
 			<div className={styles.carouselContainer}>
-				<div className={styles.buttonWrapper}>
-					<button
-						className={classNames(styles.prevButton, styles.button)}
-						onClick={goToPrev}
-						aria-label='Previous'
-					>
-						<i className={classNames(styles.icon, 'pi pi-chevron-left')}></i>
-					</button>
-				</div>
+				<button
+					className={classNames(styles.prevButton, styles.button)}
+					onClick={goToPrev}
+					aria-label='Previous'
+				>
+					<i className={classNames(styles.icon, 'pi pi-chevron-left')}></i>
+				</button>
 				
 				<div className={styles.carousel}>
 					{videos.map(video => {
@@ -154,15 +152,13 @@ const VideoGallery = () => {
 					})}
 				</div>
 				
-				<div className={styles.buttonWrapper}>
-					<button
-						className={classNames(styles.button, styles.nextButton)}
-						onClick={goToNext}
-						aria-label='Next'
-					>
-						<i className={classNames(styles.icon, 'pi pi-chevron-right')}></i>
-					</button>
-				</div>
+				<button
+					className={classNames(styles.button, styles.nextButton)}
+					onClick={goToNext}
+					aria-label='Next'
+				>
+					<i className={classNames(styles.icon, 'pi pi-chevron-right')}></i>
+				</button>
 			</div>
 		</>
 	)
