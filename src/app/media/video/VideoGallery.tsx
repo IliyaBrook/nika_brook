@@ -1,13 +1,10 @@
 'use client'
 import { videos } from '@/app/media/video/data'
 import type { VideoGallery } from '@/types/sharable.types.ts.tsx'
-import getElementsByXPath from '@/utils/getElementsByXPath'
 import classNames from 'classnames'
 import Image from 'next/image'
 import { Galleria as GalleriaComponent } from 'primereact/galleria'
 import React, { useEffect, useRef, useState } from 'react'
-
-
 import styles from './video.module.scss'
 import 'primeicons/primeicons.css'
 
@@ -71,55 +68,33 @@ const VideoGallery = () => {
 		
 		document.body.appendChild(wrapper);
 		const closeButton = wrapper.querySelector('.closeButton');
-		closeButton?.addEventListener('click', () => {
+		const clickListener = () => {
 			document.body.removeChild(wrapper);
 			setSelectedVideo(null);
-		});
+		}
+		closeButton?.addEventListener('click', clickListener);
+		const keyDownListener = (event: KeyboardEvent) => {
+			if (event.key === 'Escape') {
+				document.body.removeChild(wrapper);
+				setSelectedVideo(null);
+			}
+		}
+		document.body.addEventListener('keydown', keyDownListener)
 		
 		return () => {
 			if (document.body.contains(wrapper)) {
 				document.body.removeChild(wrapper);
 			}
+			closeButton?.removeEventListener('click', clickListener);
+			document.body.removeEventListener('keydown', keyDownListener)
 		};
 	}, [selectedVideo]);
 	
 	useEffect(() => {
-		
-		const observer = new MutationObserver((mutationList) => {
-			for (const mutation of mutationList) {
-				if (mutation.type === 'childList') {
-					mutation.addedNodes.forEach((node) => {
-						if (node instanceof HTMLElement && node.querySelector("iframe")) {
-							console.log("Added iframe:", node);
-							
-							
-							setTimeout(() => {
-								const gradientTop = node.querySelector(".ytp-gradient-top");
-								if (gradientTop) {
-									console.log("Removing YouTube gradient:", gradientTop);
-									gradientTop.remove();
-								}
-							}, 1000);
-							
-						}
-					});
-				}
-			}
-		})
-		if (observer) {
-			try {
-				observer.observe(document, { childList: true, subtree: true })
-			} catch  {}
-		}
-		
 		const keyEventHandler = (event: KeyboardEvent) => {
 			switch (event.key) {
 				case 'Escape':
 					handleCloseVideo()
-					const frameWrapper = document.querySelector('.videoIframeWrapper')
-					if (frameWrapper) {
-						document.body.removeChild(frameWrapper)
-					}
 					break
 				case 'ArrowLeft':
 					goToPrev()
@@ -148,7 +123,6 @@ const VideoGallery = () => {
 		return () => {
 			document.removeEventListener('mousedown', handleClickOutside)
 			document.removeEventListener('keydown', keyEventHandler)
-			observer.disconnect()
 		}
 	}, [])
 	
