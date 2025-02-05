@@ -64,7 +64,6 @@ const VideoGallery = () => {
             id="ytPlayer"
         ></iframe>
     `;
-
 		
 		document.body.appendChild(wrapper);
 		const closeButton = wrapper.querySelector('.closeButton');
@@ -94,25 +93,6 @@ const VideoGallery = () => {
 			}
 		}
 		document.addEventListener('keydown', keyEventHandler)
-		const handleClickOutside = (event: MouseEvent) => {
-			if (!(event.target instanceof Element)) {
-				return
-			}
-			const galleriaElement = event.target.closest('.p-galleria')
-			if (
-				!galleriaElement &&
-				galleriaRef.current &&
-				typeof galleriaRef.current.hide === 'function'
-			) {
-				galleriaRef.current.hide()
-			}
-		}
-		
-		document.addEventListener('mousedown', handleClickOutside)
-		return () => {
-			document.removeEventListener('mousedown', handleClickOutside)
-			document.removeEventListener('keydown', keyEventHandler)
-		}
 	}, [])
 	
 	return (

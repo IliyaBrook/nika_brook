@@ -7,7 +7,6 @@ import styles from './video.module.scss'
 import './video.scss'
 import VideoGallery from './VideoGallery'
 
-
 export async function generateMetadata(): Promise<Metadata> {
 	const videoImages = await getVideoImages();
 	const twitterImages = await getTwitterImages();

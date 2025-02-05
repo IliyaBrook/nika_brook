@@ -1,165 +1,95 @@
-
 .photo {
 	width: 100%;
 	height: 100%;
 	display: flex;
 	padding: 0 5px;
-	main {
-		display: flex;
-		background: rgba(0, 0, 0, 0.9);
-		padding-right: 20px;
-		@media (min-width: 768px) {
-			min-height: 100%;
-		}
-	}
-}
-
-.root {
-	display: flex;
-	justify-content: center;
-	
-	.imageWrapper {
-		max-width: 400px;
-		display: flex;
-		flex-wrap: wrap;
-		margin-right: -0.5rem;
-		margin-left: -0.5rem;
-		margin-top: -0.5rem;
-	}
-}
-
-.carouselContainer {
-	background-color: var(--foreground-rgb);
-	position: relative;
-	width: 100%;
-	display: flex;
-	.carousel {
-		display: flex;
-		width: 95%;
-		overflow: hidden;
-		align-items: center;
-	}
-	.carouselItem {
-		flex: 0 0 35%;
-		transition: transform 0.5s ease;
+	.carouselContainer {
+		background-color: var(--foreground-rgb);
 		position: relative;
-		height: 25vmax;
-		margin: 0 5px;
-		
-		.videoOverlay {
-			cursor: pointer;
-			position: absolute;
-			top: 0;
-			left: 0;
-			right: 0;
-			bottom: 0;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			background: rgba(0, 0, 0, 0.5);
-		}
-		
-		.videoInfo {
-			position: absolute;
-			bottom: 0;
-			left: 0;
-			padding: 10px;
-			background: rgba(0, 0, 0, 0.7);
-			
-			.videoDescription {
-				color: white;
-				font-size: 0.8em;
-				max-height: 100px;
-				overflow: hidden;
-			}
-		}
-	}
-	.buttonWrapper{
+		width: 100%;
 		display: flex;
-		height: inherit;
-		justify-content: center;
-		align-items: center;
-		.button {
-			width: 2rem;
-			height: 2rem;
-			border: 0 none;
-			background: transparent;
-			border-radius: 50%;
-			transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
-			flex-grow: 0;
-			flex-shrink: 0;
+		.carousel {
 			display: flex;
-			justify-content: center;
-			align-items: center;
+			width: 95%;
 			overflow: hidden;
+			align-items: center;
+		}
+		.carouselItem {
+			flex: 0 0 35%;
+			transition: transform 0.5s ease;
 			position: relative;
-			.icon {
-				color: #6b7280;
-			}
-			&:hover {
-				color: #374151;
-				border-color: transparent;
-				background-color: #dddcdc;
+			height: 25vmax;
+			margin: 0 5px;
+			
+			.videoOverlay {
 				cursor: pointer;
-				.icon {
-					color: rgb(55, 65, 81);
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				background: rgba(0, 0, 0, 0.5);
+			}
+			
+			.videoInfo {
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				padding: 10px;
+				background: rgba(0, 0, 0, 0.7);
+				
+				.videoDescription {
+					color: white;
+					font-size: 0.8em;
+					max-height: 100px;
+					overflow: hidden;
 				}
 			}
 		}
+		.buttonWrapper{
+			display: flex;
+			height: inherit;
+			justify-content: center;
+			align-items: center;
+			.button {
+				width: 2rem;
+				height: 2rem;
+				border: 0 none;
+				background: transparent;
+				border-radius: 50%;
+				transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
+				flex-grow: 0;
+				flex-shrink: 0;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				overflow: hidden;
+				position: relative;
+				.icon {
+					color: #6b7280;
+				}
+				&:hover {
+					color: #374151;
+					border-color: transparent;
+					background-color: #dddcdc;
+					cursor: pointer;
+					.icon {
+						color: rgb(55, 65, 81);
+					}
+				}
+			}
+			&.prevButton {
+				width: 3%;
+			}
+			
+			&.nextButton {
+				width: 3%;
+			}
+		}
 	}
-	&.prevButton {
-		width: 2%;
-	}
-	
-	&.nextButton {
-		width: 3%;
-	}
-}
-
-.fullscreenVideo {
-//	z-index: 1101;
-//	position: fixed;
-//	top: 0;
-//	left: 0;
-//	width: 100%;
-//	height: 100%;
-//	display: flex;
-//	align-items: center;
-//	justify-content: center;
-//	pointer-events: none;
-	
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100vw;
-	height: 100vh;
-	background: rgba(0, 0, 0, 1);
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	z-index: 9999!important; //
-	.iframeFullScreen{
-		z-index: 9999!important; //
-	}
-//	.iframeFullScreen{
-//		z-index: 9999; // Убедись, что этот элемент поверх всех других
-//		position: fixed;
-//		top: 0;
-//		left: 0;
-//		width: 100vw;
-//		height: 100vh;
-//		background: rgba(0, 0, 0, 1); // Чёрный фон для затемнения
-//		display: flex;
-//		justify-content: center;
-//		align-items: center;
-//		pointer-events: auto; // Разрешает взаимодействие с iframe
-//	}
-}
-
-.fullscreenVideo iframe {
-	width: 100vw;
-	height: 100vh;
-	border: none;
 }
 
 
