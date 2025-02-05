@@ -36,5 +36,9 @@
 		border: none;
 		border-radius: 10px;
 		box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+		@media (max-width: 768px) {
+			width: 100vw;
+			height: 100vh;
+		}
 	}
 }
