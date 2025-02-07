@@ -12,6 +12,7 @@ interface IImageWithCredit<TImageProps extends Record<string, any>> extends Reac
 	creditTextColor?: CSSProperties['color'];
 	imageProps: TImageProps;
 	ImageComponentInstance: ComponentType<TImageProps>;
+	creditTextElemProps?: React.HTMLAttributes<HTMLSpanElement>;
 }
 
 
@@ -24,6 +25,7 @@ const ImageWithCredit = <ImageProps extends Record<string, any>>({
 	                                                                 creditTextSpacing = '1vw',
 	                                                                 creditTextColor = 'white',
 	                                                                 ImageComponentInstance,
+	                                                                 creditTextElemProps,
 	                                                                 ...rest
                                                                  }: IImageWithCredit<ImageProps>) => {
 	return (
@@ -42,7 +44,7 @@ const ImageWithCredit = <ImageProps extends Record<string, any>>({
 					bottom: creditOnTop ? 'unset' : '10px'
 				}}
 			>
-				{`${creditText} ©`}
+				<span {...(creditTextElemProps ?? {})}>{creditText}</span>
 			</div>
 		</div>
 	)

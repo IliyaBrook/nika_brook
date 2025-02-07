@@ -127,7 +127,7 @@ export default async function Biography () {
 						<ImageWithCredit<ImageProps>
 							ImageComponentInstance={Image}
 							className={styles.bioSection1Img}
-							creditText='Yossi Zwecker'
+							creditText='Yossi Zwecker ©'
 							imageProps={{
 								src: imageSec1,
 								alt: 'Veronika Brook Biography Image black coat',
@@ -207,7 +207,7 @@ export default async function Biography () {
 							<ImageWithCredit<ImageProps>
 								ImageComponentInstance={Image}
 								className={styles.bioSection2Img1}
-								creditText='Yossi Zwecker'
+								creditText='Yossi Zwecker ©'
 								imageProps={{
 									src: imageSec2_1,
 									alt: 'Veronika Brook Biography Performance',
@@ -221,7 +221,7 @@ export default async function Biography () {
 							<ImageWithCredit<ImageProps>
 								className={styles.bioSection2Img2}
 								ImageComponentInstance={Image}
-								creditText='Yossi Zwecker'
+								creditText='Yossi Zwecker ©'
 								imageProps={{
 									src: imageSec2_2,
 									alt: 'Veronika Brook Biography Singing',
@@ -238,7 +238,7 @@ export default async function Biography () {
 						<ImageWithCredit<ImageProps>
 							className={classNames(styles.bioSection3Img, styles.bioDesktopImage)}
 							ImageComponentInstance={Image}
-							creditText='Yoel Levy'
+							creditText='Yoel Levy ©'
 							imageProps={{
 								src: imageSec3,
 								alt: 'Veronika Brook Biography Performance with a symphony orchestra',

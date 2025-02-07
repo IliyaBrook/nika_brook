@@ -18,7 +18,7 @@ export const images: Array<ImageItem> = [
 	{
 		itemImageSrc: credit_Eva_Chornaya_9,
 		alt: 'Veronika brook portrait',
-		credit: 'photo: Eva Chornaya',
+		credit: 'Eva Chornaya ©',
 		creditColor: 'black',
 		id: 'gallery_item_1',
 		index: 0
@@ -26,7 +26,7 @@ export const images: Array<ImageItem> = [
 	{
 		itemImageSrc: credit_Eva_Chornaya_10,
 		alt: 'Veronika brook in blue dress',
-		credit: 'photo: Eva Chornaya',
+		credit: 'Eva Chornaya ©',
 		creditColor: 'black',
 		id: 'gallery_item_2',
 		index: 1
@@ -34,7 +34,7 @@ export const images: Array<ImageItem> = [
 	{
 		itemImageSrc: credit_Eva_Chornaya_11,
 		alt: 'Veronika brook portrait',
-		credit: 'photo: Eva Chornaya',
+		credit: 'Eva Chornaya ©',
 		creditColor: 'black',
 		id: 'gallery_item_3',
 		index: 2
@@ -42,7 +42,7 @@ export const images: Array<ImageItem> = [
 	{
 		itemImageSrc: credit_Eva_Chornaya_12,
 		alt: 'Veronika brook photoshoot in a red dress',
-		credit: 'photo: Eva Chornaya',
+		credit: 'Eva Chornaya ©',
 		creditColor: 'black',
 		id: 'gallery_item_4',
 		index: 3
@@ -50,7 +50,7 @@ export const images: Array<ImageItem> = [
 	{
 		itemImageSrc: credit_Eva_Chornaya_2,
 		alt: 'Veronika brook photoshoot in a white dress',
-		credit: 'photo: Eva Chornaya',
+		credit: 'Eva Chornaya ©',
 		creditColor: 'black',
 		id: 'gallery_item_5',
 		index: 4
@@ -58,7 +58,7 @@ export const images: Array<ImageItem> = [
 	{
 		itemImageSrc: credit_Elena_Prosdocimo,
 		alt: 'Veronika brook night photoshoot',
-		credit: 'photo: Elena Prosdocimo',
+		credit: 'Elena Prosdocimo ©',
 		creditColor: 'white',
 		id: 'gallery_item_6',
 		index: 5
@@ -66,7 +66,7 @@ export const images: Array<ImageItem> = [
 	{
 		itemImageSrc: credit_Ivan_Sartoretto_14,
 		alt: 'Veronika brook black and white photoshoot near a tree',
-		credit: 'photo: Ivan Sartoretto',
+		credit: 'Ivan Sartoretto ©',
 		creditColor: 'white',
 		id: 'gallery_item_7',
 		index: 6
@@ -74,7 +74,7 @@ export const images: Array<ImageItem> = [
 	{
 		itemImageSrc: credit_Ivan_Sartoretto_15,
 		alt: 'Veronika brook photo shoot in a dress in a museum room',
-		credit: 'photo: Ivan Sartoretto',
+		credit: 'Ivan Sartoretto ©',
 		creditColor: 'white',
 		id: 'gallery_item_8',
 		index: 7
@@ -82,7 +82,7 @@ export const images: Array<ImageItem> = [
 	{
 		itemImageSrc: photo3,
 		alt: 'Veronika brook photo shoot in black',
-		credit: 'photo: Ella Dray',
+		credit: 'Ella Dray ©',
 		creditColor: 'white',
 		id: 'gallery_item_9',
 		index: 8
@@ -90,7 +90,7 @@ export const images: Array<ImageItem> = [
 	{
 		itemImageSrc: credit_Elia_Haizis_6,
 		alt: 'Veronika brook photo shoot at a concert',
-		credit: 'photo: Elia Haizis',
+		credit: 'Elia Haizis ©',
 		creditColor: 'white',
 		id: 'gallery_item_10',
 		index: 9
@@ -98,7 +98,7 @@ export const images: Array<ImageItem> = [
 	{
 		itemImageSrc: credit_Maya_Iltus,
 		alt: 'Veronika brook Les contes d’Hoffmann, Olympia\'s aria',
-		credit: 'photo: Maya Iltus',
+		credit: 'Maya Iltus ©',
 		creditColor: 'white',
 		id: 'gallery_item_11',
 		index: 10
@@ -106,7 +106,7 @@ export const images: Array<ImageItem> = [
 	{
 		itemImageSrc: photo9,
 		alt: 'Veronika brook portrait',
-		credit: 'photo: Uri Elkayam',
+		credit: 'Uri Elkayam ©',
 		creditColor: 'white',
 		id: 'gallery_item_12',
 		index: 11
@@ -114,7 +114,7 @@ export const images: Array<ImageItem> = [
 	{
 		itemImageSrc: photo10,
 		alt: 'Veronika brook in white dress',
-		credit: 'photo: Ella Dray',
+		credit: 'Ella Dray ©',
 		creditColor: 'white',
 		id: 'gallery_item_13',
 		index: 12
@@ -122,7 +122,7 @@ export const images: Array<ImageItem> = [
 	{
 		itemImageSrc: photo13,
 		alt: 'Veronika brook portrait',
-		credit: 'photo: Doron Letzter',
+		credit: 'Doron Letzter ©',
 		creditColor: 'white',
 		id: 'gallery_item_14',
 		index: 13

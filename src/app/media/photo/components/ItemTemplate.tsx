@@ -37,7 +37,7 @@ export function ItemTemplate({ index, ...item }: ItemTemplateProps) {
 						loading: 'lazy',
 						placeholder: 'blur',
 						className: styles.imagePreview,
-						sizes: '(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 60vw',
+						sizes: '(max-width: 768px) 60vw, (max-width: 1200px) 80vw, 100vw',
 					}}
 					ImageComponentInstance={NextImage}
 					creditTextColor={item.creditColor}
@@ -50,15 +50,12 @@ export function ItemTemplate({ index, ...item }: ItemTemplateProps) {
 	return (
 		<div className={classNames(styles.itemTemplate)}>
 			<div className={styles.thumbnailImage}>
-				<div className="p-carousel-item p-carousel-item-active">
 	        <span
-	          className={classNames(
-	            styles.imageWrapper
-	          )}
-	          onClick={togglePreview}
-	          aria-labelledby='white'
-	          data-pc-name='image'
-	          data-pc-section='root'
+		        className={styles.imageWrapper}
+		        onClick={togglePreview}
+		        aria-labelledby='white'
+		        data-pc-name='image'
+		        data-pc-section='root'
 	        >
 		        <ImageWithCredit<ImageProps>
 			        creditText={item.credit}
@@ -67,10 +64,16 @@ export function ItemTemplate({ index, ...item }: ItemTemplateProps) {
 				        alt: item.alt,
 				        loading:'lazy',
 				        placeholder:'blur',
-				        className: styles.img
+				        className: styles.img,
+				        sizes: '(max-width: 768px) 50vw, (max-width: 1200px) 70vw, 100vw',
 			        }}
+			        creditOnTop
 			        ImageComponentInstance={NextImage}
 			        creditTextColor={item.creditColor}
+			        className={styles.imageWithCredit}
+			        creditTextElemProps={{
+								className: styles.creditText
+			        }}
 		        />
 		        <NextImage
 			        src={EyeIcon}
@@ -78,8 +81,7 @@ export function ItemTemplate({ index, ...item }: ItemTemplateProps) {
 			        className={classNames(styles.eyeIcon, styles.eyeIconShow)}
 		        />
 	        </span>
-					
-				</div>
+			
 			</div>
 			{renderPreview}
 		</div>
