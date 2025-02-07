@@ -1,5 +1,5 @@
 'use client'
-import { lastNumVisibleIndex, totalItems, videos } from '@/app/media/video/data'
+import { lastNumVisibleIndex, totalItems, videos, visibleItems } from '@/app/media/video/data'
 import type { VideoGallery } from '@/types/sharable.types.ts.tsx'
 import classNames from 'classnames'
 import Image from 'next/image'
@@ -11,7 +11,6 @@ import 'primeicons/primeicons.css'
 const VideoGallery = () => {
 	const [selectedVideo, setSelectedVideo] = useState<VideoGallery>(null)
 	const [scrollIndex, setScrollIndex] = useState<number>(0)
-	const visibleItems = 3
 	const [numVisible, setNumVisible] = useState<number>(totalItems)
 	
 	const updateNumVisible = () => {
@@ -28,13 +27,11 @@ const VideoGallery = () => {
 	}, [])
 	
 	const goToNext = () => {
-		const maxIndex = Math.max(0, videos.length - visibleItems);
+		const maxIndex = Math.max(0, videos.length - numVisible);
 		if (scrollIndex < maxIndex) {
 			setScrollIndex(scrollIndex + 1);
 		}
 	};
-	
-	
 	
 	const goToPrev = () => {
 		const previousIndex = scrollIndex - 1;
@@ -42,7 +39,6 @@ const VideoGallery = () => {
 			setScrollIndex(previousIndex);
 		}
 	};
-	
 	
 	useEffect(() => {
 		if (!selectedVideo) return;
@@ -118,7 +114,7 @@ const VideoGallery = () => {
 								key={`carousel-item-${index}`}
 								className={styles.carouselItem}
 								style={{
-									transform: `translateX(-${Math.min(scrollIndex, videos.length - visibleItems) * 100}%)`,
+									transform: `translateX(-${Math.min(scrollIndex, videos.length - numVisible) * 100}%)`,
 								}}
 							
 							>
