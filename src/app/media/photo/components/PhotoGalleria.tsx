@@ -20,7 +20,10 @@ export const PhotoGalleria = () =>  {
 	const carouselRef = useRef<any>(null)
 	
 	const responsiveOptions: CarouselResponsiveOption[] = [
-		{ breakpoint: '842px', numVisible: 3, numScroll: 1 }
+		{ breakpoint: '1200px', numVisible: 4, numScroll: 1 },
+		{ breakpoint: '986px', numVisible: 3, numScroll: 1 },
+		{ breakpoint: '770px', numVisible: 2, numScroll: 1 },
+		{ breakpoint: '420px', numVisible: 1, numScroll: 1 },
 	]
 	
 	return (

@@ -58,7 +58,6 @@ async function getPhotoSchema() {
 	}
 }
 
-
 export default async function Photo() {
 	const photoSchema = await getPhotoSchema()
 	return (

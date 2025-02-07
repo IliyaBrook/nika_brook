@@ -15,23 +15,16 @@
 		position: relative;
 		@include colors.bg-gradient();
 	}
-	:global{
-		.mediaPhotoCreditTo{
-			$relative-margin: 0.5rem;
-			font-size: 12px;
-			margin-top: 10px;
-			position: absolute;
-			top: 2px;
-			right: calc(2px + #{$relative-margin});
-		}
-	}
+
 	.carouselWrapper {
 		display: flex;
 		justify-content: center;
 		.itemTemplate {
 			margin: 0 0.5rem;
 			text-align: center;
+//			position: relative;
 			.thumbnailImage {
+				overflow: hidden;
 				position: relative;
 				border-radius: 6px;
 //				max-width: 300px;
@@ -39,7 +32,7 @@
 				.imageWrapper {
 					display: block;
 					position: relative;
-				
+	
 					.img {
 						width: 100%;
 						height: 100%;
@@ -72,25 +65,7 @@
 							fill: red;
 						}
 					}
-					.imageWithCredit{
-						top: -30px!important;
-						right: 5px!important;
-//						@media (min-width: 1200px) {
-//							div{
-//								top: -30px!important;
-//								right: 5px!important;
-//							}
-//						}
-//						@media (max-width: 1200px) {
-//							div{
-//								top: -20px!important;
-//								right: 5px!important;
-//							}
-//						}
-						.creditText{
-							font-size: 10px;
-						}
-					}
+
 				}
 		
 				@media (min-width: 768px) {
@@ -104,8 +79,12 @@
 						}
 					}
 				}
-				@media (min-width: 842px) {
+		
+				@media (min-width: 770px) {
 					max-height: 45vh!important;
+				}
+				@media (max-width: 770px) {
+					max-height: 35vh!important;
 				}
 			}
 		}
@@ -155,7 +134,17 @@
 }
 
 
-
+.creditTextWrapper{
+	position: absolute;
+	top: 2px;
+	right: 3px;
+	z-index: 200;
+	display: flex;
+	.creditText{
+		font-size: 10px;
+		color: #fff;
+	}
+}
 .carouselWrapper {
 	height: 100%;
 	:global {
@@ -164,6 +153,7 @@
 			justify-content: center;
 			@include colors.bg-gradient();
 			.p-carousel-container {
+				overflow: hidden!important;
 				@media (min-height: 1200px) {
 					height: 90%;
 					.p-carousel-items-container {
@@ -183,11 +173,6 @@
 					.p-carousel-items-container {
 						display: flex!important;
 						flex-direction: row!important;
-					}
-				}
-				.p-carousel-item{
-					@media (max-width: 1200px) {
-						flex: 1 0 30%!important;
 					}
 				}
 			}

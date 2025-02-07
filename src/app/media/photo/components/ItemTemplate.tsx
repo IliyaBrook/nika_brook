@@ -2,9 +2,9 @@ import styles from '@/app/media/photo/photo.module.scss'
 import ImageWithCredit from '@/components/ImageWithCredit/ImageWithCredit'
 import type { ImageItem } from '@/types/sharable.types.ts'
 import classNames from 'classnames'
-import NextImage, {ImageProps} from 'next/image'
+import NextImage, { ImageProps } from 'next/image'
 import React, { useState } from 'react'
-import { createPortal } from 'react-dom';
+import { createPortal } from 'react-dom'
 import EyeIcon from '../../../../../public/images/icons/eye_icons.svg'
 import CloseIcon from '../../../../../public/images/icons/close_icon_white.svg'
 
@@ -25,19 +25,18 @@ export function ItemTemplate({ index, ...item }: ItemTemplateProps) {
 			<div className={styles.preview} onClick={togglePreview}>
 				<NextImage
 					src={CloseIcon}
-					alt="Close Icon"
+					alt='Close Icon'
 					className={styles.closeIcon}
 				/>
-				
 				<ImageWithCredit<ImageProps>
-					creditText=""
+					creditText=''
 					imageProps={{
 						src: item.itemImageSrc,
 						alt: item.alt,
 						loading: 'lazy',
 						placeholder: 'blur',
 						className: styles.imagePreview,
-						sizes: '(max-width: 768px) 60vw, (max-width: 1200px) 80vw, 100vw',
+						sizes: '(max-width: 768px) 60vw, (max-width: 1200px) 80vw, 100vw'
 					}}
 					ImageComponentInstance={NextImage}
 					creditTextColor={item.creditColor}
@@ -50,6 +49,14 @@ export function ItemTemplate({ index, ...item }: ItemTemplateProps) {
 	return (
 		<div className={classNames(styles.itemTemplate)}>
 			<div className={styles.thumbnailImage}>
+					<div className={styles.creditTextWrapper}>
+			      <span
+				      className={styles.creditText}
+				      style={{color: item.creditColor}}
+			      >
+			        {item.credit}
+			      </span>
+					</div>
 	        <span
 		        className={styles.imageWrapper}
 		        onClick={togglePreview}
@@ -57,31 +64,20 @@ export function ItemTemplate({ index, ...item }: ItemTemplateProps) {
 		        data-pc-name='image'
 		        data-pc-section='root'
 	        >
-		        <ImageWithCredit<ImageProps>
-			        creditText={item.credit}
-			        imageProps={{
-				        src: item.itemImageSrc,
-				        alt: item.alt,
-				        loading:'lazy',
-				        placeholder:'blur',
-				        className: styles.img,
-				        sizes: '(max-width: 768px) 50vw, (max-width: 1200px) 70vw, 100vw',
-			        }}
-			        creditOnTop
-			        ImageComponentInstance={NextImage}
-			        creditTextColor={item.creditColor}
-			        className={styles.imageWithCredit}
-			        creditTextElemProps={{
-								className: styles.creditText
-			        }}
+		        <NextImage
+			        src={item.itemImageSrc}
+			        alt={item.alt}
+			        className={styles.img}
+			        sizes='(max-width: 768px) 50vw, (max-width: 1200px) 70vw, 100vw'
+			        loading='lazy'
+			        placeholder='blur'
 		        />
 		        <NextImage
 			        src={EyeIcon}
-			        alt="eye icon"
+			        alt='eye icon'
 			        className={classNames(styles.eyeIcon, styles.eyeIconShow)}
 		        />
 	        </span>
-			
 			</div>
 			{renderPreview}
 		</div>
