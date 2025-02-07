@@ -3,6 +3,7 @@ import type { ImageItem } from '@/types/sharable.types.ts'
 import getElementsByXPath from '@/utils/getElementsByXPath'
 import classNames from 'classnames'
 import { Image as PrimeImage } from 'primereact/image'
+import NextImage from 'next/image'
 import React, { useEffect, useRef, useState } from 'react'
 
 
@@ -62,6 +63,26 @@ export function ItemTemplate({ index, ...item }: ItemTemplateProps) {
 						className={styles.img}
 					/>
 				)}
+				{/* {!hasError && ( */}
+				{/* 	<PrimeImage */}
+				{/* 		src={item.itemImageSrc} */}
+				{/* 		alt={item.alt} */}
+				{/* 		preview */}
+				{/* 		aria-labelledby={item?.creditColor} */}
+				{/* 		loading="eager" */}
+				{/* 		style={{ display: loaded ? 'block' : 'none' }} */}
+				{/* 		className={styles.img} */}
+				{/* 		onError={() => setHasError(true)} */}
+				{/* 		pt={{ */}
+				{/* 			image: { */}
+				{/* 				onLoad: () => { */}
+				{/* 					setLoaded(true) */}
+				{/* 				}, */}
+				{/* 				title: item.alt, */}
+				{/* 			}, */}
+				{/* 		}} */}
+				{/* 	/> */}
+				{/* )} */}
 				{!hasError && (
 					<PrimeImage
 						src={item.itemImageSrc}
