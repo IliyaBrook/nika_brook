@@ -34,25 +34,83 @@
 			.thumbnailImage {
 				position: relative;
 				border-radius: 6px;
-				:global {
-					img {
+				
+				.imageWrapper {
+					display: block;
+					position: relative;
+					
+					.img {
 						width: 100%;
 						height: 100%;
 						object-fit: cover;
 					}
-					.p-image-preview-icon {
-						position: absolute !important;
-						top: 50% !important;
+					
+					&::before {
+						content: '';
+						position: absolute;
+						top: 0;
+						left: 0;
+						width: 100%;
+						height: 100%;
+						background-color: transparent;
+						transition: background-color 0.3s ease;
+						z-index: 1;
 					}
-					.p-image-preview-container {
-						position: unset !important;
+					.eyeIcon{
+						display: none;
+						position: absolute;
+						top: 50%;
+						left: 50%;
+						transform: translate(-50%, -50%);
+						z-index: 2;
+						color: #fff!important;
+						cursor: pointer;
+						width: 1.5rem!important;
+						height: 1.5rem!important;
+						svg{
+							fill: red;
+						}
+					}
+				}
+			
+				@media (min-width: 768px) {
+					.imageWrapper{
+						&:hover::before {
+							background-color: rgba(0, 0, 0, 0.5);
+							cursor: pointer;
+						}
+						&:hover .eyeIconShow{
+							display: block;
+						}
 					}
 				}
 			}
-	
 		}
 	}
 }
+.preview {
+	top: 0;
+	left: 0;
+	position: fixed;
+	z-index: 100;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.9);
+	cursor: pointer;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	overflow: auto;
+	
+	.imagePreview {
+		max-width: 90vw;
+		max-height: 90vh;
+		object-fit: contain;
+		border-radius: 8px;
+		box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+	}
+}
+
 
 .carouselWrapper {
 	height: 100%;

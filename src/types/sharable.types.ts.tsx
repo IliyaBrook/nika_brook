@@ -3,7 +3,7 @@ import type { CSSProperties } from 'react'
 
 export interface ImageItem {
 	id:string;
-	itemImageSrc: string;
+	itemImageSrc: string | StaticImport;
 	alt: string;
 	credit: string;
 	creditColor: CSSProperties['color'];

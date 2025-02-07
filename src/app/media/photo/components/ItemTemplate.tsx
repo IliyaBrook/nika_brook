@@ -1,11 +1,11 @@
 import styles from '@/app/media/photo/photo.module.scss'
+import ImageWithCredit from '@/components/ImageWithCredit/ImageWithCredit'
 import type { ImageItem } from '@/types/sharable.types.ts'
-import getElementsByXPath from '@/utils/getElementsByXPath'
 import classNames from 'classnames'
-import { Image as PrimeImage } from 'primereact/image'
-import NextImage from 'next/image'
-import React, { useEffect, useRef, useState } from 'react'
-
+import NextImage, {ImageProps} from 'next/image'
+import React, { useState } from 'react'
+import { createPortal } from 'react-dom';
+import EyeIcon from '../../../../../public/images/icons/eye_icons.svg'
 
 interface ItemTemplateProps extends ImageItem {
 	item: ImageItem
@@ -15,95 +15,70 @@ interface ItemTemplateProps extends ImageItem {
 }
 
 export function ItemTemplate({ index, ...item }: ItemTemplateProps) {
-	const [loaded, setLoaded] = useState(false)
-	const creditInserted = useRef(false)
-	const [hasError, setHasError] = useState(false)
+	const [previewOpen, setPreviewOpen] = useState(false)
+	const togglePreview = () => setPreviewOpen(prev => !prev)
 	
-	useEffect(() => {
-		const img = new Image()
-		img.src = item.itemImageSrc
-		img.onload = () => {
-			setLoaded(true)
-		}
-		img.onerror = () => setHasError(true)
-	}, [item.itemImageSrc])
-	
-	useEffect(() => {
-		if (!loaded || creditInserted.current) return
-		
-		const creditTo = `
-			<div class='mediaPhotoCreditTo' style='color: ${item?.creditColor}'>
-				${item?.credit ?? ''}
-			</div>
-		`
-		const carouselItems = getElementsByXPath({
-			xpath: `//div[contains(@class, 'p-carousel-item') and @aria-label='${index}']`
-		})
-		
-		if (carouselItems?.length > 0) {
-			const carouselItem = carouselItems[0]
-			if (carouselItem instanceof HTMLElement) {
-				const pImage = carouselItem?.childNodes?.[0]?.childNodes?.[0]?.childNodes[0]
-				if (pImage instanceof HTMLElement) {
-					pImage.insertAdjacentHTML('beforeend', creditTo)
-					creditInserted.current = true
-				}
-			}
-		}
-	}, [loaded, item])
-
+	const renderPreview = (
+			previewOpen && (
+			createPortal(
+				<div
+					className={styles.preview}
+					onClick={togglePreview}
+				>
+					<ImageWithCredit<ImageProps>
+						creditText=""
+						imageProps={{
+							src: item.itemImageSrc,
+							alt: item.alt,
+							loading:'lazy',
+							placeholder:'blur',
+							className: styles.imagePreview,
+							sizes: "(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 60vw"
+						}}
+						ImageComponentInstance={NextImage}
+						creditTextColor={item.creditColor}
+					/>
+				</div>,
+				document.body
+			)
+		)
+	)
 	
 	return (
 		<div className={classNames(styles.itemTemplate)}>
 			<div className={styles.thumbnailImage}>
-				{(!loaded || hasError) && (
-					<img
-						src="/images/skeleton.svg"
-						alt="Loading skeleton"
-						className={styles.img}
-					/>
-				)}
-				{/* {!hasError && ( */}
-				{/* 	<PrimeImage */}
-				{/* 		src={item.itemImageSrc} */}
-				{/* 		alt={item.alt} */}
-				{/* 		preview */}
-				{/* 		aria-labelledby={item?.creditColor} */}
-				{/* 		loading="eager" */}
-				{/* 		style={{ display: loaded ? 'block' : 'none' }} */}
-				{/* 		className={styles.img} */}
-				{/* 		onError={() => setHasError(true)} */}
-				{/* 		pt={{ */}
-				{/* 			image: { */}
-				{/* 				onLoad: () => { */}
-				{/* 					setLoaded(true) */}
-				{/* 				}, */}
-				{/* 				title: item.alt, */}
-				{/* 			}, */}
-				{/* 		}} */}
-				{/* 	/> */}
-				{/* )} */}
-				{!hasError && (
-					<PrimeImage
-						src={item.itemImageSrc}
-						alt={item.alt}
-						preview
-						aria-labelledby={item?.creditColor}
-						loading="eager"
-						style={{ display: loaded ? 'block' : 'none' }}
-						className={styles.img}
-						onError={() => setHasError(true)}
-						pt={{
-							image: {
-								onLoad: () => {
-									setLoaded(true)
-								},
-								title: item.alt,
-							},
-						}}
-					/>
-				)}
+				<div className="p-carousel-item p-carousel-item-active">
+	        <span
+	          className={classNames(
+	            styles.imageWrapper
+	          )}
+	          onClick={togglePreview}
+	          aria-labelledby='white'
+	          data-pc-name='image'
+	          data-pc-section='root'
+	        >
+		        <ImageWithCredit<ImageProps>
+			        creditText={item.credit}
+			        imageProps={{
+				        src: item.itemImageSrc,
+				        alt: item.alt,
+				        loading:'lazy',
+				        placeholder:'blur',
+				        className: styles.img
+			        }}
+			        ImageComponentInstance={NextImage}
+			        creditTextColor={item.creditColor}
+		        />
+		        <NextImage
+			        src={EyeIcon}
+			        alt="eye icon"
+			        className={classNames(styles.eyeIcon, styles.eyeIconShow)}
+		        />
+	        </span>
+					
+				</div>
 			</div>
+			{renderPreview}
 		</div>
 	)
 }
