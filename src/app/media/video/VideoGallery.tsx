@@ -47,18 +47,18 @@ const VideoGallery = () => {
 		wrapper.className = 'videoIframeWrapper';
 		
 		wrapper.innerHTML = `
-        <button class="closeButton">
-            <img src="/images/icons/close_icon.png" alt="Close" />
+        <button class='closeButton'>
+            <img src='/images/icons/close_icon_black.png' alt='Close' />
         </button>
         <iframe
-            class="iframeFullScreen"
-            width="100%"
-            height="100%"
-            title="${selectedVideo.alt}"
-            src="https://www.youtube.com/embed/${selectedVideo.youtubeId}?autoplay=1&controls=1&rel=0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            class='iframeFullScreen'
+            width='100%'
+            height='100%'
+            title='${selectedVideo.alt}'
+            src='https://www.youtube.com/embed/${selectedVideo.youtubeId}?autoplay=1&controls=1&rel=0'
+            allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
             allowfullscreen
-            id="ytPlayer"
+            id='ytPlayer'
         ></iframe>
     `;
 		

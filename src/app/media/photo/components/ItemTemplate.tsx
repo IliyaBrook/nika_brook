@@ -6,6 +6,7 @@ import NextImage, {ImageProps} from 'next/image'
 import React, { useState } from 'react'
 import { createPortal } from 'react-dom';
 import EyeIcon from '../../../../../public/images/icons/eye_icons.svg'
+import CloseIcon from '../../../../../public/images/icons/close_icon_white.svg'
 
 interface ItemTemplateProps extends ImageItem {
 	item: ImageItem
