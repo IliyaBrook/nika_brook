@@ -70,6 +70,7 @@
 				align-items: center;
 			}
 		}
+
 		.buttonWrapper{
 			display: flex;
 			height: inherit;
@@ -90,9 +91,9 @@
 				overflow: hidden;
 				position: relative;
 				.icon {
-					color: #6b7280;
+					color:rgb(107, 114, 128);
 				}
-				&:hover {
+				&:hover:not(.buttonDisabled) {
 					color: #374151;
 					border-color: transparent;
 					background-color: #dddcdc;
@@ -102,6 +103,7 @@
 					}
 				}
 			}
+			
 			&.prevButton {
 				width: 2%;
 			}
@@ -111,6 +113,11 @@
 			}
 			@media (max-width: 768px) {
 				display: none;
+			}
+			.buttonDisabled{
+				.icon{
+					color:rgb(107, 114, 128, 0.5);
+				}
 			}
 		}
 		@media (max-width: 768px) {

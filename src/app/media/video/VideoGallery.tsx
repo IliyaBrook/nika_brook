@@ -1,24 +1,23 @@
 'use client'
-import { videos } from '@/app/media/video/data'
+import { lastNumVisibleIndex, totalItems, videos } from '@/app/media/video/data'
 import type { VideoGallery } from '@/types/sharable.types.ts.tsx'
 import classNames from 'classnames'
 import Image from 'next/image'
-import { Galleria as GalleriaComponent } from 'primereact/galleria'
 import React, { useEffect, useRef, useState } from 'react'
 import styles from './video.module.scss'
 import 'primeicons/primeicons.css'
 
 
 const VideoGallery = () => {
-	const galleriaRef = useRef<GalleriaComponent>(null)
 	const [selectedVideo, setSelectedVideo] = useState<VideoGallery>(null)
 	const [scrollIndex, setScrollIndex] = useState<number>(0)
 	const visibleItems = 3
-	const [numVisible, setNumVisible] = useState<number>(5)
+	const [numVisible, setNumVisible] = useState<number>(totalItems)
 	
 	const updateNumVisible = () => {
-		setNumVisible(window.innerWidth < 768 ? 1 : 5)
-	}
+		setNumVisible(window.innerWidth < 768 ? 1 : visibleItems);
+	};
+	
 	
 	useEffect(() => {
 		updateNumVisible()
@@ -28,20 +27,22 @@ const VideoGallery = () => {
 		}
 	}, [])
 	
-	const handleCloseVideo = () => {
-		setSelectedVideo(null)
-	}
-	
 	const goToNext = () => {
-		const nextIndex = scrollIndex + 1
-		if (nextIndex < videos.length - visibleItems) {
-			setScrollIndex(nextIndex)
+		const maxIndex = Math.max(0, videos.length - visibleItems);
+		if (scrollIndex < maxIndex) {
+			setScrollIndex(scrollIndex + 1);
 		}
-	}
+	};
+	
+	
 	
 	const goToPrev = () => {
-		setScrollIndex((prevIndex) => Math.max(prevIndex - 1, 0))
-	}
+		const previousIndex = scrollIndex - 1;
+		if (previousIndex >= 0) {
+			setScrollIndex(previousIndex);
+		}
+	};
+	
 	
 	useEffect(() => {
 		if (!selectedVideo) return;
@@ -100,7 +101,8 @@ const VideoGallery = () => {
 			<div className={styles.carouselContainer}>
 				<div className={styles.buttonWrapper}>
 					<button
-						className={classNames(styles.prevButton, styles.button)}
+						disabled={scrollIndex === 0}
+						className={classNames(styles.prevButton, styles.button, {[styles.buttonDisabled]: scrollIndex === 0})}
 						onClick={goToPrev}
 						aria-label='Previous'
 					>
@@ -116,9 +118,9 @@ const VideoGallery = () => {
 								key={`carousel-item-${index}`}
 								className={styles.carouselItem}
 								style={{
-									transform:
-										numVisible !== 1 ? `translateX(-${scrollIndex * 100}%)` : 'none'
+									transform: `translateX(-${Math.min(scrollIndex, videos.length - visibleItems) * 100}%)`,
 								}}
+							
 							>
 								<Image
 									src={video.thumbnailImageSrc}
@@ -156,7 +158,7 @@ const VideoGallery = () => {
 				
 				<div className={styles.buttonWrapper}>
 					<button
-						className={classNames(styles.button, styles.nextButton)}
+						className={classNames(styles.button, styles.nextButton, {[styles.buttonDisabled]: scrollIndex === lastNumVisibleIndex})}
 						onClick={goToNext}
 						aria-label='Next'
 					>

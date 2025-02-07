@@ -75,3 +75,7 @@ export const videos: VideoGallery[] = [
     index: 6
   }
 ]
+
+export const totalItems = videos.length
+export const numberVisible = 3;
+export const lastNumVisibleIndex = totalItems - numberVisible
