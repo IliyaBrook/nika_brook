@@ -73,10 +73,20 @@
 						}
 					}
 					.imageWithCredit{
-						div{
-							top: -30px!important;
-							right: 5px!important;
-						}
+						top: -30px!important;
+						right: 5px!important;
+//						@media (min-width: 1200px) {
+//							div{
+//								top: -30px!important;
+//								right: 5px!important;
+//							}
+//						}
+//						@media (max-width: 1200px) {
+//							div{
+//								top: -20px!important;
+//								right: 5px!important;
+//							}
+//						}
 						.creditText{
 							font-size: 10px;
 						}
@@ -94,10 +104,8 @@
 						}
 					}
 				}
-				@media (min-width: 1200px) {
-//					.imageWrapper{
-//						max-height: 375px;
-//					}
+				@media (min-width: 842px) {
+					max-height: 45vh!important;
 				}
 			}
 		}

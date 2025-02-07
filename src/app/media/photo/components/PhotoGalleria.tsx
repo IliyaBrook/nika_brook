@@ -2,6 +2,7 @@
 import { ItemTemplate } from '@/app/media/photo/components/ItemTemplate'
 import { images } from '@/app/media/photo/data'
 import dynamic from 'next/dynamic'
+import type { CarouselResponsiveOption } from 'primereact/carousel'
 import React, { useRef } from 'react'
 import styles from '../photo.module.scss'
 
@@ -17,7 +18,10 @@ const Carousel = dynamic(
 
 export const PhotoGalleria = () =>  {
 	const carouselRef = useRef<any>(null)
-
+	
+	const responsiveOptions: CarouselResponsiveOption[] = [
+		{ breakpoint: '842px', numVisible: 3, numScroll: 1 }
+	]
 	
 	return (
 		<div className={styles.carouselWrapper}>
@@ -27,6 +31,7 @@ export const PhotoGalleria = () =>  {
 				value={images}
 				circular
 				numVisible={5}
+				responsiveOptions={responsiveOptions}
 				orientation="horizontal"
 				verticalViewPortHeight="360px"
 				itemTemplate={(item) => {
