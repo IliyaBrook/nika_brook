@@ -20,28 +20,30 @@ export function ItemTemplate({ index, ...item }: ItemTemplateProps) {
 	const togglePreview = () => setPreviewOpen(prev => !prev)
 	
 	const renderPreview = (
-			previewOpen && (
-			createPortal(
-				<div
-					className={styles.preview}
-					onClick={togglePreview}
-				>
-					<ImageWithCredit<ImageProps>
-						creditText=""
-						imageProps={{
-							src: item.itemImageSrc,
-							alt: item.alt,
-							loading:'lazy',
-							placeholder:'blur',
-							className: styles.imagePreview,
-							sizes: "(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 60vw"
-						}}
-						ImageComponentInstance={NextImage}
-						creditTextColor={item.creditColor}
-					/>
-				</div>,
-				document.body
-			)
+		previewOpen &&
+		createPortal(
+			<div className={styles.preview} onClick={togglePreview}>
+				<NextImage
+					src={CloseIcon}
+					alt="Close Icon"
+					className={styles.closeIcon}
+				/>
+				
+				<ImageWithCredit<ImageProps>
+					creditText=""
+					imageProps={{
+						src: item.itemImageSrc,
+						alt: item.alt,
+						loading: 'lazy',
+						placeholder: 'blur',
+						className: styles.imagePreview,
+						sizes: '(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 60vw',
+					}}
+					ImageComponentInstance={NextImage}
+					creditTextColor={item.creditColor}
+				/>
+			</div>,
+			document.body
 		)
 	)
 	
