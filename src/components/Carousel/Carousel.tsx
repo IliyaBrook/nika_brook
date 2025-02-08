@@ -45,6 +45,29 @@ export const Carousel = <T, >({
 		}
 	}
 	
+	useEffect(() => {
+		const keyEventHandler = (event: KeyboardEvent) => {
+			console.log('keyEventHandler:', event.key);
+			if (event.target instanceof HTMLInputElement || event.target instanceof HTMLTextAreaElement) {
+				return;
+			}
+			
+			switch (event.key) {
+				case 'ArrowLeft':
+					goToPrev();
+					break;
+				case 'ArrowRight':
+					goToNext();
+					break;
+			}
+		};
+		
+		document.addEventListener('keydown', keyEventHandler);
+		return () => {
+			document.removeEventListener('keydown', keyEventHandler);
+		};
+	}, []);
+	
 	return (
 		<div className={styles.carouselContainer}>
 			<div className={styles.buttonWrapper}>
