@@ -1,33 +1,42 @@
 @use "@/app/shareableStyles/colors.scss" as colors;
-$imgMaxHeight:300px;
-$imgMaxWidth:300px;
+
+$imgMaxHeight: 300px;
+$imgMaxWidth: 300px;
 .photo {
 	width: 100%;
 	height: 100%;
 	display: flex;
+	
 	.carouselWrapper {
 		display: flex;
 		justify-content: center;
 		width: 100%;
-
+		
 		.itemTemplate {
 			margin: 0 0.5rem;
 			text-align: center;
+			
 			.thumbnailImage {
 				position: relative;
 				border-radius: 6px;
 				overflow: hidden;
 				max-width: $imgMaxWidth;
-				max-height: $imgMaxHeight;
+//				max-height: $imgMaxHeight;
+				
 				.imageWrapper {
 					display: flex;
-					max-height: $imgMaxHeight;
+//					max-height: $imgMaxHeight;
+					overflow: hidden;
+					align-items: center;
+					
 					.img {
 						width: 100%;
 						height: 100%;
 						object-fit: cover;
+						object-position: center;
 					}
-					.eyeIconBg{
+					
+					.eyeIconBg {
 						display: flex;
 						transition: background-color 0.3s ease;
 						position: absolute;
@@ -37,67 +46,39 @@ $imgMaxWidth:300px;
 						height: 100%;
 						justify-content: center;
 						align-items: center;
-						.eyeIcon{
+						
+						.eyeIcon {
 							display: none;
 						}
-						&:hover{
+						
+						&:hover {
 							@media (min-width: 768px) {
 								cursor: pointer;
 								background-color: rgba(0, 0, 0, 0.5);
 								z-index: 1;
-								.eyeIcon{
+								.eyeIcon {
 									display: block;
 								}
 							}
 						}
 					}
-//					&::before {
-//						content: '';
-//						position: absolute;
-//						top: 0;
-//						left: 0;
-//						width: 100%;
-//						height: 100%;
-//						background-color: transparent;
-//
-//						z-index: 1;
-//					}
-//					.eyeIcon{
-//						display: none;
-//						position: absolute;
-//						top: 50%;
-//						left: 50%;
-//						transform: translate(-50%, -50%);
-//						z-index: 2;
-//						color: #fff!important;
-//						cursor: pointer;
-//						width: 1.5rem!important;
-//						height: 1.5rem!important;
-//					}
 				}
-		
-//				@media (min-width: 768px) {
-//					.imageWrapper{
-//						&:hover::before {
-//							background-color: rgba(0, 0, 0, 0.5);
-//							cursor: pointer;
-//						}
-//						&:hover .eyeIconShow{
-//							display: block;
-//						}
-//					}
-//				}
-//
-//				@media (min-width: 770px) {
-//					max-height: 45vh!important;
-//				}
-//				@media (max-width: 770px) {
-//					max-height: 35vh!important;
-//				}
 			}
 		}
 	}
+	
+	.navBtns {
+//		@media (min-width: 768px) {
+//
+//		}
+//		max-height:calc(#{$imgMaxHeight});
+	}
+	.elementsContainer{
+		max-height: $imgMaxHeight;
+	}
+	
 }
+
 .preview {
 	top: 0;
 	left: 0;
@@ -142,13 +123,14 @@ $imgMaxWidth:300px;
 }
 
 
-.creditTextWrapper{
+.creditTextWrapper {
 	position: absolute;
 	top: 2px;
 	right: 3px;
 	z-index: 200;
 	display: flex;
-	.creditText{
+	
+	.creditText {
 		font-size: 10px;
 		color: #fff;
 	}

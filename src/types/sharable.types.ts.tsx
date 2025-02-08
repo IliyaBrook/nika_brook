@@ -28,3 +28,9 @@ export type DeviceType =
 	| 'MacOS'
 	| 'Linux'
 	| 'unknown'
+
+export interface CarouselResponsiveOption {
+	breakpoint: number;
+	numVisible: number;
+	numScroll: number;
+}
