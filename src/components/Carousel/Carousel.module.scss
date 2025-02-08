@@ -1,0 +1,88 @@
+.carouselContainer {
+	background-color: var(--foreground-rgb);
+	position: relative;
+	width: 100%;
+	display: flex;
+	.buttonWrapper{
+		display: flex;
+		height: inherit;
+		justify-content: center;
+		align-items: center;
+		.button {
+			width: 2rem;
+			height: 2rem;
+			border: 0 none;
+			background: transparent;
+			border-radius: 50%;
+			transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
+			flex-grow: 0;
+			flex-shrink: 0;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			overflow: hidden;
+			position: relative;
+			.icon {
+				color:rgb(107, 114, 128);
+			}
+			&:hover:not(.buttonDisabled) {
+				color: #374151;
+				border-color: transparent;
+				background-color: #dddcdc;
+				cursor: pointer;
+				.icon {
+					color: rgb(55, 65, 81);
+				}
+			}
+		}
+		
+		&.prevButton {
+			width: 2%;
+		}
+		
+		&.nextButton {
+			width: 3%;
+		}
+		@media (max-width: 768px) {
+			display: none;
+		}
+		.buttonDisabled{
+			.icon{
+				color:rgb(107, 114, 128, 0.5);
+			}
+		}
+	}
+	.carouselItemsWrapper {
+		display: flex;
+		width: 95%;
+		align-items: center;
+		@media (min-width: 768px) {
+			overflow: hidden;
+		}
+		.carouselItem {
+			flex: 0 0 35%;
+			transition: transform 0.5s ease;
+			position: relative;
+			height: 25vmax;
+			margin: 0 5px;
+			@media (max-width: 768px) {
+				width: 90%;
+				margin: 10px 0;
+				height: auto;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+			}
+		}
+	}
+	@media (max-width: 768px) {
+		height: calc(100svmax - var(--navbar-height));
+		.carouselItemsWrapper {
+			flex-direction: column;
+			overflow-y: auto;
+			height: 100%;
+			align-items: center;
+		}
+	}
+}
