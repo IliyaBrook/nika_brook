@@ -6,7 +6,7 @@ import styles from './carousel.module.scss'
 
 interface ICarousel<T> {
 	dataItems: T[];
-	renderItemAction: (item: T, onSelect: (item: T) => void) => React.ReactNode;
+	renderItemAction: (item: T) => React.ReactNode;
 }
 
 export const Carousel = <T, >({
@@ -47,7 +47,6 @@ export const Carousel = <T, >({
 	
 	useEffect(() => {
 		const keyEventHandler = (event: KeyboardEvent) => {
-			console.log('keyEventHandler:', event.key);
 			if (event.target instanceof HTMLInputElement || event.target instanceof HTMLTextAreaElement) {
 				return;
 			}
@@ -92,7 +91,7 @@ export const Carousel = <T, >({
 							transform: `translateX(-${Math.min(scrollIndex, dataItems.length - numVisible) * 100}%)`
 						}}
 					>
-						{renderItemAction(item, () => setScrollIndex(index))}
+						{renderItemAction(item)}
 					</div>
 				))}
 			</div>

@@ -4,7 +4,6 @@ import { StructuredData } from '@/components/StructuredData'
 import { Metadata } from 'next'
 import React from 'react'
 import styles from './video.module.scss'
-import './video.scss'
 import VideoGallery from './VideoGallery'
 
 export async function generateMetadata(): Promise<Metadata> {
