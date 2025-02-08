@@ -66,7 +66,7 @@ export const Carousel = <T, >({
 		return () => {
 			document.removeEventListener('keydown', keyEventHandler);
 		};
-	}, []);
+	}, [goToNext, goToPrev]);
 	
 	return (
 		<div className={styles.carouselContainer}>
