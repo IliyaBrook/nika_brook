@@ -2,6 +2,10 @@
 
 $imgMaxHeight: 300px;
 $imgMaxWidth: 300px;
+@media (max-width: 768px) {
+	$imgMaxWidth: unset;
+	$imgMaxHeight: unset;
+}
 .photo {
 	width: 100%;
 	height: 100%;
@@ -21,11 +25,8 @@ $imgMaxWidth: 300px;
 				border-radius: 6px;
 				overflow: hidden;
 				max-width: $imgMaxWidth;
-//				max-height: $imgMaxHeight;
-				
 				.imageWrapper {
 					display: flex;
-//					max-height: $imgMaxHeight;
 					overflow: hidden;
 					align-items: center;
 					
@@ -66,17 +67,11 @@ $imgMaxWidth: 300px;
 			}
 		}
 	}
-	
-	.navBtns {
-//		@media (min-width: 768px) {
-//
-//		}
-//		max-height:calc(#{$imgMaxHeight});
+	@media (min-width: 768px) {
+		.elementsContainer{
+			max-height: $imgMaxHeight;
+		}
 	}
-	.elementsContainer{
-		max-height: $imgMaxHeight;
-	}
-	
 }
 
 .preview {

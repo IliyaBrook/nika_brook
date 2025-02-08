@@ -48,7 +48,7 @@ export const Carousel = <T, >({
 					setNumScroll(1);
 				}
 			} else {
-				setNumVisible(screenWidth < 768 ? 1 : 3);
+				setNumVisible(3);
 				setNumScroll(1);
 			}
 		}
@@ -119,7 +119,6 @@ export const Carousel = <T, >({
 							style={{
 								transform: `translateX(-${Math.min(scrollIndex, dataItems.length ) * 100}%)`,
 								flex: `0 0 ${(100 / numVisible) - 2}%`,
-								maxWidth: `${(100 / numVisible) - 2}%`,
 							}}
 						>
 							{renderItemAction(item)}
