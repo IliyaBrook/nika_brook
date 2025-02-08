@@ -2,7 +2,7 @@
 import { images } from '@/app/media/photo/data'
 import { StructuredData } from '@/components/StructuredData'
 import { Metadata } from 'next'
-import MediaGalleria from '@/app/media/photo/components/PhotoGalleria'
+import MediaGalleria from '@/app/media/photo/PhotoGalleria'
 import styles from './photo.module.scss'
 import React from 'react'
 

@@ -15,29 +15,31 @@ const VideoGallery = () => {
 		<>
 			<Carousel
 				dataItems={videos}
-				renderItemAction={video => (
-					<div onClick={() => setSelectedVideo(video)} className={styles.carouselItem}>
-						<Image
-							src={video.thumbnailImageSrc}
-							alt={video.alt}
-							fill
-							className={styles.thumbnailImage}
-							sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-							loading="lazy"
-							placeholder="blur"
-						/>
-						<div className={styles.videoOverlay}>
-							<div className={styles.playIcon}>
-								<svg width="40" height="40" viewBox="0 0 12 18" xmlns="http://www.w3.org/2000/svg">
-									<polygon points="0,0 12,9 0,18" fill="white" />
-								</svg>
-							</div>
-							<div className={styles.videoInfo}>
-								<p className={styles.videoDescription}>{video.description}</p>
+				renderItemAction={(video) => {
+					return (
+						<div onClick={() => setSelectedVideo(video)} className={styles.carouselItem}>
+							<Image
+								src={video.thumbnailImageSrc}
+								alt={video.alt}
+								fill
+								className={styles.thumbnailImage}
+								sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+								loading="lazy"
+								placeholder="blur"
+							/>
+							<div className={styles.videoOverlay}>
+								<div className={styles.playIcon}>
+									<svg width="40" height="40" viewBox="0 0 12 18" xmlns="http://www.w3.org/2000/svg">
+										<polygon points="0,0 12,9 0,18" fill="white" />
+									</svg>
+								</div>
+								<div className={styles.videoInfo}>
+									<p className={styles.videoDescription}>{video.description}</p>
+								</div>
 							</div>
 						</div>
-					</div>
-				)}
+					)
+				}}
 			/>
 			
 			{selectedVideo && (

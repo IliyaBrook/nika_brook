@@ -1,10 +1,10 @@
 'use client'
-import { ItemTemplate } from '@/app/media/photo/components/ItemTemplate'
+import { ItemTemplate } from '@/app/media/photo/ItemTemplate'
 import { images } from '@/app/media/photo/data'
 import dynamic from 'next/dynamic'
 import type { CarouselResponsiveOption } from 'primereact/carousel'
 import React, { useRef } from 'react'
-import styles from '../photo.module.scss'
+import styles from './photo.module.scss'
 
 const Carousel = dynamic(
 	() =>
