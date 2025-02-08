@@ -84,15 +84,15 @@
 			}
 		}
 		@media (max-width: 768px) {
-			height: calc(100svmax - var(--navbar-height));
+			height: calc(100svmax - var(--navbar-height))!important;
 			.carouselItemsWrapper {
 				flex-direction: column;
 				overflow-y: auto;
 				height: 100%;
 				align-items: center;
 			}
+			margin-bottom: 10px;
 		}
-	
 	}
 	.carouselIndicators{
 		width: 100%;
@@ -148,6 +148,9 @@
 					background-color: #d1d5db;
 				}
 			}
+		}
+		@media (max-width: 768px) {
+			display: none;
 		}
 	}
 }

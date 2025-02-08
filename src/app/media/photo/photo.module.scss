@@ -1,91 +1,99 @@
 @use "@/app/shareableStyles/colors.scss" as colors;
+$imgMaxHeight:300px;
+$imgMaxWidth:300px;
 .photo {
-	display: flex;
-	justify-content: center;
-	padding-top: 0;
+	width: 100%;
 	height: 100%;
-	.skeletonItemWrapper{
-		padding: 10px;
-	}
-	.skeletonWrapper {
-		display: flex;
-		align-items: center;
-		height: 100%;
-		width: 100vw;
-		position: relative;
-		@include colors.bg-gradient();
-	}
-
+	display: flex;
 	.carouselWrapper {
 		display: flex;
 		justify-content: center;
+		width: 100%;
+
 		.itemTemplate {
 			margin: 0 0.5rem;
 			text-align: center;
-//			position: relative;
 			.thumbnailImage {
-				overflow: hidden;
 				position: relative;
 				border-radius: 6px;
-//				max-width: 300px;
-//				max-height: 400px;
+				overflow: hidden;
+				max-width: $imgMaxWidth;
+				max-height: $imgMaxHeight;
 				.imageWrapper {
-					display: block;
-					position: relative;
-	
+					display: flex;
+					max-height: $imgMaxHeight;
 					.img {
 						width: 100%;
 						height: 100%;
 						object-fit: cover;
 					}
-					
-					&::before {
-						content: '';
+					.eyeIconBg{
+						display: flex;
+						transition: background-color 0.3s ease;
 						position: absolute;
 						top: 0;
 						left: 0;
 						width: 100%;
 						height: 100%;
-						background-color: transparent;
-						transition: background-color 0.3s ease;
-						z-index: 1;
-					}
-					.eyeIcon{
-						display: none;
-						position: absolute;
-						top: 50%;
-						left: 50%;
-						transform: translate(-50%, -50%);
-						z-index: 2;
-						color: #fff!important;
-						cursor: pointer;
-						width: 1.5rem!important;
-						height: 1.5rem!important;
-						svg{
-							fill: red;
+						justify-content: center;
+						align-items: center;
+						.eyeIcon{
+							display: none;
+						}
+						&:hover{
+							@media (min-width: 768px) {
+								cursor: pointer;
+								background-color: rgba(0, 0, 0, 0.5);
+								z-index: 1;
+								.eyeIcon{
+									display: block;
+								}
+							}
 						}
 					}
-
+//					&::before {
+//						content: '';
+//						position: absolute;
+//						top: 0;
+//						left: 0;
+//						width: 100%;
+//						height: 100%;
+//						background-color: transparent;
+//
+//						z-index: 1;
+//					}
+//					.eyeIcon{
+//						display: none;
+//						position: absolute;
+//						top: 50%;
+//						left: 50%;
+//						transform: translate(-50%, -50%);
+//						z-index: 2;
+//						color: #fff!important;
+//						cursor: pointer;
+//						width: 1.5rem!important;
+//						height: 1.5rem!important;
+//					}
 				}
 		
-				@media (min-width: 768px) {
-					.imageWrapper{
-						&:hover::before {
-							background-color: rgba(0, 0, 0, 0.5);
-							cursor: pointer;
-						}
-						&:hover .eyeIconShow{
-							display: block;
-						}
-					}
-				}
-		
-				@media (min-width: 770px) {
-					max-height: 45vh!important;
-				}
-				@media (max-width: 770px) {
-					max-height: 35vh!important;
-				}
+//				@media (min-width: 768px) {
+//					.imageWrapper{
+//						&:hover::before {
+//							background-color: rgba(0, 0, 0, 0.5);
+//							cursor: pointer;
+//						}
+//						&:hover .eyeIconShow{
+//							display: block;
+//						}
+//					}
+//				}
+//
+//				@media (min-width: 770px) {
+//					max-height: 45vh!important;
+//				}
+//				@media (max-width: 770px) {
+//					max-height: 35vh!important;
+//				}
 			}
 		}
 	}
@@ -143,72 +151,5 @@
 	.creditText{
 		font-size: 10px;
 		color: #fff;
-	}
-}
-.carouselWrapper {
-	height: 100%;
-	:global {
-		.p-carousel-content {
-			height: 100%;
-			justify-content: center;
-			@include colors.bg-gradient();
-			.p-carousel-container {
-				overflow: hidden!important;
-				@media (min-height: 1200px) {
-					height: 90%;
-					.p-carousel-items-container {
-						height: 100%;
-						.p-carousel-item {
-							display: flex;
-							align-items: center;
-							overflow: visible !important;
-						}
-					}
-					.p-carousel-item{
-						align-items: flex-start;
-					}
-				}
-				@media(min-width: 571px) {
-					padding-right: 20px;
-					.p-carousel-items-container {
-						display: flex!important;
-						flex-direction: row!important;
-					}
-				}
-			}
-			@media (min-width: 768px) {
-				padding-left: 18px;
-			}
-			@media (max-width: 768px) {
-				padding-right: 18px;
-			}
-		}
-	}
-}
-
-@media (max-width: 1400px) {
-	.carouselWrapper {
-		.itemTemplate {
-			height: fit-content;
-			max-height: unset;
-			.thumbnailImage {
-				max-height: 100% !important;
-				:global {
-					.p-image-preview-container {
-						display: flex;
-						img {
-							height: 100%;
-							max-height: unset !important;
-						}
-					}
-				}
-			}
-		}
-	}
-}
-
-@media (min-width: 1024px) {
-	.itemTemplate {
-		margin-top: 30px !important;
 	}
 }

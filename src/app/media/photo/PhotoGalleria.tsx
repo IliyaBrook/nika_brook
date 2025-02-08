@@ -1,48 +1,67 @@
 'use client'
-import { ItemTemplate } from '@/app/media/photo/ItemTemplate'
 import { images } from '@/app/media/photo/data'
-import dynamic from 'next/dynamic'
-import type { CarouselResponsiveOption } from 'primereact/carousel'
-import React, { useRef } from 'react'
+import Preview from '@/app/media/photo/preview'
+import { Carousel } from '@/components/Carousel/Carousel'
+import classNames from 'classnames'
+import NextImage from 'next/image'
+import React, { useState } from 'react'
+import EyeIcon from '../../../../public/images/icons/eye_icons.svg'
 import styles from './photo.module.scss'
 
-const Carousel = dynamic(
-	() =>
-		import('primereact/carousel').then(
-			({ Carousel }) => Carousel
-		),
-	{
-		ssr: false
-	}
-)
-
-export const PhotoGalleria = () =>  {
-	const carouselRef = useRef<any>(null)
-	
-	const responsiveOptions: CarouselResponsiveOption[] = [
-		{ breakpoint: '1200px', numVisible: 4, numScroll: 1 },
-		{ breakpoint: '986px', numVisible: 3, numScroll: 1 },
-		{ breakpoint: '770px', numVisible: 2, numScroll: 1 },
-		{ breakpoint: '420px', numVisible: 1, numScroll: 1 },
-	]
+export const PhotoGalleria = () => {
+	const [previewOpen, setPreviewOpen] = useState(false)
+	const togglePreview = () => setPreviewOpen(prev => !prev)
 	
 	return (
 		<div className={styles.carouselWrapper}>
 			<Carousel
-				/* @ts-ignore */
-				ref={carouselRef}
-				value={images}
-				circular
-				numVisible={5}
-				responsiveOptions={responsiveOptions}
-				orientation="horizontal"
-				verticalViewPortHeight="360px"
-				itemTemplate={(item) => {
-					return <ItemTemplate
-						{...item}
-						index={item.index}
-					/>
-				}}
+				dataItems={images}
+				// classNameImgElements={styles.elementsContainer}
+				renderItemAction={(image) => (
+					<div className={classNames(styles.itemTemplate)}>
+							<div className={styles.thumbnailImage}>
+								<div className={styles.creditTextWrapper}>
+			            <span
+				            className={styles.creditText}
+				            style={{ color: image.creditColor }}
+			            >
+			              {image.credit}
+			            </span>
+								</div>
+								
+								<span
+									className={styles.imageWrapper}
+									onClick={togglePreview}
+									aria-labelledby="white"
+									data-pc-name="image"
+									data-pc-section="root"
+								>
+			            <NextImage
+				            src={image.itemImageSrc}
+				            alt={image.alt}
+				            className={styles.img}
+				            sizes="(max-width: 768px) 50vw, (max-width: 1200px) 70vw, 100vw"
+				            loading="lazy"
+				            placeholder="blur"
+			            />
+			
+			            <div className={styles.eyeIconBg}>
+			                <NextImage
+				                src={EyeIcon}
+				                alt='eye icon'
+				                className={classNames(styles.eyeIcon, styles.eyeIconShow)}
+			                />
+			            </div>
+		            </span>
+							</div>
+							
+							<Preview
+								item={image}
+								previewOpen={previewOpen}
+								togglePreview={togglePreview}
+							/>
+					</div>
+				)}
 			/>
 		</div>
 	)

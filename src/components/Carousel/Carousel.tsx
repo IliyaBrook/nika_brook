@@ -1,5 +1,4 @@
 'use client'
-import { videos } from '@/app/media/video/data'
 import classNames from 'classnames'
 import React, { useEffect, useState } from 'react'
 import styles from './Carousel.module.scss'
@@ -8,12 +7,18 @@ interface ICarousel<T> {
 	dataItems: T[];
 	renderItemAction: (item: T) => React.ReactNode;
 	withIndicators?: boolean;
+	classNameContainer?: string;
+	classNameImgElements?: string;
+	classNameIndicators?: string;
 }
 
 export const Carousel = <T, >({
 	                              dataItems,
 	                              renderItemAction,
-	                              withIndicators = true
+	                              withIndicators = true,
+	                              classNameContainer,
+	                              classNameIndicators,
+	                              classNameImgElements
                               }: ICarousel<T>
 ) => {
 	const totalItems = dataItems.length
@@ -33,7 +38,7 @@ export const Carousel = <T, >({
 	}, [])
 	
 	const goToNext = () => {
-		const maxIndex = Math.max(0, videos.length - numVisible)
+		const maxIndex = Math.max(0, totalItems - numVisible)
 		if (scrollIndex < maxIndex) {
 			setScrollIndex(scrollIndex + 1)
 		}
@@ -73,10 +78,10 @@ export const Carousel = <T, >({
 	}, [goToNext, goToPrev])
 	
 	return (
-		<div className={styles.carouselContainer}>
+		<div className={classNames(styles.carouselContainer, classNameContainer)}>
 			<div
-				className={styles.elementsWrapper}
-				style={{height: withIndicators ? '65%' : '100%'}}
+				className={classNames(styles.elementsWrapper, classNameImgElements)}
+				style={{ height: withIndicators ? '65%' : '100%' }}
 			>
 				<div className={classNames(styles.buttonWrapper, styles.prevButton)}>
 					<button
@@ -117,34 +122,35 @@ export const Carousel = <T, >({
 					</button>
 				</div>
 			</div>
-			{withIndicators && <div
-				className={styles.carouselIndicators}
-			>
-				<ul>
-					{dataItems.map((_, index) => (
-						<li
-							key={`indicator-${index}`}
-							data-p-highlight={scrollIndex === index}
-						>
-							<button
-								type='button'
-								tabIndex={scrollIndex === index ? 0 : -1}
-								aria-label={`Page ${index + 1}`}
-								aria-current={scrollIndex === index ? 'page' : undefined}
-								onClick={() => handleIndicatorClick(index)}
-								className={classNames({ [styles.active]: scrollIndex === index })}
-							
+			{
+				withIndicators &&
+				<div className={classNames(styles.carouselIndicators, classNameIndicators)}>
+					<ul>
+						{dataItems.map((_, index) => (
+							<li
+								key={`indicator-${index}`}
+								data-p-highlight={scrollIndex === index}
 							>
+								<button
+									type='button'
+									tabIndex={scrollIndex === index ? 0 : -1}
+									aria-label={`Page ${index + 1}`}
+									aria-current={scrollIndex === index ? 'page' : undefined}
+									onClick={() => handleIndicatorClick(index)}
+									className={classNames({ [styles.active]: scrollIndex === index })}
+								
+								>
                   <span
 	                  role='presentation'
 	                  aria-hidden='true'
 	                  style={{ height: '32px', width: '32px' }}
                   />
-							</button>
-						</li>
-					))}
-				</ul>
-			</div>}
+								</button>
+							</li>
+						))}
+					</ul>
+				</div>
+			}
 		</div>
 	)
 }
