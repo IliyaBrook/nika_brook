@@ -31,7 +31,7 @@ export const Carousel = <T, >({
 	const [scrollIndex, setScrollIndex] = useState<number>(0)
 	const [numVisible, setNumVisible] = useState<number>(totalItems)
 	const [numScroll, setNumScroll] = useState<number>(1);
-	const [activeIndicator, setActiveIndicator] = useState<number>(0)
+	// const [activeIndicator, setActiveIndicator] = useState<number>(0)
 	const {screenWidth} = useWindowSize()
 	
 	useEffect(() => {
@@ -55,22 +55,45 @@ export const Carousel = <T, >({
 		}
 	}, [screenWidth])
 	
+	// const updateActiveIndicator = (index: number) => {
+	// 	const maxIndex = Math.max(0, totalItems - numVisible);
+	// 	const lastIndicatorIndex = Math.floor(maxIndex / numScroll);
+	//
+	// 	if (index >= maxIndex) {
+	// 		setActiveIndicator(lastIndicatorIndex + 1); // Устанавливаем последний индикатор
+	// 	}
+	// 	else {
+	// 		setActiveIndicator(Math.floor(index / numScroll)); // Стандартная логика
+	// 	}
+	// };
+	
+	// const goToNext2 = () => {
+	// 	const maxIndex = Math.max(0, totalItems - numVisible);
+	// 	if (scrollIndex + numScroll <= maxIndex) {
+	// 		setScrollIndex(scrollIndex + numScroll);
+	// 	}
+	// 	setActiveIndicator(
+	// 		Math.ceil((scrollIndex + numScroll) / numScroll)
+	// 	);
+	// };
 	const goToNext = () => {
 		const maxIndex = Math.max(0, totalItems - numVisible);
-		const newIndex = Math.min(scrollIndex + 1, maxIndex);
+		const newIndex = Math.min(scrollIndex + numScroll, maxIndex);
 		setScrollIndex(newIndex);
-		setActiveIndicator(newIndex);
+		// updateActiveIndicator(newIndex);
 	};
 	
 	const goToPrev = () => {
-		const newIndex = Math.max(scrollIndex - 1, 0);
+		const newIndex = Math.max(scrollIndex - numScroll, 0);
 		setScrollIndex(newIndex);
-		setActiveIndicator(newIndex);
+		// updateActiveIndicator(newIndex);
 	};
 	
 	const handleIndicatorClick = (index: number) => {
-		setScrollIndex(index);
-		setActiveIndicator(index);
+		const maxIndex = Math.max(0, totalItems - numVisible);
+		const newIndex = Math.min(index, maxIndex);
+		setScrollIndex(newIndex);
+		// updateActiveIndicator(newIndex);
 	};
 	
 	useEffect(() => {
@@ -148,31 +171,39 @@ export const Carousel = <T, >({
 				withIndicators &&
 				<div className={classNames(styles.carouselIndicators, classNameIndicators)}>
 					<ul>
-						{dataItems.map((_, index) => {
-							const isActive = activeIndicator === index;
-							
+						{indicatorItems.map((_, index) => {
+							const isActive = Math.ceil(scrollIndex / numScroll) === index;
 							return (
-								<li key={`indicator-${index}`}>
+								<li
+									key={`indicator-${index}`}
+								>
 									<button
+										// type="button"
+										// tabIndex={isActive ? 0 : -1}
+										// aria-label={`Page ${index + 1}`}
+										// aria-current={activeIndicator ? "page" : undefined}
+										// onClick={() => handleIndicatorClick(index * numScroll)}
+										// className={classNames({ [styles.active]: isActive })}
 										type="button"
 										tabIndex={isActive ? 0 : -1}
 										aria-label={`Page ${index + 1}`}
 										aria-current={isActive ? "page" : undefined}
-										onClick={() => handleIndicatorClick(index)}
+										onClick={() => handleIndicatorClick(index * numScroll)}
 										className={classNames({ [styles.active]: isActive })}
 									>
-            <span
-	            role="presentation"
-	            aria-hidden="true"
-	            style={{ height: '32px', width: '32px' }}
-            />
+                  <span
+	                  role='presentation'
+	                  aria-hidden='true'
+	                  style={{ height: '32px', width: '32px' }}
+                  />
 									</button>
 								</li>
-							);
+							)
 						})}
 					</ul>
 				</div>
 			}
+			<h1>Pages: {Math.ceil((dataItems.length - numVisible + numScroll) / numScroll)}</h1>
 		</div>
 	)
 }
