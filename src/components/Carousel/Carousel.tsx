@@ -31,7 +31,6 @@ export const Carousel = <T, >({
 	const [scrollIndex, setScrollIndex] = useState<number>(0)
 	const [numVisible, setNumVisible] = useState<number>(totalItems)
 	const [numScroll, setNumScroll] = useState<number>(1);
-	// const [activeIndicator, setActiveIndicator] = useState<number>(0)
 	const {screenWidth} = useWindowSize()
 	
 	useEffect(() => {
@@ -55,45 +54,21 @@ export const Carousel = <T, >({
 		}
 	}, [screenWidth])
 	
-	// const updateActiveIndicator = (index: number) => {
-	// 	const maxIndex = Math.max(0, totalItems - numVisible);
-	// 	const lastIndicatorIndex = Math.floor(maxIndex / numScroll);
-	//
-	// 	if (index >= maxIndex) {
-	// 		setActiveIndicator(lastIndicatorIndex + 1); // Устанавливаем последний индикатор
-	// 	}
-	// 	else {
-	// 		setActiveIndicator(Math.floor(index / numScroll)); // Стандартная логика
-	// 	}
-	// };
-	
-	// const goToNext2 = () => {
-	// 	const maxIndex = Math.max(0, totalItems - numVisible);
-	// 	if (scrollIndex + numScroll <= maxIndex) {
-	// 		setScrollIndex(scrollIndex + numScroll);
-	// 	}
-	// 	setActiveIndicator(
-	// 		Math.ceil((scrollIndex + numScroll) / numScroll)
-	// 	);
-	// };
 	const goToNext = () => {
 		const maxIndex = Math.max(0, totalItems - numVisible);
 		const newIndex = Math.min(scrollIndex + numScroll, maxIndex);
 		setScrollIndex(newIndex);
-		// updateActiveIndicator(newIndex);
 	};
 	
 	const goToPrev = () => {
 		const newIndex = Math.max(scrollIndex - numScroll, 0);
 		setScrollIndex(newIndex);
-		// updateActiveIndicator(newIndex);
 	};
 	
 	const handleIndicatorClick = (index: number) => {
 		const maxIndex = Math.max(0, totalItems - numVisible);
 		const newIndex = Math.min(index, maxIndex);
 		setScrollIndex(newIndex);
-		// updateActiveIndicator(newIndex);
 	};
 	
 	useEffect(() => {
@@ -101,7 +76,6 @@ export const Carousel = <T, >({
 			if (event.target instanceof HTMLInputElement || event.target instanceof HTMLTextAreaElement) {
 				return
 			}
-			
 			switch (event.key) {
 				case 'ArrowLeft':
 					goToPrev()
@@ -111,7 +85,6 @@ export const Carousel = <T, >({
 					break
 			}
 		}
-		
 		document.addEventListener('keydown', keyEventHandler)
 		return () => {
 			document.removeEventListener('keydown', keyEventHandler)
@@ -119,7 +92,6 @@ export const Carousel = <T, >({
 	}, [goToNext, goToPrev])
 	
 	const indicatorItems = Array.from({ length: Math.ceil((dataItems.length - numVisible + (numScroll)) / numScroll) })
-
 	
 	return (
 		<div className={classNames(styles.carouselContainer, classNameContainer)}>
@@ -146,8 +118,8 @@ export const Carousel = <T, >({
 							className={styles.carouselItem}
 							style={{
 								transform: `translateX(-${Math.min(scrollIndex, dataItems.length ) * 100}%)`,
-								flex: `0 0 ${100 / numVisible}%`,
-								maxWidth: `${100 / numVisible}%`,
+								flex: `0 0 ${(100 / numVisible) - 2}%`,
+								maxWidth: `${(100 / numVisible) - 2}%`,
 							}}
 						>
 							{renderItemAction(item)}
@@ -178,12 +150,6 @@ export const Carousel = <T, >({
 									key={`indicator-${index}`}
 								>
 									<button
-										// type="button"
-										// tabIndex={isActive ? 0 : -1}
-										// aria-label={`Page ${index + 1}`}
-										// aria-current={activeIndicator ? "page" : undefined}
-										// onClick={() => handleIndicatorClick(index * numScroll)}
-										// className={classNames({ [styles.active]: isActive })}
 										type="button"
 										tabIndex={isActive ? 0 : -1}
 										aria-label={`Page ${index + 1}`}
@@ -203,7 +169,6 @@ export const Carousel = <T, >({
 					</ul>
 				</div>
 			}
-			<h1>Pages: {Math.ceil((dataItems.length - numVisible + numScroll) / numScroll)}</h1>
 		</div>
 	)
 }
