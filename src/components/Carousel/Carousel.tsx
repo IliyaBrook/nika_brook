@@ -2,19 +2,20 @@
 import { videos } from '@/app/media/video/data'
 import classNames from 'classnames'
 import React, { useEffect, useState } from 'react'
-import styles from './carousel.module.scss'
+import styles from './Carousel.module.scss'
 
 interface ICarousel<T> {
 	dataItems: T[];
 	renderItemAction: (item: T) => React.ReactNode;
+	withIndicators?: boolean;
 }
 
 export const Carousel = <T, >({
 	                              dataItems,
-	                              renderItemAction
+	                              renderItemAction,
+	                              withIndicators = true
                               }: ICarousel<T>
 ) => {
-	'use client'
 	const totalItems = dataItems.length
 	const [scrollIndex, setScrollIndex] = useState<number>(0)
 	const [numVisible, setNumVisible] = useState<number>(totalItems)
@@ -45,68 +46,105 @@ export const Carousel = <T, >({
 		}
 	}
 	
+	const handleIndicatorClick = (index: number) => {
+		setScrollIndex(index)
+	}
+	
 	useEffect(() => {
 		const keyEventHandler = (event: KeyboardEvent) => {
 			if (event.target instanceof HTMLInputElement || event.target instanceof HTMLTextAreaElement) {
-				return;
+				return
 			}
 			
 			switch (event.key) {
 				case 'ArrowLeft':
-					goToPrev();
-					break;
+					goToPrev()
+					break
 				case 'ArrowRight':
-					goToNext();
-					break;
+					goToNext()
+					break
 			}
-		};
+		}
 		
-		document.addEventListener('keydown', keyEventHandler);
+		document.addEventListener('keydown', keyEventHandler)
 		return () => {
-			document.removeEventListener('keydown', keyEventHandler);
-		};
-	}, [goToNext, goToPrev]);
+			document.removeEventListener('keydown', keyEventHandler)
+		}
+	}, [goToNext, goToPrev])
 	
 	return (
 		<div className={styles.carouselContainer}>
-			<div className={styles.buttonWrapper}>
-				<button
-					disabled={scrollIndex === 0}
-					className={classNames(styles.prevButton, styles.button, {
-						[styles.buttonDisabled]: scrollIndex === 0
-					})}
-					onClick={goToPrev}
-					aria-label='Previous'
-				>
-					<i className={classNames(styles.icon, 'pi pi-chevron-left')}></i>
-				</button>
-			</div>
-			
-			<div className={styles.carouselItemsWrapper}>
-				{dataItems.map((item, index) => (
-					<div
-						key={`carousel-item-${index}`}
-						className={styles.carouselItem}
-						style={{
-							transform: `translateX(-${Math.min(scrollIndex, dataItems.length - numVisible) * 100}%)`
-						}}
+			<div
+				className={styles.elementsWrapper}
+				style={{height: withIndicators ? '65%' : '100%'}}
+			>
+				<div className={classNames(styles.buttonWrapper, styles.prevButton)}>
+					<button
+						disabled={scrollIndex === 0}
+						className={classNames(styles.button, {
+							[styles.buttonDisabled]: scrollIndex === 0
+						})}
+						onClick={goToPrev}
+						aria-label='Previous'
 					>
-						{renderItemAction(item)}
-					</div>
-				))}
+						<i className={classNames(styles.icon, 'pi pi-chevron-left')}></i>
+					</button>
+				</div>
+				
+				<div className={styles.carouselItemsWrapper}>
+					{dataItems.map((item, index) => (
+						<div
+							key={`carousel-item-${index}`}
+							className={styles.carouselItem}
+							style={{
+								transform: `translateX(-${Math.min(scrollIndex, dataItems.length - numVisible) * 100}%)`
+							}}
+						>
+							{renderItemAction(item)}
+						</div>
+					))}
+				</div>
+				
+				<div className={classNames(styles.buttonWrapper, styles.nextButton)}>
+					<button
+						className={classNames(styles.button, styles.nextButton, {
+							[styles.buttonDisabled]: scrollIndex >= dataItems.length - numVisible
+						})}
+						onClick={goToNext}
+						aria-label='Next'
+					>
+						<i className={classNames(styles.icon, 'pi pi-chevron-right')}></i>
+					</button>
+				</div>
 			</div>
-			
-			<div className={styles.buttonWrapper}>
-				<button
-					className={classNames(styles.button, styles.nextButton, {
-						[styles.buttonDisabled]: scrollIndex >= dataItems.length - numVisible
-					})}
-					onClick={goToNext}
-					aria-label='Next'
-				>
-					<i className={classNames(styles.icon, 'pi pi-chevron-right')}></i>
-				</button>
-			</div>
+			{withIndicators && <div
+				className={styles.carouselIndicators}
+			>
+				<ul>
+					{dataItems.map((_, index) => (
+						<li
+							key={`indicator-${index}`}
+							data-p-highlight={scrollIndex === index}
+						>
+							<button
+								type='button'
+								tabIndex={scrollIndex === index ? 0 : -1}
+								aria-label={`Page ${index + 1}`}
+								aria-current={scrollIndex === index ? 'page' : undefined}
+								onClick={() => handleIndicatorClick(index)}
+								className={classNames({ [styles.active]: scrollIndex === index })}
+							
+							>
+                  <span
+	                  role='presentation'
+	                  aria-hidden='true'
+	                  style={{ height: '32px', width: '32px' }}
+                  />
+							</button>
+						</li>
+					))}
+				</ul>
+			</div>}
 		</div>
 	)
 }
