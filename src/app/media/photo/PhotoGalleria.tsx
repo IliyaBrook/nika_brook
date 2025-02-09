@@ -4,10 +4,10 @@ import { Carousel } from '@/components/Carousel/Carousel'
 import { images } from '@/data'
 import useOnEscapeKey from '@/hooks/useOnEscapeKey'
 import useTouches from '@/hooks/useTouches'
-import type { CarouselResponsiveOption, ImageItem, VideoGallery } from '@/types/sharable.types.ts'
+import type { CarouselResponsiveOption, ImageItem } from '@/types/sharable.types.ts'
 import classNames from 'classnames'
 import NextImage from 'next/image'
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useState } from 'react'
 import EyeIcon from '../../../../public/images/icons/eye_icons.svg'
 import styles from './photo.module.scss'
 
@@ -24,7 +24,7 @@ export const PhotoGalleria = () => {
 		setPreviewOpen((prev) => !prev);
 	};
 	
-	const {handleMouseDown, handleTouchStart, handleMouseUp, handleTouchEnd} = useTouches<ImageItem, ImageItem>({
+	const {handleMouseDown, handleMouseUp} = useTouches<ImageItem, ImageItem>({
 		mouseUpCallback: (image) => {
 			togglePreview(image);
 		},
@@ -62,9 +62,8 @@ export const PhotoGalleria = () => {
 							<span
 								className={styles.imageWrapper}
 								onMouseDown={handleMouseDown}
-								onTouchStart={handleTouchStart}
-								onTouchEnd={(e) => handleTouchEnd(e, image)}
 								onMouseUp={(e) => handleMouseUp(e, image)}
+				
 								aria-labelledby="white"
 								data-pc-name="image"
 								data-pc-section="root"

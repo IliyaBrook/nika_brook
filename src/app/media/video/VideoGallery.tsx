@@ -16,7 +16,7 @@ const VideoGallery = () => {
 		setSelectedVideo(video);
 	};
 	
-	const {handleMouseDown, handleTouchStart, handleMouseUp, handleTouchEnd} = useTouches<VideoGallery, VideoGallery>({
+	const {handleMouseDown, handleMouseUp} = useTouches<VideoGallery, VideoGallery>({
 		mouseUpCallback: (video) => {
 			toggleModal(video)
 		},
@@ -37,9 +37,7 @@ const VideoGallery = () => {
 					return (
 						<div
 							onMouseDown={handleMouseDown}
-							onTouchStart={handleTouchStart}
 							onMouseUp={(e) => handleMouseUp(e, video)}
-							onTouchEnd={(e) => handleTouchEnd(e, video)}
 							style={{ touchAction: 'pan-y' }}
 						>
 							<Image
