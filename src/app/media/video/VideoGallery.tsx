@@ -4,11 +4,32 @@ import { Carousel } from '@/components/Carousel/Carousel'
 import { videos } from '@/data'
 import type { VideoGallery } from '@/types/sharable.types.ts.tsx'
 import Image from 'next/image'
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import styles from './video.module.scss'
 
 const VideoGallery = () => {
-	const [selectedVideo, setSelectedVideo] = useState<VideoGallery | null>(null);
+	const [selectedVideo, setSelectedVideo] = useState(null)
+	const clickPosition = useRef<{ x: number; y: number } | null>(null)
+	
+	const toggleModal = (video: VideoGallery) => {
+		setSelectedVideo(video)
+	}
+	
+	const handleMouseDown = (e: React.MouseEvent<HTMLSpanElement>) => {
+		clickPosition.current = { x: e.clientX, y: e.clientY }
+	}
+	
+	const handleMouseUp = (e: React.MouseEvent<HTMLSpanElement>, video: VideoGallery) => {
+		if (clickPosition.current) {
+			const dx = Math.abs(clickPosition.current.x - e.clientX)
+			const dy = Math.abs(clickPosition.current.y - e.clientY)
+			
+			if (dx < 5 && dy < 5) {
+				toggleModal(video)
+			}
+			clickPosition.current = null
+		}
+	}
 	
 	return (
 		<>
@@ -16,7 +37,10 @@ const VideoGallery = () => {
 				dataItems={videos}
 				renderItemAction={(video) => {
 					return (
-						<div onClick={() => setSelectedVideo(video)} className={styles.carouselItem}>
+						<div
+							onMouseDown={handleMouseDown}
+							onMouseUp={(e) => handleMouseUp(e, video)}
+						>
 							<Image
 								src={video.thumbnailImageSrc}
 								alt={video.alt}
@@ -41,7 +65,10 @@ const VideoGallery = () => {
 				}}
 			/>
 			{selectedVideo && (
-				<VideoModal video={selectedVideo} onClose={() => setSelectedVideo(null)} />
+				<VideoModal
+					video={selectedVideo}
+					onClose={() => setSelectedVideo(null)}
+				/>
 			)}
 		</>
 	);
