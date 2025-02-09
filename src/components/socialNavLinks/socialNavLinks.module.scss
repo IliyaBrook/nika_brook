@@ -1,7 +1,7 @@
 @use "@/app/shareableStyles/colors" as colors;
 
 .socialNavLinks {
-	background-color: colors.$bg-color-navbar;
+	background-color: var(--foreground-rgb) !important;
 	text-align: center;
 	display: flex;
 	justify-content: center;
