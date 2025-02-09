@@ -25,6 +25,7 @@ export const ScrollBarWrapper: React.FC<ScrollBarWrapperProps> = ({
 			}}
 		>
 			<ScrollPanel
+				
 				className={styles.scrollPanel}
 			>
 				{children}
