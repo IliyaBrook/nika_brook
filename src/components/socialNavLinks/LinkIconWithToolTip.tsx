@@ -5,14 +5,17 @@ import Link from 'next/link'
 import { Tooltip } from 'primereact/tooltip'
 import React from 'react'
 import classNames from 'classnames'
+import Image, { type StaticImageData } from 'next/image'
 import styles from './socialNavLinks.module.scss'
 
 interface ILinkIconWithToolTip {
-	classNameLink: string,
-	icon: IconDefinition,
-	href: string,
-	tooltipText: string
-	id?: string
+	classNameLink: string;
+	icon: IconDefinition | StaticImageData;
+	href: string;
+	tooltipText: string;
+	id?: string;
+	height?: string;
+	width?: string;
 }
 
 const LinkIconWithToolTip: React.FC<ILinkIconWithToolTip> = ({
@@ -20,7 +23,9 @@ const LinkIconWithToolTip: React.FC<ILinkIconWithToolTip> = ({
 	                                                             tooltipText,
 	                                                             href = '#',
 	                                                             icon,
-	                                                             id
+	                                                             id,
+	                                                             height,
+	                                                             width
                                                              }) => {
 	const classNameTarget = `${styles.icon}_target`
 	return (
@@ -32,13 +37,24 @@ const LinkIconWithToolTip: React.FC<ILinkIconWithToolTip> = ({
 			data-text={tooltipText}
 			id={id}
 		>
-         <span
-	         className={classNames(styles.icon, classNameTarget)}
-	         data-pr-tooltip={tooltipText}
-	         data-pr-position='top'
-         >
-          <FontAwesomeIcon icon={icon} />
-         </span>
+      <span
+	      className={classNames(styles.icon, classNameTarget)}
+	      data-pr-tooltip={tooltipText}
+	      data-pr-position='top'
+      >
+        {'src' in icon ? (
+	        <Image
+		        src={icon}
+		        alt={tooltipText}
+		        width={parseInt(width, 10)}
+		        height={parseInt(height, 10)}
+		        unoptimized
+		        className={styles.musixmatchIcon}
+	        />
+        ) : (
+	        <FontAwesomeIcon icon={icon} width={width} height={height} />
+        )}
+      </span>
 			<Tooltip
 				target={`.${classNameTarget}`}
 				showDelay={1000}

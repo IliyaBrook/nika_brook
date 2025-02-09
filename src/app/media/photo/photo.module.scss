@@ -1,9 +1,7 @@
 @use "@/app/shareableStyles/colors.scss" as colors;
 
 $imgMaxHeight: 300px;
-$imgMaxWidth: 300px;
 @media (max-width: 768px) {
-	$imgMaxWidth: unset;
 	$imgMaxHeight: unset;
 }
 .photo {
@@ -15,16 +13,14 @@ $imgMaxWidth: 300px;
 		display: flex;
 		justify-content: center;
 		width: 100%;
-		
+
 		.itemTemplate {
-			margin: 0 0.5rem;
 			text-align: center;
-			
 			.thumbnailImage {
-				position: relative;
-				border-radius: 6px;
 				overflow: hidden;
-				max-width: $imgMaxWidth;
+				@media (max-width: 768px) {
+					position: relative;
+				}
 				.imageWrapper {
 					display: flex;
 					overflow: hidden;
@@ -92,7 +88,6 @@ $imgMaxWidth: 300px;
 		max-width: 90vw;
 		max-height: 90vh;
 		object-fit: contain;
-		border-radius: 8px;
 		box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
 		
 		@media (max-width: 768px) {

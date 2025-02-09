@@ -67,11 +67,11 @@
 				overflow: hidden;
 			}
 			.carouselItem {
-//				flex: 0 0 35%;
+				margin: 0 1.5rem;
+				max-height: 100%;
 				transition: transform 0.5s ease;
 				position: relative;
 				height: 25vmax;
-				margin: 0 5px;
 				@media (max-width: 768px) {
 					width: 90%;
 					margin: 10px 0;

@@ -1,6 +1,6 @@
 'use cache'
-import { images } from '@/app/media/photo/data'
 import { StructuredData } from '@/components/StructuredData'
+import { images } from '@/data'
 import { Metadata } from 'next'
 import MediaGalleria from '@/app/media/photo/PhotoGalleria'
 import styles from './photo.module.scss'

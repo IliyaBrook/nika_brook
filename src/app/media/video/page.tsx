@@ -1,6 +1,6 @@
 'use cache'
-import { videos } from '@/app/media/video/data'
 import { StructuredData } from '@/components/StructuredData'
+import { videos } from '@/data'
 import { Metadata } from 'next'
 import React from 'react'
 import styles from './video.module.scss'

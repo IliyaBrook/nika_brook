@@ -149,7 +149,7 @@ export const Carousel = <T, >({
 				<div className={styles.carouselItemsWrapper}>
 					{dataItems.map((item, index) => (
 						<div
-							key={`carousel-item-${index}`}
+							key={`carousel-item-${index}-${screenWidth}`}
 							className={styles.carouselItem}
 							style={{
 								transform: `translateX(-${Math.min(scrollIndex, dataItems.length ) * 100}%)`,

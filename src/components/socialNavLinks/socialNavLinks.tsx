@@ -1,8 +1,9 @@
 import LinkIconWithToolTip from '@/components/socialNavLinks/LinkIconWithToolTip'
-import { appleMusic, facebook, instagram, spotify, youtube } from '@/data'
+import { appleMusic, facebook, instagram, musixmatch, spotify, youtube } from '@/data'
 import { faApple, faFacebookF, faInstagram, faSpotify, faYoutube } from '@fortawesome/free-brands-svg-icons'
 import classNames from 'classnames'
 import React from 'react'
+import musixmatchIcon from '../../../public/images/icons/musixmatch-svgrepo-com.svg'
 import styles from './socialNavLinks.module.scss'
 
 interface ISocialNavLinks {
@@ -53,6 +54,16 @@ const SocialNavLinks:React.FC<ISocialNavLinks> = ({className, style}) => {
 				classNameLink={styles.spotifyLink}
 				tooltipText='Spotify'
 				icon={faSpotify}
+			/>
+			
+			<LinkIconWithToolTip
+				id='musixmatch'
+				href={musixmatch}
+				classNameLink={styles.musixmatchLink}
+				tooltipText='Musixmatch'
+				icon={musixmatchIcon}
+				width="17px"
+				height="17px"
 			/>
 		</div>
 	)

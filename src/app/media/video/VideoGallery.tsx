@@ -1,12 +1,11 @@
 'use client'
-import { videos } from '@/app/media/video/data'
 import VideoModal from '@/app/media/video/VideoModal'
 import { Carousel } from '@/components/Carousel/Carousel'
+import { videos } from '@/data'
 import type { VideoGallery } from '@/types/sharable.types.ts.tsx'
 import Image from 'next/image'
 import React, { useState } from 'react'
 import styles from './video.module.scss'
-
 
 const VideoGallery = () => {
 	const [selectedVideo, setSelectedVideo] = useState<VideoGallery | null>(null);
@@ -41,7 +40,6 @@ const VideoGallery = () => {
 					)
 				}}
 			/>
-			
 			{selectedVideo && (
 				<VideoModal video={selectedVideo} onClose={() => setSelectedVideo(null)} />
 			)}

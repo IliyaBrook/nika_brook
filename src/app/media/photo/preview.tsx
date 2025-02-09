@@ -8,7 +8,7 @@ import CloseIcon from '../../../../public/images/icons/close_icon_white.svg'
 
 interface PreviewProps {
 	item: ImageItem;
-	togglePreview: () => void;
+	togglePreview: (image: ImageItem) => void;
 	previewOpen: boolean;
 }
 
@@ -19,7 +19,7 @@ const Preview = ({
                  }: PreviewProps) => {
 	return (
 		previewOpen && createPortal(
-			<div className={styles.preview} onClick={togglePreview}>
+			<div className={styles.preview} onClick={() => togglePreview(item)}>
 				<NextImage
 					src={CloseIcon}
 					alt='Close Icon'
