@@ -3,7 +3,8 @@ import Preview from '@/app/media/photo/preview'
 import { Carousel } from '@/components/Carousel/Carousel'
 import { images } from '@/data'
 import useOnEscapeKey from '@/hooks/useOnEscapeKey'
-import type { CarouselResponsiveOption, ImageItem } from '@/types/sharable.types.ts'
+import useTouches from '@/hooks/useTouches'
+import type { CarouselResponsiveOption, ImageItem, VideoGallery } from '@/types/sharable.types.ts'
 import classNames from 'classnames'
 import NextImage from 'next/image'
 import React, { useEffect, useRef, useState } from 'react'
@@ -17,26 +18,20 @@ export const PhotoGalleria = () => {
 	]
 	
 	const [previewOpen, setPreviewOpen] = useState(false)
-	const clickPosition = useRef<{ x: number; y: number } | null>(null);
 	const [selectedImage, setSelectedImage] = useState(null);
 	const togglePreview = (image: ImageItem) => {
 		setSelectedImage(image);
 		setPreviewOpen((prev) => !prev);
 	};
-	const handleMouseDown = (e: React.MouseEvent<HTMLSpanElement>) => {
-	    clickPosition.current = { x: e.clientX, y: e.clientY };
-	};
-	const handleMouseUp = (e: React.MouseEvent<HTMLSpanElement>, image: ImageItem) => {
-		if (clickPosition.current) {
-			const dx = Math.abs(clickPosition.current.x - e.clientX);
-			const dy = Math.abs(clickPosition.current.y - e.clientY);
-			
-			if (dx < 5 && dy < 5) {
-				togglePreview(image);
-			}
-			clickPosition.current = null;
+	
+	const {handleMouseDown, handleTouchStart, handleMouseUp, handleTouchEnd} = useTouches<ImageItem, ImageItem>({
+		mouseUpCallback: (image) => {
+			togglePreview(image);
+		},
+		touchEndCallback: (image) => {
+			togglePreview(image);
 		}
-	};
+	})
 	
 	useOnEscapeKey(() => {
 		setPreviewOpen(false);
@@ -64,10 +59,11 @@ export const PhotoGalleria = () => {
 			              {image.credit}
 			            </span>
 							</div>
-							
 							<span
 								className={styles.imageWrapper}
 								onMouseDown={handleMouseDown}
+								onTouchStart={handleTouchStart}
+								onTouchEnd={(e) => handleTouchEnd(e, image)}
 								onMouseUp={(e) => handleMouseUp(e, image)}
 								aria-labelledby="white"
 								data-pc-name="image"

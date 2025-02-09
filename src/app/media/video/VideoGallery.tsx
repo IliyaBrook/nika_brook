@@ -3,37 +3,30 @@ import VideoModal from '@/app/media/video/VideoModal'
 import { Carousel } from '@/components/Carousel/Carousel'
 import { videos } from '@/data'
 import useOnEscapeKey from '@/hooks/useOnEscapeKey'
-import type { VideoGallery } from '@/types/sharable.types.ts.tsx'
+import useTouches from '@/hooks/useTouches'
+import type { VideoGallery } from '@/types/sharable.types.ts'
 import Image from 'next/image'
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useState } from 'react'
 import styles from './video.module.scss'
 
 const VideoGallery = () => {
-	const [selectedVideo, setSelectedVideo] = useState(null)
-	const clickPosition = useRef<{ x: number; y: number } | null>(null)
+	const [selectedVideo, setSelectedVideo] = useState<VideoGallery | null>(null);
 	
 	const toggleModal = (video: VideoGallery) => {
-		setSelectedVideo(video)
-	}
+		setSelectedVideo(video);
+	};
 	
-	const handleMouseDown = (e: React.MouseEvent<HTMLSpanElement>) => {
-		clickPosition.current = { x: e.clientX, y: e.clientY }
-	}
-	
-	const handleMouseUp = (e: React.MouseEvent<HTMLSpanElement>, video: VideoGallery) => {
-		if (clickPosition.current) {
-			const dx = Math.abs(clickPosition.current.x - e.clientX)
-			const dy = Math.abs(clickPosition.current.y - e.clientY)
-			
-			if (dx < 5 && dy < 5) {
-				toggleModal(video)
-			}
-			clickPosition.current = null
+	const {handleMouseDown, handleTouchStart, handleMouseUp, handleTouchEnd} = useTouches<VideoGallery, VideoGallery>({
+		mouseUpCallback: (video) => {
+			toggleModal(video)
+		},
+		touchEndCallback: (video) => {
+			toggleModal(video)
 		}
-	}
+	})
 	
 	useOnEscapeKey(() => {
-		setSelectedVideo(false)
+		setSelectedVideo(null)
 	})
 	
 	return (
@@ -44,7 +37,10 @@ const VideoGallery = () => {
 					return (
 						<div
 							onMouseDown={handleMouseDown}
+							onTouchStart={handleTouchStart}
 							onMouseUp={(e) => handleMouseUp(e, video)}
+							onTouchEnd={(e) => handleTouchEnd(e, video)}
+							style={{ touchAction: 'pan-y' }}
 						>
 							<Image
 								src={video.thumbnailImageSrc}

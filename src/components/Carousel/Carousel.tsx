@@ -152,7 +152,7 @@ export const Carousel = <T, >({
 							key={`carousel-item-${index}-${screenWidth}`}
 							className={styles.carouselItem}
 							style={{
-								transform: `translateX(-${Math.min(scrollIndex, dataItems.length ) * 100}%)`,
+								transform: screenWidth >= 768 ? `translateX(-${Math.min(scrollIndex, dataItems.length ) * 100}%)` : 'none',
 								flex: `0 0 ${(100 / numVisible) - 2}%`,
 							}}
 						>
