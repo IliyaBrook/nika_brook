@@ -2,9 +2,10 @@
 import VideoModal from '@/app/media/video/VideoModal'
 import { Carousel } from '@/components/Carousel/Carousel'
 import { videos } from '@/data'
+import useOnEscapeKey from '@/hooks/useOnEscapeKey'
 import type { VideoGallery } from '@/types/sharable.types.ts.tsx'
 import Image from 'next/image'
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import styles from './video.module.scss'
 
 const VideoGallery = () => {
@@ -30,6 +31,10 @@ const VideoGallery = () => {
 			clickPosition.current = null
 		}
 	}
+	
+	useOnEscapeKey(() => {
+		setSelectedVideo(false)
+	})
 	
 	return (
 		<>

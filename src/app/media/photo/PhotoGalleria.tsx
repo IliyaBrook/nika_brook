@@ -2,10 +2,11 @@
 import Preview from '@/app/media/photo/preview'
 import { Carousel } from '@/components/Carousel/Carousel'
 import { images } from '@/data'
+import useOnEscapeKey from '@/hooks/useOnEscapeKey'
 import type { CarouselResponsiveOption, ImageItem } from '@/types/sharable.types.ts'
 import classNames from 'classnames'
 import NextImage from 'next/image'
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import EyeIcon from '../../../../public/images/icons/eye_icons.svg'
 import styles from './photo.module.scss'
 
@@ -37,9 +38,14 @@ export const PhotoGalleria = () => {
 		}
 	};
 	
+	useOnEscapeKey(() => {
+		setPreviewOpen(false);
+	})
 	
 	return (
-		<div className={styles.carouselWrapper}>
+		<div
+			className={styles.carouselWrapper}
+		>
 			<Carousel
 				responsiveOptions={responsiveOptions}
 				dataItems={images}
