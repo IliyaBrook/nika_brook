@@ -2,7 +2,7 @@
 import useWindowSize from '@/hooks/useWindowSize'
 import type { CarouselResponsiveOption } from '@/types/sharable.types.ts'
 import classNames from 'classnames'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import styles from './Carousel.module.scss'
 
 interface ICarousel<T> {
@@ -31,7 +31,9 @@ export const Carousel = <T, >({
 	const [scrollIndex, setScrollIndex] = useState<number>(0)
 	const [numVisible, setNumVisible] = useState<number>(totalItems)
 	const [numScroll, setNumScroll] = useState<number>(1);
-	const {screenWidth, screenHeight} = useWindowSize()
+	const {screenWidth} = useWindowSize()
+	const startX = useRef<number | null>(null)
+	const isDragging = useRef<boolean>(false)
 	
 	useEffect(() => {
 		if (screenWidth && screenWidth !== 0) {
@@ -52,7 +54,7 @@ export const Carousel = <T, >({
 				setNumScroll(1);
 			}
 		}
-	}, [screenWidth, screenHeight])
+	}, [screenWidth])
 	
 	const goToNext = () => {
 		const maxIndex = Math.max(0, totalItems - numVisible);
@@ -64,6 +66,29 @@ export const Carousel = <T, >({
 		const newIndex = Math.max(scrollIndex - numScroll, 0);
 		setScrollIndex(newIndex);
 	};
+	
+	const handleSwipeStart = (e: React.TouchEvent | React.MouseEvent) => {
+		isDragging.current = true
+		startX.current = 'touches' in e ? e.touches[0].clientX : e.clientX
+	}
+	
+	const handleSwipeMove = (e: React.TouchEvent | React.MouseEvent) => {
+		if (!isDragging.current || startX.current === null) return
+		const currentX = 'touches' in e ? e.touches[0].clientX : e.clientX
+		const diffX = startX.current - currentX
+		
+		if (Math.abs(diffX) > 50) {
+			if (diffX > 0) goToNext()
+			else goToPrev()
+			
+			isDragging.current = false
+		}
+	}
+	
+	const handleSwipeEnd = () => {
+		isDragging.current = false
+		startX.current = null
+	}
 	
 	const handleIndicatorClick = (index: number) => {
 		const maxIndex = Math.max(0, totalItems - numVisible);
@@ -95,8 +120,15 @@ export const Carousel = <T, >({
 	
 	return (
 		<div
-			key={`${screenWidth}-${screenHeight}`}
+			key={screenWidth}
 			className={classNames(styles.carouselContainer, classNameContainer)}
+			onTouchStart={handleSwipeStart}
+			onTouchMove={handleSwipeMove}
+			onTouchEnd={handleSwipeEnd}
+			onMouseDown={handleSwipeStart}
+			onMouseMove={handleSwipeMove}
+			onMouseUp={handleSwipeEnd}
+			onMouseLeave={handleSwipeEnd}
 		>
 			<div
 				className={classNames(styles.elementsWrapper, classNameImgElements)}
