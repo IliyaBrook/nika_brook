@@ -31,7 +31,7 @@ export const Carousel = <T, >({
 	const [scrollIndex, setScrollIndex] = useState<number>(0)
 	const [numVisible, setNumVisible] = useState<number>(totalItems)
 	const [numScroll, setNumScroll] = useState<number>(1);
-	const {screenWidth} = useWindowSize()
+	const {screenWidth, screenHeight} = useWindowSize()
 	
 	useEffect(() => {
 		if (screenWidth && screenWidth !== 0) {
@@ -52,7 +52,7 @@ export const Carousel = <T, >({
 				setNumScroll(1);
 			}
 		}
-	}, [screenWidth])
+	}, [screenWidth, screenHeight])
 	
 	const goToNext = () => {
 		const maxIndex = Math.max(0, totalItems - numVisible);
@@ -94,7 +94,10 @@ export const Carousel = <T, >({
 	const indicatorItems = Array.from({ length: Math.ceil((dataItems.length - numVisible + (numScroll)) / numScroll) })
 	
 	return (
-		<div className={classNames(styles.carouselContainer, classNameContainer)}>
+		<div
+			key={`${screenWidth}-${screenHeight}`}
+			className={classNames(styles.carouselContainer, classNameContainer)}
+		>
 			<div
 				className={classNames(styles.elementsWrapper, classNameImgElements)}
 				style={{ height: withIndicators ? '65%' : '100%' }}
