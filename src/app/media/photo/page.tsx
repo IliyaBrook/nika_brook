@@ -1,6 +1,7 @@
 'use cache'
+import H1SrOnly from '@/components/H1SrOnly/H1SrOnly'
 import { StructuredData } from '@/components/StructuredData'
-import { images } from '@/data'
+import { baseUrl, images } from '@/data'
 import { Metadata } from 'next'
 import MediaGalleria from '@/app/media/photo/PhotoGalleria'
 import styles from './photo.module.scss'
@@ -8,7 +9,7 @@ import React from 'react'
 
 async function openGraphVideo() {
 	return images.map(img => ({
-		url: `https://veronikabrook.com${img.itemImageSrc}`,
+		url: `${baseUrl}/${img.itemImageSrc}`,
 		width: 1200,
 		height: 800,
 		alt: img.alt
@@ -16,7 +17,7 @@ async function openGraphVideo() {
 }
 
 async function getTwitterVideo() {
-	return images.map(img => `https://veronikabrook.com${img.itemImageSrc}`)
+	return images.map(img => `${baseUrl}/${img.itemImageSrc}`)
 }
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -26,7 +27,7 @@ export async function generateMetadata(): Promise<Metadata> {
 		openGraph: {
 			title: 'Photo Gallery - Veronika Brook | Exclusive Opera Moments',
 			description: 'Discover an exclusive collection of Veronika Brook’s opera performances, featuring roles in Rigoletto, La Traviata, and more.',
-			url: 'https://veronikabrook.com/media/photo',
+			url: baseUrl + '/media/photo',
 			type: 'website',
 			images: await openGraphVideo()
 		},
@@ -37,19 +38,19 @@ export async function generateMetadata(): Promise<Metadata> {
 			images: await getTwitterVideo()
 		},
 		alternates: {
-			canonical: 'https://veronikabrook.com/media/photo'
+			canonical: baseUrl + '/media/photo'
 		}
 	};
 }
 
 async function getPhotoSchema() {
-	const imagesData = images.map(img => `https://veronikabrook.com${img.itemImageSrc}`)
+	const imagesData = images.map(img => `${baseUrl}/${img.itemImageSrc}`)
 	return {
 		'@context': 'https://schema.org',
 		'@type': 'ImageGallery',
 		name: 'Photo Gallery - Veronika Brook',
 		description: 'A collection of high-quality opera performance images featuring Veronika Brook.',
-		url: 'https://veronikabrook.com/media/photo',
+		url: baseUrl + '/media/photo',
 		image: imagesData,
 		author: {
 			'@type': 'Person',
@@ -64,6 +65,7 @@ export default async function Photo() {
 		<>
 			<StructuredData data={photoSchema} />
 			<main className={styles.photo}>
+				<H1SrOnly>Photo Gallery - Veronika Brook | Exclusive Opera Moments</H1SrOnly>
 				<MediaGalleria />
 			</main>
 		</>

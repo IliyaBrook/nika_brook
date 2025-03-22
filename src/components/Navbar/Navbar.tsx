@@ -15,81 +15,46 @@ const Menubar = (dynamic(
 ) as typeof MenubarComponent)
 
 const Navbar = () => {
-	const [isMenuNavReady, setMenuNavReady] = useState<boolean>(false)
+	const [isVisible, setIsVisible] = useState(false);
 	const navBarRef = React.createRef<HTMLDivElement>()
 	const router = useRouter()
 	const pathname = usePathname()
 	const isMedia = pathname.includes('/media')
 	
+	const navBarItems = useMemo(() => getNavBarItems({ pathname, router }), [pathname])
+	
 	useEffect(() => {
-		const observer = new MutationObserver(mutationsList => {
-			for (const mutation of mutationsList) {
-				if (mutation.type === 'attributes') {
-					if ((mutation?.target as Element).classList.contains('p-menubar-root-list')) {
-						setTimeout(() => setMenuNavReady(true), 1000)
-					}
-				}
-			}
-		})
-		if (observer) {
-			try {
-				observer.observe(document, { attributes: true, childList: true, subtree: true })
-			} catch  {}
-		}
-	}, [])
+		setIsVisible(true);
+	}, []);
 	
 	useEffect(() => {
 		if (navBarRef?.current){
 			const navBarHeight = navBarRef?.current?.clientHeight;
-			document.documentElement.style.setProperty('--navbar-height', `${navBarHeight || 102.8}px`);
+			document.documentElement.style.setProperty('--navbar-height', `${navBarHeight}px`);
 		}
-	}, [navBarRef?.current])
+	}, [navBarRef?.current, isVisible])
 	
-	const navBarItems = useMemo(() => getNavBarItems({ pathname, router }), [pathname])
+	
 	return (
-		<div className={classNames(styles.root, {[styles.mediaRoutes]: isMedia})} ref={navBarRef}>
+		<div
+			className={classNames(styles.root, {
+				[styles.mediaRoutes]: isMedia,
+				[styles.visible]: isVisible,
+			})}
+			ref={navBarRef}
+		>
 			<Menubar
-				model={isMenuNavReady ? navBarItems : []}
+				model={navBarItems}  className={styles.menuBar}
 			/>
-			{isMenuNavReady && (
-				<div
-					className={styles.navBarArtistNameMobile}
-					onClick={() => router.push('/')}
-				>
-					Veronika Brook
-				</div>
-			)}
-			{!isMenuNavReady && <Skeleton
-				className={styles.mobileMenuSkeleton}
-			/>}
-			{
-				!isMenuNavReady && (
-					<div className={styles.navSekeletonsWrapper}>
-						<div className={styles.navSkeletonLinksWrapper}>
-							{navBarSkeleton.map((elem, idx) => <div key={`nav-skeleton-${idx}`}>{elem.template}</div>)}
-						</div>
-						<div className={styles.socialLinksSkeletonWrap}>
-							{Array.from({ length: 5 }).map((_, idx) =>
-								<Skeleton
-									key={`social-skeleton-${idx}`}
-									className={styles.socialLinksSkeleton}
-								/>)}
-						</div>
-						<div className={styles.navSkeletonArtistNameWrapperSm}>
-							<Skeleton
-								className={styles.navSkeletonArtistNameSm}
-							/>
-						</div>
-					</div>
-				)
-			}
-			{
-				isMenuNavReady && (
-					<div className={styles.socialLinksWrapper}>
-							<SocialNavLinks />
-					</div>
-				)
-			}
+			<div
+				className={styles.navBarArtistNameMobile}
+				onClick={() => router.push('/')}
+			>
+				Veronika Brook
+			</div>
+			<div className={styles.socialLinksWrapper}>
+				<SocialNavLinks />
+			</div>
 		</div>
 	)
 }

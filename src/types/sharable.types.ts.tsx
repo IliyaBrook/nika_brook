@@ -28,6 +28,8 @@ export type DeviceType =
 	| 'MacOS'
 	| 'Linux'
 	| 'unknown'
+	| 'bot'
+	| 'screenReader';
 
 export interface CarouselResponsiveOption {
 	breakpoint: number;

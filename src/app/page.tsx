@@ -1,3 +1,4 @@
+import H1SrOnly from '@/components/H1SrOnly/H1SrOnly'
 import classNames from 'classnames'
 import Image from 'next/image'
 import bgOfPortrait from '../../public/images/home/bgOfPortrait.jpg'
@@ -15,7 +16,7 @@ export default async function Home() {
 	return (
 		<>
 			<main className={styles.main}>
-				{/* background image of image portrait */}
+				<H1SrOnly>Veronika Brook - Opera Singer & Crossover Artist</H1SrOnly>
 				<Image
 					className={styles.bgOfPortrait}
 					src={bgOfPortrait}

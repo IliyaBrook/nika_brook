@@ -1,11 +1,27 @@
+import { botUserAgents, screenReaderUserAgents } from '@/data'
 import type { DeviceType } from '@/types/sharable.types.ts'
-
 
 export type DeviceCallback<T = void> = (device: DeviceType) => T
 export const getDeviceType = <T = void>(
 	userAgent: string,
 	callback: DeviceCallback<T>
 ): void => {
+	
+	const ua = userAgent.toLowerCase();
+	for (const botUA of botUserAgents) {
+		if (ua.includes(botUA.toLowerCase())) {
+			callback('bot');
+			return;
+		}
+	}
+	
+	for (const screenReaderUA of screenReaderUserAgents) {
+		if (new RegExp(screenReaderUA, 'i').test(userAgent)) {
+			callback('screenReader');
+			return;
+		}
+	}
+	
 	if (/iPad|iPhone|iPod/.test(userAgent)) {
 		callback('iOS')
 	} else if (/Android/.test(userAgent)) {

@@ -3,7 +3,7 @@ import { Initializer } from '@/components/Initializer'
 import Navbar from '@/components/Navbar/Navbar'
 import { StructuredData } from '@/components/StructuredData'
 import { ScrollBarWrapper } from '@/components/Wrappers/ScrollBarWrapper/ScrollBarWrapper'
-import { defaultTitle, metadataAndOpenGMainImage, sameAs } from '@/data'
+import { baseUrl, defaultTitle, metadataAndOpenGMainImage, sameAs } from '@/data'
 import classNames from 'classnames'
 import './shareableStyles/globals.scss'
 import 'primereact/resources/themes/lara-light-cyan/theme.css'
@@ -61,7 +61,7 @@ export const metadata: Metadata = {
 		title: defaultTitle,
 		description:
 			"Experience the artistry of Veronika Brook, an internationally acclaimed opera singer and crossover artist. Explore her performances and music career.",
-		url: 'https://veronikabrook.com',
+		url: baseUrl,
 		images: [
 			{
 				url: metadataAndOpenGMainImage,
@@ -83,7 +83,7 @@ export const metadata: Metadata = {
 		follow: true
 	},
 	alternates: {
-		canonical: 'https://veronikabrook.com'
+		canonical: baseUrl
 	}
 }
 
@@ -96,7 +96,7 @@ const schemaOrgJson = {
 	"jobTitle": "Opera Singer",
 	"description": "An accomplished soprano opera singer with a rich operatic repertoire...",
 	"birthPlace": "Estonia",
-	"url": "https://veronikabrook.com",
+	"url": baseUrl,
 	"sameAs": sameAs
 };
 
@@ -105,10 +105,10 @@ const websiteSchema = {
 	"@type": "WebSite",
 	"name": "Veronika Brook Official",
 	"alternateName": "Nika Brook",
-	"url": "https://veronikabrook.com",
+	"url": baseUrl,
 	"potentialAction": {
 		"@type": "SearchAction",
-		"target": "https://veronikabrook.com/?s={search_term_string}",
+		"target": baseUrl + "/?s={search_term_string}",
 		"query-input": "required name=search_term_string"
 	}
 };

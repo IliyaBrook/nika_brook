@@ -1,6 +1,7 @@
 'use cache'
+import H1SrOnly from '@/components/H1SrOnly/H1SrOnly'
 import { StructuredData } from '@/components/StructuredData'
-import { videos } from '@/data'
+import { baseUrl, videos } from '@/data'
 import { Metadata } from 'next'
 import React from 'react'
 import styles from './video.module.scss'
@@ -16,7 +17,7 @@ export async function generateMetadata(): Promise<Metadata> {
 		openGraph: {
 			title: 'Video Gallery - Veronika Brook | Opera Performances',
 			description: 'Explore media content featuring Veronika Brook, including her roles in various operas like Rigoletto, La traviata, and Die Zauberflote.',
-			url: 'https://veronikabrook.com/media/video',
+			url: baseUrl + '/media/video',
 			type: 'video.other',
 			images: videoImages
 		},
@@ -27,7 +28,7 @@ export async function generateMetadata(): Promise<Metadata> {
 			images: twitterImages
 		},
 		alternates: {
-			canonical: 'https://veronikabrook.com/media/video'
+			canonical: baseUrl + '/media/video'
 		}
 	};
 }
@@ -51,7 +52,7 @@ async function getVideoSchema() {
 		'@type': 'VideoGallery',
 		name: 'Video Gallery - Veronika Brook',
 		description: 'A collection of opera performance videos featuring Veronika Brook in various roles.',
-		url: 'https://veronikabrook.com/media/video',
+		url: baseUrl + '/media/video',
 		video: videos.map(video => ({
 			'@type': 'VideoObject',
 			name: video.alt,
@@ -71,6 +72,7 @@ export default async function Video() {
 		<>
 			<StructuredData data={videoSchema} />
 			<main className={styles.photo}>
+				<H1SrOnly>Video Gallery - Veronika Brook | Opera Performances</H1SrOnly>
 				<VideoGallery />
 			</main>
 		</>

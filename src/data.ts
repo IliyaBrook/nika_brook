@@ -1,3 +1,4 @@
+export const baseUrl = 'https://veronikabrook.com'
 // social media links
 import type { ImageItem, VideoGallery } from '@/types/sharable.types.ts'
 import credit_Eva_Chornaya_10 from '../public/images/mediaPhoto/10_credit_Eva_Chornaya.jpg'
@@ -40,7 +41,7 @@ export const sameAs = [
 	musixmatch
 ]
 
-export const metadataAndOpenGMainImage = 'https://veronikabrook.com/images/home/bgPortraitDesktop.jpg'
+export const metadataAndOpenGMainImage = baseUrl + '/images/home/bgPortraitDesktop.jpg'
 
 export const defaultTitle = 'Veronika Brook - Opera Singer & Crossover Artist'
 export const videos: VideoGallery[] = [
@@ -222,3 +223,26 @@ export const images: Array<ImageItem> = [
 		index: 13
 	}
 ]
+
+export const botUserAgents = [
+	'Googlebot',
+	'Bingbot',
+	'Slurp',
+	'DuckDuckBot',
+	'Baiduspider',
+	'YandexBot',
+	'Sogou',
+	'Exabot',
+	'facebot',
+	'ia_archiver',
+	'Applebot',
+];
+
+export const screenReaderUserAgents = [
+	'NVDA',
+	'JAWS',
+	'VoiceOver',
+	'TalkBack',
+	'ChromeVox',
+	'Orca',
+];

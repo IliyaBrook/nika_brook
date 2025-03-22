@@ -1,6 +1,6 @@
 import ImageWithCredit from '@/components/ImageWithCredit/ImageWithCredit'
 import { StructuredData } from '@/components/StructuredData'
-import { sameAs } from '@/data'
+import { baseUrl, sameAs } from '@/data'
 import { getDeviceType } from '@/utils/getDeviceType'
 import classNames from 'classnames'
 import { Metadata } from 'next'
@@ -11,6 +11,7 @@ import imageSec1 from '../../../public/images/bioPage/bio_sec_1.jpg'
 import imageSec2_1 from '../../../public/images/bioPage/bio_sec_2_1.jpg'
 import imageSec2_2 from '../../../public/images/bioPage/bio_sec_2_2.jpg'
 import imageSec3 from '../../../public/images/bioPage/bio_sec_3.jpg'
+import H1SrOnly from '@/components/H1SrOnly/H1SrOnly'
 
 export const metadata: Metadata = {
 	title: 'Veronika Brook - Award-Winning Opera Singer & Biography',
@@ -28,29 +29,29 @@ export const metadata: Metadata = {
 	openGraph: {
 		title: 'Veronika Brook - Award-Winning Opera Singer & Biography',
 		description: 'Explore the inspiring biography of Veronika Brook, an award-winning coloratura soprano.',
-		url: 'https://veronikabrook.com/biography',
+		url: baseUrl + '/biography',
 		type: 'profile',
 		images: [
 			{
-				url: 'https://veronikabrook.com/images/bioPage/bio_sec_1.jpg',
+				url: baseUrl + '/images/bioPage/bio_sec_1.jpg',
 				width: 1200,
 				height: 800,
 				alt: 'Veronika Brook Biography Image black coat'
 			},
 			{
-				url: 'https://veronikabrook.com/images/bioPage/bio_sec_2_1.jpg',
+				url: baseUrl + '/images/bioPage/bio_sec_2_1.jpg',
 				width: 1200,
 				height: 800,
 				alt: 'Veronika Brook Biography Performance'
 			},
 			{
-				url: 'https://veronikabrook.com/images/bioPage/bio_sec_2_2.jpg',
+				url: baseUrl + '/images/bioPage/bio_sec_2_2.jpg',
 				width: 1200,
 				height: 800,
 				alt: 'Veronika Brook Biography Singing'
 			},
 			{
-				url: 'https://veronikabrook.com/images/bioPage/bio_sec_3.jpg',
+				url: baseUrl + '/images/bioPage/bio_sec_3.jpg',
 				width: 1200,
 				height: 800,
 				alt: 'Veronika Brook Biography Performance with a symphony orchestra'
@@ -61,14 +62,14 @@ export const metadata: Metadata = {
 		card: 'summary_large_image',
 		title: 'Veronika Brook - Biography & Opera Career',
 		description: 'Discover the life and career of Veronika Brook, a world-renowned opera singer.',
-		images: ['https://veronikabrook.com/images/bioPage/bio_sec_1.jpg']
+		images: [baseUrl + '/images/bioPage/bio_sec_1.jpg']
 	},
 	robots: {
 		index: true,
 		follow: true
 	},
 	alternates: {
-		canonical: 'https://veronikabrook.com/biography'
+		canonical: baseUrl + '/biography'
 	}
 };
 
@@ -76,9 +77,9 @@ const biographySchema = {
 	'@context': 'https://schema.org',
 	'@type': 'ProfilePage',
 	name: 'Veronika Brook - Biography',
-	url: 'https://veronikabrook.com/biography',
+	url: baseUrl + '/biography',
 	description: 'Biography of Veronika Brook, an accomplished soprano with a rich operatic repertoire.',
-	image: 'https://veronikabrook.com/images/bioPage/bio_sec_1.jpg',
+	image: baseUrl + '/images/bioPage/bio_sec_1.jpg',
 	breadcrumb: {
 		'@type': 'BreadcrumbList',
 		itemListElement: [
@@ -86,13 +87,13 @@ const biographySchema = {
 				'@type': 'ListItem',
 				position: 1,
 				name: 'Home',
-				item: 'https://veronikabrook.com'
+				item: baseUrl
 			},
 			{
 				'@type': 'ListItem',
 				position: 2,
 				name: 'Biography',
-				item: 'https://veronikabrook.com/biography'
+				item: baseUrl + '/biography'
 			}
 		]
 	},
@@ -122,6 +123,7 @@ export default async function Biography () {
 		<>
 			<StructuredData data={biographySchema} />
 			<main className={classNames(styles.root, { [styles.iosRoot]: isIos })}>
+				<H1SrOnly>Veronika Brook - Award-Winning Opera Singer & Biography</H1SrOnly>
 				<div className={styles.biographyContainer}>
 					<div className={styles.bioSection1}>
 						<ImageWithCredit<ImageProps>

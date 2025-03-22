@@ -1,6 +1,8 @@
 'use cache'
+import H1SrOnly from '@/components/H1SrOnly/H1SrOnly'
 import SocialNavLinks from '@/components/socialNavLinks/socialNavLinks'
 import { StructuredData } from '@/components/StructuredData'
+import { baseUrl } from '@/data'
 import { faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Metadata } from 'next'
@@ -14,7 +16,7 @@ export const metadata: Metadata = {
 	openGraph: {
 		title: "Contact & Book Veronika Brook - Opera Singer",
 		description: "Reach out to Veronika Brook for bookings, collaborations, or inquiries.",
-		url: "https://veronikabrook.com/contact",
+		url: baseUrl + "/contact",
 		type: "website"
 	}
 };
@@ -23,9 +25,9 @@ const contactSchema = {
 	"@context": "https://schema.org",
 	"@type": "ContactPage",
 	"name": "Contact Veronika Brook",
-	"url": "https://veronikabrook.com/contact",
+	"url": baseUrl + "/contact",
 	"description": "Contact Veronika Brook for bookings, collaborations, and inquiries.",
-	"image": "https://veronikabrook.com/images/contact/elenaProsdocimoC1.jpg",
+	"image": baseUrl + "/images/contact/elenaProsdocimoC1.jpg",
 	"breadcrumb": {
 		"@type": "BreadcrumbList",
 		"itemListElement": [
@@ -33,13 +35,13 @@ const contactSchema = {
 				"@type": "ListItem",
 				"position": 1,
 				"name": "Home",
-				"item": "https://veronikabrook.com"
+				"item": baseUrl
 			},
 			{
 				"@type": "ListItem",
 				"position": 2,
 				"name": "Contact",
-				"item": "https://veronikabrook.com/contact"
+				"item": baseUrl + "/contact"
 			}
 		]
 	},
@@ -57,6 +59,7 @@ export default async function Contact() {
 		<>
 			<StructuredData data={contactSchema} />
 			<main className={styles.main}>
+				<H1SrOnly>Contact & Book Veronika Brook - Opera Singer</H1SrOnly>
 				<div className={styles.contactImageWrapper}>
 					<Image
 						src='/images/contact/elenaProsdocimoC1.jpg'
