@@ -14,7 +14,7 @@ import { PrimeReactProvider } from 'primereact/api'
 
 import React from 'react'
 import styles from './layout.module.scss'
-import 'primeflex/primeflex.css'
+// import 'primeflex/primeflex.css'
 
 const hedvigLettersSerif = Hedvig_Letters_Serif({
 	subsets: ['latin'],
