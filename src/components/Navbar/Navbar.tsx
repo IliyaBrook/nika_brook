@@ -35,7 +35,6 @@ const Navbar = () => {
 		}
 	}, [navBarRef?.current, isVisible])
 	
-	
 	return (
 		<div
 			className={classNames(styles.root, {
@@ -48,12 +47,6 @@ const Navbar = () => {
 				model={navBarItems}
 				className={styles.menuBar}
 			/>
-			{/* <div */}
-			{/* 	className={styles.navBarArtistNameMobile} */}
-			{/* 	onClick={() => router.push('/')} */}
-			{/* > */}
-			{/* 	Veronika Brook */}
-			{/* </div> */}
 			{isMobile && (
 				<div
 					className={styles.navBarArtistNameMobile}

@@ -169,11 +169,6 @@ $font-size-artist-name:clamp(23px, 5vw, 33px);
 		min-height: 40px;
 		
 	}
-	@media (max-width: 1199px) {
-		.socialLinksWrapper {
-			display: none;
-		}
-	}
 	.navBarArtistNameDesktop {
 		text-decoration: none;
 		.text {
