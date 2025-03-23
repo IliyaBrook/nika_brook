@@ -7,14 +7,10 @@
 	justify-content: center;
 	gap: 20px;
 	padding: 5px 0 10px 0;
-	
-	:global {
-		a {
-			color: #000;
-			transition: color 0.3s ease;
-		}
+	:global(a) {
+		color: #000;
+		transition: color 0.3s ease;
 	}
-	
 	.facebookLink:hover {
 		color: #0866FF;
 	}

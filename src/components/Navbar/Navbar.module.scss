@@ -1,7 +1,7 @@
 @use "@/app/shareableStyles/colors.scss" as colors;
 
 $font-text: var(--font-josefin-sans);
-$font-size-artist-name:clamp(23px, 5vw, 33px);
+$font-size-artist-name: clamp(23px, 5vw, 33px);
 @mixin ArtistNameText {
 	color: #000;
 	font-size: 33px;
@@ -18,6 +18,7 @@ $font-size-artist-name:clamp(23px, 5vw, 33px);
 		}
 	}
 }
+
 .root {
 	position: relative;
 	height: 102.8px;
@@ -25,12 +26,11 @@ $font-size-artist-name:clamp(23px, 5vw, 33px);
 	flex-direction: column;
 	justify-content: space-evenly;
 	background-color: #{colors.$bg-color-navbar};
-	.navBar{
+	
+	.navBar {
 		z-index: 3;
 	}
-	.navBarArtistNameMobile {
-		display: none;
-	}
+	
 	@media (max-width: 960px) {
 		.navBarArtistNameMobile {
 			display: block;
@@ -56,119 +56,11 @@ $font-size-artist-name:clamp(23px, 5vw, 33px);
 			font-size: $font-size-artist-name;
 		}
 	}
-	
-	:global {
-		.p-menubar {
-			border: none;
-			padding: 0;
-			position: relative;
-			@media (max-width: 960px) {
-				a {
-					z-index: 5;
-					margin-left: clamp(10px, 2vw, 20px);
-				}
-				.p-icon{
-					width: 1.5rem;
-					height: 1.5rem;
-				}
-			}
-		}
-		
-		.p-menubar .p-menubar-button:focus, .p-menubar-button:hover {
-			box-shadow: none;
-			@media screen and (max-width: 960px) {
-				background-color: #{colors.$bg-color-navbar};
-			}
-		}
-		
-		.p-menubar {
-			border-radius: unset;
-		}
-		
-		.p-submenu-list {
-			padding: 0;
-		}
-		
-		.photo-link {
-			margin-top: 3px;
-		}
-		
-		.p-menuitem-content,
-		.p-menuitem-link:active,
-		.p-menuitem-link:focus-visible {
-			background-color: transparent !important;
-			border: none !important;
-			color: inherit !important;
-			box-shadow: none !important;
-		}
-		
-		.p-menubar-root-list {
-			width: 100%;
-			justify-content: space-around;
-		}
-		
-		.p-menuitem-link {
-			color: #4b5563;
-			transition: color 0.15s ease-in-out;
-			font-weight: 400;
-			
-			&:hover {
-				color: rgb(236, 199, 145);
-			}
-		}
-		
-		@media (min-width: 1199px) {
-			.sub-route-link {
-				&:hover {
-					background-color: rgb(229, 231, 235);
-					box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-				}
-			}
-			
-			.active-route {
-				transition: color 0.15s ease-in-out;
-				font-weight: 400;
-				color: rgb(236, 199, 145);
-				
-				.p-menuitem-text {
-					color: rgb(236, 199, 145);
-				}
-			}
-			ul {
-				padding: 0;
-				margin: 0;
-				display: flex;
-				justify-content: space-between;
-				font-size: 14px;
-				line-height: 1.2;
-				
-				li {
-					list-style: none;
-					
-					a {
-						box-sizing: border-box;
-						background-color: transparent;
-						text-decoration: none;
-						text-transform: uppercase;
-						letter-spacing: 3px;
-						font-weight: 400;
-						color: rgb(255, 255, 255);
-					}
-				}
-			}
-		}
-		@media (max-width: 1199px) {
-			.p-submenu-list {
-				margin-left: 1em;
-			}
-		}
-	}
-	
 	@media (min-width: 767px) {
 		padding-top: 10px;
 		min-height: 40px;
-		
 	}
+	
 	.navBarArtistNameDesktop {
 		text-decoration: none;
 		.text {
@@ -185,13 +77,110 @@ $font-size-artist-name:clamp(23px, 5vw, 33px);
 			display: none;
 		}
 	}
+	// global styles
+	:global(.p-menubar) {
+		border: none;
+		padding: 0;
+		position: relative;
+	}
+	
+	@media (max-width: 960px) {
+		:global(.p-menubar a) {
+			z-index: 5;
+			margin-left: clamp(10px, 2vw, 20px);
+		}
+		:global(.p-menubar .p-icon) {
+			width: 1.5rem;
+			height: 1.5rem;
+		}
+	}
+	
+	@media screen and (max-width: 960px) {
+		:global(.p-menubar .p-menubar-button:focus),
+		:global(.p-menubar-button:hover) {
+			box-shadow: none;
+			background-color: #{colors.$bg-color-navbar};
+		}
+	}
+	
+	:global(.p-menubar) {
+		border-radius: unset;
+	}
+	
+	:global(.p-submenu-list) {
+		padding: 0;
+	}
+	
+	:global(.photo-link) {
+		margin-top: 3px;
+	}
+	
+	:global(.p-menuitem-content),
+	:global(.p-menuitem-link:active),
+	:global(.p-menuitem-link:focus-visible) {
+		background-color: transparent !important;
+		border: none !important;
+		color: inherit !important;
+		box-shadow: none !important;
+	}
+	
+	:global(.p-menubar-root-list) {
+		width: 100%;
+		justify-content: space-around;
+	}
+	
+	:global(.p-menuitem-link) {
+		color: #4b5563;
+		transition: color 0.15s ease-in-out;
+		font-weight: 400;
+	}
+	:global(.p-menuitem-link:hover) {
+		color: rgb(236, 199, 145);
+	}
+	
+	@media (min-width: 1199px) {
+		:global(.sub-route-link:hover) {
+			background-color: rgb(229, 231, 235);
+			box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+		}
+		:global(.active-route) {
+			transition: color 0.15s ease-in-out;
+			font-weight: 400;
+			color: rgb(236, 199, 145);
+		}
+		:global(.active-route .p-menuitem-text) {
+			color: rgb(236, 199, 145);
+		}
+		:global(ul) {
+			padding: 0;
+			margin: 0;
+			display: flex;
+			justify-content: space-between;
+			font-size: 14px;
+			line-height: 1.2;
+		}
+		:global(ul li) {
+			list-style: none;
+		}
+		:global(ul li a) {
+			box-sizing: border-box;
+			background-color: transparent;
+			text-decoration: none;
+			text-transform: uppercase;
+			letter-spacing: 3px;
+			font-weight: 400;
+			color: rgb(255, 255, 255);
+		}
+	}
+	
+	@media (max-width: 1199px) {
+		:global(.p-submenu-list) {
+			margin-left: 1em;
+		}
+	}
 }
+
 // media route styles
-.mediaRoutes{
+.mediaRoutes {
 	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
-
-
-
-
-

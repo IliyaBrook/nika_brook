@@ -8,6 +8,7 @@
     "start": "next start",
     "build": "next build",
     "dev": "next dev",
+    "dev:turbo": "next dev",
     "start-local-build": "yarn build && yarn start -p 5000"
   },
   "dependencies": {

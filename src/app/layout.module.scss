@@ -10,10 +10,8 @@
   }
   .scrollBar{
     height: 100vh;
-    :global{
-      .p-scrollpanel-content{
-        display: flex;
-      }
+    :global(.p-scrollpanel-content){
+      display: flex;
     }
     .main{
       width:100%;
