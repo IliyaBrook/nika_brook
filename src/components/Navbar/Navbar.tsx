@@ -4,7 +4,6 @@ import SocialNavLinks from '@/components/socialNavLinks/socialNavLinks'
 import useMediaQuery from '@/hooks/useMediaQuery'
 import classNames from 'classnames'
 import dynamic from 'next/dynamic'
-import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
 import { Menubar as MenubarComponent } from 'primereact/menubar'
 import React, { useEffect, useMemo, useState } from 'react'
@@ -35,36 +34,6 @@ const Navbar = () => {
 			document.documentElement.style.setProperty('--navbar-height', `${navBarHeight}px`)
 		}
 	}, [navBarRef?.current, isVisible])
-	
-	// useEffect(() => {
-	// 	setTimeout(() => {
-	// 		if (!isMobile) {
-	// 			const mobileNav = document.querySelector('.p-menubar-button');
-	// 			if (mobileNav) mobileNav.remove();
-	// 		}
-	// 	}, 3000)
-	// }, [isMobile])
-	useEffect(() => {
-		if (!isMobile) {
-			const observer = new MutationObserver(() => {
-				const mobileNav = document.querySelector('.p-menubar-button')
-				if (mobileNav) {
-					if (mobileNav) {
-						mobileNav.style.display = 'none';
-						observer.disconnect()
-					}
-				}
-			})
-			
-			observer.observe(document, {
-				attributes: true,
-				childList: true,
-				subtree: true
-			})
-			
-			return () => observer.disconnect()
-		}
-	}, [])
 	
 	
 	return (
