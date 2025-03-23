@@ -4,6 +4,10 @@ import type { CarouselResponsiveOption } from '@/types/sharable.types.ts'
 import classNames from 'classnames'
 import React, { useEffect, useRef, useState } from 'react'
 import styles from './Carousel.module.scss'
+import Image from 'next/image'
+import arrowLeftIcon from '../../../public/images/icons/chevron-left-solid.svg'
+import arrowRightIcon from '../../../public/images/icons/chevron-right-solid.svg'
+
 
 interface ICarousel<T> {
 	dataItems: T[];
@@ -143,7 +147,12 @@ export const Carousel = <T, >({
 						onClick={goToPrev}
 						aria-label='Previous'
 					>
-						<i className={classNames(styles.icon, 'pi pi-chevron-left')}></i>
+						<Image
+							src={arrowLeftIcon}
+							alt='Email icon'
+							width={32}
+							height={32}
+						/>
 					</button>
 				</div>
 				<div className={styles.carouselItemsWrapper}>
@@ -169,7 +178,12 @@ export const Carousel = <T, >({
 						onClick={goToNext}
 						aria-label='Next'
 					>
-						<i className={classNames(styles.icon, 'pi pi-chevron-right')}></i>
+						<Image
+							src={arrowRightIcon}
+							alt='Email icon'
+							width={32}
+							height={32}
+						/>
 					</button>
 				</div>
 			</div>
