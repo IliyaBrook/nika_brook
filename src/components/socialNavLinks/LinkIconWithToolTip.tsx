@@ -41,6 +41,7 @@ const LinkIconWithToolTip: React.FC<ILinkIconWithToolTip> = ({
 	      data-pr-tooltip={tooltipText}
 	      data-pr-position='top'
       >
+	      
 	      <Image
 		      src={icon}
 		      alt={tooltipText}
