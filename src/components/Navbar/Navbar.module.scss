@@ -175,6 +175,7 @@ $font-size-artist-name:clamp(23px, 5vw, 33px);
 		}
 	}
 	.navBarArtistNameDesktop {
+		text-decoration: none;
 		.text {
 			@include ArtistNameText;
 		}

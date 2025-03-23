@@ -9,77 +9,64 @@ import styles from './Navbar.module.scss'
 interface IGetNavBarItems {
 	pathname: string;
 	router: AppRouterInstance;
+	isMobile: boolean;
 }
 
-const RouteTemplate = (item: MenuItem, options: MenuItemOptions, pathname: string) => {
-	const routeName = item.id
-	return (
-		<Link
-			className={classNames(
-				options.className,
-				setActivePath(pathname, routeName)
-			)}
-			href={routeName}
-		>
-			{item.label}
-		</Link>
-	)
-}
-
-
-const getNavBarItems = ({pathname, router}: IGetNavBarItems): MenuItem[] => {
-	const template = (item: MenuItem, options: MenuItemOptions) => RouteTemplate(item, options, pathname)
-	return [
+const getNavBarItems = ({pathname, router, isMobile }: IGetNavBarItems): MenuItem[] => {
+	const items =  [
 		{
 			label: 'Home',
 			id: '/',
-			template
+			command: () => router.push('/'),
+			className: classNames({ 'active-route': pathname === '/' }),
 		},
 		{
 			label: 'Biography',
 			id: '/biography',
-			template
-		},
-		{
-			className: 'nav-bar-artist-name',
-			template: (
-				<div
-					className={styles.navBarArtistNameDesktop}
-					onClick={() => router.push('/')}
-				>
-					<div className={styles.text}>Veronika Brook</div>
-				</div>
-			)
+			command: () => router.push('/biography'),
+			className: classNames({ 'active-route': pathname === '/biography' }),
 		},
 		{
 			label: 'Media',
 			id: '/media',
 			className: classNames(
-				setActivePath(pathname, '/media/video'),
-				setActivePath(pathname, '/media/photo')
+				{ 'active-route': pathname.startsWith('/media') }
 			),
 			items: [
 				{
 					label: 'Video',
 					id: '/media/video',
 					className: 'sub-route-link',
-					template
-					
+					command: () => router.push('/media/video'),
 				},
 				{
 					label: 'Photo',
 					id: '/media/photo',
-					className: 'sub-route-link photo-link',
-					template
+					className: classNames('sub-route-link photo-link', { 'active-route': pathname === '/media/photo' }),
+					command: () => router.push('/media/photo'),
+				
 				}
 			]
 		},
 		{
 			label: 'Contact',
 			id: '/contact',
-			template
+			command: () => router.push('/contact'),
+			className: classNames({ 'active-route': pathname === '/contact' }),
 		}
 	]
+	if (!isMobile) {
+		items.splice(2, 0, {
+				className: 'nav-bar-artist-name',
+				// @ts-ignore
+				template: (
+					<Link href="/" className={styles.navBarArtistNameDesktop}>
+						<div className={styles.text}>Veronika Brook</div>
+					</Link>
+				)
+		})
+	}
+	return items;
 }
 
 export default getNavBarItems
