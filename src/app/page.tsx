@@ -1,5 +1,6 @@
 import H1SrOnly from '@/components/H1SrOnly/H1SrOnly'
 import classNames from 'classnames'
+import Head from 'next/head'
 import Image from 'next/image'
 import bgOfPortrait from '../../public/images/home/bgOfPortrait.jpg'
 import bgPortraitDesktop from '../../public/images/home/bgPortraitDesktop.jpg'

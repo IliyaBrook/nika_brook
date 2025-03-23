@@ -1,9 +1,13 @@
 import LinkIconWithToolTip from '@/components/socialNavLinks/LinkIconWithToolTip'
 import { appleMusic, facebook, instagram, musixmatch, spotify, youtube } from '@/data'
-import { faApple, faFacebookF, faInstagram, faSpotify, faYoutube } from '@fortawesome/free-brands-svg-icons'
 import classNames from 'classnames'
 import React from 'react'
-import musixmatchIcon from '../../../public/images/icons/musixmatch-svgrepo-com.svg'
+import FacebookIcon from '../../../public/images/icons/faFacebookF.svg'
+import InstagramIcon from '../../../public/images/icons/faInstagram.svg'
+import YoutubeIcon from '../../../public/images/icons/faYoutube.svg'
+import AppleIcon from '../../../public/images/icons/faApple.svg'
+import SpotifyIcon from '../../../public/images/icons/faSpotify.svg'
+import musixmatchIcon from '../../../public/images/icons/musixmatch.svg'
 import styles from './socialNavLinks.module.scss'
 
 interface ISocialNavLinks {
@@ -24,28 +28,28 @@ const SocialNavLinks:React.FC<ISocialNavLinks> = ({className, style}) => {
 				href={facebook}
 				classNameLink={styles.facebookLink}
 				tooltipText='Facebook'
-				icon={faFacebookF}
+				icon={FacebookIcon}
 			/>
 			<LinkIconWithToolTip
 				id='instagramLink'
 				href={instagram}
 				classNameLink={styles.instagramLink}
 				tooltipText='Instagram'
-				icon={faInstagram}
+				icon={InstagramIcon}
 			/>
 			<LinkIconWithToolTip
 				id='youtubeLink'
 				href={youtube}
 				classNameLink={styles.youtubeLink}
 				tooltipText='YoutTube'
-				icon={faYoutube}
+				icon={YoutubeIcon}
 			/>
 			<LinkIconWithToolTip
 				id='appleLink'
 				href={appleMusic}
 				classNameLink={styles.appleLink}
 				tooltipText='Apple Music'
-				icon={faApple}
+				icon={AppleIcon}
 			/>
 			
 			<LinkIconWithToolTip
@@ -53,7 +57,7 @@ const SocialNavLinks:React.FC<ISocialNavLinks> = ({className, style}) => {
 				href={spotify}
 				classNameLink={styles.spotifyLink}
 				tooltipText='Spotify'
-				icon={faSpotify}
+				icon={SpotifyIcon}
 			/>
 			
 			<LinkIconWithToolTip

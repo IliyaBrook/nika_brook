@@ -1,16 +1,14 @@
 'use client'
-import { type IconDefinition } from '@fortawesome/free-brands-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import classNames from 'classnames'
+import Image, { type StaticImageData } from 'next/image'
 import Link from 'next/link'
 import { Tooltip } from 'primereact/tooltip'
 import React from 'react'
-import classNames from 'classnames'
-import Image, { type StaticImageData } from 'next/image'
 import styles from './socialNavLinks.module.scss'
 
 interface ILinkIconWithToolTip {
 	classNameLink: string;
-	icon: IconDefinition | StaticImageData;
+	icon: StaticImageData;
 	href: string;
 	tooltipText: string;
 	id?: string;
@@ -36,24 +34,20 @@ const LinkIconWithToolTip: React.FC<ILinkIconWithToolTip> = ({
 			className={classNameLink}
 			data-text={tooltipText}
 			id={id}
+			aria-label={tooltipText}
 		>
       <span
 	      className={classNames(styles.icon, classNameTarget)}
 	      data-pr-tooltip={tooltipText}
 	      data-pr-position='top'
       >
-        {'src' in icon ? (
-	        <Image
-		        src={icon}
-		        alt={tooltipText}
-		        width={parseInt(width, 10)}
-		        height={parseInt(height, 10)}
-		        unoptimized
-		        className={styles.musixmatchIcon}
-	        />
-        ) : (
-	        <FontAwesomeIcon icon={icon} width={width} height={height} />
-        )}
+	      <Image
+		      src={icon}
+		      alt={tooltipText}
+		      width={parseInt(width, 10)}
+		      height={parseInt(height, 10)}
+		      className={styles.musixmatchIcon}
+	      />
       </span>
 			<Tooltip
 				target={`.${classNameTarget}`}
