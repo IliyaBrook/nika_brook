@@ -1,11 +1,10 @@
 'use client'
+import getNavBarItems from '@/components/Navbar/navBarItems'
 import SocialNavLinks from '@/components/socialNavLinks/socialNavLinks'
-import getNavBarItems, { navBarSkeleton } from '@/components/Navbar/navBarItems'
 import classNames from 'classnames'
 import dynamic from 'next/dynamic'
 import { usePathname, useRouter } from 'next/navigation'
 import { Menubar as MenubarComponent } from 'primereact/menubar'
-import { Skeleton } from 'primereact/skeleton'
 import React, { useEffect, useMemo, useState } from 'react'
 import styles from './Navbar.module.scss'
 

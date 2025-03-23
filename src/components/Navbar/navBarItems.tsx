@@ -3,9 +3,8 @@ import classNames from 'classnames'
 import type { AppRouterInstance } from 'next/dist/shared/lib/app-router-context.shared-runtime'
 import Link from 'next/link'
 import { MenuItem, type MenuItemOptions } from 'primereact/menuitem'
-import { Skeleton } from 'primereact/skeleton'
-import styles from './Navbar.module.scss'
 import React from 'react'
+import styles from './Navbar.module.scss'
 
 interface IGetNavBarItems {
 	pathname: string;
@@ -82,23 +81,5 @@ const getNavBarItems = ({pathname, router}: IGetNavBarItems): MenuItem[] => {
 		}
 	]
 }
-
-export const navBarSkeleton = [
-	{
-		template: <Skeleton className={styles.navSkeletonLink} />
-	},
-	{
-		template: <Skeleton className={styles.navSkeletonLink}  />
-	},
-	{
-		template: <Skeleton className={styles.navSkeletonArtistName} />
-	},
-	{
-		template: <Skeleton className={styles.navSkeletonLink}  />
-	},
-	{
-		template: <Skeleton className={styles.navSkeletonLink}  />
-	}
-]
 
 export default getNavBarItems
