@@ -6,7 +6,7 @@ import classNames from 'classnames'
 import dynamic from 'next/dynamic'
 import { usePathname, useRouter } from 'next/navigation'
 import { Menubar as MenubarComponent } from 'primereact/menubar'
-import React, { useEffect, useMemo, useRef, useState } from 'react'
+import React, { type RefObject, useEffect, useMemo, useRef, useState } from 'react'
 import styles from './Navbar.module.scss'
 
 const Menubar = (dynamic(
@@ -16,7 +16,6 @@ const Menubar = (dynamic(
 
 const Navbar = () => {
 	const [isVisible, setIsVisible] = useState(false)
-	// const navBarRef = React.createRef<HTMLDivElement>()
 	const navBarRef = useRef<HTMLDivElement>(null)
 	const router = useRouter()
 	const pathname = usePathname()
