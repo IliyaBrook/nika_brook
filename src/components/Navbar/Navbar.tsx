@@ -2,12 +2,11 @@
 import getNavBarItems from '@/components/Navbar/navBarItems'
 import SocialNavLinks from '@/components/socialNavLinks/socialNavLinks'
 import useMediaQuery from '@/hooks/useMediaQuery'
-import useWaitDomStable from '@/hooks/useWaitDomStable'
 import classNames from 'classnames'
 import dynamic from 'next/dynamic'
 import { usePathname, useRouter } from 'next/navigation'
 import { Menubar as MenubarComponent } from 'primereact/menubar'
-import React, { type RefObject, useEffect, useMemo, useRef, useState } from 'react'
+import React, { useEffect, useMemo, useRef, useState } from 'react'
 import styles from './Navbar.module.scss'
 
 const Menubar = (dynamic(
@@ -22,7 +21,6 @@ const Navbar = () => {
 	const pathname = usePathname()
 	const isMedia = pathname.includes('/media')
 	const isMobile = useMediaQuery('(max-width: 768px)')
-	
 	const navBarItems = useMemo(() => getNavBarItems({ pathname, router, isMobile }), [pathname])
 	
 	useEffect(() => {

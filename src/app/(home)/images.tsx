@@ -12,12 +12,12 @@ import leftWingIcon from '../../../public/images/icons/left_wing.svg'
 import rightWingIcon from '../../../public/images/icons/right_wing.svg'
 
 export const BgOfPortrait = (): JSX.Element => <Image
-	fill
 	className={styles.bgOfPortrait}
 	src={bgOfPortrait}
 	alt='Background home page color'
 	priority
 	placeholder='blur'
+	fill
 />
 // profile images for different sizes
 export const BgPortraitMobileSm = (): JSX.Element => <Image
@@ -43,6 +43,7 @@ export const BgPortraitMobileMd = (): JSX.Element => <Image
 	alt='Background image Veronika Brook'
 	loading='eager'
 	placeholder='blur'
+	style={{display: 'block'}}
 />
 export const BgPortraitMobileLg = (): JSX.Element => <Image
 	className={classNames(styles.bgPortrait, styles.bgPortraitMobileLg)}
@@ -51,6 +52,7 @@ export const BgPortraitMobileLg = (): JSX.Element => <Image
 	priority
 	loading='eager'
 	placeholder='blur'
+	style={{display: 'block'}}
 />
 export const BgPortraitDesktop = (): JSX.Element => <Image
 	className={classNames(styles.bgPortrait, styles.bgPortraitDesktop)}
@@ -59,6 +61,7 @@ export const BgPortraitDesktop = (): JSX.Element => <Image
 	priority
 	loading='eager'
 	placeholder='blur'
+	style={{display: 'block'}}
 />
 
 // for logo image elements
@@ -71,6 +74,7 @@ export const LeftWingIcon = (): JSX.Element => <Image
 	width={leftWingIcon.width}
 	height={leftWingIcon.height}
 	className={styles.wingLeft}
+	style={{display: 'block'}}
 />
 
 export const RightWingIcon = (): JSX.Element => <Image
@@ -81,4 +85,5 @@ export const RightWingIcon = (): JSX.Element => <Image
 	width={rightWingIcon.width}
 	height={rightWingIcon.height}
 	className={styles.wingRight}
+	style={{display: 'block'}}
 />

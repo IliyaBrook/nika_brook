@@ -1,25 +1,22 @@
 import React, { useEffect } from 'react'
 
 interface IUseWaitDomStable<T extends boolean> {
-	targetRef: React.RefObject<any>,
 	checkInterval?: number,
-	attributeFilter?: string[],
 	useState?: T,
 	callback?: () => void
 }
 
-const useWaitDomStable = <T extends boolean>({
-	attributeFilter = [],
-	checkInterval = 300,
-	targetRef,
-	useState = true as T,
-	callback
-                          }: IUseWaitDomStable<T>) => {
+const useWaitDomStable = <T extends boolean>(props: IUseWaitDomStable<T> = {}) => {
 	const [completed, setCompleted] = React.useState(false)
+	const {
+		checkInterval = 300,
+		useState = true as T,
+		callback
+	} = props
+	
 	useEffect(() => {
 		let timer: ReturnType<typeof setTimeout> | null = null
 		let lastMutationIndex = 0
-		
 		const observer = new MutationObserver((mutations: MutationRecord[]) => {
 			mutations.forEach((_, idx) => {
 				if (idx === 0) return
@@ -35,12 +32,11 @@ const useWaitDomStable = <T extends boolean>({
 			})
 		})
 		
-		if (targetRef.current) {
-			observer.observe(targetRef.current, {
+		if (document) {
+			observer.observe(document, {
 				childList: true,
 				subtree: true,
-				attributes: true,
-				attributeFilter
+				attributes: true
 			})
 		}
 		
@@ -51,9 +47,9 @@ const useWaitDomStable = <T extends boolean>({
 	}, [])
 	
 	if (useState && completed) {
-		return true as T extends true ? true : false
+		return true as T extends true ? true : never
 	}
-	return null as T extends true ? true : null;
+	return null as T extends true ? true : null
 }
 
 export default useWaitDomStable

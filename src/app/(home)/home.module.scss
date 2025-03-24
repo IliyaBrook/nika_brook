@@ -1,11 +1,9 @@
 $font-alex-brush: var(--font-alex-brush);
 $white: #F5F5F5;
 $yellow: rgb(251, 244, 227);
-// min-574px text
 $font-text-1: clamp(2.2rem, 3vw, 3.2rem);
 $font-text-2: clamp(1.8rem, 2.5vw, 2.5rem);
 $font-text-3: clamp(2rem, 2.5vw, 3rem);
-//
 $wings-height: clamp(3.5rem, 5vw, 5.8rem);
 $wings-width: clamp(3.5rem, 4vw, 5.8rem);
 .main {
