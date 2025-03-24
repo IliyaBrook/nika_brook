@@ -40,6 +40,13 @@ const BgPortraitMobileMd = () => 	<Image
 	loading="eager"
 	placeholder="blur"
 />
+// const BgPortraitMobileMd = () => 	<Image
+// 	className={classNames(styles.bgPortrait, styles.bgPortraitMobileMd)}
+// 	src={bgPortraitMobileMd}
+// 	alt='Background image Veronika Brook'
+// 	loading="eager"
+// 	placeholder="blur"
+// />
 
 const HomePage = (): ReactElement => {
 	const {screenWidth, screenHeight} = useWindowSize()
@@ -62,15 +69,10 @@ const HomePage = (): ReactElement => {
 				{screenWidth < 1199 && screenHeight < 858 && BgPortraitMobileSm()}
 				{screenWidth < 1199 && screenWidth <= 784 && BgPortraitMobileXl()}
 				{screenWidth < 1199 && screenHeight < 858 && BgPortraitMobileXl()}
-				{screenWidth < 1199 && screenWidth >= 398 && screenWidth <= 784 && BgPortraitMobileMd()}
+				{screenWidth >= 398 && BgPortraitMobileMd()}
 				
-				<Image
-					className={classNames(styles.bgPortrait, styles.bgPortraitMobileMd)}
-					src={bgPortraitMobileMd}
-					alt='Background image Veronika Brook'
-					loading="eager"
-					placeholder="blur"
-				/>
+				
+				
 				{/* (min-width: 784px) and (max-width: 1199px) display: block; object-fit: cover; object-position: center;*/}
 				{/* (min-height: 858px) display: none; */}
 				<Image

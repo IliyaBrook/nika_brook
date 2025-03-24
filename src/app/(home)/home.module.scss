@@ -64,33 +64,15 @@ $wings-width: clamp(3.5rem, 4vw, 5.8rem);
 			object-position: center;
 		}
 		//Todo rm
-		.bgPortraitMobileMd,
-//		.bgPortraitMobileXl,
+//		.bgPortraitMobileMd,
 		.bgPortraitDesktop,
 		.bgPortraitMobileLg {
 			display: none;
 		}
 		@media (min-height: 858px) {
 			//Todo rm
-//			.bgPortraitMobileXl,
 			.bgPortraitDesktop, .bgPortraitMobileLg {
 				display: none !important;
-			}
-			//Todo rm
-			.bgPortraitMobileMd {
-				display: block !important;
-			}
-		}
-		//Todo rm
-//		@media (min-width: 330px) and (max-width: 398px) {
-//			.bgPortraitMobileXl {
-//				display: block;
-//			}
-//		}
-		//Todo rm
-		@media (min-width: 398px) and (max-width: 784px) {
-			.bgPortraitMobileMd {
-				display: block;
 			}
 		}
 		//Todo rm
