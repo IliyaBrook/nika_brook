@@ -1,7 +1,9 @@
+'use client'
+
 import styles from '@/app/(home)/home.module.scss'
 import classNames from 'classnames'
 import Image from 'next/image'
-import { JSX } from 'react'
+import { JSX, type ReactElement } from 'react'
 import bgOfPortrait from '../../../public/images/home/bgOfPortrait.jpg'
 import bgPortraitDesktop from '../../../public/images/home/bgPortraitDesktop.jpg'
 import bgPortraitMobileLg from '../../../public/images/home/bgPortraitDesktopLg.jpg'
@@ -10,6 +12,8 @@ import bgPortraitMobileSm from '../../../public/images/home/bgPortraitMobileSm.j
 import bgPortraitMobileXl from '../../../public/images/home/bgPortraitMobileXl.jpg'
 import leftWingIcon from '../../../public/images/icons/left_wing.svg'
 import rightWingIcon from '../../../public/images/icons/right_wing.svg'
+import bgOfPortraitBlur from '../../../public/images/home/bgOfPortraitBlur.jpg'
+
 
 export const BgOfPortrait = (): JSX.Element => <Image
 	className={styles.bgOfPortrait}
@@ -88,3 +92,25 @@ export const RightWingIcon = (): JSX.Element => <Image
 	style={{display: 'block'}}
 />
 
+const BgOfPortraitBlur = (): ReactElement => {
+	return (
+		<Image
+			src={bgOfPortraitBlur}
+			alt="blurred background"
+			className={styles.bgOfPortraitBlur}
+			style={{
+				position: 'absolute',
+				top: 0,
+				left: '-30px',
+				width: '60px',
+				height: '100%',
+				zIndex: 3,
+				filter: 'blur(10px)',
+				objectFit: 'cover',
+				objectPosition: 'center',
+				display: 'block',
+			}}
+		/>
+	);
+};
+export default BgOfPortraitBlur;

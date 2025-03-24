@@ -1,6 +1,6 @@
 'use client'
 
-import {
+import BgOfPortraitBlur, {
 	BgOfPortrait,
 	BgPortraitDesktop,
 	BgPortraitMobileLg,
@@ -24,6 +24,7 @@ const HomePage = (): ReactElement => {
 		<>
 			{isDomStable && <BgOfPortrait />}
 			<div className={styles.bgImageWrapper}>
+				{isDomStable && <BgOfPortraitBlur />}
 				{screenWidth > 398 && screenWidth < 784 && (
 					<>
 						{isDomStable && <BgPortraitMobileMd />}

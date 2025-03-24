@@ -33,24 +33,6 @@ $wings-width: clamp(3.5rem, 4vw, 5.8rem);
 			height: 100%;
 			object-position: right;
 		}
-		
-		&:before {
-			content: "";
-			position: absolute;
-			top: 0;
-			left: -30px;
-			width: 60px;
-			height: 100%;
-			z-index: 3;
-			filter: blur(10px);
-			background-image: url('../../../public/images/home/bgOfPortraitBlur.jpg');
-			background-size: cover;
-			background-position: center;
-			background-repeat: no-repeat;
-			@media (max-width: 400px) {
-				width: 40px;
-			}
-		}
 
 		.bgPortraitMobileMd, .bgPortraitDesktop, .bgPortraitMobileXl, , .bgPortraitMobileLg {
 			width: 100%;
