@@ -24,7 +24,6 @@ export default async function Home() {
 					src={bgOfPortrait}
 					alt='Background home page color'
 					priority
-					loading="lazy"
 					placeholder="blur"
 				/>
 				<div className={styles.bgImageWrapper}>
@@ -35,7 +34,7 @@ export default async function Home() {
 						src={bgPortraitMobileSm}
 						alt='Background image Veronika Brook'
 						priority
-						loading="lazy"
+						loading='eager'
 						placeholder="blur"
 					/>
 					{/* mobile md [width:330px-398px] */}
@@ -45,7 +44,7 @@ export default async function Home() {
 						src={bgPortraitMobileXl}
 						alt='Background image Veronika Brook'
 						priority
-						loading="lazy"
+						loading='eager'
 						placeholder="blur"
 					/>
 					{/* mobile md [width:398px-554px] */}
@@ -53,7 +52,7 @@ export default async function Home() {
 						className={classNames(styles.bgPortrait, styles.bgPortraitMobileMd)}
 						src={bgPortraitMobileMd}
 						alt='Background image Veronika Brook'
-						loading="lazy"
+						loading="eager"
 						placeholder="blur"
 					/>
 					{/* mobile md [width:554px-1100px] */}
@@ -63,7 +62,7 @@ export default async function Home() {
 						src={bgPortraitMobileLg}
 						alt='Background image Veronika Brook'
 						priority
-						loading="lazy"
+						loading='eager'
 						placeholder="blur"
 					/>
 					{/* desktop < 1100px */}
@@ -72,7 +71,7 @@ export default async function Home() {
 						src={bgPortraitDesktop}
 						alt='Background image Veronika Brook'
 						priority
-						loading="lazy"
+						loading='eager'
 						placeholder="blur"
 					/>
 				</div>
@@ -87,7 +86,7 @@ export default async function Home() {
 											src={leftWingIcon}
 											alt='left wing icon'
 											priority
-											loading="lazy"
+											loading='eager'
 											width={leftWingIcon.width}
 											height={leftWingIcon.height}
 											className={styles.wingLeft}
@@ -97,7 +96,7 @@ export default async function Home() {
 											src={rightWingIcon}
 											alt='right wing icon'
 											priority
-											loading="lazy"
+											loading='eager'
 											width={rightWingIcon.width}
 											height={rightWingIcon.height}
 											className={styles.wingRight}
