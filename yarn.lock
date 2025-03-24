@@ -2450,10 +2450,10 @@ prettier@^3.4.2:
   resolved "https://registry.yarnpkg.com/prettier/-/prettier-3.4.2.tgz#a5ce1fb522a588bf2b78ca44c6e6fe5aa5a2b13f"
   integrity sha512-e9MewbtFo+Fevyuxn/4rrcDAaq0IYxPGLvObpQjiZBMAzB9IGmzlnG9RZy3FFas+eBMu2vA0CszMeduow5dIuQ==
 
-primereact@^10.9.1:
-  version "10.9.1"
-  resolved "https://registry.yarnpkg.com/primereact/-/primereact-10.9.1.tgz#cf4c0455a0f0adadd1a08b4a9d5291b6a3980634"
-  integrity sha512-mq5Pr6/zySO913RlL5oUWD+n1ygTjJjhhxBoRWhLNKx7Na8pHpswh/QCesShFXlfYyCjDOVXFVT6J2sSDceF1g==
+primereact@^10.9.3:
+  version "10.9.3"
+  resolved "https://registry.yarnpkg.com/primereact/-/primereact-10.9.3.tgz#48ac75e405aa0b732d7d14fbde21937a13bd88e0"
+  integrity sha512-mvIVw4Ap5HfEviWdnPFY14h9Bf8k4rTMkq7swHsJhNfgyH88osrdbjuDQ66mPwjPgI6DwqN2jMo4zxNNxe7nGQ==
   dependencies:
     "@types/react-transition-group" "^4.4.1"
     react-transition-group "^4.4.1"

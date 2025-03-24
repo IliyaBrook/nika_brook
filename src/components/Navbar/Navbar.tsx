@@ -6,7 +6,7 @@ import classNames from 'classnames'
 import dynamic from 'next/dynamic'
 import { usePathname, useRouter } from 'next/navigation'
 import { Menubar as MenubarComponent } from 'primereact/menubar'
-import React, { useEffect, useMemo, useState } from 'react'
+import React, { useEffect, useMemo, useRef, useState } from 'react'
 import styles from './Navbar.module.scss'
 
 const Menubar = (dynamic(
@@ -16,7 +16,8 @@ const Menubar = (dynamic(
 
 const Navbar = () => {
 	const [isVisible, setIsVisible] = useState(false)
-	const navBarRef = React.createRef<HTMLDivElement>()
+	// const navBarRef = React.createRef<HTMLDivElement>()
+	const navBarRef = useRef<HTMLDivElement>(null)
 	const router = useRouter()
 	const pathname = usePathname()
 	const isMedia = pathname.includes('/media')
@@ -34,7 +35,39 @@ const Navbar = () => {
 			document.documentElement.style.setProperty('--navbar-height', `${navBarHeight}px`)
 		}
 	}, [navBarRef?.current, isVisible])
+	console.log("component")
 	
+	useEffect(() => {
+		const observer = new MutationObserver((mutations: MutationRecord[]) => {
+			mutations.forEach(mutation => {
+				if (mutation.type === 'attributes' && mutation.attributeName) {
+					const attr = mutation.attributeName;
+					if (['aria-level'].includes(attr)) {
+						(mutation.target as Element).removeAttribute(attr);
+					}
+				}
+
+				if (mutation.type === 'childList') {
+					if (mutation.target instanceof Element) {
+						mutation.target.querySelectorAll('[aria-level]').forEach(el =>
+							el.removeAttribute('aria-level')
+						);
+					}
+				}
+			});
+		});
+
+		if (navBarRef.current) {
+			observer.observe(navBarRef.current, {
+				childList: true,
+				subtree: true,
+				attributes: true,
+				attributeFilter: ['aria-level', 'aria-setsize', 'aria-posinset']
+			});
+		}
+		return () => observer.disconnect();
+	}, []);
+
 	return (
 		<div
 			className={classNames(styles.root, {
