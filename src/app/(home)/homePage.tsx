@@ -1,4 +1,5 @@
 'use client'
+
 import {
 	BgOfPortrait,
 	BgPortraitDesktop,
@@ -9,21 +10,28 @@ import {
 	LeftWingIcon,
 	RightWingIcon
 } from '@/app/(home)/images'
+import useWaitDomStable from '@/hooks/useWaitDomStable'
 import useWindowSize from '@/hooks/useWindowSize'
-import type { ReactElement } from 'react'
+import dynamic from 'next/dynamic'
+import { type ReactElement } from 'react'
 import styles from './home.module.scss'
 
+const Skeleton = dynamic(
+	() => import('primereact/skeleton').then(({ Skeleton }) => Skeleton),
+	{ ssr: false })
 
 const HomePage = (): ReactElement => {
 	const { screenWidth, screenHeight } = useWindowSize()
+	const isDomStable = useWaitDomStable()
 	
 	return (
 		<>
-			<BgOfPortrait />
+			{!isDomStable && <Skeleton height="100vh" />}
+			{isDomStable && <BgOfPortrait />}
 			<div className={styles.bgImageWrapper}>
 				{screenWidth > 398 && screenWidth < 784 && (
 					<>
-						<BgPortraitMobileMd />
+						{isDomStable && <BgPortraitMobileMd />}
 					</>
 				)}
 				{screenHeight < 858 && (
@@ -31,30 +39,30 @@ const HomePage = (): ReactElement => {
 					<>
 						{screenWidth > 1199 && (
 							<>
-								<BgPortraitDesktop />
+								{isDomStable && <BgPortraitDesktop />}
 							</>
 						)}
 						
 						{screenWidth > 784 && screenWidth < 1199 && (
 							<>
-								<BgPortraitMobileLg />
+								{isDomStable && <BgPortraitMobileLg />}
 							</>
 						)}
 						
 						{screenWidth < 398 && (
 							<>
-								<BgPortraitMobileSm />
+								{isDomStable && <BgPortraitMobileSm />}
 							</>
 						)}
 						{screenWidth > 330 && screenWidth < 398 && (
 							<>
-								<BgPortraitMobileXl />
+								{isDomStable && <BgPortraitMobileXl />}
 							</>
 						)}
 					</>
 				)}
 			</div>
-			<div className={styles.textWrapper}>
+			{isDomStable && <div className={styles.textWrapper}>
 				<div className={styles.innerTextWrapper}>
 					<div className={styles.textJustifyWrapper}>
 						<div className={styles.line1And2And3Wrapper}>
@@ -70,9 +78,10 @@ const HomePage = (): ReactElement => {
 								CLASSICAL CROSSOVER ARTIST
 							</h2>
 						</div>
+					
 					</div>
 				</div>
-			</div>
+			</div>}
 		</>
 	)
 }
