@@ -1,7 +1,8 @@
+import { setActivePath } from '@/utils/setActivePath'
 import classNames from 'classnames'
 import type { AppRouterInstance } from 'next/dist/shared/lib/app-router-context.shared-runtime'
 import Link from 'next/link'
-import { MenuItem } from 'primereact/menuitem'
+import { MenuItem, type MenuItemOptions } from 'primereact/menuitem'
 import React from 'react'
 import styles from './Navbar.module.scss'
 
@@ -11,44 +12,59 @@ interface IGetNavBarItems {
 	isMobile: boolean;
 }
 
+const RouteTemplate = (item: MenuItem, options: MenuItemOptions, pathname: string) => {
+	const routeName = item.id
+	return (
+		<Link
+			className={classNames(
+				options.className,
+				setActivePath(pathname, routeName)
+			)}
+			href={routeName}
+		>
+			{item.label}
+		</Link>
+	)
+}
+
 const getNavBarItems = ({pathname, router, isMobile }: IGetNavBarItems): MenuItem[] => {
+	const template = (item: MenuItem, options: MenuItemOptions) => RouteTemplate(item, options, pathname)
+	
 	const items =  [
 		{
 			label: 'Home',
 			id: '/',
-			command: () => router.push('/'),
-			className: classNames({ 'active-route': pathname === '/' })
+			template
 		},
 		{
 			label: 'Biography',
 			id: '/biography',
-			command: () => router.push('/biography'),
-			className: classNames({ 'active-route': pathname === '/biography' })
+			template
 		},
 		{
 			label: 'Media',
 			id: '/media',
-			className: classNames({ 'active-route': pathname.startsWith('/media') }),
+			className: classNames(
+				setActivePath(pathname, '/media/video'),
+				setActivePath(pathname, '/media/photo')
+			),
 			items: [
 				{
 					label: 'Video',
 					id: '/media/video',
-					className: 'sub-route-link',
-					command: () => router.push('/media/video')
+					template,
 				},
 				{
 					label: 'Photo',
 					id: '/media/photo',
-					className: classNames('sub-route-link photo-link', { 'active-route': pathname === '/media/photo' }),
-					command: () => router.push('/media/photo')
+					template,
 				}
 			]
 		},
 		{
 			label: 'Contact',
 			id: '/contact',
-			command: () => router.push('/contact'),
-			className: classNames({ 'active-route': pathname === '/contact' })
+			template,
 		}
 	]
 	if (!isMobile) {
