@@ -16,7 +16,11 @@ const nextConfig = {
 		]
 	},
 	experimental: {
-		dynamicIO: true
+		dynamicIO: true,
+		useCache: true,
+		optimisticClientCache: true,
+		webpackMemoryOptimizations: true,
+		serverComponentsHmrCache: true,
 	},
 	async headers() {
 		return [
