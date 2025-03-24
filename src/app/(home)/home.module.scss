@@ -53,40 +53,47 @@ $wings-width: clamp(3.5rem, 4vw, 5.8rem);
 				width: 40px;
 			}
 		}
-		
-		.bgPortraitMobileSm, .bgPortraitMobileMd, .bgPortraitMobileXl, .bgPortraitDesktop, .bgPortraitMobileLg {
-			display: none;
+		.bgPortraitMobileSm,
+		.bgPortraitMobileMd,
+		.bgPortraitMobileXl,
+		.bgPortraitDesktop,
+		.bgPortraitMobileLg {
 			width: 100%;
 			height: 100%;
 			object-fit: cover;
 			object-position: center;
 		}
-		
+		//Todo rm
+		.bgPortraitMobileMd,
+//		.bgPortraitMobileXl,
+		.bgPortraitDesktop,
+		.bgPortraitMobileLg {
+			display: none;
+		}
 		@media (min-height: 858px) {
-			.bgPortraitMobileSm, .bgPortraitMobileXl, .bgPortraitDesktop, .bgPortraitMobileLg {
+			//Todo rm
+//			.bgPortraitMobileXl,
+			.bgPortraitDesktop, .bgPortraitMobileLg {
 				display: none !important;
 			}
+			//Todo rm
 			.bgPortraitMobileMd {
 				display: block !important;
 			}
 		}
-		
-		@media (max-width: 330px) {
-			.bgPortraitMobileSm {
-				display: block;
-			}
-		}
-		@media (min-width: 330px) and (max-width: 398px) {
-			.bgPortraitMobileXl {
-				display: block;
-			}
-		}
-		
+		//Todo rm
+//		@media (min-width: 330px) and (max-width: 398px) {
+//			.bgPortraitMobileXl {
+//				display: block;
+//			}
+//		}
+		//Todo rm
 		@media (min-width: 398px) and (max-width: 784px) {
 			.bgPortraitMobileMd {
 				display: block;
 			}
 		}
+		//Todo rm
 		@media (min-width: 784px) and (max-width: 1199px) {
 			.bgPortraitMobileLg {
 				display: block;
@@ -94,6 +101,7 @@ $wings-width: clamp(3.5rem, 4vw, 5.8rem);
 				object-position: center;
 			}
 		}
+		//Todo rm
 		@media (min-width: 1199px) {
 			.bgPortraitDesktop {
 				display: block;
@@ -118,7 +126,7 @@ $wings-width: clamp(3.5rem, 4vw, 5.8rem);
 				text-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
 				margin: 0;
 			}
-	
+			
 			.line3 {
 				color: $yellow;
 				font-weight: 400;
@@ -130,7 +138,7 @@ $wings-width: clamp(3.5rem, 4vw, 5.8rem);
 				align-items: center;
 				width: 100%;
 				gap: 1.2rem;
-		
+				
 				.line1 {
 					font-weight: 450;
 				}
@@ -154,8 +162,9 @@ $wings-width: clamp(3.5rem, 4vw, 5.8rem);
 						display: flex;
 						position: absolute;
 						align-items: flex-end;
+						//Todo rm
 						@media (max-width: 574px) {
-							 	top: -2rem;
+							top: -2rem;
 						}
 						.wingLeft, .wingRight {
 							width: $wings-width;
@@ -198,9 +207,11 @@ $wings-width: clamp(3.5rem, 4vw, 5.8rem);
 				justify-self: center;
 			}
 		}
+		//Todo rm
 		@media (min-height: 858px) {
 			top: 60vh;
 		}
+		//Todo rm maybe
 		@media (min-width: 1199px) {
 			left: 5vw;
 			top: 10vh;
