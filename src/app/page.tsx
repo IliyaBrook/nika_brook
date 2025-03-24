@@ -19,15 +19,18 @@ export default async function Home() {
 			<main className={styles.main}>
 				<H1SrOnly>Veronika Brook - Opera Singer & Crossover Artist</H1SrOnly>
 				<Image
+					fill
 					className={styles.bgOfPortrait}
 					src={bgOfPortrait}
 					alt='Background home page color'
 					priority
+					loading="lazy"
 					placeholder="blur"
 				/>
 				<div className={styles.bgImageWrapper}>
 					{/* mobile sm [width:0px-330px] */}
 					<Image
+						fill
 						className={classNames(styles.bgPortrait, styles.bgPortraitMobileSm)}
 						src={bgPortraitMobileSm}
 						alt='Background image Veronika Brook'
@@ -37,6 +40,7 @@ export default async function Home() {
 					/>
 					{/* mobile md [width:330px-398px] */}
 					<Image
+						fill
 						className={classNames(styles.bgPortrait, styles.bgPortraitMobileXl)}
 						src={bgPortraitMobileXl}
 						alt='Background image Veronika Brook'
@@ -54,6 +58,7 @@ export default async function Home() {
 					/>
 					{/* mobile md [width:554px-1100px] */}
 					<Image
+						fill
 						className={classNames(styles.bgPortrait, styles.bgPortraitMobileLg)}
 						src={bgPortraitMobileLg}
 						alt='Background image Veronika Brook'
@@ -75,27 +80,27 @@ export default async function Home() {
 					<div className={styles.innerTextWrapper}>
 						<div className={styles.textJutifyWrapper}>
 							<div className={styles.line1And2And3Wrapper}>
-								<h1 className={styles.line1}>
-									OPERA SINGER
-								</h1>
+								<h1 className={styles.line1}>OPERA SINGER</h1>
 								<div className={styles.line2Wrapper}>
 									<div className={styles.line2WrapperAbsolute}>
 										<Image
-											className={styles.wingLeft}
 											src={leftWingIcon}
 											alt='left wing icon'
 											priority
-											loading='eager'
+											loading="lazy"
+											width={leftWingIcon.width}
+											height={leftWingIcon.height}
+											className={styles.wingLeft}
 										/>
-										<h2 className={styles.line2}>
-											Soprano coloratura
-										</h2>
+										<h2 className={styles.line2}>Soprano coloratura</h2>
 										<Image
-											className={styles.wingRight}
 											src={rightWingIcon}
 											alt='right wing icon'
 											priority
-											loading='eager'
+											loading="lazy"
+											width={rightWingIcon.width}
+											height={rightWingIcon.height}
+											className={styles.wingRight}
 										/>
 									</div>
 								</div>
