@@ -2,6 +2,7 @@
 
 $font-text: var(--font-josefin-sans);
 $font-size-artist-name: clamp(23px, 5vw, 33px);
+$nav-active-color: #735200;
 @mixin ArtistNameText {
 	color: #000;
 	font-size: 33px;
@@ -13,7 +14,7 @@ $font-size-artist-name: clamp(23px, 5vw, 33px);
 	text-transform: uppercase;
 	@media (min-width: 600px) {
 		&:hover {
-			color: rgb(236, 199, 145);
+			color: $nav-active-color;
 			cursor: pointer;
 		}
 	}
@@ -135,7 +136,7 @@ $font-size-artist-name: clamp(23px, 5vw, 33px);
 		font-weight: 400;
 	}
 	:global(.p-menuitem-link:hover) {
-		color: rgb(236, 199, 145);
+		color: $nav-active-color;
 	}
 	
 	@media (min-width: 1199px) {
@@ -146,10 +147,10 @@ $font-size-artist-name: clamp(23px, 5vw, 33px);
 		:global(.active-route) {
 			transition: color 0.15s ease-in-out;
 			font-weight: 400;
-			color: rgb(236, 199, 145);
+			color: $nav-active-color;
 		}
 		:global(.active-route .p-menuitem-text) {
-			color: rgb(236, 199, 145);
+			color: $nav-active-color;
 		}
 		:global(ul) {
 			padding: 0;
