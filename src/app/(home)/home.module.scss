@@ -45,7 +45,7 @@ $wings-width: clamp(3.5rem, 4vw, 5.8rem);
 			height: 100%;
 			z-index: 3;
 			filter: blur(10px);
-			background-image: url('../../public/images/home/bgOfPortraitBlur.jpg');
+			background-image: url('../../../public/images/home/bgOfPortraitBlur.jpg');
 			background-size: cover;
 			background-position: center;
 			background-repeat: no-repeat;
@@ -173,7 +173,7 @@ $wings-width: clamp(3.5rem, 4vw, 5.8rem);
 				}
 			}
 		}
-		.textJutifyWrapper {
+		.textJustifyWrapper {
 			opacity: 0;
 			animation: fadeIn 2s ease-in-out forwards, slideIn 2s ease-in-out forwards;
 			width: fit-content;
@@ -181,7 +181,7 @@ $wings-width: clamp(3.5rem, 4vw, 5.8rem);
 		}
 		@media (min-width: 785px) and (not (min-height: 858px)){
 			width: 100%;
-			.textJutifyWrapper {
+			.textJustifyWrapper {
 				margin-left: 8vw;
 				margin-top: 8vw;
 			}
@@ -194,7 +194,7 @@ $wings-width: clamp(3.5rem, 4vw, 5.8rem);
 			.innerTextWrapper {
 				align-items: center;
 			}
-			.textJutifyWrapper {
+			.textJustifyWrapper {
 				justify-self: center;
 			}
 		}
