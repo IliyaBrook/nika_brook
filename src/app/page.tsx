@@ -35,7 +35,7 @@ export default async function Home() {
 						src={bgPortraitMobileSm}
 						alt='Background image Veronika Brook'
 						priority
-						loading='eager'
+						loading="lazy"
 						placeholder="blur"
 					/>
 					{/* mobile md [width:330px-398px] */}
@@ -45,7 +45,7 @@ export default async function Home() {
 						src={bgPortraitMobileXl}
 						alt='Background image Veronika Brook'
 						priority
-						loading='eager'
+						loading="lazy"
 						placeholder="blur"
 					/>
 					{/* mobile md [width:398px-554px] */}
@@ -53,7 +53,7 @@ export default async function Home() {
 						className={classNames(styles.bgPortrait, styles.bgPortraitMobileMd)}
 						src={bgPortraitMobileMd}
 						alt='Background image Veronika Brook'
-						loading='eager'
+						loading="lazy"
 						placeholder="blur"
 					/>
 					{/* mobile md [width:554px-1100px] */}
@@ -63,7 +63,7 @@ export default async function Home() {
 						src={bgPortraitMobileLg}
 						alt='Background image Veronika Brook'
 						priority
-						loading='eager'
+						loading="lazy"
 						placeholder="blur"
 					/>
 					{/* desktop < 1100px */}
@@ -72,7 +72,7 @@ export default async function Home() {
 						src={bgPortraitDesktop}
 						alt='Background image Veronika Brook'
 						priority
-						loading='eager'
+						loading="lazy"
 						placeholder="blur"
 					/>
 				</div>
