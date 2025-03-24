@@ -27,7 +27,7 @@ const RouteTemplate = (item: MenuItem, options: MenuItemOptions, pathname: strin
 	)
 }
 
-const getNavBarItems = ({pathname, router, isMobile }: IGetNavBarItems): MenuItem[] => {
+const getNavBarItems = ({pathname, isMobile }: IGetNavBarItems): MenuItem[] => {
 	const template = (item: MenuItem, options: MenuItemOptions) => RouteTemplate(item, options, pathname)
 	
 	const items =  [

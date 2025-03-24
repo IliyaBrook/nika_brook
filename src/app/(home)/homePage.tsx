@@ -12,7 +12,6 @@ import BgOfPortraitBlur, {
 } from '@/app/(home)/images'
 import useWaitDomStable from '@/hooks/useWaitDomStable'
 import useWindowSize from '@/hooks/useWindowSize'
-import dynamic from 'next/dynamic'
 import { type ReactElement } from 'react'
 import styles from './home.module.scss'
 
