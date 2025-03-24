@@ -1,4 +1,11 @@
 'use client'
+import {
+	BgOfPortrait, BgPortraitDesktop,
+	BgPortraitMobileLg,
+	BgPortraitMobileMd,
+	BgPortraitMobileSm,
+	BgPortraitMobileXl, LeftWingIcon, RightWingIcon
+} from '@/app/(home)/images'
 import H1SrOnly from '@/components/H1SrOnly/H1SrOnly'
 import useWindowSize from '@/hooks/useWindowSize'
 import classNames from 'classnames'
@@ -14,96 +21,21 @@ import leftWingIcon from '../../../public/images/icons/left_wing.svg'
 import rightWingIcon from '../../../public/images/icons/right_wing.svg'
 import styles from './home.module.scss'
 
-const BgPortraitMobileSm = () => <Image
-	className={classNames(styles.bgPortrait, styles.bgPortraitMobileSm)}
-	src={bgPortraitMobileSm}
-	alt='Background image Veronika Brook'
-	priority
-	loading='eager'
-	placeholder="blur"
-/>
 
-const BgPortraitMobileXl = () => <Image
-	className={classNames(styles.bgPortrait, styles.bgPortraitMobileXl)}
-	src={bgPortraitMobileXl}
-	alt='Background image Veronika Brook'
-	priority
-	loading='eager'
-	placeholder="blur"
-/>
-
-const BgPortraitMobileMd = () => 	<Image
-	className={classNames(styles.bgPortrait, styles.bgPortraitMobileMd)}
-	src={bgPortraitMobileMd}
-	alt='Background image Veronika Brook'
-	loading="eager"
-	placeholder="blur"
-/>
 
 const HomePage = (): ReactElement => {
-	// const {screenWidth, screenHeight} = useWindowSize()
-	// console.log("screenWidth:", screenWidth)
-	// console.log("screenHeight:", screenHeight)
+	const {screenWidth, screenHeight} = useWindowSize()
 	
 	return (
 		<>
-			<Image
-				fill
-				className={styles.bgOfPortrait}
-				src={bgOfPortrait}
-				alt='Background home page color'
-				priority
-				placeholder='blur'
-			
-			/>
+			{/* grey background */}
+			<BgOfPortrait/>
 			<div className={styles.bgImageWrapper}>
-				{/* mobile sm [width:0px-330px] */}
-				<Image
-					className={classNames(styles.bgPortrait, styles.bgPortraitMobileSm)}
-					src={bgPortraitMobileSm}
-					alt='Background image Veronika Brook'
-					priority
-					loading='eager'
-					placeholder='blur'
-				
-				/>
-				{/* mobile md [width:330px-398px] */}
-				<Image
-					fill
-					className={classNames(styles.bgPortrait, styles.bgPortraitMobileXl)}
-					src={bgPortraitMobileXl}
-					alt='Background image Veronika Brook'
-					priority
-					loading='eager'
-					placeholder='blur'
-				
-				/>
-				{/* mobile md [width:398px-554px] */}
-				<Image
-					className={classNames(styles.bgPortrait, styles.bgPortraitMobileMd)}
-					src={bgPortraitMobileMd}
-					alt='Background image Veronika Brook'
-					loading='eager'
-					placeholder='blur'
-				/>
-				{/* mobile md [width:554px-1100px] */}
-				<Image
-					className={classNames(styles.bgPortrait, styles.bgPortraitMobileLg)}
-					src={bgPortraitMobileLg}
-					alt='Background image Veronika Brook'
-					priority
-					loading='eager'
-					placeholder='blur'
-				/>
-				{/* desktop < 1100px */}
-				<Image
-					className={classNames(styles.bgPortrait, styles.bgPortraitDesktop)}
-					src={bgPortraitDesktop}
-					alt='Background image Veronika Brook'
-					priority
-					loading='eager'
-					placeholder='blur'
-				/>
+				<BgPortraitMobileSm/>
+				<BgPortraitMobileXl/>
+				<BgPortraitMobileMd/>
+				<BgPortraitMobileLg/>
+				<BgPortraitDesktop/>
 			</div>
 			<div className={styles.textWrapper}>
 				<div className={styles.innerTextWrapper}>
@@ -112,25 +44,9 @@ const HomePage = (): ReactElement => {
 							<h1 className={styles.line1}>OPERA SINGER</h1>
 							<div className={styles.line2Wrapper}>
 								<div className={styles.line2WrapperAbsolute}>
-									<Image
-										src={leftWingIcon}
-										alt='left wing icon'
-										priority
-										loading='eager'
-										width={leftWingIcon.width}
-										height={leftWingIcon.height}
-										className={styles.wingLeft}
-									/>
+									<LeftWingIcon/>
 									<h2 className={styles.line2}>Soprano coloratura</h2>
-									<Image
-										src={rightWingIcon}
-										alt='right wing icon'
-										priority
-										loading='eager'
-										width={rightWingIcon.width}
-										height={rightWingIcon.height}
-										className={styles.wingRight}
-									/>
+									<RightWingIcon/>
 								</div>
 							</div>
 							<h2 className={styles.line3}>
