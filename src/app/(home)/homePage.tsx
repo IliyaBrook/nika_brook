@@ -16,17 +16,12 @@ import dynamic from 'next/dynamic'
 import { type ReactElement } from 'react'
 import styles from './home.module.scss'
 
-const Skeleton = dynamic(
-	() => import('primereact/skeleton').then(({ Skeleton }) => Skeleton),
-	{ ssr: false })
-
 const HomePage = (): ReactElement => {
 	const { screenWidth, screenHeight } = useWindowSize()
 	const isDomStable = useWaitDomStable()
-	
+	if (!isDomStable) return null
 	return (
 		<>
-			{!isDomStable && <Skeleton height="100vh" />}
 			{isDomStable && <BgOfPortrait />}
 			<div className={styles.bgImageWrapper}>
 				{screenWidth > 398 && screenWidth < 784 && (

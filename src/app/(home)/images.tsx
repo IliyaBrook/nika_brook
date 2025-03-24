@@ -87,3 +87,4 @@ export const RightWingIcon = (): JSX.Element => <Image
 	className={styles.wingRight}
 	style={{display: 'block'}}
 />
+
