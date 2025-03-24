@@ -35,7 +35,6 @@ const Navbar = () => {
 			document.documentElement.style.setProperty('--navbar-height', `${navBarHeight}px`)
 		}
 	}, [navBarRef?.current, isVisible])
-	console.log("component")
 	
 	useEffect(() => {
 		const observer = new MutationObserver((mutations: MutationRecord[]) => {

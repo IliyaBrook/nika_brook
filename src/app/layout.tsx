@@ -118,6 +118,7 @@ export default function RootLayout({
 }>) {
 	return (
 		<>
+			<StructuredData data={websiteSchema} />
 			<PrimeReactProvider value={primeReactConfig}>
 				<html
 					lang='en'
