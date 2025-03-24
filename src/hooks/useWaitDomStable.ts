@@ -3,17 +3,15 @@ import React, { useEffect } from 'react'
 interface IUseWaitDomStable<T extends boolean> {
 	targetRef: React.RefObject<any>,
 	checkInterval?: number,
-	attributeFilter: string[],
-	useCallback?: boolean,
+	attributeFilter?: string[],
 	useState?: T,
 	callback?: () => void
 }
 
-const useWaitDomStable = <T>({
+const useWaitDomStable = <T extends boolean>({
 	attributeFilter = [],
 	checkInterval = 300,
 	targetRef,
-	useCallback = true,
 	useState = true as T,
 	callback
                           }: IUseWaitDomStable<T>) => {
@@ -29,9 +27,8 @@ const useWaitDomStable = <T>({
 					lastMutationIndex = idx
 					if (timer) clearTimeout(timer)
 					timer = setTimeout(() => {
-						if (useCallback) callback && callback()
+						if (callback) callback()
 						if (useState) setCompleted(true)
-						console.log('is passes')
 						observer.disconnect()
 					}, checkInterval)
 				}
@@ -54,9 +51,9 @@ const useWaitDomStable = <T>({
 	}, [])
 	
 	if (useState && completed) {
-		return true
+		return true as T extends true ? true : false
 	}
-	return null
+	return null as T extends true ? true : null;
 }
 
 export default useWaitDomStable

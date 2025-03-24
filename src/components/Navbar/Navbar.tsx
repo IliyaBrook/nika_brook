@@ -2,6 +2,7 @@
 import getNavBarItems from '@/components/Navbar/navBarItems'
 import SocialNavLinks from '@/components/socialNavLinks/socialNavLinks'
 import useMediaQuery from '@/hooks/useMediaQuery'
+import useWaitDomStable from '@/hooks/useWaitDomStable'
 import classNames from 'classnames'
 import dynamic from 'next/dynamic'
 import { usePathname, useRouter } from 'next/navigation'
@@ -65,7 +66,7 @@ const Navbar = () => {
 		}
 		return () => observer.disconnect();
 	}, []);
-
+	
 	return (
 		<div
 			className={classNames(styles.root, {
