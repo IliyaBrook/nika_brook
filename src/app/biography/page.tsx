@@ -4,6 +4,7 @@ import { baseUrl, sameAs } from '@/data'
 import { getDeviceType } from '@/utils/getDeviceType'
 import classNames from 'classnames'
 import { Metadata } from 'next'
+import Head from 'next/head'
 import Image, { ImageProps } from 'next/image'
 import { headers } from 'next/headers'
 import styles from './biography.module.scss'
@@ -121,9 +122,13 @@ export default async function Biography () {
 	
 	return (
 		<>
+			<Head>
+				<title>Veronika Brook - Award-Winning Opera Singer Biography</title>
+				<meta name="description" content="Explore the biography of Veronika Brook, an acclaimed coloratura soprano with performances at the Israeli Opera and on international stages. Discover her awards and achievements." />
+			</Head>
 			<StructuredData data={biographySchema} />
 			<main className={classNames(styles.root, { [styles.iosRoot]: isIos })}>
-				<H1SrOnly>Veronika Brook - Award-Winning Opera Singer & Biography</H1SrOnly>
+				<H1SrOnly>Biography of Veronika Brook - Award-Winning Coloratura Soprano in the Israeli Opera</H1SrOnly>
 				<div className={styles.biographyContainer}>
 					<div className={styles.bioSection1}>
 						<ImageWithCredit<ImageProps>

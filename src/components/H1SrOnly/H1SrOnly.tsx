@@ -1,4 +1,3 @@
-// src/components/H1SrOnly/H1SrOnly.tsx
 import React from 'react';
 import styles from './H1SrOnly.module.scss';
 

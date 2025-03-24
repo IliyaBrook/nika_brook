@@ -43,7 +43,7 @@ export const sameAs = [
 
 export const metadataAndOpenGMainImage = baseUrl + '/images/home/bgPortraitDesktop.jpg'
 
-export const defaultTitle = 'Veronika Brook - Opera Singer & Crossover Artist'
+export const defaultTitle = 'Veronika Brook - Opera Singer & Crossover Artist in Israel'
 export const videos: VideoGallery[] = [
 	{
 		id: 'video_1',

@@ -3,6 +3,7 @@ import H1SrOnly from '@/components/H1SrOnly/H1SrOnly'
 import { StructuredData } from '@/components/StructuredData'
 import { baseUrl, videos } from '@/data'
 import { Metadata } from 'next'
+import Head from 'next/head'
 import React from 'react'
 import styles from './video.module.scss'
 import VideoGallery from './VideoGallery'
@@ -70,9 +71,13 @@ export default async function Video() {
 	const videoSchema = await getVideoSchema();
 	return (
 		<>
+			<Head>
+				<title>Veronika Brook Video Gallery - Exclusive Opera Moments Worldwide</title>
+				<meta name="description" content="Browse the photo gallery of Veronika Brook, a coloratura soprano of the Israeli Opera, featuring her performances, rehearsals, and exclusive moments from around the world." />
+			</Head>
 			<StructuredData data={videoSchema} />
 			<main className={styles.photo}>
-				<H1SrOnly>Video Gallery - Veronika Brook | Opera Performances</H1SrOnly>
+				<H1SrOnly>Video Gallery of Veronika Brook - Coloratura Soprano | Israel Opera Performances</H1SrOnly>
 				<VideoGallery />
 			</main>
 		</>

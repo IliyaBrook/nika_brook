@@ -4,6 +4,7 @@ import { StructuredData } from '@/components/StructuredData'
 import { baseUrl, images } from '@/data'
 import { Metadata } from 'next'
 import MediaGalleria from '@/app/media/photo/PhotoGalleria'
+import Head from 'next/head'
 import styles from './photo.module.scss'
 import React from 'react'
 
@@ -63,9 +64,13 @@ export default async function Photo() {
 	const photoSchema = await getPhotoSchema()
 	return (
 		<>
+			<Head>
+				<title>Veronika Brook Photo Gallery - Exclusive Opera Moments Worldwide</title>
+				<meta name="description" content="Browse the photo gallery of Veronika Brook, a coloratura soprano of the Israeli Opera, featuring her performances, rehearsals, and exclusive moments from around the world." />
+			</Head>
 			<StructuredData data={photoSchema} />
 			<main className={styles.photo}>
-				<H1SrOnly>Photo Gallery - Veronika Brook | Exclusive Opera Moments</H1SrOnly>
+				<H1SrOnly>Photo Gallery of Veronika Brook - Coloratura Soprano | Israel Opera Performances</H1SrOnly>
 				<MediaGalleria />
 			</main>
 		</>

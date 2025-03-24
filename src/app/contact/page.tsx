@@ -3,6 +3,7 @@ import H1SrOnly from '@/components/H1SrOnly/H1SrOnly'
 import SocialNavLinks from '@/components/socialNavLinks/socialNavLinks'
 import { StructuredData } from '@/components/StructuredData'
 import { baseUrl } from '@/data'
+import Head from 'next/head'
 import faEnvelopeIcon from '../../../public/images/icons/faEnvelopeIcon.svg'
 import { Metadata } from 'next'
 import Image from 'next/image'
@@ -56,9 +57,13 @@ const contactSchema = {
 export default async function Contact() {
 	return (
 		<>
+			<Head>
+				<title>Contact & Booking for Veronika Brook - Leading Opera Singer</title>
+				<meta name="description" content="Contact Veronika Brook, a leading coloratura soprano of the Israeli Opera, for booking inquiries and other messages." />
+			</Head>
 			<StructuredData data={contactSchema} />
 			<main className={styles.main}>
-				<H1SrOnly>Contact & Book Veronika Brook - Opera Singer</H1SrOnly>
+				<H1SrOnly>Contact Veronika Brook - Leading Israel Opera Singer for Bookings</H1SrOnly>
 				<div className={styles.contactImageWrapper}>
 					<Image
 						src='/images/contact/elenaProsdocimoC1.jpg'
