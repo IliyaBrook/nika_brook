@@ -30,7 +30,6 @@ export const BgPortraitMobileSm = (): JSX.Element => <Image
 />
 
 export const BgPortraitMobileXl = (): JSX.Element => <Image
-	fill
 	className={classNames(styles.bgPortrait, styles.bgPortraitMobileXl)}
 	src={bgPortraitMobileXl}
 	alt='Background image Veronika Brook'

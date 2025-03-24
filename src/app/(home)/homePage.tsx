@@ -15,32 +15,44 @@ import styles from './home.module.scss'
 
 
 const HomePage = (): ReactElement => {
-	const {screenWidth, screenHeight} = useWindowSize()
+	const { screenWidth, screenHeight } = useWindowSize()
 	
 	return (
 		<>
-			<BgOfPortrait/>
+			<BgOfPortrait />
 			<div className={styles.bgImageWrapper}>
-				{ screenHeight > 858 ? (
+				{screenWidth > 398 && screenWidth < 784 && (
+					<>
+						<BgPortraitMobileMd />
+					</>
+				)}
+				{screenHeight < 858 && (
 					// max-height: 858px
 					<>
-						<BgPortraitMobileMd/>
-					</>
-				) : (
-					// min-height: 858px
-					<>
-				
-						<BgPortraitMobileXl/>
-						<BgPortraitDesktop/>
-						<BgPortraitMobileLg/>
+						{screenWidth > 1199 && (
+							<>
+								<BgPortraitDesktop />
+							</>
+						)}
+						
+						{screenWidth > 784 && screenWidth < 1199 && (
+							<>
+								<BgPortraitMobileLg />
+							</>
+						)}
+						
 						{screenWidth < 398 && (
 							<>
 								<BgPortraitMobileSm />
 							</>
 						)}
+						{screenWidth > 330 && screenWidth < 398 && (
+							<>
+								<BgPortraitMobileXl />
+							</>
+						)}
 					</>
 				)}
-			
 			</div>
 			<div className={styles.textWrapper}>
 				<div className={styles.innerTextWrapper}>
@@ -49,9 +61,9 @@ const HomePage = (): ReactElement => {
 							<h1 className={styles.line1}>OPERA SINGER</h1>
 							<div className={styles.line2Wrapper}>
 								<div className={styles.line2WrapperAbsolute}>
-									<LeftWingIcon/>
+									<LeftWingIcon />
 									<h2 className={styles.line2}>Soprano coloratura</h2>
-									<RightWingIcon/>
+									<RightWingIcon />
 								</div>
 							</div>
 							<h2 className={styles.line3}>
