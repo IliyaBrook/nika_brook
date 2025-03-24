@@ -53,29 +53,40 @@ $wings-width: clamp(3.5rem, 4vw, 5.8rem);
 				width: 40px;
 			}
 		}
-		.bgPortraitMobileSm,
-		.bgPortraitMobileMd,
-		.bgPortraitMobileXl,
-		.bgPortraitDesktop,
-		.bgPortraitMobileLg {
+
+		.bgPortraitMobileSm, .bgPortraitMobileMd, .bgPortraitDesktop, .bgPortraitMobileXl, , .bgPortraitMobileLg {
+			display: none;
 			width: 100%;
 			height: 100%;
 			object-fit: cover;
 			object-position: center;
 		}
-		//Todo rm
-//		.bgPortraitMobileMd,
-		.bgPortraitDesktop,
-		.bgPortraitMobileLg {
-			display: none;
-		}
+		
 		@media (min-height: 858px) {
-			//Todo rm
-			.bgPortraitDesktop, .bgPortraitMobileLg {
+			.bgPortraitMobileSm, .bgPortraitMobileXl, .bgPortraitDesktop, .bgPortraitMobileLg {
 				display: none !important;
 			}
+			.bgPortraitMobileMd {
+				display: block !important;
+			}
 		}
-		//Todo rm
+		
+		@media (max-width: 398px) {
+			.bgPortraitMobileSm {
+				display: block;
+			}
+		}
+		@media (min-width: 330px) and (max-width: 398px) {
+			.bgPortraitMobileXl {
+				display: block;
+			}
+		}
+		
+		@media (min-width: 398px) and (max-width: 784px) {
+			.bgPortraitMobileMd {
+				display: block!important;
+			}
+		}
 		@media (min-width: 784px) and (max-width: 1199px) {
 			.bgPortraitMobileLg {
 				display: block;
@@ -83,7 +94,6 @@ $wings-width: clamp(3.5rem, 4vw, 5.8rem);
 				object-position: center;
 			}
 		}
-		//Todo rm
 		@media (min-width: 1199px) {
 			.bgPortraitDesktop {
 				display: block;
@@ -144,7 +154,6 @@ $wings-width: clamp(3.5rem, 4vw, 5.8rem);
 						display: flex;
 						position: absolute;
 						align-items: flex-end;
-						//Todo rm
 						@media (max-width: 574px) {
 							top: -2rem;
 						}
@@ -189,11 +198,9 @@ $wings-width: clamp(3.5rem, 4vw, 5.8rem);
 				justify-self: center;
 			}
 		}
-		//Todo rm
 		@media (min-height: 858px) {
 			top: 60vh;
 		}
-		//Todo rm maybe
 		@media (min-width: 1199px) {
 			left: 5vw;
 			top: 10vh;

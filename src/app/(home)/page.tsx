@@ -1,6 +1,6 @@
+import HomePage from '@/app/(home)/homePage'
 import H1SrOnly from '@/components/H1SrOnly/H1SrOnly'
 import styles from './home.module.scss'
-import HomePage from './homePage'
 
 
 export default async function Home() {
