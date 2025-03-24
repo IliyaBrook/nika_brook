@@ -1,26 +1,17 @@
 'use client'
 import {
-	BgOfPortrait, BgPortraitDesktop,
+	BgOfPortrait,
+	BgPortraitDesktop,
 	BgPortraitMobileLg,
 	BgPortraitMobileMd,
 	BgPortraitMobileSm,
-	BgPortraitMobileXl, LeftWingIcon, RightWingIcon
+	BgPortraitMobileXl,
+	LeftWingIcon,
+	RightWingIcon
 } from '@/app/(home)/images'
-import H1SrOnly from '@/components/H1SrOnly/H1SrOnly'
 import useWindowSize from '@/hooks/useWindowSize'
-import classNames from 'classnames'
-import Image from 'next/image'
 import type { ReactElement } from 'react'
-import bgOfPortrait from '../../../public/images/home/bgOfPortrait.jpg'
-import bgPortraitDesktop from '../../../public/images/home/bgPortraitDesktop.jpg'
-import bgPortraitMobileLg from '../../../public/images/home/bgPortraitDesktopLg.jpg'
-import bgPortraitMobileMd from '../../../public/images/home/bgPortraitMobileMd.jpg'
-import bgPortraitMobileSm from '../../../public/images/home/bgPortraitMobileSm.jpg'
-import bgPortraitMobileXl from '../../../public/images/home/bgPortraitMobileXl.jpg'
-import leftWingIcon from '../../../public/images/icons/left_wing.svg'
-import rightWingIcon from '../../../public/images/icons/right_wing.svg'
 import styles from './home.module.scss'
-
 
 
 const HomePage = (): ReactElement => {
@@ -28,14 +19,28 @@ const HomePage = (): ReactElement => {
 	
 	return (
 		<>
-			{/* grey background */}
 			<BgOfPortrait/>
 			<div className={styles.bgImageWrapper}>
-				<BgPortraitMobileSm/>
-				<BgPortraitMobileXl/>
-				<BgPortraitMobileMd/>
-				<BgPortraitMobileLg/>
-				<BgPortraitDesktop/>
+				{ screenHeight > 858 ? (
+					// max-height: 858px
+					<>
+						<BgPortraitMobileMd/>
+					</>
+				) : (
+					// min-height: 858px
+					<>
+				
+						<BgPortraitMobileXl/>
+						<BgPortraitDesktop/>
+						<BgPortraitMobileLg/>
+						{screenWidth < 398 && (
+							<>
+								<BgPortraitMobileSm />
+							</>
+						)}
+					</>
+				)}
+			
 			</div>
 			<div className={styles.textWrapper}>
 				<div className={styles.innerTextWrapper}>

@@ -54,28 +54,29 @@ $wings-width: clamp(3.5rem, 4vw, 5.8rem);
 			}
 		}
 
-		.bgPortraitMobileSm, .bgPortraitMobileMd, .bgPortraitDesktop, .bgPortraitMobileXl, , .bgPortraitMobileLg {
+		.bgPortraitMobileMd, .bgPortraitDesktop, .bgPortraitMobileXl, , .bgPortraitMobileLg {
 			display: none;
+//Todo check if need
 			width: 100%;
 			height: 100%;
 			object-fit: cover;
 			object-position: center;
 		}
 		
-		@media (min-height: 858px) {
-			.bgPortraitMobileSm, .bgPortraitMobileXl, .bgPortraitDesktop, .bgPortraitMobileLg {
-				display: none !important;
-			}
-			.bgPortraitMobileMd {
-				display: block !important;
-			}
-		}
+//		@media (min-height: 858px) {
+//			.bgPortraitMobileSm, .bgPortraitMobileXl, .bgPortraitDesktop, .bgPortraitMobileLg {
+//				display: none !important;
+//			}
+//			.bgPortraitMobileMd {
+//				display: block !important;
+//			}
+//		}
 		
-		@media (max-width: 398px) {
-			.bgPortraitMobileSm {
-				display: block;
-			}
-		}
+//		@media (max-width: 398px) {
+//			.bgPortraitMobileSm {
+//				display: block;
+//			}
+//		}
 		@media (min-width: 330px) and (max-width: 398px) {
 			.bgPortraitMobileXl {
 				display: block;
