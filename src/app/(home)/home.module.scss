@@ -120,15 +120,15 @@ $wings-width: clamp(3.5rem, 4vw, 5.8rem);
 			width: fit-content;
 			height: fit-content;
 		}
-		@media (min-width: 785px) and (not (min-height: 858px)){
-			width: 100%;
-			.textJustifyWrapper {
-				margin-left: 8vw;
-				margin-top: 8vw;
-			}
-		}
+//		@media (min-width: 785px) and (not (min-height: 858px)){
+//			width: 100%;
+//			.textJustifyWrapper {
+//				margin-left: 8vw;
+//				margin-top: 8vw;
+//			}
+//		}
 		@media (max-width: 1199px) {
-			top: calc(50vh - var(--ios-bottom-padding, 0px));
+			top: calc(45vh - var(--ios-bottom-padding, 0px));
 			padding: 25px 0;
 			background-color: rgba(0, 0, 0, 0.5);
 			width: 100%;
