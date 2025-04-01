@@ -12,19 +12,13 @@ import BgOfPortraitBlur, {
 } from '@/app/(home)/images'
 import useWaitDomStable from '@/hooks/useWaitDomStable'
 import useWindowSize from '@/hooks/useWindowSize'
-import { type ReactElement, useEffect, useState } from 'react'
+import { type ReactElement } from 'react'
 import styles from './home.module.scss'
 
 const HomePage = (): ReactElement => {
 	const { screenWidth, screenHeight } = useWindowSize()
 	const isDomStable = useWaitDomStable()
-	const [ready, setReady] = useState(false)
 	
-	useEffect(() => {
-		setTimeout(() => setReady(true), 300)
-	}, [])
-	
-	if (!ready) return null
 	return (
 		<>
 			{isDomStable && <BgOfPortrait />}
