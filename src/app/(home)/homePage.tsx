@@ -44,7 +44,7 @@ const HomePage = (): ReactElement => {
 							</>
 						)}
 						
-						{screenWidth < 398 && (
+						{screenWidth < 330 && (
 							<>
 								{isDomStable && <BgPortraitMobileSm />}
 							</>
