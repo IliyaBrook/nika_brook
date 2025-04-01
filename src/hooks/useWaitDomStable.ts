@@ -1,5 +1,5 @@
 // Вставьте этот код вместо вашего текущего useWaitDomStable
-import React, { useState, useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react'
 
 interface IUseWaitDomStable<TUseState extends boolean> {
 	checkInterval?: number;
