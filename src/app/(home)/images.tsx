@@ -20,7 +20,6 @@ export const BgOfPortrait = (): JSX.Element => <Image
 	src={bgOfPortrait}
 	alt='Background home page color'
 	priority
-	placeholder='blur'
 	fill
 />
 // profile images for different sizes
@@ -29,8 +28,6 @@ export const BgPortraitMobileSm = (): JSX.Element => <Image
 	src={bgPortraitMobileSm}
 	alt='Background image Veronika Brook'
 	priority
-	loading='eager'
-	placeholder='blur'
 />
 
 export const BgPortraitMobileXl = (): JSX.Element => <Image
@@ -38,15 +35,12 @@ export const BgPortraitMobileXl = (): JSX.Element => <Image
 	src={bgPortraitMobileXl}
 	alt='Background image Veronika Brook'
 	priority
-	loading='eager'
-	placeholder='blur'
 />
 export const BgPortraitMobileMd = (): JSX.Element => <Image
 	className={classNames(styles.bgPortrait, styles.bgPortraitMobileMd)}
 	src={bgPortraitMobileMd}
 	alt='Background image Veronika Brook'
 	loading='eager'
-	placeholder='blur'
 	style={{display: 'block'}}
 />
 export const BgPortraitMobileLg = (): JSX.Element => <Image
@@ -55,7 +49,6 @@ export const BgPortraitMobileLg = (): JSX.Element => <Image
 	alt='Background image Veronika Brook'
 	priority
 	loading='eager'
-	placeholder='blur'
 	style={{display: 'block'}}
 />
 export const BgPortraitDesktop = (): JSX.Element => <Image
@@ -64,7 +57,6 @@ export const BgPortraitDesktop = (): JSX.Element => <Image
 	alt='Background image Veronika Brook'
 	priority
 	loading='eager'
-	placeholder='blur'
 	style={{display: 'block'}}
 />
 
@@ -98,6 +90,7 @@ const BgOfPortraitBlur = (): ReactElement => {
 			src={bgOfPortraitBlur}
 			alt="blurred background"
 			className={styles.bgOfPortraitBlur}
+			priority
 			style={{
 				position: 'absolute',
 				top: 0,

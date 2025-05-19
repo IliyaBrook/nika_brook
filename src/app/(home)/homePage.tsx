@@ -39,36 +39,34 @@ const HomePage = (): ReactElement => {
 			{isReady && <BgOfPortrait />}
 			<div className={styles.bgImageWrapper}>
 				{isReady && <BgOfPortraitBlur />}
-				{screenWidth > 398 && screenWidth < 784 && (
+				
+				{screenWidth >= 1199 && (
+					<>
+						{isReady && <BgPortraitDesktop />}
+					</>
+				)}
+				
+				{screenWidth >= 784 && screenWidth < 1199 && (
+					<>
+						{isReady && <BgPortraitMobileLg />}
+					</>
+				)}
+				
+				{screenWidth >= 398 && screenWidth < 784 && (
 					<>
 						{isReady && <BgPortraitMobileMd />}
 					</>
 				)}
-				{screenHeight < 858 && (
-					// max-height: 858px
+				
+				{screenWidth >= 330 && screenWidth < 398 && (
 					<>
-						{screenWidth > 1199 && (
-							<>
-								{isReady && <BgPortraitDesktop />}
-							</>
-						)}
-						
-						{screenWidth > 784 && screenWidth < 1199 && (
-							<>
-								{isReady && <BgPortraitMobileLg />}
-							</>
-						)}
-						
-						{screenWidth < 330 && (
-							<>
-								{isReady && <BgPortraitMobileSm />}
-							</>
-						)}
-						{screenWidth > 330 && screenWidth < 398 && (
-							<>
-								{isReady && <BgPortraitMobileXl />}
-							</>
-						)}
+						{isReady && <BgPortraitMobileXl />}
+					</>
+				)}
+				
+				{screenWidth < 330 && (
+					<>
+						{isReady && <BgPortraitMobileSm />}
 					</>
 				)}
 			</div>

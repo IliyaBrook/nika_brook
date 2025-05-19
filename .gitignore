@@ -34,7 +34,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
-cheatsheet/
 /testQueries/
 .idea/
 Makefile
@@ -49,3 +48,8 @@ amplify_outputs*
 amplifyconfiguration*
 
 .vercel
+.aiignore
+.junie
+.vscode
+.history
+cheatsheet/
