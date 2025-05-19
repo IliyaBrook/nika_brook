@@ -141,7 +141,15 @@ $wings-width: clamp(3.5rem, 4vw, 5.8rem);
 		
 		@media (min-width: 1199px) {
 			left: 5vw;
-			top: 10vh;
+			top: 30vh;
+			width: 40%;
+			background-color: transparent;
+			.innerTextWrapper {
+				align-items: flex-start;
+			}
+			.textJustifyWrapper {
+				justify-self: flex-start;
+			}
 		}
 		
 		@media (min-height: 858px) {

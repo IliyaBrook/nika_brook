@@ -48,7 +48,7 @@ const HomePage = (): ReactElement => {
 				
 				{screenWidth >= 784 && screenWidth < 1199 && (
 					<>
-						{isReady && <BgPortraitMobileLg />}
+						{isReady && <BgPortraitMobileMd />}
 					</>
 				)}
 				
