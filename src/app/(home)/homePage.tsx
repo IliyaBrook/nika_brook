@@ -18,21 +18,9 @@ import styles from './home.module.scss'
 
 const HomePage = (): ReactElement => {
 	const { screenWidth, screenHeight } = useWindowSize()
-	// const [isReady, setIsReady] = useState(false)
-	// const deviceType = useGetDeviceType()
+
 	const isReady = useWaitDomStable()
 	
-	// useEffect(() => {
-	// 	if (deviceType) {
-	// 		if (deviceType === 'iOS') {
-	// 			setIsReady(true)
-	// 		}else {
-	// 			if (isDomStable) {
-	// 				setIsReady(true)
-	// 			}
-	// 		}
-	// 	}
-	// }, [isDomStable, deviceType])
 	if (!isReady) return null
 	return (
 		<div>
