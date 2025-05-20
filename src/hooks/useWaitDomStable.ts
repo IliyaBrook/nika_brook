@@ -1,4 +1,3 @@
-// Вставьте этот код вместо вашего текущего useWaitDomStable
 import { useEffect, useRef, useState } from 'react'
 
 interface IUseWaitDomStable<TUseState extends boolean> {
