@@ -1,7 +1,9 @@
+'use client'
 import styles from './ScrollBarWrapper.module.scss'
 import { ScrollPanel } from 'primereact/scrollpanel'
-import React, { ReactNode } from 'react'
+import React, { ReactNode, useEffect, useState } from 'react'
 import classNames from 'classnames'
+import { usePathname } from 'next/navigation'
 
 interface ScrollBarWrapperProps {
 	children: ReactNode
@@ -13,19 +15,26 @@ interface ScrollBarWrapperProps {
 export const ScrollBarWrapper: React.FC<ScrollBarWrapperProps> = ({
 	children,
 	style,
-	height,
+	height = '100%',
 	className
 }) => {
+	const pathname = usePathname()
+	const isHomeDefault = pathname === '/'
+	const [isHome, setIsHome] = useState(isHomeDefault)
+	useEffect(() => {
+		setIsHome(isHomeDefault)
+	}, [isHomeDefault])
+
 	return (
 		<div
 			className={classNames(styles.root, className)}
-			style={{
-				height: height,
-				...style
-			}}
 		>
 			<ScrollPanel
 				className={styles.scrollPanel}
+				style={{
+					...style,
+					height: !isHome ? height : '100vh',
+				}}
 			>
 				{children}
 			</ScrollPanel>
