@@ -137,18 +137,31 @@ $wings-width: clamp(3.5rem, 4vw, 5.8rem);
 			.textJustifyWrapper {
 				justify-self: center;
 			}
+			left: 0;
 		}
 		
 		@media (min-width: 820px) and (max-width: 1199px) {
-			left: 15vw;
+			left: calc(15vw + 60px);
 			top: 20vh;
-			width: 30%;
+			width: 50%;
 			background-color: transparent;
 			.innerTextWrapper {
 				align-items: flex-start;
 			}
 			.textJustifyWrapper {
 				justify-self: flex-start;
+			}
+			.line1 {
+				font-size: calc(#{$font-text-1} + 0.7rem);
+				text-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);
+			}
+			.line2 {
+				font-size: calc(#{$font-text-2} + 0.7rem);
+				text-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);
+			}
+			.line3 {
+				font-size: calc(#{$font-text-3} + 0.5rem);
+				text-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);
 			}
 		}
 		
@@ -231,9 +244,63 @@ $wings-width: clamp(3.5rem, 4vw, 5.8rem);
 			transform: scale(0.8);
 			top: 0;
 		}
-		@media (min-width: 883px) and (max-width: 1199px) {
-			left: 0;
+		@media (min-width: 820px) and (max-width: 1199px) {
+			left: 5vw;
+			top: 10vh;
 		}
+		@media (min-width: 1060px) and (max-width: 1199px) {
+			.line1 {
+				font-size: calc(#{$font-text-1} + 0.4rem)
+			}
+			
+			.line2 {
+				font-size: calc(#{$font-text-2} + 0.6rem)
+			}
+			
+			.line3 {
+				font-size: calc(#{$font-text-3} + 0.6rem)
+			}
+		}
+		@media (min-width: 1015px) and (max-width: 1199px) {
+			.line1 {
+				font-size: calc(#{$font-text-1} + 0.2rem)
+			}
+			
+			.line2 {
+				font-size: calc(#{$font-text-2} + 0.2rem)
+			}
+			
+			.line3 {
+				font-size: calc(#{$font-text-3} + 0.3rem)
+			}
+		}
+		@media (min-width: 910px) and (max-width: 1199px) {
+			.line1 {
+				font-size: calc(#{$font-text-1})
+			}
+			
+			.line2 {
+				font-size: calc(#{$font-text-2})
+			}
+			
+			.line3 {
+				font-size: calc(#{$font-text-3})
+			}
+		}
+		@media (min-width: 883px) and (max-width: 1199px) {
+			.line1 {
+				font-size: calc(#{$font-text-1} - 0.3rem)
+			}
+			
+			.line2 {
+				font-size: calc(#{$font-text-2} - 0.1rem)
+			}
+			
+			.line3 {
+				font-size: calc(#{$font-text-3} - 0.1rem)
+			}
+		}
+		
 	}
 }
 
