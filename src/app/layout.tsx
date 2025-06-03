@@ -11,6 +11,7 @@ import 'primereact/resources/primereact.min.css'
 import type { Metadata } from 'next'
 import { Alex_Brush, Hedvig_Letters_Serif, Josefin_Sans } from 'next/font/google'
 import { PrimeReactProvider } from 'primereact/api'
+import Head from 'next/head'
 
 import React from 'react'
 import styles from './layout.module.scss'
@@ -128,6 +129,9 @@ export default function RootLayout({
 						alexBrush.variable
 					)}
 				>
+				<head>
+					<meta name="referrer" content="no-referrer-when-downgrade" />
+				</head>
 				<body>
 				<div className={styles.root}>
 					<div className={styles.navbar}>

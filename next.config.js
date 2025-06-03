@@ -28,7 +28,7 @@ const nextConfig = {
 				headers: [
 					{
 						key: 'Content-Security-Policy',
-						value: "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' https: data:; connect-src 'self'; font-src 'self';"
+						value: "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.youtube.com https://youtube.com; style-src 'self' 'unsafe-inline'; img-src 'self' https: data:; connect-src 'self' https://www.youtube.com https://youtube.com; font-src 'self'; frame-src 'self' https://www.youtube.com https://youtube.com; media-src 'self' https://www.youtube.com https://youtube.com;"
 					},
 					{
 						key: 'X-Content-Type-Options',
@@ -36,7 +36,7 @@ const nextConfig = {
 					},
 					{
 						key: 'X-Frame-Options',
-						value: 'DENY',
+						value: 'SAMEORIGIN',
 					},
 					{
 						key: 'X-XSS-Protection',
@@ -44,7 +44,7 @@ const nextConfig = {
 					},
 					{
 						key: 'Referrer-Policy',
-						value: 'strict-origin-when-cross-origin',
+						value: 'no-referrer-when-downgrade',
 					},
 					{
 						key: 'Strict-Transport-Security',
