@@ -1,48 +1,54 @@
 import styles from '@/app/media/video/video.module.scss'
 import type { VideoGallery } from '@/types/sharable.types.ts'
-import React, { useCallback, useState } from 'react'
+import React, { useCallback, useState, useRef, useEffect } from 'react'
 import { createPortal } from 'react-dom'
 
 const VideoModal = ({ video, onClose }: { video: VideoGallery; onClose: () => void }) => {
 	const [hasError, setHasError] = useState(false)
+	const modalRef = useRef<HTMLDivElement>(null)
 	
-	const handleEscapeKey = useCallback((e: KeyboardEvent) => {
+	const handleKeyDown = useCallback((e: React.KeyboardEvent) => {
 		if (e.key === 'Escape') {
 			onClose()
 		}
 	}, [onClose])
 
-	React.useEffect(() => {
-		document.addEventListener('keydown', handleEscapeKey)
+	useEffect(() => {
+		if (modalRef.current) {
+			modalRef.current.focus()
+		}
+		
 		document.body.style.overflow = 'hidden'
 		
 		return () => {
-			document.removeEventListener('keydown', handleEscapeKey)
 			document.body.style.overflow = 'unset'
 		}
-	}, [handleEscapeKey])
+	}, [])
 
 	const handleIframeError = () => {
 		setHasError(true)
 	}
 
 	return createPortal(
-		<div className={styles.videoIframeWrapper} onClick={onClose}>
-			<button className={styles.closeButton} onClick={onClose}>
-				<img src="/images/icons/close_icon_black.png" alt="Close" />
-			</button>
+		<div 
+			ref={modalRef}
+			className={styles.videoIframeWrapper} 
+			onClick={onClose}
+			onKeyDown={handleKeyDown}
+			tabIndex={-1}
+		>
 			<div onClick={(e) => e.stopPropagation()}>
 				{hasError ? (
 					<div className={styles.errorFallback}>
-						<h3>Видео временно недоступно</h3>
-						<p>Попробуйте открыть видео напрямую на YouTube:</p>
+						<h3>Video temporarily unavailable</h3>
+						<p>Try opening the video directly on YouTube:</p>
 						<a 
 							href={`https://www.youtube.com/watch?v=${video.youtubeId}`}
 							target="_blank"
 							rel="noopener noreferrer"
 							className={styles.youtubeLink}
 						>
-							Открыть на YouTube
+							Open on YouTube
 						</a>
 					</div>
 				) : (
