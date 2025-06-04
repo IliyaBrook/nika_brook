@@ -15,7 +15,8 @@ const nextConfig = {
 		]
 	},
 	experimental: {
-		dynamicIO: true,
+		// works only on canary version, for example: "next": "15.2.0-canary.28",
+		// dynamicIO: true,
 		useCache: true,
 		optimisticClientCache: true,
 		webpackMemoryOptimizations: true,
