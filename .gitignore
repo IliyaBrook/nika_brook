@@ -53,3 +53,4 @@ amplifyconfiguration*
 .vscode
 .history
 cheatsheet/
+.qodana.yaml
