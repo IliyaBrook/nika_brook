@@ -31,9 +31,9 @@ $header-color:#2c3e50;
 		  :global(.p-accordion-header),
 		  :global(.p-accordion-content),
 		  :global(.p-accordion-tab),
-		  :global(.p-accordion-header-link),
 		  {
 			  background: red !important;
+			  transition: background 0s !important;
 		  }
 	  }
     .faqAccordion {
