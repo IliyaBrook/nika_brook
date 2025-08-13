@@ -1,6 +1,7 @@
 import { Metadata } from 'next'
-import { baseUrl } from '@/data'
+import { baseUrl, spotify, appleMusic, youtube } from '@/data'
 import { StructuredData } from '@/components/StructuredData'
+import Link from 'next/link'
 import styles from './faq.module.scss'
 
 export const metadata: Metadata = {
@@ -67,6 +68,30 @@ const faqSchema = {
         "@type": "Answer",
         "text": "Veronika Brook is a regular performer with The Israeli Opera in Tel Aviv and performs with major Israeli orchestras. She also performs internationally at opera houses and concert halls worldwide."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "Has Veronika Brook performed internationally?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, Veronika's artistry extends worldwide. Notable international performances include a 2024 appearance at a special concert organized by Pope Francis' foundation in Rome, and performances at prestigious gala events including The World Opera Stars Gala concerts in France and Belarus."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Who are some notable artists Veronika Brook has collaborated with?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "In 2021, Veronika collaborated with the celebrated Italian tenor Francesco Meli on the stage of The Israeli Opera. She regularly works with internationally renowned conductors and directors."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What vocal training did Veronika Brook receive?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Veronika Brook is a graduate of the prestigious Meitar Young Artist Program, which launched her career with The Israeli Opera. Her journey began in Estonia where she developed her exceptional coloratura soprano voice."
+      }
     }
   ]
 }
@@ -97,15 +122,15 @@ export default function FAQ() {
           
           <div className={styles.questionBlock}>
             <h3>What operas has Veronika Brook performed in?</h3>
-            <p>Veronika Brook has an extensive operatic repertoire with <strong>The Israeli Opera</strong>, including:</p>
+            <p>Veronika Brook has an extensive operatic repertoire with <Link href="https://archive.israel-opera.co.il/eng/?CategoryID=263&ArticleID=2698" target="_blank" rel="noopener noreferrer" className={styles.operaLink}><strong>The Israeli Opera</strong></Link>, including:</p>
             <ul>
-              <li><strong>Rigoletto</strong> by Verdi (as Gilda)</li>
-              <li><strong>Les Contes d'Hoffmann</strong> by Offenbach (as Olympia)</li>
-              <li><strong>Die Zauberflöte</strong> by Mozart (as Queen of the Night)</li>
-              <li><strong>Alcina</strong> by Handel</li>
-              <li><strong>Le nozze di Figaro</strong> by Mozart</li>
-              <li><strong>Werther</strong> by Massenet</li>
-              <li><strong>La sonnambula</strong> by Bellini</li>
+              <li><Link href="https://en.wikipedia.org/wiki/Rigoletto" target="_blank" rel="noopener noreferrer" className={styles.operaLink}><strong>Rigoletto</strong></Link> by Verdi (as Gilda)</li>
+              <li><Link href="https://en.wikipedia.org/wiki/The_Tales_of_Hoffmann" target="_blank" rel="noopener noreferrer" className={styles.operaLink}><strong>Les Contes d'Hoffmann</strong></Link> by Offenbach (as Olympia)</li>
+              <li><Link href="https://en.wikipedia.org/wiki/The_Magic_Flute" target="_blank" rel="noopener noreferrer" className={styles.operaLink}><strong>Die Zauberflöte</strong></Link> by Mozart (as Queen of the Night)</li>
+              <li><Link href="https://en.wikipedia.org/wiki/Alcina" target="_blank" rel="noopener noreferrer" className={styles.operaLink}><strong>Alcina</strong></Link> by Handel</li>
+              <li><Link href="https://en.wikipedia.org/wiki/The_Marriage_of_Figaro" target="_blank" rel="noopener noreferrer" className={styles.operaLink}><strong>Le nozze di Figaro</strong></Link> by Mozart</li>
+              <li><Link href="https://en.wikipedia.org/wiki/Werther" target="_blank" rel="noopener noreferrer" className={styles.operaLink}><strong>Werther</strong></Link> by Massenet</li>
+              <li><Link href="https://en.wikipedia.org/wiki/La_sonnambula" target="_blank" rel="noopener noreferrer" className={styles.operaLink}><strong>La sonnambula</strong></Link> by Bellini</li>
             </ul>
           </div>
 
@@ -131,7 +156,7 @@ export default function FAQ() {
 
           <div className={styles.questionBlock}>
             <h3>Where does Veronika Brook perform most frequently?</h3>
-            <p>Veronika Brook is a <strong>regular performer with The Israeli Opera in Tel Aviv</strong> and frequently performs with major Israeli orchestras. As a graduate of the prestigious Meitar Young Artist Program, she has become a prominent figure in Israel's opera scene while also maintaining an active international performance schedule.</p>
+            <p>Veronika Brook is a <Link href="https://archive.israel-opera.co.il/eng/?CategoryID=263&ArticleID=2698" target="_blank" rel="noopener noreferrer" className={styles.operaLink}><strong>regular performer with The Israeli Opera in Tel Aviv</strong></Link> and frequently performs with major Israeli orchestras. As a graduate of the prestigious Meitar Young Artist Program, she has become a prominent figure in Israel's opera scene while also maintaining an active international performance schedule.</p>
           </div>
         </div>
 
@@ -142,16 +167,43 @@ export default function FAQ() {
             <h3>Where can I hear Veronika Brook's music?</h3>
             <p>You can listen to Veronika Brook's music on all major streaming platforms:</p>
             <ul>
-              <li><strong>Spotify</strong> - Complete discography and playlists</li>
-              <li><strong>Apple Music</strong> - High-quality recordings</li>
-              <li><strong>YouTube</strong> - Performance videos and original compositions</li>
-              <li><strong>Other platforms</strong> - Available on most digital music services</li>
+              <li><Link href={spotify} target="_blank" rel="noopener noreferrer" className={styles.streamingLink}><strong>Spotify</strong></Link> - Complete discography and playlists</li>
+              <li><Link href={appleMusic} target="_blank" rel="noopener noreferrer" className={styles.streamingLink}><strong>Apple Music</strong></Link> - High-quality recordings</li>
+              <li><Link href={youtube} target="_blank" rel="noopener noreferrer" className={styles.streamingLink}><strong>YouTube</strong></Link> - Performance videos and original compositions</li>
             </ul>
           </div>
 
           <div className={styles.questionBlock}>
             <h3>Does Veronika Brook compose her own music?</h3>
             <p>Yes! Besides her opera career, Veronika Brook is an accomplished <strong>classical crossover artist and songwriter</strong>. She creates original compositions that blend classical traditions with contemporary appeal, offering a unique and captivating sound that connects with diverse audiences.</p>
+          </div>
+        </div>
+
+        <div className={styles.faqSection}>
+          <h2>International Career and Collaborations</h2>
+          
+          <div className={styles.questionBlock}>
+            <h3>Has Veronika Brook performed internationally?</h3>
+            <p>Yes, Veronika's artistry extends worldwide. Notable international performances include a 2024 appearance at a special concert organized by Pope Francis' foundation in Rome, and performances at prestigious gala events including <strong>The World Opera Stars Gala</strong> concerts in France and Belarus.</p>
+          </div>
+
+          <div className={styles.questionBlock}>
+            <h3>Who are some notable artists Veronika Brook has collaborated with?</h3>
+            <p>In 2021, Veronika collaborated with the celebrated Italian tenor <strong>Francesco Meli</strong> on the stage of The Israeli Opera. She regularly works with internationally renowned conductors and directors, which has solidified her reputation as one of the leading talents in the Israeli opera scene.</p>
+          </div>
+        </div>
+
+        <div className={styles.faqSection}>
+          <h2>Education and Training</h2>
+          
+          <div className={styles.questionBlock}>
+            <h3>What vocal training did Veronika Brook receive?</h3>
+            <p>Veronika Brook is a graduate of the prestigious <strong>Meitar Young Artist Program</strong>, which launched her career with The Israeli Opera. Her journey began in Estonia where she developed her exceptional coloratura soprano voice, and she further established herself in Ukraine before moving to Israel.</p>
+          </div>
+
+          <div className={styles.questionBlock}>
+            <h3>How can I book Veronika Brook for performances?</h3>
+            <p>For booking inquiries regarding private concerts, gala events, and special occasions, please visit the Contact page. Veronika performs both classical opera arias and her original crossover compositions, making her suitable for various event types.</p>
           </div>
         </div>
       </main>

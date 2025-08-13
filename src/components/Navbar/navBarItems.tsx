@@ -39,27 +39,22 @@ const getNavBarItems = ({pathname, isMobile }: IGetNavBarItems): MenuItem[] => {
 		{
 			label: 'Biography',
 			id: '/biography',
-			template
-		},
-		{
-			label: 'FAQ',
-			id: '/faq',
-			template,
-		},
-		{
-			label: 'Blog',
-			id: '/blog',
-			template,
-		},
-		{
-			label: 'Opera Guide',
-			id: '/opera-guide',
-			template,
-		},
-		{
-			label: 'Discography',
-			id: '/discography',
-			template,
+			className: classNames(
+				setActivePath(pathname, '/biography'),
+				setActivePath(pathname, '/faq')
+			),
+			items: [
+				{
+					label: 'Biography',
+					id: '/biography',
+					template,
+				},
+				{
+					label: 'FAQ',
+					id: '/faq',
+					template,
+				}
+			]
 		},
 		{
 			label: 'Media',
@@ -88,7 +83,7 @@ const getNavBarItems = ({pathname, isMobile }: IGetNavBarItems): MenuItem[] => {
 		}
 	]
 	if (!isMobile) {
-		items.splice(6, 0, {
+		items.splice(2, 0, {
 			className: 'nav-bar-artist-name',
 			// @ts-ignore
 			template: (
