@@ -106,7 +106,7 @@ export default function FAQ() {
         
         <div className={styles.accordionWrapper}>
           <Accordion className={styles.faqAccordion} multiple>
-            <AccordionTab 
+            <AccordionTab
               header="What voice type is Veronika Brook?" 
               className={styles.accordionTab}
             >

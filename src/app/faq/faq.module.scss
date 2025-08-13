@@ -27,7 +27,15 @@ $header-color:#2c3e50;
     width: 100%;
     max-width: 900px;
     margin: 0 auto;
-
+	  &:hover {
+		  :global(.p-accordion-header),
+		  :global(.p-accordion-content),
+		  :global(.p-accordion-tab),
+		  :global(.p-accordion-header-link),
+		  {
+			  background: red !important;
+		  }
+	  }
     .faqAccordion {
       background: transparent;
 	    
@@ -55,13 +63,9 @@ $header-color:#2c3e50;
         border-radius: 15px 15px 0 0;
         background: transparent;
         
-        &:not(.p-disabled):hover {
-          background: rgba(255, 255, 255, 0.3);
-        }
-
-        &.p-highlight {
-          background: rgba(255, 255, 255, 0.5);
-        }
+//        &.p-highlight {
+//          background: rgba(255, 255, 255, 0.5);
+//        }
       }
       
       :global(.p-accordion-header-link) {
@@ -92,7 +96,33 @@ $header-color:#2c3e50;
         padding: 0;
         border: none;
         background: transparent;
+        transition: all 0.3s ease;
       }
+
+      :global(.p-accordion-tab.p-highlight .p-accordion-content) {
+        background: rgba(255, 255, 255, 0.5);
+      }
+    }
+  }
+
+//  .accordionTab {
+//    &:hover {
+//      :global(.p-accordion-header),
+//      :global(.p-accordion-content),
+//      :global(.p-accordion-content),
+//      {
+//        background: rgba(255, 255, 255, 0.3) !important;
+//      }
+//    }
+//  }
+
+  .accordionWrapper {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+
+    .faqAccordion {
+      background: transparent;
     }
   }
 
