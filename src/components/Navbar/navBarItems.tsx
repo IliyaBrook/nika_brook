@@ -42,6 +42,26 @@ const getNavBarItems = ({pathname, isMobile }: IGetNavBarItems): MenuItem[] => {
 			template
 		},
 		{
+			label: 'FAQ',
+			id: '/faq',
+			template,
+		},
+		{
+			label: 'Blog',
+			id: '/blog',
+			template,
+		},
+		{
+			label: 'Opera Guide',
+			id: '/opera-guide',
+			template,
+		},
+		{
+			label: 'Discography',
+			id: '/discography',
+			template,
+		},
+		{
 			label: 'Media',
 			id: '/media',
 			className: classNames(
@@ -68,7 +88,7 @@ const getNavBarItems = ({pathname, isMobile }: IGetNavBarItems): MenuItem[] => {
 		}
 	]
 	if (!isMobile) {
-		items.splice(2, 0, {
+		items.splice(6, 0, {
 			className: 'nav-bar-artist-name',
 			// @ts-ignore
 			template: (

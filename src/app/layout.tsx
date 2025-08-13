@@ -90,13 +90,71 @@ const schemaOrgJson = {
 	"@context": "https://schema.org",
 	"@type": "Person",
 	"name": "Veronika Brook",
-	"alternateName": "Nika Brook",
-	"voiceType": "Soprano",
-	"jobTitle": "Opera Singer",
-	"description": "An accomplished soprano opera singer with a rich operatic repertoire...",
-	"birthPlace": "Estonia",
+	"alternateName": ["Nika Brook", "Veronika Brook Soprano"],
+	"givenName": "Veronika",
+	"familyName": "Brook",
+	"voiceType": "Coloratura Soprano",
+	"jobTitle": ["Opera Singer", "Classical Crossover Artist", "Soprano"],
+	"description": "Veronika Brook is an internationally acclaimed coloratura soprano and classical crossover artist, performing regularly with The Israeli Opera and orchestras worldwide. Known for her technical brilliance and emotional depth in challenging roles like the Queen of the Night.",
+	"birthPlace": {
+		"@type": "Place",
+		"name": "Estonia"
+	},
+	"nationality": "Estonian",
+	"performerIn": [
+		{
+			"@type": "MusicGroup",
+			"name": "The Israeli Opera"
+		}
+	],
+	"knowsLanguage": ["English", "Hebrew", "Russian", "Italian", "German", "French"],
+	"award": [
+		"1st Prize - JI Opera Competition",
+		"3rd Prize - Nuovo Canto Milano Competition",
+		"Recognition - Competizione dell'Opera",
+		"Recognition - Hans Gabor Belvedere Singing Competition"
+	],
+	"alumniOf": {
+		"@type": "EducationalOrganization", 
+		"name": "Meitar Young Artist Program"
+	},
+	"hasOccupation": {
+		"@type": "Occupation",
+		"name": "Opera Singer",
+		"occupationLocation": {
+			"@type": "Place",
+			"name": "Israel"
+		},
+		"skills": [
+			"Coloratura Soprano Technique",
+			"Opera Performance", 
+			"Classical Crossover",
+			"Vocal Agility",
+			"Dramatic Interpretation"
+		]
+	},
 	"url": baseUrl,
-	"sameAs": sameAs
+	"sameAs": sameAs,
+	"mainEntityOfPage": {
+		"@type": "ProfilePage",
+		"breadcrumb": {
+			"@type": "BreadcrumbList",
+			"itemListElement": [
+				{
+					"@type": "ListItem",
+					"position": 1,
+					"name": "Opera Singers",
+					"item": "https://schema.org/Person"
+				},
+				{
+					"@type": "ListItem", 
+					"position": 2,
+					"name": "Coloratura Soprano",
+					"item": baseUrl
+				}
+			]
+		}
+	}
 };
 
 const websiteSchema = {

@@ -257,6 +257,38 @@ export default async function Biography () {
 							}}
 						/>
 					</div>
+
+					<div className={styles.faqInBio}>
+						<h2>Frequently Asked Questions About Veronika Brook</h2>
+						
+						<div className={styles.bioQuestion}>
+							<h3>How did Veronika Brook become an opera singer?</h3>
+							<p>
+								Veronika Brook's journey to becoming a professional opera singer began in Estonia, where she developed her exceptional coloratura soprano voice. After establishing herself in Ukraine, she moved to Israel and joined the prestigious Meitar Young Artist Program, which launched her career with The Israeli Opera.
+							</p>
+						</div>
+
+						<div className={styles.bioQuestion}>
+							<h3>What languages does Veronika Brook sing in?</h3>
+							<p>
+								As an international opera singer, Veronika Brook performs in multiple languages including Italian, German, French, English, and Russian. Her linguistic versatility allows her to authentically interpret opera from different cultural traditions.
+							</p>
+						</div>
+
+						<div className={styles.bioQuestion}>
+							<h3>Can I book Veronika Brook for private events?</h3>
+							<p>
+								Yes, Veronika Brook is available for private concerts, gala events, and special occasions. Her repertoire includes both classical opera arias and her original crossover compositions, making her performances suitable for various event types.
+							</p>
+						</div>
+
+						<div className={styles.bioQuestion}>
+							<h3>What makes Veronika Brook's voice unique?</h3>
+							<p>
+								Veronika Brook's voice is distinguished by her exceptional technical precision as a coloratura soprano, combined with remarkable emotional expressiveness. Her ability to seamlessly blend classical technique with contemporary sensibilities makes her performances both technically brilliant and emotionally engaging.
+							</p>
+						</div>
+					</div>
 				</div>
 			</main>
 		</>
