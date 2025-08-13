@@ -182,6 +182,7 @@ export default function RootLayout({
 				josefinSans.variable,
 				alexBrush.variable
 			)}
+			suppressHydrationWarning
 		>
 			<head>
 				<meta name="referrer" content="no-referrer-when-downgrade" />
