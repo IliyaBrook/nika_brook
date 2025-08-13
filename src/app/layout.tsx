@@ -170,40 +170,38 @@ const websiteSchema = {
 };
 
 export default function RootLayout({
-	                                   children
-                                   }: Readonly<{
+	children
+}: Readonly<{
 	children: React.ReactNode
 }>) {
-	// noinspection HtmlRequiredTitleElement
 	return (
-		<>
-			<StructuredData data={websiteSchema} />
-			<PrimeReactProvider value={primeReactConfig}>
-				<html
-					lang='en'
-					className={classNames(
-						hedvigLettersSerif.variable,
-						josefinSans.variable,
-						alexBrush.variable
-					)}
-				>
-				<head>
-					<meta name="referrer" content="no-referrer-when-downgrade" />
-				</head>
-				<body>
-				<div className={styles.root}>
-					<div className={styles.navbar}>
-						<Navbar />
+		<html
+			lang='en'
+			className={classNames(
+				hedvigLettersSerif.variable,
+				josefinSans.variable,
+				alexBrush.variable
+			)}
+		>
+			<head>
+				<meta name="referrer" content="no-referrer-when-downgrade" />
+				<StructuredData data={websiteSchema} />
+				<title>Veronika Brook - Opera Singer</title>
+			</head>
+			<body>
+				<PrimeReactProvider value={primeReactConfig}>
+					<div className={styles.root}>
+						<div className={styles.navbar}>
+							<Navbar />
+						</div>
+						<ScrollBarWrapper className={styles.scrollBar}>
+							<div className={styles.main}>{children}</div>
+						</ScrollBarWrapper>
+						<Initializer />
 					</div>
-					<ScrollBarWrapper className={styles.scrollBar}>
-						<div className={styles.main}>{children}</div>
-					</ScrollBarWrapper>
-					<Initializer />
-				</div>
-				<StructuredData data={schemaOrgJson} />
-				</body>
-				</html>
-			</PrimeReactProvider>
-		</>
+					<StructuredData data={schemaOrgJson} />
+				</PrimeReactProvider>
+			</body>
+		</html>
 	)
 }
