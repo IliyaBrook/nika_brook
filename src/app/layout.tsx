@@ -11,7 +11,6 @@ import 'primereact/resources/primereact.min.css'
 import type { Metadata } from 'next'
 import { Alex_Brush, Hedvig_Letters_Serif, Josefin_Sans } from 'next/font/google'
 import { PrimeReactProvider } from 'primereact/api'
-import Head from 'next/head'
 
 import React from 'react'
 import styles from './layout.module.scss'
@@ -175,6 +174,7 @@ export default function RootLayout({
                                    }: Readonly<{
 	children: React.ReactNode
 }>) {
+	// noinspection HtmlRequiredTitleElement
 	return (
 		<>
 			<StructuredData data={websiteSchema} />
