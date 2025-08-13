@@ -26,80 +26,80 @@ $bg-sec-color: #F0EEEC;
     width: 100%;
     max-width: 900px;
     margin: 0 auto;
-  }
 
-  .faqAccordion {
-    background: transparent;
-
-    // Override PrimeReact accordion styles
-    :global(.p-accordion-tab) {
-      margin-bottom: 1rem;
-      background-color: $bg-sec-color;
-      border-radius: 15px;
-      overflow: hidden;
-      border: none;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-      transition: all 0.3s ease;
-
-      &:hover {
-        transform: translateY(-1px);
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-      }
-
-      &:last-child {
-        margin-bottom: 0;
-      }
-    }
-
-    :global(.p-accordion-header) {
-      border: none;
-      border-radius: 15px 15px 0 0;
+    .faqAccordion {
       background: transparent;
-
-      &:not(.p-disabled):hover {
-        background: rgba(255, 255, 255, 0.3);
+      
+      // Override PrimeReact accordion styles
+      :global(.p-accordion-tab) {
+        margin-bottom: 1rem;
+        background-color: $bg-sec-color;
+        border-radius: 15px;
+        overflow: hidden;
+        border: none;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        
+        &:hover {
+          transform: translateY(-1px);
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+        
+        &:last-child {
+          margin-bottom: 0;
+        }
       }
-
-      &.p-highlight {
-        background: rgba(255, 255, 255, 0.5);
+      
+      :global(.p-accordion-header) {
+        border: none;
+        border-radius: 15px 15px 0 0;
+        background: transparent;
+        
+        &:not(.p-disabled):hover {
+          background: rgba(255, 255, 255, 0.3);
+        }
+        
+        &.p-highlight {
+          background: rgba(255, 255, 255, 0.5);
+        }
       }
-    }
-
-    :global(.p-accordion-header-link) {
-      padding: 1.5rem 2rem;
-      border: none;
-      background: transparent;
-      color: #2c3e50;
-      font-family: $font-family;
-      font-size: clamp(1.1rem, 1.5vw, 1.3rem);
-      font-weight: 600;
-      text-decoration: none;
-      transition: all 0.3s ease;
-
-      &:focus {
-        box-shadow: none !important;
-        outline: none !important;
-        border: none !important;
+      
+      :global(.p-accordion-header-link) {
+        padding: 1.5rem 2rem;
+        border: none;
+        background: transparent;
+        color: #2c3e50;
+        font-family: $font-family;
+        font-size: clamp(1.1rem, 1.5vw, 1.3rem);
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        
+        &:focus {
+          box-shadow: none !important;
+          outline: none !important;
+          border: none !important;
+        }
+        
+        :global(.p-accordion-toggle-icon) {
+          color: #3498db;
+          font-size: 1.2rem;
+          margin-left: 1rem;
+        }
       }
-
-      .p-accordion-toggle-icon {
-        color: #3498db;
-        font-size: 1.2rem;
-        margin-left: 1rem;
+      
+      :global(.p-accordion-content) {
+        padding: 0;
+        border: none;
+        background: transparent;
       }
-    }
-
-    :global(.p-accordion-content) {
-      padding: 0;
-      border: none;
-      background: transparent;
-    }
-
-    :global(.p-accordion-content-wrapper) {
-      padding: 1.5rem 2rem 2rem 2rem;
-      background: rgba(255, 255, 255, 0.7);
-      border-radius: 0 0 15px 15px;
-      margin-top: -1px;
+      
+      :global(.p-accordion-content-wrapper) {
+        padding: 1.5rem 2rem 2rem 2rem;
+        background: rgba(255, 255, 255, 0.7);
+        border-radius: 0 0 15px 15px;
+        margin-top: -1px;
+      }
     }
   }
 
@@ -201,29 +201,31 @@ $bg-sec-color: #F0EEEC;
   .faqContainer {
     padding: 20px;
 
-    .faqAccordion {
-      :global(.p-accordion-tab) {
-        border-radius: 8px;
-        margin-bottom: 0.75rem;
-      }
-
-      :global(.p-accordion-header) {
-        border-radius: 8px 8px 0 0;
-      }
-
-      :global(.p-accordion-header-link) {
-        padding: 1rem 1.5rem;
-        font-size: 1rem;
-
-        .p-accordion-toggle-icon {
-          font-size: 1rem;
-          margin-left: 0.5rem;
+    .accordionWrapper {
+      .faqAccordion {
+        :global(.p-accordion-tab) {
+          border-radius: 8px;
+          margin-bottom: 0.75rem;
         }
-      }
 
-      :global(.p-accordion-content-wrapper) {
-        padding: 1rem 1.5rem 1.5rem 1.5rem;
-        border-radius: 0 0 8px 8px;
+        :global(.p-accordion-header) {
+          border-radius: 8px 8px 0 0;
+        }
+
+        :global(.p-accordion-header-link) {
+          padding: 1rem 1.5rem;
+          font-size: 1rem;
+
+          :global(.p-accordion-toggle-icon) {
+            font-size: 1rem;
+            margin-left: 0.5rem;
+          }
+        }
+
+        :global(.p-accordion-content-wrapper) {
+          padding: 1rem 1.5rem 1.5rem 1.5rem;
+          border-radius: 0 0 8px 8px;
+        }
       }
     }
 
