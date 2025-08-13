@@ -129,7 +129,7 @@ export default function FAQ() {
               className={styles.accordionTab}
             >
               <div className={styles.answerContent}>
-                <p>Veronika Brook has an extensive operatic repertoire with <Link href="https://archive.israel-opera.co.il/eng/?CategoryID=263&ArticleID=2698" target="_blank" rel="noopener noreferrer" className={styles.operaLink}>The Israeli Opera</Link>, including:</p>
+                <p>Veronika Brook has an extensive operatic repertoire with The <Link href="https://archive.israel-opera.co.il/eng/?CategoryID=263&ArticleID=2698" target="_blank" rel="noopener noreferrer" className={styles.operaLink}>Israeli Opera</Link>, including:</p>
                 <ul>
                   <li><Link href="https://en.wikipedia.org/wiki/Rigoletto" target="_blank" rel="noopener noreferrer" className={styles.operaLink}>Rigoletto</Link> by Verdi (as Gilda)</li>
                   <li><Link href="https://en.wikipedia.org/wiki/The_Tales_of_Hoffmann" target="_blank" rel="noopener noreferrer" className={styles.operaLink}>Les Contes d'Hoffmann</Link> by Offenbach (as Olympia)</li>
@@ -171,7 +171,7 @@ export default function FAQ() {
               className={styles.accordionTab}
             >
               <div className={styles.answerContent}>
-                <p>Veronika Brook is a <Link href="https://archive.israel-opera.co.il/eng/?CategoryID=263&ArticleID=2698" target="_blank" rel="noopener noreferrer" className={styles.operaLink}>regular performer with The Israeli Opera in Tel Aviv</Link> and frequently performs with major Israeli orchestras. As a graduate of the prestigious Meitar Young Artist Program, she has become a prominent figure in Israel's opera scene while also maintaining an active international performance schedule.</p>
+                <p>Veronika Brook is a regular performer with The <Link href="https://archive.israel-opera.co.il/eng/?CategoryID=263&ArticleID=2698" target="_blank" rel="noopener noreferrer" className={styles.operaLink}>Israeli Opera</Link> in Tel Aviv and frequently performs with major Israeli orchestras. As a graduate of the prestigious Meitar Young Artist Program, she has become a prominent figure in Israel's opera scene while also maintaining an active international performance schedule.</p>
               </div>
             </AccordionTab>
 
@@ -216,7 +216,7 @@ export default function FAQ() {
               </div>
             </AccordionTab>
 
-            <AccordionTab 
+            <AccordionTab
               header="What vocal training did Veronika Brook receive?" 
               className={styles.accordionTab}
             >
