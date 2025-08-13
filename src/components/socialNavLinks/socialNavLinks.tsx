@@ -15,13 +15,14 @@ interface ISocialNavLinks {
 	style?: React.CSSProperties;
 	iconSize?: string;
 }
-const SocialNavLinks:React.FC<ISocialNavLinks> = ({className, style}) => {
+
+const SocialNavLinks: React.FC<ISocialNavLinks> = ({ className, style }) => {
 	
 	return (
 		<div
 			className={classNames(styles.socialNavLinks, className)}
 			style={style}
-			id="socialNavLinksContainer"
+			id='socialNavLinksContainer'
 		>
 			<LinkIconWithToolTip
 				id='facebookLink'
@@ -66,8 +67,8 @@ const SocialNavLinks:React.FC<ISocialNavLinks> = ({className, style}) => {
 				classNameLink={styles.musixmatchLink}
 				tooltipText='Musixmatch'
 				icon={musixmatchIcon}
-				width="17px"
-				height="17px"
+				width='17px'
+				height='17px'
 			/>
 		</div>
 	)
