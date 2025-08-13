@@ -14,12 +14,12 @@ const nextConfig = {
 			}
 		]
 	},
-	// experimental: {
-	// 	useCache: true,
-	// 	optimisticClientCache: true,
-	// 	webpackMemoryOptimizations: true,
-	// 	serverComponentsHmrCache: true
-	// },
+	experimental: {
+		useCache: true,
+		optimisticClientCache: true,
+		webpackMemoryOptimizations: true,
+		serverComponentsHmrCache: true
+	},
 	async headers() {
 		return [
 			{
