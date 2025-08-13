@@ -32,7 +32,7 @@ $header-color:#2c3e50;
 		  :global(.p-accordion-content),
 		  :global(.p-accordion-tab),
 		  {
-			  background: red !important;
+			  background: rgba(255, 255, 255, 0.5) !important;
 			  transition: background 0s !important;
 		  }
 	  }
@@ -96,7 +96,7 @@ $header-color:#2c3e50;
         padding: 0;
         border: none;
         background: transparent;
-        transition: all 0.3s ease;
+        transition: opacity 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease, padding 0.3s ease;
       }
 
       :global(.p-accordion-tab.p-highlight .p-accordion-content) {
@@ -104,17 +104,6 @@ $header-color:#2c3e50;
       }
     }
   }
-
-//  .accordionTab {
-//    &:hover {
-//      :global(.p-accordion-header),
-//      :global(.p-accordion-content),
-//      :global(.p-accordion-content),
-//      {
-//        background: rgba(255, 255, 255, 0.3) !important;
-//      }
-//    }
-//  }
 
   .accordionWrapper {
     width: 100%;
